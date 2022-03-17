@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-gray-100 sticky top-0">
+  <div class="navbar bg-gray-100 sticky top-0 mx-auto z-10">
     <div class="flex-1">
       <nuxt-link :to="localePath('index')">
         <nuxt-img src="/tfd_logo.jpeg" class="w-8" />
