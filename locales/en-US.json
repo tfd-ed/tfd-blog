@@ -1,0 +1,21 @@
+{
+  "site_title": "Sarpheab",
+  "firstname": "first name",
+  "lastname": "last name",
+  "date_of_birth": "date of birth",
+  "email": "email address",
+  "phone": "phone number",
+  "phone_error": "Phone number already registered.",
+  "email_error": "Email address already registered.",
+  "submitting": "Submitting",
+  "loading": "loading",
+  "by_signing_up": "By signing up, you agree to our",
+  "term_of_service": "terms and conditions",
+  "registration_done": "Registration done!",
+  "please_check_email_inbox": "please check your email inbox for verification.",
+  "choose_date_of_birth": "Choose date of birth",
+  "logout":"logout",
+  "login":"login",
+  "language":"switch language",
+  "social": "social"
+}
