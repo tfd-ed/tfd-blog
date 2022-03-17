@@ -7,8 +7,16 @@
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal p-0">
-        <li><nuxt-link :to="localePath('blog')">Devs Articles</nuxt-link></li>
-        <li><nuxt-link :to="localePath('projects')">Projects</nuxt-link></li>
+        <li>
+          <nuxt-link :to="localePath('blog')" class="capitalize">{{
+            $t("articles")
+          }}</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="localePath('projects')" class="capitalize">{{
+            $t("projects")
+          }}</nuxt-link>
+        </li>
         <li>
           <nuxt-link
             v-if="$i18n.locale === 'en'"

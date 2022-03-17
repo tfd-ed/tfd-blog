@@ -26,7 +26,7 @@
           like this when running anything at scale.“
         </h1>
         <p class="mb-5 text-lg font-semibold text-purple-900 md:text-xl">
-          - Praveen Juge, Important Guy
+          - Chau Dara, Underrated Guy
         </p>
         <img
           src="/logos/google.svg"
@@ -105,5 +105,12 @@
         </div>
       </div>
     </div>
+    <SocialAction />
   </section>
 </template>
+<script>
+import SocialAction from "@/components/card/social-action";
+export default {
+  components: { SocialAction },
+};
+</script>

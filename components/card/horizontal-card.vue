@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
+  <div class="pt-8 grid grid-cols-1 gap-6 md:grid-cols-4">
     <img
-      src="/brand/og.png"
+      src="https://images.unsplash.com/photo-1616651181620-9906d6e43fc3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGF0dGVybnxlbnwwfDJ8MHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60"
       class="object-cover w-full h-40 col-span-1 bg-center"
       alt="Kutty"
       loading="lazy"
