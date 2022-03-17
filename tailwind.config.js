@@ -16,7 +16,19 @@ module.exports = {
     fontFamily: {
       sans: ["Source Sans Pro", "Kantumruy", ...defaultTheme.fontFamily.sans],
     },
-    extend: {},
+    extend: {
+      backgroundColor: (theme) => ({
+        facebook: "#1778F2",
+        aba: "#005d85",
+      }),
+      colors: (theme) => ({
+        facebook: "#1778F2",
+        ba: "#005d85",
+      }),
+    },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    themes: ["light"],
+  },
 };
