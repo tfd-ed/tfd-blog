@@ -35,10 +35,14 @@ export default {
     "@nuxt/postcss8",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
+    "@nuxt/image",
   ],
+  image: {
+    domains: ["tfdevs.com"],
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "nuxt-i18n", "@nuxt/image"],
+  modules: ["@nuxt/content", "nuxt-i18n"],
   moment: {
     timezone: true,
     defaultTimezone: "Asia/Phnom_Penh",
