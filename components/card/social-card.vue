@@ -8,7 +8,7 @@
     <XyzTransitionGroup
       appear-visible
       class="flex flex-row justify-center gap-10"
-      xyz="fade small-1 stagger-0.5 ease-ease up-5"
+      xyz="fade back-1 small-50% ease-out stagger-2 perspective-2"
     >
       <div
         v-for="(item, index) in social"

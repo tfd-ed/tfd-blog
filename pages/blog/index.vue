@@ -142,7 +142,7 @@
         <XyzTransitionGroup
           appear-visible
           class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
-          xyz="fade small-1 stagger-1 ease-ease up-5"
+          xyz="fade back-1 small-1 ease-out stagger-2 perspective-2"
         >
           <HorizontalCard :key="1"></HorizontalCard>
           <HorizontalCard :key="2"></HorizontalCard>

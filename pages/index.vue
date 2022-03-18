@@ -1,14 +1,7 @@
 <template>
   <section class="px-4 py-24 mx-auto max-w-7xl">
-    <div class="mockup-code w-5/6 mx-auto">
-      <pre data-prefix="1"><code>yarn add tfdevs</code></pre>
-      <pre data-prefix="2"><code>installing...</code></pre>
-      <pre
-        data-prefix="3"
-        class="bg-red-600 text-white"
-      ><code>Welcome to TFD!</code></pre>
-    </div>
-    <Welcome />
+    <Code />
+    <Founder />
     <SocialCard />
   </section>
 </template>
@@ -18,8 +11,10 @@ import HorizontalCard from "~/components/card/horizontal-card";
 import SocialCard from "~/components/card/social-card";
 import Intro from "@/components/hero/intro";
 import Welcome from "@/components/hero/welcome";
+import Code from "@/components/card/code";
+import Founder from "@/components/hero/founder";
 export default {
   name: "IndexPage",
-  components: { Welcome, Intro, SocialCard, HorizontalCard },
+  components: { Founder, Code, Welcome, Intro, SocialCard, HorizontalCard },
 };
 </script>
