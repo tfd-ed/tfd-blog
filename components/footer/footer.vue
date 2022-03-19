@@ -7,9 +7,13 @@
       <p>TFD<br />Teaching For Devs</p>
     </div>
     <div>
-      <span class="footer-title">More</span>
-      <nuxt-link to="/about-us">About us</nuxt-link>
-      <nuxt-link to="/contact">Contact</nuxt-link>
+      <span class="footer-title">{{ $t("more") }}</span>
+      <nuxt-link to="/about-us" class="capitalize">{{
+        $t("about_us")
+      }}</nuxt-link>
+      <nuxt-link to="/contact" class="capitalize">{{
+        $t("contact")
+      }}</nuxt-link>
     </div>
     <div>
       <span class="footer-title">{{ $t("social") }}</span>

@@ -2,22 +2,24 @@
   <section class="px-4 py-24 mx-auto max-w-7xl">
     <div class="mb-24 text-left md:text-center">
       <h1
-        class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl"
+        class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
       >
-        About Us
+        {{ $t("about_us") }}
       </h1>
     </div>
-    <div
+    <XyzTransitionGroup
+      appear-visible
       class="grid items-center w-full grid-cols-1 gap-10 mx-auto lg:grid-cols-8 lg:gap-4 xl:w-3/4"
+      xyz="fade back-1 small-1 ease-out stagger-1 perspective-2"
     >
-      <div class="w-40 h-40 col-span-1 lg:col-span-2">
+      <div class="w-40 h-40 col-span-1 lg:col-span-2" key="1">
         <nuxt-img
           src="/founder.jpeg"
           class="object-cover w-full h-full bg-center rounded-md shadow-xl"
           alt="Kutty"
         />
       </div>
-      <div class="col-span-1 lg:col-span-6">
+      <div class="col-span-1 lg:col-span-6" key="2">
         <h1
           class="mb-3 text-2xl font-extrabold text-purple-900 md:leading-tight md:text-4xl"
         >
@@ -26,7 +28,7 @@
           like this when running anything at scale.“
         </h1>
         <p class="mb-5 text-lg font-semibold text-purple-900 md:text-xl">
-          - Praveen Juge, Important Guy
+          - Chau Dara, Underrated Guy
         </p>
         <img
           src="/logos/google.svg"
@@ -34,7 +36,7 @@
           class="block object-contain h-8"
         />
       </div>
-    </div>
+    </XyzTransitionGroup>
     <div class="px-4 pt-20 pb-24 mx-auto max-w-7xl md:px-2">
       <div class="grid grid-cols-1 gap-24 md:grid-cols-2">
         <div>
@@ -105,5 +107,12 @@
         </div>
       </div>
     </div>
+    <SocialAction />
   </section>
 </template>
+<script>
+import SocialAction from "@/components/card/social-action";
+export default {
+  components: { SocialAction },
+};
+</script>

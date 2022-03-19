@@ -17,5 +17,12 @@
   "logout":"logout",
   "login":"login",
   "language":"switch language",
-  "social": "social"
+  "social": "social",
+  "join_our_social_networks": "join our social networks!",
+  "about_us": "about us",
+  "more": "more",
+  "contact": "contact",
+  "articles": "articles",
+  "projects": "projects",
+  "welcome_to": "welcome to"
 }
