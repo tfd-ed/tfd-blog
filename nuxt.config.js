@@ -24,6 +24,7 @@ export default {
   plugins: [
     { src: "~/plugins/country-flag.js", mode: "client" },
     { src: "~/plugins/animxyz.js", mode: "client" },
+    { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -36,13 +37,31 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
     "@nuxt/image",
+    "@nuxtjs/google-analytics",
   ],
   image: {
     domains: ["tfdevs.com"],
+    unsplash: {
+      baseURL: "https://images.unsplash.com",
+    },
+  },
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    autoTracking: {
+      screenview: true,
+    },
+    debug: true,
+    dev: true,
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
+    },
+    webURL: process.env.WEB_URL,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "nuxt-i18n"],
+  modules: ["@nuxt/content", "nuxt-i18n", "vue-social-sharing/nuxt"],
   moment: {
     timezone: true,
     defaultTimezone: "Asia/Phnom_Penh",

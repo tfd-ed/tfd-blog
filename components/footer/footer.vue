@@ -5,6 +5,7 @@
         ><nuxt-img src="/tfd_logo.jpeg" class="w-12"></nuxt-img
       ></nuxt-link>
       <p>TFD<br />Teaching For Devs</p>
+      <p>info@tfdevs.com</p>
     </div>
     <div>
       <span class="footer-title">{{ $t("more") }}</span>
