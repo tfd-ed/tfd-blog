@@ -1,6 +1,6 @@
 <template>
   <section class="px-4 py-24 mx-auto max-w-7xl">
-    <Code />
+    <!--    <Code />-->
     <Founder />
     <SocialCard />
   </section>
@@ -16,5 +16,31 @@ import Founder from "@/components/hero/founder";
 export default {
   name: "IndexPage",
   components: { Founder, Code, Welcome, Intro, SocialCard, HorizontalCard },
+  head() {
+    return {
+      title: "TFD Blogs",
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: "og:description",
+          property: "og:description",
+          content:
+            "TFDevs is a new initiative aiming at bringing uncovered facts that people might not be aware of to the public.",
+        },
+        {
+          property: "og:title",
+          hid: "og:title",
+          content: "Welcome to TFD",
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "/front_cover.png",
+        },
+      ],
+    };
+  },
 };
 </script>
