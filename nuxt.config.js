@@ -37,7 +37,6 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
     "@nuxt/image",
-    // "@nuxtjs/google-analytics",
   ],
   image: {
     domains: ["tfdevs.com"],
@@ -45,20 +44,7 @@ export default {
       baseURL: "https://images.unsplash.com",
     },
   },
-  // googleAnalytics: {
-  //   id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
-  //   autoTracking: {
-  //     screenview: true,
-  //   },
-  //   debug: process.env.NODE_ENV === "dev",
-  //   dev: process.env.NODE_ENV === "dev",
-  //   checkDuplicatedScript: true,
-  //   disabled: true,
-  // },
   publicRuntimeConfig: {
-    // googleAnalytics: {
-    //   id: process.env.GOOGLE_ANALYTICS_ID,
-    // },
     webURL: process.env.WEB_URL,
   },
 
