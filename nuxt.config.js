@@ -50,8 +50,8 @@ export default {
     autoTracking: {
       screenview: true,
     },
-    debug: true,
-    dev: true,
+    debug: process.env.NODE_ENV === "dev",
+    dev: process.env.NODE_ENV === "dev",
   },
   publicRuntimeConfig: {
     googleAnalytics: {
