@@ -86,6 +86,7 @@
 </template>
 <script>
 import { format } from "date-fns";
+import { onAnalyticsReady } from "vue-analytics";
 export default {
   name: "Post",
   head() {
@@ -112,6 +113,16 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    onAnalyticsReady().then(() => {
+      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
+      console.log(hasConsent);
+      if (hasConsent) {
+        this.$ga.enable(); // Activate module
+        this.$ga.page(this.$route.path);
+      }
+    });
   },
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;

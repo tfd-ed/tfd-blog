@@ -38,6 +38,7 @@
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
+import { onAnalyticsReady } from "vue-analytics";
 export default {
   name: "Blog",
   components: { HorizontalCard },
@@ -53,6 +54,16 @@ export default {
         path: post.path.replace(`/${defaultLocale}`, ""),
       })),
     };
+  },
+  mounted() {
+    onAnalyticsReady().then(() => {
+      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
+      console.log(hasConsent);
+      if (hasConsent) {
+        this.$ga.enable(); // Activate module
+        this.$ga.page(this.$route.path);
+      }
+    });
   },
   beforeDestroy() {
     this.posts = [];
