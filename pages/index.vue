@@ -13,6 +13,7 @@ import Intro from "@/components/hero/intro";
 import Welcome from "@/components/hero/welcome";
 import Code from "@/components/card/code";
 import Founder from "@/components/hero/founder";
+import { onAnalyticsReady } from "vue-analytics";
 export default {
   name: "IndexPage",
   components: { Founder, Code, Welcome, Intro, SocialCard, HorizontalCard },
@@ -41,6 +42,21 @@ export default {
         },
       ],
     };
+  },
+  // data() {
+  //   return {
+  //     cookies: this.$cookies,
+  //   };
+  // },
+  mounted() {
+    onAnalyticsReady().then(() => {
+      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
+      console.log(hasConsent);
+      if (hasConsent) {
+        this.$ga.enable(); // Activate module
+        this.$ga.page(this.$route.path);
+      }
+    });
   },
 };
 </script>

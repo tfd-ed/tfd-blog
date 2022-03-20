@@ -37,6 +37,7 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
     "@nuxt/image",
+    "@nuxtjs/google-analytics",
   ],
   image: {
     domains: ["tfdevs.com"],
@@ -46,6 +47,9 @@ export default {
   },
   publicRuntimeConfig: {
     webURL: process.env.WEB_URL,
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
+    },
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -76,18 +80,20 @@ export default {
               necessary: "ខូឃីចាំបាច់",
               optional: "ខូគីជ្រេីសរើស",
             },
+            en: {
+              acceptAll: "Accept all",
+              declineAll: "Delete all",
+              manageCookies: "Manage cookies",
+              unsaved: "You have unsaved settings",
+              close: "Close",
+              save: "Save",
+              necessary: "Necessary cookies",
+              optional: "Optional cookies",
+              functional: "Functional cookies",
+              blockedIframe: "To see this, please enable functional cookies",
+              here: "here",
+            },
           },
-          acceptAll: "Accept all",
-          declineAll: "Delete all",
-          manageCookies: "Manage cookies",
-          unsaved: "You have unsaved settings",
-          close: "Close",
-          save: "Save",
-          necessary: "Necessary cookies",
-          optional: "Optional cookies",
-          functional: "Functional cookies",
-          blockedIframe: "To see this, please enable functional cookies",
-          here: "here",
         },
       },
     ],
@@ -128,6 +134,20 @@ export default {
     },
   },
 
+  // GA Setting
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    disabled: true,
+    checkDuplicatedScript: true,
+    debug: {
+      enabled: process.env.NODE_ENV !== "production",
+      sendHitTask: true,
+    },
+    autoTracking: {
+      screenview: true,
+    },
+  },
+
   // Cookie control configure
   cookies: {
     necessary: [
@@ -141,7 +161,7 @@ export default {
           en: "Used for cookie control.",
           kh: "ប្រើសម្រាប់ការគ្រប់គ្រង Cookie ។",
         },
-        cookies: ["cookie_control_consent", "cookie_control_enabled_cookies"],
+        // cookies: ["cookie_control_consent", "cookie_control_enabled_cookies"],
       },
     ],
     optional: [
@@ -154,20 +174,18 @@ export default {
           en: "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
           kh: "Google Analytics គឺជាសេវាកម្មវិភាគគេហទំព័រដែលផ្តល់ដោយ Google ដែលតាមដាន និងរាយការណ៍អំពីចរាចរណ៍គេហទំព័រ។",
         },
-        src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
-        async: true,
-        cookies: [
-          "_ga",
-          "_gat_gtag_" + process.env.GOOGLE_ANALYTICS_ID_,
-          "_gid",
-        ],
+        // src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
+        // async: true,
+        // cookies: [
+        //   "_ga",
+        //   "_gat_gtag_" + process.env.GOOGLE_ANALYTICS_ID_,
+        //   "_gid",
+        // ],
         accepted: () => {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", process.env.GOOGLE_ANALYTICS_ID);
+          document.cookie = "google_analytics_enabled=true";
+        },
+        declined: () => {
+          document.cookie = "google_analytics_enabled=";
         },
       },
     ],
