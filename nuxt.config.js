@@ -37,7 +37,7 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
     "@nuxt/image",
-    "@nuxtjs/google-analytics",
+    // "@nuxtjs/google-analytics",
   ],
   image: {
     domains: ["tfdevs.com"],
@@ -45,23 +45,68 @@ export default {
       baseURL: "https://images.unsplash.com",
     },
   },
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
-    autoTracking: {
-      screenview: true,
-    },
-    debug: process.env.NODE_ENV === "dev",
-    dev: process.env.NODE_ENV === "dev",
-  },
+  // googleAnalytics: {
+  //   id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+  //   autoTracking: {
+  //     screenview: true,
+  //   },
+  //   debug: process.env.NODE_ENV === "dev",
+  //   dev: process.env.NODE_ENV === "dev",
+  //   checkDuplicatedScript: true,
+  //   disabled: true,
+  // },
   publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID,
-    },
+    // googleAnalytics: {
+    //   id: process.env.GOOGLE_ANALYTICS_ID,
+    // },
     webURL: process.env.WEB_URL,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "nuxt-i18n", "vue-social-sharing/nuxt"],
+  modules: [
+    "@nuxt/content",
+    "nuxt-i18n",
+    "vue-social-sharing/nuxt",
+    [
+      "nuxt-cookie-control",
+      {
+        css: true,
+        locales: ["en", "kh"],
+        barPosition: "bottom-right",
+        colors: {
+          barBackground: "#2c3e50",
+          checkboxActiveBackground: "#2ecc71",
+          checkboxInactiveBackground: "#95a5a6",
+        },
+        text: {
+          locale: {
+            kh: {
+              acceptAll: "យល់ព្រមទាំងអស់",
+              declineAll: "លុបចោលទាំងអស់",
+              manageCookies: "គ្រប់គ្រងខូគី",
+              unsaved: "អ្នកមានការកំណត់ដែលមិនបានរក្សាទុក",
+              close: "ចាកចេញ",
+              save: "រក្សាទុក",
+              necessary: "ខូឃីចាំបាច់",
+              optional: "ខូគីជ្រេីសរើស",
+            },
+          },
+          acceptAll: "Accept all",
+          declineAll: "Delete all",
+          manageCookies: "Manage cookies",
+          unsaved: "You have unsaved settings",
+          close: "Close",
+          save: "Save",
+          necessary: "Necessary cookies",
+          optional: "Optional cookies",
+          functional: "Functional cookies",
+          blockedIframe: "To see this, please enable functional cookies",
+          here: "here",
+        },
+      },
+    ],
+  ],
+  // motion options
   moment: {
     timezone: true,
     defaultTimezone: "Asia/Phnom_Penh",
@@ -95,6 +140,51 @@ export default {
         "kh-KH": require("./locales/kh-KH"),
       },
     },
+  },
+
+  // Cookie control configure
+  cookies: {
+    necessary: [
+      {
+        name: {
+          en: "Default cookies",
+          kh: "Cookie មានស្រាប",
+        },
+
+        description: {
+          en: "Used for cookie control.",
+          kh: "ប្រើសម្រាប់ការគ្រប់គ្រង Cookie ។",
+        },
+        cookies: ["cookie_control_consent", "cookie_control_enabled_cookies"],
+      },
+    ],
+    optional: [
+      {
+        name: {
+          en: "Google Analytics",
+          kh: "Google វិភាគ",
+        },
+        description: {
+          en: "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
+          kh: "Google Analytics គឺជាសេវាកម្មវិភាគគេហទំព័រដែលផ្តល់ដោយ Google ដែលតាមដាន និងរាយការណ៍អំពីចរាចរណ៍គេហទំព័រ។",
+        },
+        src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
+        async: true,
+        cookies: [
+          "_ga",
+          "_gat_gtag_" + process.env.GOOGLE_ANALYTICS_ID_,
+          "_gid",
+        ],
+        accepted: () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", process.env.GOOGLE_ANALYTICS_ID);
+        },
+      },
+    ],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
