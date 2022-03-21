@@ -43,20 +43,5 @@ export default {
       ],
     };
   },
-  // data() {
-  //   return {
-  //     cookies: this.$cookies,
-  //   };
-  // },
-  mounted() {
-    onAnalyticsReady().then(() => {
-      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
-      console.log(hasConsent);
-      if (hasConsent) {
-        this.$ga.enable(); // Activate module
-        this.$ga.page(this.$route.path);
-      }
-    });
-  },
 };
 </script>

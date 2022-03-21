@@ -1,7 +1,7 @@
 <template>
   <div class="px-4 py-12 mx-auto">
-    <div class="max-w-4xl pt-24 mx-auto">
-      <div class="mb-12 text-left md:text-center">
+    <div class="max-w-4xl pt-12 mx-auto">
+      <div class="mb-6 text-left md:text-center">
         <h1
           class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
         >
@@ -38,7 +38,6 @@
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
-import { onAnalyticsReady } from "vue-analytics";
 export default {
   name: "Blog",
   components: { HorizontalCard },
@@ -55,27 +54,13 @@ export default {
       })),
     };
   },
-  mounted() {
-    onAnalyticsReady().then(() => {
-      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
-      console.log(hasConsent);
-      if (hasConsent) {
-        this.$ga.enable(); // Activate module
-        this.$ga.page(this.$route.path);
-      }
-    });
-  },
-  beforeDestroy() {
-    this.posts = [];
-    this.page = 1;
-  },
-  data() {
-    return {
-      posts: [],
-      page: 1,
-      limit: 5,
-    };
-  },
+  // data() {
+  //   return {
+  //     posts: [],
+  //     page: 1,
+  //     limit: 5,
+  //   };
+  // },
   methods: {
     infiniteScroll($state) {
       setTimeout(async () => {

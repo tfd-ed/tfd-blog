@@ -36,5 +36,14 @@
   "share_this_article": "Share this article",
   "all_issues": "All issues",
   "cookies": "Cookies",
-  "cookies_description": "We use our own cookies and third-party cookies so that we can show you this website and better understand how you use it, with a view to improving the services we offer."
+  "cookies_description": "This website uses Cookies for analytics and on-page improvements! by continuing browsing, you have accepted the Cookies.",
+  "learn_about_cookies": "Learn about cookies",
+  "acceptAll": "Accept",
+  "declineAll": "Delete all",
+  "manageCookies": "Manage cookies",
+  "close": "Close",
+  "save": "Save",
+  "ga_description": "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
+  "cookies_control": "Used for cookie control.",
+  "necessary": "Necessary cookies"
 }

@@ -89,6 +89,17 @@ import { format } from "date-fns";
 import { onAnalyticsReady } from "vue-analytics";
 export default {
   name: "Post",
+  async asyncData(context) {
+    const { $content, params, app, route, redirect } = context;
+    const slug = params.slug;
+    const defaultLocale = app.i18n.locale;
+    const post = await $content(`${defaultLocale}/blog/${slug}`, {
+      text: true,
+    }).fetch();
+    return {
+      post,
+    };
+  },
   head() {
     return {
       title: this.post.title,
@@ -112,27 +123,6 @@ export default {
           content: this.post.media,
         },
       ],
-    };
-  },
-  mounted() {
-    onAnalyticsReady().then(() => {
-      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
-      console.log(hasConsent);
-      if (hasConsent) {
-        this.$ga.enable(); // Activate module
-        this.$ga.page(this.$route.path);
-      }
-    });
-  },
-  async asyncData(context) {
-    const { $content, params, app, route, redirect } = context;
-    const slug = params.slug;
-    const defaultLocale = app.i18n.locale;
-    const post = await $content(`${defaultLocale}/blog/${slug}`, {
-      text: true,
-    }).fetch();
-    return {
-      post,
     };
   },
   computed: {
