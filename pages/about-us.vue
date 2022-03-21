@@ -12,14 +12,14 @@
       class="grid items-center w-full grid-cols-1 gap-10 mx-auto lg:grid-cols-8 lg:gap-4 xl:w-3/4"
       xyz="fade back-1 small-1 ease-out stagger-1 perspective-2"
     >
-      <div class="w-40 h-40 col-span-1 lg:col-span-2" key="1">
+      <div key="1" class="w-40 h-40 col-span-1 lg:col-span-2">
         <nuxt-img
           src="/founder.jpeg"
           class="object-cover w-full h-full bg-center rounded-md shadow-xl"
           alt="Kutty"
         />
       </div>
-      <div class="col-span-1 lg:col-span-6" key="2">
+      <div key="2" class="col-span-1 lg:col-span-6">
         <h1
           class="mb-3 text-2xl font-extrabold text-purple-900 md:leading-tight md:text-4xl"
         >
@@ -115,15 +115,5 @@ import SocialAction from "@/components/card/social-action";
 import { onAnalyticsReady } from "vue-analytics";
 export default {
   components: { SocialAction },
-  mounted() {
-    onAnalyticsReady().then(() => {
-      const hasConsent = this.$cookies.get("google_analytics_enabled"); // Your logic for consent
-      console.log(hasConsent);
-      if (hasConsent) {
-        this.$ga.enable(); // Activate module
-        this.$ga.page(this.$route.path);
-      }
-    });
-  },
 };
 </script>

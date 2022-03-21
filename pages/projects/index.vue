@@ -6,7 +6,7 @@
           <h1
             class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
           >
-            {{ $t("articles") }}
+            {{ $t("project") }}
           </h1>
         </div>
         <div class="relative">
@@ -24,12 +24,11 @@
           class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
           xyz="fade back-1 small-1 ease-out stagger-2 perspective-2"
         >
-          <HorizontalCard :key="1"></HorizontalCard>
-          <HorizontalCard :key="2"></HorizontalCard>
-          <HorizontalCard :key="3"></HorizontalCard>
-          <HorizontalCard :key="4"></HorizontalCard>
-          <HorizontalCard :key="5"></HorizontalCard>
-          <HorizontalCard :key="6"></HorizontalCard>
+          <HorizontalCard
+            v-for="(project, $index) in projects"
+            :key="`project-${$index}`"
+            :post="project"
+          ></HorizontalCard>
         </XyzTransitionGroup>
       </div>
     </div>
@@ -37,7 +36,21 @@
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
+import { onAnalyticsReady } from "vue-analytics";
 export default {
   components: { HorizontalCard },
+  async asyncData(context) {
+    const { $content, app } = context;
+    const defaultLocale = app.i18n.locale;
+    const projects = await $content(`${defaultLocale}/project`, {
+      text: true,
+    }).fetch();
+    return {
+      projects: projects.map((project) => ({
+        ...project,
+        path: project.path.replace(`/${defaultLocale}`, ""),
+      })),
+    };
+  },
 };
 </script>

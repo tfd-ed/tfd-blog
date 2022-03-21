@@ -1,3 +1,4 @@
+import createSitemapRoutes from "./utils/createSitemap";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -62,7 +63,7 @@ export default {
       {
         css: true,
         locales: ["en", "kh"],
-        barPosition: "bottom-right",
+        barPosition: "bottom-full",
         colors: {
           barBackground: "#2c3e50",
           checkboxActiveBackground: "#2ecc71",
@@ -71,7 +72,7 @@ export default {
         text: {
           locale: {
             kh: {
-              acceptAll: "យល់ព្រមទាំងអស់",
+              acceptAll: "យល់ព្រម",
               declineAll: "លុបចោលទាំងអស់",
               manageCookies: "គ្រប់គ្រងខូគី",
               unsaved: "អ្នកមានការកំណត់ដែលមិនបានរក្សាទុក",
@@ -81,7 +82,7 @@ export default {
               optional: "ខូគីជ្រេីសរើស",
             },
             en: {
-              acceptAll: "Accept all",
+              acceptAll: "Accept",
               declineAll: "Delete all",
               manageCookies: "Manage cookies",
               unsaved: "You have unsaved settings",
@@ -97,7 +98,15 @@ export default {
         },
       },
     ],
+    "@nuxtjs/sitemap",
+    // "cookie-universal-nuxt",
   ],
+  // Sitemap Config
+  sitemap: {
+    hostname: process.env.WEB_URL,
+    gzip: true,
+    routes: createSitemapRoutes,
+  },
   // motion options
   moment: {
     timezone: true,
@@ -186,6 +195,7 @@ export default {
         },
         declined: () => {
           document.cookie = "google_analytics_enabled=";
+          document.cookie = "cookie_widget_hidden=true";
         },
       },
     ],
