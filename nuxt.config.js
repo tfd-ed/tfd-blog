@@ -18,11 +18,6 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/tfd_logo.jpeg" }],
   },
 
-  server: {
-    host: "0.0.0.0",
-    port: 8000,
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
