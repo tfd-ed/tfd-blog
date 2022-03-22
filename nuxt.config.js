@@ -18,6 +18,11 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/tfd_logo.jpeg" }],
   },
 
+  server: {
+    host: "0.0.0.0",
+    port: 8000,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
@@ -47,10 +52,16 @@ export default {
     },
   },
   publicRuntimeConfig: {
-    webURL: process.env.WEB_URL,
+    WEB_URL: process.env.WEB_URL,
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID,
     },
+    FACEBOOK_URL: process.env.FACEBOOK_URL,
+    TELEGRAM_URL: process.env.TELEGRAM_URL,
+    GITHUB_URL: process.env.GITHUB_URL,
+    YOUTUBE_URL: process.env.YOUTUBE_URL,
+    SITE_TITLE: process.env.SITE_TITLE,
+    EMAIL: process.env.EMAIL,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
