@@ -49,11 +49,15 @@
 This is a serverless blog powered by [@nuxt/content](https://content.nuxtjs.org/) and  [TailwindCSS](https://tailwindcss.com/)  with integration-ready with [forestry.io](https://forestry.io/) for headless CMS.
 
 - Use [Docker](https://www.docker.com/) to containerize with [NginX](https://www.nginx.com/) serves as a revserse proxy.
+-  Integrated [nuxt/google-analytics](https://google-analytics.nuxtjs.org/) with easy web measurement.
 - Preconfigured [daisyui](https://daisyui.com/) tailwind components with highly customizable interactive components
 - Integrated [nuxt-img](https://image.nuxtjs.org/components/nuxt-img/) to replace vanilla  ``<img>`` HTML tag for better image optimization with [Netlify](https://www.netlify.com/)
 - Integrated [@nuxtjs/moment](https://www.npmjs.com/package/@nuxtjs/moment) for time formatting
 - Smooth configurable page, layout transition at ``@/assets/css/main``
 - Integrated [@babel/eslint-parser, prettier](https://www.npmjs.com/package/@babel/eslint-parser) for codes' rules & styles checking and formatting
+
+## Demo
+[Official TFD Blog](https://tfdevs.com)
 
 ## Setup Guide
 ### With Docker (Recommended)
@@ -65,14 +69,14 @@ Create **.env** file from **.env.example** and replace **environment variables**
 
 | Variable  | Description  | Default  |  
 |---|---|---|
-| GOOGLE_ANALYTICS_ID  |  Your Google Analytics UA ID (UA-XXXXX-X) |   |
-|  WEB_URL |  Your blog domain | https://www.tfdevs.com  |
-|  FACEBOOK_URL |  Link to your Facebook page or group | https://www.facebook.com/teachingfordevelopment  |
-|  TELEGRAM_URL | Link to your Telegram channel or group  |  https://t.me/tfdTech |
-|  GITHUB_URL | Link to your Github account  | https://github.com/tfd-ed  |
-| YOUTUBE_URL  |  Link to your YouTube channel |  https://www.youtube.com/c/TeachingForDevelopment |
-|  SITE_TITLE | Your blog title  |  TFD Blog |
-|  EMAIL |  Your blog email address | info@tfdevs.com  |
+| GOOGLE_ANALYTICS_ID  |  Your Google Analytics UA ID (UA-XXXXX-X) |   | 
+|  WEB_URL |  Your blog domain | https://www.tfdevs.com  | 
+|  FACEBOOK_URL |  Link to your Facebook page or group | https://www.facebook.com/teachingfordevelopment  | 
+|  TELEGRAM_URL | Link to your Telegram channel or group  |  https://t.me/tfdTech | 
+|  GITHUB_URL | Link to your Github account  | https://github.com/tfd-ed  | 
+| YOUTUBE_URL  |  Link to your YouTube channel |  https://www.youtube.com/c/TeachingForDevelopment | 
+|  SITE_TITLE | Your blog title  |  TFD Blog | 
+|  EMAIL |  Your blog email address | info@tfdevs.com  | 
 
 ```bash    
 $ cd tfd-blog   
