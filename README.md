@@ -44,29 +44,45 @@
 
 ## Features
 
-This is a Nuxt JS + Tailwind CSS boilerplate code with preconfigured libraries and packages with the following features:
+This is a serverless blog powered by [@nuxt/content](https://content.nuxtjs.org/) and  [TailwindCSS](https://tailwindcss.com/)  with integration-ready with [forestry.io](https://forestry.io/) for headless CMS.
 
-- Preconfigured [VueTailwind](https://www.vue-tailwind.com/) with highly customizable tailwind module
-- Integrated [nuxt/axios](https://axios.nuxtjs.org/) for promise based HTTP client
-- Integrated [nuxt/auth](https://auth.nuxtjs.org/) for authentication
-- Integrated [nuxt-img](https://image.nuxtjs.org/components/nuxt-img/) to replace vanilla  ``<img>`` HTML tag for better image optimization
+- Use [Docker](https://www.docker.com/) to containerize with [NginX](https://www.nginx.com/) serves as a revserse proxy.
+- Preconfigured [daisyui](https://daisyui.com/) tailwind components with highly customizable interactive components
+- Integrated [nuxt-img](https://image.nuxtjs.org/components/nuxt-img/) to replace vanilla  ``<img>`` HTML tag for better image optimization with [Netlify](https://www.netlify.com/)
 - Integrated [@nuxtjs/moment](https://www.npmjs.com/package/@nuxtjs/moment) for time formatting
 - Smooth configurable page, layout transition at ``@/assets/css/main``
-- Built-in awesome content loader using [vue-content-loader](https://www.npmjs.com/package/vue-content-loader)
 - Integrated [@babel/eslint-parser, prettier](https://www.npmjs.com/package/@babel/eslint-parser) for codes' rules & styles checking and formatting
-- Integrated [vuex-map-fields](https://www.npmjs.com/package/vuex-map-fields) for form data binding
 
 ## Setup Guide
-
-
-### Development
+### With Docker (Recommended)
+**Clone** or **Fork** this git repositoy to your Github account.
 ```bash  
 $ git clone https://github.com/tfd-ed/tfd-blog  
+````  
+Create **.env** file from **.env.example** and replace **environment variables** with your owns
+| Variable  | Description  | Default  |  
+|---|---|---|
+| GOOGLE_ANALYTICS_ID  |  Your Google Analytics UA ID (UA-XXXXX-X) |   |
+|  WEB_URL |  Your blog domain | https://www.tfdevs.com  |
+|  FACEBOOK_URL |  Link to your Facebook page or group | https://www.facebook.com/teachingfordevelopment  |
+|  TELEGRAM_URL | Link to your Telegram channel or group  |  https://t.me/tfdTech |
+|  GITHUB_URL | Link to your Github account  | https://github.com/tfd-ed  |
+| YOUTUBE_URL  |  Link to your YouTube channel |  https://www.youtube.com/c/TeachingForDevelopment |
+|  SITE_TITLE | Your blog title  |  TFD Blog |
+|  EMAIL |  Your blog email address | info@tfdevs.com  |
+
+```bash    
 $ cd tfd-blog   
+$ docker-compose up -d   
+````  
+
+### Without Docker
+Make sure [NodeJS](https://nodejs.dev/) version 16.4.0+ is installed in your machine.
+```bash      
 $ yarn install  
 $ yarn dev  
 ````  
-Visit http://localhost:3000/
+Visit http://localhost:8000/
 
 ### Production
 ```bash  
@@ -75,12 +91,7 @@ $ yarn generate
 $ yarn start  
 ```  
 
-
-### With Docker
-
-Comming Soon!
-
-
 ## Donation
 
 Kindly donate to the following bank account (Cambodia) if you want to support our works.  
+<a href="https://imgur.com/fEjLJ0E"><img src="https://i.imgur.com/fEjLJ0E.jpg" title="source: imgur.com" width="350"  /></a> 
