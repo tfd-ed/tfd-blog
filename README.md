@@ -5,6 +5,7 @@
 
 <p align="center">Writing blog website with TFD Blog </p>  
 <p align="center">  
+<img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" width="75">
 <img src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white" width="80">  
 <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" width="100">  
 <img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white" width="80">  
@@ -25,6 +26,11 @@
   >  
 <br/>  
     <img  
+      src="https://www.docker.com/wp-content/uploads/2022/03/horizontal-logo-monochromatic-white.png"  
+      width="180"  
+      alt="Nest Logo"  
+    /> 
+    <img  
       src="https://content.nuxtjs.org/logo-light.svg"  
       width="220"  
       alt="Nest Logo"  
@@ -34,11 +40,7 @@
       width="200"  
       alt="Nest Logo"  
     />  
-<img  
-      src="https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg"  
-      width="50"  
-      alt="Nest Logo"  
-    />  
+
   </a>  
 </h1>  
 
@@ -59,7 +61,8 @@ This is a serverless blog powered by [@nuxt/content](https://content.nuxtjs.org/
 ```bash  
 $ git clone https://github.com/tfd-ed/tfd-blog  
 ````  
-Create **.env** file from **.env.example** and replace **environment variables** with your owns
+Create **.env** file from **.env.example** and replace **environment variables** with your owns.
+
 | Variable  | Description  | Default  |  
 |---|---|---|
 | GOOGLE_ANALYTICS_ID  |  Your Google Analytics UA ID (UA-XXXXX-X) |   |
