@@ -9,10 +9,10 @@
     </div>
     <div>
       <span class="footer-title">{{ $t("more") }}</span>
-      <nuxt-link to="/about-us" class="capitalize">{{
+      <nuxt-link :to="localePath('about-us')" class="capitalize">{{
         $t("about_us")
       }}</nuxt-link>
-      <nuxt-link to="/contact" class="capitalize">{{
+      <nuxt-link :to="localePath('contact')" class="capitalize">{{
         $t("contact")
       }}</nuxt-link>
     </div>
