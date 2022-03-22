@@ -23,18 +23,11 @@
         <h1
           class="mb-3 text-2xl font-extrabold text-purple-900 md:leading-tight md:text-4xl"
         >
-          “If a user sees <span class="text-red-600">an error</span>, we’re
-          notified immediately. It’s silly not to use an error monitoring tool
-          like this when running anything at scale.“
+          “{{ $t("about_quote") }}“
         </h1>
         <p class="mb-5 text-lg font-semibold text-purple-900 md:text-xl">
-          - Chau Dara, Underrated Guy
+          - {{ $t("quote_owner") }}
         </p>
-        <img
-          src="/logos/google.svg"
-          alt="Google Logo"
-          class="block object-contain h-8"
-        />
       </div>
     </XyzTransitionGroup>
     <div class="px-4 pt-20 pb-24 mx-auto max-w-7xl md:px-2">

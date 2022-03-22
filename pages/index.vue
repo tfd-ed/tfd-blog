@@ -3,6 +3,18 @@
     <!--    <Code />-->
     <Founder />
     <SocialCard />
+    <Quote quote="about_quote" owner="quote_owner">
+      <template #image>
+        <div class="flex flex-col space-y-2">
+          <img src="https://picsum.photos/200/?blur=2" />
+          <p
+            class="mb-3 text-xs font-normal text-gray-500 pt-2 text-center leading-loose"
+          >
+            {{ $t("random_image") }}
+          </p>
+        </div>
+      </template>
+    </Quote>
   </section>
 </template>
 
@@ -14,9 +26,18 @@ import Welcome from "@/components/hero/welcome";
 import Code from "@/components/card/code";
 import Founder from "@/components/hero/founder";
 import { onAnalyticsReady } from "vue-analytics";
+import Quote from "@/components/card/quote";
 export default {
   name: "IndexPage",
-  components: { Founder, Code, Welcome, Intro, SocialCard, HorizontalCard },
+  components: {
+    Quote,
+    Founder,
+    Code,
+    Welcome,
+    Intro,
+    SocialCard,
+    HorizontalCard,
+  },
   head() {
     return {
       title: "TFD Blogs",

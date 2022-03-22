@@ -7,7 +7,7 @@
       <nuxt-img src="/cookie.png" class="w-6"></nuxt-img>
       <div>
         <h3 class="font-bold">{{ $t("cookies") }}</h3>
-        <div class="text-xs">{{ $t("cookies_description") }}</div>
+        <div class="text-xs leading-loose">{{ $t("cookies_description") }}</div>
         <a
           href="https://www.cookiesandyou.com/"
           target="_blank"
