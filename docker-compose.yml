@@ -1,0 +1,34 @@
+version: "2"
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: client
+    environment:
+      - WEB_URL=${WEB_URL}
+      - GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}
+      - FACEBOOK_URL=${FACEBOOK_URL}
+      - TELEGRAM_URL=${TELEGRAM_URL}
+      - GITHUB_URL=${GITHUB_URL}
+      - YOUTUBE_URL=${YOUTUBE_URL}
+      - SITE_TITLE=${SITE_TITLE}
+      - EMAIL=${EMAIL}
+    volumes:
+      - .:/app/
+      - .env:/app/.env
+      - /app/node_modules
+  sez-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    container_name: sez-nginx
+    depends_on:
+      - client
+    environment:
+      - NGINX_SERVER_NAME=localhost
+      - CLIENT_HOST=client
+      - CLIENT_PORT=8000
+      - NGINX_MAX_BODY=100M
+    ports:
+      - "80:80"

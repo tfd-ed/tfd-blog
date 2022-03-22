@@ -130,7 +130,7 @@ export default {
       return format(new Date(this.post.createdAt), "dd/MM/yyyy");
     },
     getSharePath() {
-      return this.$config.webURL + this.$route.path;
+      return this.$config.WEB_URL + this.$route.path;
     },
   },
 };
