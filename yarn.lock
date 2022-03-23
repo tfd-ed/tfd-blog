@@ -7943,6 +7943,11 @@ nuxt-i18n@^6.28.1:
     ufo "^0.7.7"
     vue-i18n "^8.25.0"
 
+nuxt-youtube-subscribe-module@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/nuxt-youtube-subscribe-module/-/nuxt-youtube-subscribe-module-0.1.2.tgz#a12702b7e9a471fe34efb2d3158f14cf51a52f7e"
+  integrity sha512-UMJ1y1ZxL+g+ijaVU1Q7BFirzguxhsgUsAfPIhFNOB8rlaPRAWIF7HMdkleYMXFs2QIdD6/b9GqOJptHjTpf0w==
+
 nuxt@^2.15.8:
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"

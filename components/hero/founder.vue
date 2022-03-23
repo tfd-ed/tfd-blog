@@ -25,7 +25,7 @@
           class="flex flex-col sm:flex-row mt-10"
           xyz="fade back-1 small-50% ease-out stagger-2 perspective-2"
         >
-          <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8" :key="1">
+          <div :key="1" class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
             <div
               class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400"
             >
@@ -55,38 +55,47 @@
               class="leading-relaxed text-lg mb-4 text-justify"
               v-html="$t('tfd_mission')"
             ></p>
-            <nuxt-link
-              :to="localePath('blog')"
-              class="text-red-500 inline-flex items-center capitalize"
-              >{{ $t("read_articles") }}
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </nuxt-link>
-            <nuxt-link
-              :to="localePath('projects')"
-              class="text-red-500 inline-flex items-center"
-              >{{ $t("our_project") }}
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </nuxt-link>
+            <div class="flex flex-col space-y-4 mt-4">
+              <youtube-subscribe-button
+                identifier="my-subscribe-button"
+                :channelid="$config.YOUTUBE_CHANNEL_ID"
+                layout="default"
+                theme="dark"
+                count="true"
+              ></youtube-subscribe-button>
+              <nuxt-link
+                :to="localePath('blog')"
+                class="text-red-500 inline-flex items-center capitalize"
+                >{{ $t("read_articles") }}
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </nuxt-link>
+              <nuxt-link
+                :to="localePath('projects')"
+                class="text-red-500 inline-flex items-center"
+                >{{ $t("our_project") }}
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </nuxt-link>
+            </div>
           </div>
         </XyzTransitionGroup>
       </div>

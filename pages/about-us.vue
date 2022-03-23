@@ -9,10 +9,7 @@
     </div>
     <Quote quote="founder_quote" owner="chau_dara">
       <template #image>
-        <nuxt-img
-          src="/founder.jpeg"
-          class="object-cover w-full h-full bg-center rounded-md shadow-xl"
-        ></nuxt-img>
+        <nuxt-img src="/founder.jpeg"></nuxt-img>
       </template>
     </Quote>
     <nuxt-content

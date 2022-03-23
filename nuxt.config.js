@@ -58,6 +58,7 @@ export default {
     YOUTUBE_URL: process.env.YOUTUBE_URL,
     SITE_TITLE: process.env.SITE_TITLE,
     EMAIL: process.env.EMAIL,
+    YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -65,47 +66,53 @@ export default {
     "@nuxt/content",
     "nuxt-i18n",
     "vue-social-sharing/nuxt",
+    // [
+    //   "nuxt-cookie-control",
+    //   {
+    //     css: true,
+    //     locales: ["en", "kh"],
+    //     barPosition: "bottom-full",
+    //     colors: {
+    //       barBackground: "#2c3e50",
+    //       checkboxActiveBackground: "#2ecc71",
+    //       checkboxInactiveBackground: "#95a5a6",
+    //     },
+    //     text: {
+    //       locale: {
+    //         kh: {
+    //           acceptAll: "យល់ព្រម",
+    //           declineAll: "លុបចោលទាំងអស់",
+    //           manageCookies: "គ្រប់គ្រងខូគី",
+    //           unsaved: "អ្នកមានការកំណត់ដែលមិនបានរក្សាទុក",
+    //           close: "ចាកចេញ",
+    //           save: "រក្សាទុក",
+    //           necessary: "ខូឃីចាំបាច់",
+    //           optional: "ខូគីជ្រេីសរើស",
+    //         },
+    //         en: {
+    //           acceptAll: "Accept",
+    //           declineAll: "Delete all",
+    //           manageCookies: "Manage cookies",
+    //           unsaved: "You have unsaved settings",
+    //           close: "Close",
+    //           save: "Save",
+    //           necessary: "Necessary cookies",
+    //           optional: "Optional cookies",
+    //           functional: "Functional cookies",
+    //           blockedIframe: "To see this, please enable functional cookies",
+    //           here: "here",
+    //         },
+    //       },
+    //     },
+    //   },
+    // ],
+    "@nuxtjs/sitemap",
     [
-      "nuxt-cookie-control",
+      "nuxt-youtube-subscribe-module",
       {
-        css: true,
-        locales: ["en", "kh"],
-        barPosition: "bottom-full",
-        colors: {
-          barBackground: "#2c3e50",
-          checkboxActiveBackground: "#2ecc71",
-          checkboxInactiveBackground: "#95a5a6",
-        },
-        text: {
-          locale: {
-            kh: {
-              acceptAll: "យល់ព្រម",
-              declineAll: "លុបចោលទាំងអស់",
-              manageCookies: "គ្រប់គ្រងខូគី",
-              unsaved: "អ្នកមានការកំណត់ដែលមិនបានរក្សាទុក",
-              close: "ចាកចេញ",
-              save: "រក្សាទុក",
-              necessary: "ខូឃីចាំបាច់",
-              optional: "ខូគីជ្រេីសរើស",
-            },
-            en: {
-              acceptAll: "Accept",
-              declineAll: "Delete all",
-              manageCookies: "Manage cookies",
-              unsaved: "You have unsaved settings",
-              close: "Close",
-              save: "Save",
-              necessary: "Necessary cookies",
-              optional: "Optional cookies",
-              functional: "Functional cookies",
-              blockedIframe: "To see this, please enable functional cookies",
-              here: "here",
-            },
-          },
-        },
+        tag: "YoutubeSubscribeButton",
       },
     ],
-    "@nuxtjs/sitemap",
     // "cookie-universal-nuxt",
   ],
   // Sitemap Config
