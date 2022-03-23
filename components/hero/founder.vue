@@ -61,7 +61,7 @@
                 :channelid="$config.YOUTUBE_CHANNEL_ID"
                 layout="default"
                 theme="dark"
-                count="true"
+                :count="true"
               ></youtube-subscribe-button>
               <nuxt-link
                 :to="localePath('blog')"

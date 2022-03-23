@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="getBanner || $cookies.get('open') === 'true'"
+    v-if="getBanner && $cookies.get('open') === 'true'"
     class="sticky bottom-0 alert shadow-lg"
   >
     <div>
@@ -24,10 +24,7 @@
       <!--      <button class="btn btn-sm">{{ $t("manageCookies") }}</button>-->
     </div>
   </div>
-  <div
-    v-else-if="$cookies.get('open') === 'false'"
-    class="sticky bottom-0 right-0"
-  >
+  <div v-else class="sticky bottom-0 right-0">
     <label for="cookie-modal" class="cursor-pointer">
       <nuxt-img src="/cookie.png" class="w-12 p-2 opacity-80"></nuxt-img
     ></label>
@@ -47,9 +44,9 @@ export default {
       changeBannerState: "setting/SET_BANNER_SETTING",
     }),
     acceptCookie() {
-      document.cookie = "google_analytics=true";
-      document.cookie = "site_cookies=true";
-      document.cookie = "open=false";
+      this.$cookies.set("google_analytics", true);
+      this.$cookies.set("site_cookies", true);
+      this.$cookies.set("open", false);
       this.changeBannerState(false);
     },
   },

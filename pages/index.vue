@@ -13,18 +13,6 @@
         </div>
       </template>
     </Quote>
-    <!--    <GeneralQuote-->
-    <!--      person_quote="about_quote"-->
-    <!--      person="random_image"-->
-    <!--      text="about_quote"-->
-    <!--    >-->
-    <!--      <template #main>-->
-    <!--        <img-->
-    <!--          src="https://picsum.photos/200?grayscale"-->
-    <!--          class="object-cover w-full h-full bg-center rounded-md shadow-xl"-->
-    <!--        />-->
-    <!--      </template>-->
-    <!--    </GeneralQuote>-->
   </section>
 </template>
 

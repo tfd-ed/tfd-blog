@@ -66,6 +66,7 @@ export default {
     "@nuxt/content",
     "nuxt-i18n",
     "vue-social-sharing/nuxt",
+    "cookie-universal-nuxt",
     // [
     //   "nuxt-cookie-control",
     //   {
