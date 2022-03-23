@@ -67,12 +67,12 @@ export default {
       toggleBanner: "setting/SET_BANNER_SETTING",
     }),
     acceptAll() {
-      document.cookie = "google_analytics=true";
+      this.$cookies.set("google_analytics", true);
       this.$ga.enable();
       this.$ga.page(this.$route.path);
     },
     deleteAll() {
-      document.cookie = "google_analytics=false";
+      this.$cookies.set("google_analytics", false);
       this.$ga.disable();
     },
   },
