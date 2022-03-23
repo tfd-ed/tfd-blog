@@ -1,6 +1,5 @@
 <template>
   <section class="px-4 py-24 mx-auto max-w-7xl">
-    <!--    <Code />-->
     <Founder />
     <SocialCard />
     <Quote quote="about_quote" owner="quote_owner" image_quote="random_image">
@@ -21,11 +20,9 @@ import HorizontalCard from "~/components/card/horizontal-card";
 import SocialCard from "~/components/card/social-card";
 import Founder from "@/components/hero/founder";
 import Quote from "@/components/card/quote";
-import GeneralQuote from "@/components/card/general-quote";
 export default {
   name: "IndexPage",
   components: {
-    GeneralQuote,
     Quote,
     Founder,
     SocialCard,
