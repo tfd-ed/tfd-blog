@@ -39,6 +39,7 @@ export default {
     "@nuxtjs/moment",
     "@nuxt/image",
     "@nuxtjs/google-analytics",
+    "@nuxtjs/device",
   ],
   image: {
     domains: ["tfdevs.com"],
