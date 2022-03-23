@@ -164,7 +164,7 @@ export default {
     disabled: true,
     checkDuplicatedScript: true,
     debug: {
-      enabled: process.env.NODE_ENV !== "production",
+      enabled: process.env.NODE_ENV !== "release",
       sendHitTask: true,
     },
     autoTracking: {
@@ -173,48 +173,48 @@ export default {
   },
 
   // Cookie control configure
-  cookies: {
-    necessary: [
-      {
-        name: {
-          en: "Default cookies",
-          kh: "Cookie មានស្រាប",
-        },
-
-        description: {
-          en: "Used for cookie control.",
-          kh: "ប្រើសម្រាប់ការគ្រប់គ្រង Cookie ។",
-        },
-        // cookies: ["cookie_control_consent", "cookie_control_enabled_cookies"],
-      },
-    ],
-    optional: [
-      {
-        name: {
-          en: "Google Analytics",
-          kh: "Google វិភាគ",
-        },
-        description: {
-          en: "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
-          kh: "Google Analytics គឺជាសេវាកម្មវិភាគគេហទំព័រដែលផ្តល់ដោយ Google ដែលតាមដាន និងរាយការណ៍អំពីចរាចរណ៍គេហទំព័រ។",
-        },
-        // src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
-        // async: true,
-        // cookies: [
-        //   "_ga",
-        //   "_gat_gtag_" + process.env.GOOGLE_ANALYTICS_ID_,
-        //   "_gid",
-        // ],
-        accepted: () => {
-          document.cookie = "google_analytics_enabled=true";
-        },
-        declined: () => {
-          document.cookie = "google_analytics_enabled=";
-          document.cookie = "cookie_widget_hidden=true";
-        },
-      },
-    ],
-  },
+  // cookies: {
+  //   necessary: [
+  //     {
+  //       name: {
+  //         en: "Default cookies",
+  //         kh: "Cookie មានស្រាប",
+  //       },
+  //
+  //       description: {
+  //         en: "Used for cookie control.",
+  //         kh: "ប្រើសម្រាប់ការគ្រប់គ្រង Cookie ។",
+  //       },
+  //       // cookies: ["cookie_control_consent", "cookie_control_enabled_cookies"],
+  //     },
+  //   ],
+  //   optional: [
+  //     {
+  //       name: {
+  //         en: "Google Analytics",
+  //         kh: "Google វិភាគ",
+  //       },
+  //       description: {
+  //         en: "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
+  //         kh: "Google Analytics គឺជាសេវាកម្មវិភាគគេហទំព័រដែលផ្តល់ដោយ Google ដែលតាមដាន និងរាយការណ៍អំពីចរាចរណ៍គេហទំព័រ។",
+  //       },
+  //       // src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
+  //       // async: true,
+  //       // cookies: [
+  //       //   "_ga",
+  //       //   "_gat_gtag_" + process.env.GOOGLE_ANALYTICS_ID_,
+  //       //   "_gid",
+  //       // ],
+  //       accepted: () => {
+  //         document.cookie = "google_analytics_enabled=true";
+  //       },
+  //       declined: () => {
+  //         document.cookie = "google_analytics_enabled=";
+  //         document.cookie = "cookie_widget_hidden=true";
+  //       },
+  //     },
+  //   ],
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

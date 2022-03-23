@@ -36,7 +36,6 @@
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
-import { onAnalyticsReady } from "vue-analytics";
 export default {
   components: { HorizontalCard },
   async asyncData(context) {

@@ -88,7 +88,6 @@
 import { format } from "date-fns";
 import { onAnalyticsReady } from "vue-analytics";
 export default {
-  name: "Post",
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;
     const slug = params.slug;
