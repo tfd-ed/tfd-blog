@@ -12,6 +12,7 @@ services:
       - TELEGRAM_URL=${TELEGRAM_URL}
       - GITHUB_URL=${GITHUB_URL}
       - YOUTUBE_URL=${YOUTUBE_URL}
+      - YOUTUBE_CHANNEL_ID=${YOUTUBE_CHANNEL_ID}
       - SITE_TITLE=${SITE_TITLE}
       - EMAIL=${EMAIL}
     volumes:

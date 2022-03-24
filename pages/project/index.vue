@@ -44,6 +44,7 @@ export default {
     const projects = await $content(`${defaultLocale}/project`, {
       text: true,
     }).fetch();
+    console.log(projects);
     return {
       projects: projects.map((project) => ({
         ...project,

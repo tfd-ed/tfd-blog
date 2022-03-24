@@ -73,11 +73,10 @@
       <div class="flex items-center mb-6 space-x-2">
         <p class="text-gray-600">{{ $t("get_source_code") }}</p>
         <a :href="post.git" target="_blank">
-          <nuxt-img src="/github.png" class="block object-contain h-12" />
+          <img src="/github.png" class="block object-contain h-12" />
         </a>
       </div>
-      <nuxt-img
-        provider="unsplash"
+      <img
         :src="post.media"
         class="object-cover w-full h-64 bg-center rounded"
         alt="Kutty"

@@ -1,7 +1,6 @@
 <template>
   <div class="pt-8 grid grid-cols-1 gap-6 md:grid-cols-4">
-    <nuxt-img
-      provider="unsplash"
+    <img
       :src="post.media"
       class="object-cover w-full h-40 col-span-1 bg-center"
       loading="lazy"
