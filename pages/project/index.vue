@@ -6,7 +6,7 @@
           <h1
             class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
           >
-            {{ $t("project") }}
+            {{ $t("projects") }}
           </h1>
         </div>
         <div class="relative">
@@ -15,7 +15,7 @@
           </div>
           <div class="relative flex justify-start">
             <span class="pr-3 text-lg font-medium text-neutral-600 bg-white">
-              All Issues
+              {{ $t("all_issues") }}
             </span>
           </div>
         </div>

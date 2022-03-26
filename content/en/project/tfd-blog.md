@@ -1,52 +1,11 @@
 ---
-title: "TFD Blog"
+title: "A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD"
 category: project
 description: "A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD"
-media: https://ondemand.bannerbear.com/signedurl/9K5qxXae32jEAGRDkj/image.jpg?modifications=W3sibmFtZSI6InJlcG8iLCJ0ZXh0IjoidGZkLWVkIC8gKnRmZC1ibG9nKiJ9LHsibmFtZSI6ImRlc2MiLCJ0ZXh0IjoiU2VydmVybGVzcyBibG9nIGJ5IFRGRCBwb3dlcmVkIGJ5IG51eHQtY29udGVudCBhbmQgdGFpbHdpbmQgd2l0aCBEb2NrZXIifSx7Im5hbWUiOiJhdmF0YXI1IiwiaGlkZSI6dHJ1ZX0seyJuYW1lIjoiYXZhdGFyNCIsImhpZGUiOnRydWV9LHsibmFtZSI6ImF2YXRhcjMiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXIyIiwiaGlkZSI6dHJ1ZX0seyJuYW1lIjoiYXZhdGFyMSIsImltYWdlX3VybCI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS84ODU3MDYzNz92PTQifSx7Im5hbWUiOiJjb250cmlidXRvcnMiLCJ0ZXh0IjoidGZkLWVkIn0seyJuYW1lIjoic3RhcnMiLCJ0ZXh0IjoiMCJ9XQ&s=57dc385498a5ef8f9c059db10c5d6ae6efc4e49a20d90d6bc8454079a47cf07f
+media: https://i.imgur.com/eFmAzaH.jpg
 git: https://github.com/tfd-ed/tfd-blog
 by: "Chau Dara"
 ---
-<h1>A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD
-  <a  
-    href="https://nestjs.com/"  
-    target="blank"  
-  >  
-<br/>  
-<br/> 
-    <img  
-      src="https://www.docker.com/wp-content/uploads/2022/03/horizontal-logo-monochromatic-white.png"  
-      width="180"  
-      alt="Nest Logo"  
-    /> 
-    <img  
-      src="https://content.nuxtjs.org/logo-light.svg"  
-      width="220"  
-      alt="Nest Logo"  
-    />  
-<img  
-      src="https://camo.githubusercontent.com/53b9876cd8e38928387c6824043b0e2772b15b1bfdb7f42d0864216abbf3dfe8/68747470733a2f2f7265666163746f72696e6775692e6e7963332e63646e2e6469676974616c6f6365616e7370616365732e636f6d2f7461696c77696e642d6c6f676f2e737667"  
-      width="200"  
-      alt="Nest Logo"  
-    />  
-
-  </a>  
-</h1>
-
-<p align="center">  
-<img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" width="75">
-<img src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white" width="80">  
-<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" width="100">  
-<img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white" width="80">  
-<img src="https://img.shields.io/badge/Nuxt-black?style=for-the-badge&logo=nuxt.js&logoColor=white" width="70">  
-<img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" width="110">
-<img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" width="60">  
-<br/>
-<a href="https://app.netlify.com/sites/relaxed-neumann-d28ee3/deploys"><img src="https://api.netlify.com/api/v1/badges/1f884128-722a-4ae3-bc04-8bf55bc27cd3/deploy-status"/></a>
-<a href="https://www.npmjs.com/package/nuxt" target="_blank"><img src="https://badgen.net/npm/v/nuxt" alt="Version" /></a>  
-<a href="https://www.gnu.org/licenses/gpl-3.0" target="_blank"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="Package License" /></a>  
-<img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCJHZ__wUxS9lgTZHMxpMJcQ?style=social">  
-<br/>   
-</p>
 
 ## Features
 
