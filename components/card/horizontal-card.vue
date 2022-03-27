@@ -1,7 +1,6 @@
 <template>
   <div class="pt-8 grid grid-cols-1 gap-6 md:grid-cols-4">
-    <nuxt-img
-      provider="unsplash"
+    <img
       :src="post.media"
       class="object-cover w-full h-40 col-span-1 bg-center"
       loading="lazy"
@@ -12,8 +11,8 @@
       </p>
       <h2 class="mb-2 text-xl font-extrabold leading-snug text-gray-800">
         <nuxt-link
-          :to="post.path"
-          class="text-gray-900 hover:text-purple-700"
+          :to="localePath(post.path)"
+          class="text-gray-900 hover:text-red-700"
           >{{ post.title }}</nuxt-link
         >
         <p

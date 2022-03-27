@@ -56,13 +56,13 @@
               v-html="$t('tfd_mission')"
             ></p>
             <div class="flex flex-col space-y-4 mt-4">
-              <youtube-subscribe-button
-                identifier="my-subscribe-button"
-                :channelid="$config.YOUTUBE_CHANNEL_ID"
-                layout="default"
-                theme="dark"
-                :count="true"
-              ></youtube-subscribe-button>
+              <!--              <youtube-subscribe-button-->
+              <!--                identifier="my-subscribe-button"-->
+              <!--                :channelid="$config.YOUTUBE_CHANNEL_ID"-->
+              <!--                layout="default"-->
+              <!--                theme="dark"-->
+              <!--                :count="true"-->
+              <!--              ></youtube-subscribe-button>-->
               <nuxt-link
                 :to="localePath('blog')"
                 class="text-red-500 inline-flex items-center capitalize"
@@ -80,7 +80,7 @@
                 </svg>
               </nuxt-link>
               <nuxt-link
-                :to="localePath('projects')"
+                :to="localePath('project')"
                 class="text-red-500 inline-flex items-center"
                 >{{ $t("our_project") }}
                 <svg

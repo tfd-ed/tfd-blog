@@ -6,7 +6,7 @@
           <h1
             class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
           >
-            {{ $t("project") }}
+            {{ $t("projects") }}
           </h1>
         </div>
         <div class="relative">
@@ -15,7 +15,7 @@
           </div>
           <div class="relative flex justify-start">
             <span class="pr-3 text-lg font-medium text-neutral-600 bg-white">
-              All Issues
+              {{ $t("all_issues") }}
             </span>
           </div>
         </div>
@@ -30,27 +30,52 @@
             :post="project"
           ></HorizontalCard>
         </XyzTransitionGroup>
+        <div class="flex flex-row justify-center mx-auto mt-12">
+          <div class="btn-group">
+            <nuxt-link :to="prevLink" class="btn">«</nuxt-link>
+            <button class="btn">{{ $t("page") + pageNo }}</button>
+            <nuxt-link
+              v-if="nextPage"
+              class="btn"
+              :to="`project/page/${pageNo + 1}`"
+              >»</nuxt-link
+            >
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
-import { onAnalyticsReady } from "vue-analytics";
 export default {
   components: { HorizontalCard },
   async asyncData(context) {
-    const { $content, app } = context;
+    const { $content, app, params } = context;
+    const pageNo = parseInt(params.number);
     const defaultLocale = app.i18n.locale;
-    const projects = await $content(`${defaultLocale}/project`, {
+    const tenProjects = await $content(`${defaultLocale}/project`, {
       text: true,
-    }).fetch();
+    })
+      .sortBy("createdAt", "desc")
+      .limit(10)
+      .skip(9 * (pageNo - 1))
+      .fetch();
+    const nextPage = tenProjects.length === 10;
+    const projects = nextPage ? tenProjects.slice(0, -1) : tenProjects;
     return {
       projects: projects.map((project) => ({
         ...project,
         path: project.path.replace(`/${defaultLocale}`, ""),
       })),
+      nextPage,
+      pageNo,
     };
+  },
+  computed: {
+    prevLink() {
+      return this.pageNo === 2 ? "/project" : `project/page/${this.pageNo - 1}`;
+    },
   },
 };
 </script>

@@ -5,16 +5,16 @@
         ><nuxt-img src="/tfd_logo.jpeg" class="w-12"></nuxt-img
       ></nuxt-link>
       <p>TFD<br />Teaching For Devs</p>
-      <p>{{ $config.EMAIL }}</p>
+      <a :href="`mailto:${$config.EMAIL}`">{{ $config.EMAIL }}</a>
     </div>
     <div>
       <span class="footer-title">{{ $t("more") }}</span>
       <nuxt-link :to="localePath('about-us')" class="capitalize">{{
         $t("about_us")
       }}</nuxt-link>
-      <nuxt-link :to="localePath('contact')" class="capitalize">{{
-        $t("contact")
-      }}</nuxt-link>
+      <!--      <nuxt-link :to="localePath('contact')" class="capitalize">{{-->
+      <!--        $t("contact")-->
+      <!--      }}</nuxt-link>-->
     </div>
     <div>
       <span class="footer-title">{{ $t("social") }}</span>

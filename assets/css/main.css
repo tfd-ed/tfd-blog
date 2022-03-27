@@ -21,3 +21,25 @@
   font-display: swap;
   src: url('~assets/fonts/Kantumruy-Regular.ttf') format('truetype');
 }
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width:100%;
+}
+
+.video-container::after {
+  padding-top: 56.25%;
+  display: block;
+  content: '';
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.widget{
+  @apply transition duration-150 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+}
