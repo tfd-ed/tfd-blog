@@ -21,7 +21,7 @@
       </div>
       <div class="col-span-1 md:col-span-2">
         <nuxt-img
-          src="/donation.jpeg"
+          src="/donation_aba.jpeg"
           class="w-full ml-0 select-none"
           alt="Mac App"
         />

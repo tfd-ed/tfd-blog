@@ -12,7 +12,7 @@
       <h2 class="mb-2 text-xl font-extrabold leading-snug text-gray-800">
         <nuxt-link
           :to="localePath(post.path)"
-          class="text-gray-900 hover:text-purple-700"
+          class="text-gray-900 hover:text-red-700"
           >{{ post.title }}</nuxt-link
         >
         <p

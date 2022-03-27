@@ -5,7 +5,7 @@
         ><nuxt-img src="/tfd_logo.jpeg" class="w-12"></nuxt-img
       ></nuxt-link>
       <p>TFD<br />Teaching For Devs</p>
-      <p>{{ $config.EMAIL }}</p>
+      <a :href="`mailto:${$config.EMAIL}`">{{ $config.EMAIL }}</a>
     </div>
     <div>
       <span class="footer-title">{{ $t("more") }}</span>

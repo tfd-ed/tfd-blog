@@ -23,7 +23,7 @@
           :title="post.title"
           :description="post.description"
           :media="post.media"
-          class="text-gray-600 hover:text-gray-900"
+          class="text-gray-600 hover:text-gray-900 widget"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
           :title="post.title"
           :description="post.description"
           :media="post.media"
-          class="text-gray-600 hover:text-gray-900"
+          class="text-gray-600 hover:text-gray-900 widget"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,16 +65,14 @@
           :title="post.title"
           :description="post.description"
           :media="post.media"
-          class="text-gray-600 hover:text-gray-900"
+          class="text-gray-600 hover:text-gray-900 widget"
         >
           <nuxt-img src="/telegram_black.png" class="w-6"></nuxt-img>
         </ShareNetwork>
       </div>
-      <nuxt-img
-        provider="unsplash"
+      <img
         :src="post.media"
         class="object-cover w-full h-64 bg-center rounded"
-        alt="Kutty"
       />
     </div>
 

@@ -23,7 +23,7 @@
               :title="post.title"
               :description="post.description"
               :media="post.media"
-              class="text-gray-600 hover:text-gray-900"
+              class="text-gray-600 hover:text-gray-900 widget"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
               :title="post.title"
               :description="post.description"
               :media="post.media"
-              class="text-gray-600 hover:text-gray-900"
+              class="text-gray-600 hover:text-gray-900 widget"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@
               :title="post.title"
               :description="post.description"
               :media="post.media"
-              class="text-gray-600 hover:text-gray-900"
+              class="text-gray-600 hover:text-gray-900 widget"
             >
               <nuxt-img src="/telegram_black.png" class="w-6"></nuxt-img>
             </ShareNetwork>
@@ -90,9 +90,6 @@
           />
         </div>
         <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">
-          <div
-            class="space-y-10 sm:space-y-0 sm:flex sm:items-center sm:justify-between"
-          ></div>
           <nuxt-content
             :document="post"
             class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"

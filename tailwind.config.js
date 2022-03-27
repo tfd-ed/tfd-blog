@@ -19,11 +19,11 @@ module.exports = {
     extend: {
       backgroundColor: (theme) => ({
         facebook: "#1778F2",
-        aba: "#005d85",
+        aba: "#007297",
       }),
       colors: (theme) => ({
         facebook: "#1778F2",
-        ba: "#005d85",
+        aba: "#007297",
       }),
     },
   },
@@ -33,6 +33,28 @@ module.exports = {
     require("daisyui"),
   ],
   daisyui: {
-    themes: ["light"],
+    themes: [
+      {
+        mytheme: {
+          primary: "#1f2937",
+
+          secondary: "#0ea5e9",
+
+          accent: "#37CDBE",
+
+          neutral: "#3D4451",
+
+          "base-100": "#FFFFFF",
+
+          info: "#3ABFF8",
+
+          success: "#36D399",
+
+          warning: "#FBBD23",
+
+          error: "#F87272",
+        },
+      },
+    ],
   },
 };

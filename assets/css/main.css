@@ -40,3 +40,6 @@
   width: 100%;
   height: 100%;
 }
+.widget{
+  @apply transition duration-150 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+}
