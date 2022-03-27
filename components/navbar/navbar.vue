@@ -75,13 +75,13 @@
             }}</nuxt-link>
           </li>
           <li>
-            <nuxt-link :to="localePath('about-us')" class="capitalize">{{
-              $t("about_us")
+            <nuxt-link :to="localePath('project')" class="capitalize">{{
+              $t("projects")
             }}</nuxt-link>
           </li>
           <li>
-            <nuxt-link :to="localePath('project')" class="capitalize">{{
-              $t("projects")
+            <nuxt-link :to="localePath('about-us')" class="capitalize">{{
+              $t("about_us")
             }}</nuxt-link>
           </li>
           <li>
