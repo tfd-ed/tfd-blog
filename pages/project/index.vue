@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="px-4 py-12 mx-auto">
+    <div class="px-4 py-6 mx-auto">
       <div class="max-w-4xl pt-24 mx-auto">
         <div class="mb-24 text-left md:text-center">
           <h1

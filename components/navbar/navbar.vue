@@ -23,6 +23,11 @@
           }}</nuxt-link>
         </li>
         <li>
+          <nuxt-link :to="localePath('about-us')" class="capitalize">{{
+            $t("about_us")
+          }}</nuxt-link>
+        </li>
+        <li>
           <nuxt-link
             v-if="$i18n.locale === 'en'"
             class="cursor-pointer -mt-2"
@@ -67,6 +72,11 @@
           <li>
             <nuxt-link :to="localePath('blog')" class="capitalize">{{
               $t("articles")
+            }}</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link :to="localePath('about-us')" class="capitalize">{{
+              $t("about_us")
             }}</nuxt-link>
           </li>
           <li>

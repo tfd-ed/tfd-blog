@@ -12,9 +12,9 @@
       <nuxt-link :to="localePath('about-us')" class="capitalize">{{
         $t("about_us")
       }}</nuxt-link>
-      <nuxt-link :to="localePath('contact')" class="capitalize">{{
-        $t("contact")
-      }}</nuxt-link>
+      <!--      <nuxt-link :to="localePath('contact')" class="capitalize">{{-->
+      <!--        $t("contact")-->
+      <!--      }}</nuxt-link>-->
     </div>
     <div>
       <span class="footer-title">{{ $t("social") }}</span>
