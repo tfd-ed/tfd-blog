@@ -27,34 +27,19 @@ module.exports = {
       }),
     },
   },
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          primary: "#1f2937",
+        },
+      },
+    ],
+  },
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("daisyui"),
   ],
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          primary: "#1f2937",
-
-          secondary: "#0ea5e9",
-
-          accent: "#37CDBE",
-
-          neutral: "#3D4451",
-
-          "base-100": "#FFFFFF",
-
-          info: "#3ABFF8",
-
-          success: "#36D399",
-
-          warning: "#FBBD23",
-
-          error: "#F87272",
-        },
-      },
-    ],
-  },
 };

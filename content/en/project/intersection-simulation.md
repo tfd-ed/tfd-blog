@@ -32,11 +32,11 @@ I have complied the source code and test on the following systems:
 * Ubuntu 20.04.2 LTS
 
 ##  Build  Instructions
-RISV  requires  [Qt  5.0.0+](https://download.qt.io/archive/qt/)  to  to  complie  and  run.  The  source  code  can  be  compiled  using  one  of  these  options.
 #### Clone the source code
 ```sh   
 $ git  clone  https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization.git  
-```  
+``` 
+RISV  requires  [Qt  5.0.0+](https://download.qt.io/archive/qt/)  to  to  complie  and  run.  The  source  code  can  be  compiled  using  one  of  these  options. 
 ###  Quick Run on Windows, Mac, and Linux  with  Qt  Creator
 - Open the project with Qt Creator.
 - Configure project with either MinGW or Visual Compiler
