@@ -30,6 +30,7 @@
             :post="project"
           ></HorizontalCard>
         </XyzTransitionGroup>
+        <Confused v-if="projects.length === 0" />
         <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
             <button class="btn">«</button>
@@ -45,8 +46,9 @@
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
+import Confused from "@/components/card/confused";
 export default {
-  components: { HorizontalCard },
+  components: { Confused, HorizontalCard },
   async asyncData(context) {
     const { $content, app } = context;
     const defaultLocale = app.i18n.locale;
