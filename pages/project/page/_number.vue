@@ -30,11 +30,14 @@
             :post="project"
           ></HorizontalCard>
         </XyzTransitionGroup>
-        <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
+        <div class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
-            <button class="btn">«</button>
-            <button class="btn">{{ $t("page") }} 1</button>
-            <nuxt-link class="btn" :to="localePath('/project/page/2')"
+            <nuxt-link :to="prevLink" class="btn">«</nuxt-link>
+            <button class="btn">{{ $t("page") + pageNo }}</button>
+            <nuxt-link
+              v-if="nextPage"
+              class="btn"
+              :to="`project/page/${pageNo + 1}`"
               >»</nuxt-link
             >
           </div>
@@ -48,13 +51,15 @@ import HorizontalCard from "@/components/card/horizontal-card";
 export default {
   components: { HorizontalCard },
   async asyncData(context) {
-    const { $content, app } = context;
+    const { $content, app, params } = context;
+    const pageNo = parseInt(params.number);
     const defaultLocale = app.i18n.locale;
     const tenProjects = await $content(`${defaultLocale}/project`, {
       text: true,
     })
       .sortBy("createdAt", "desc")
       .limit(10)
+      .skip(9 * (pageNo - 1))
       .fetch();
     const nextPage = tenProjects.length === 10;
     const projects = nextPage ? tenProjects.slice(0, -1) : tenProjects;
@@ -64,7 +69,13 @@ export default {
         path: project.path.replace(`/${defaultLocale}`, ""),
       })),
       nextPage,
+      pageNo,
     };
+  },
+  computed: {
+    prevLink() {
+      return this.pageNo === 2 ? "/project" : `project/page/${this.pageNo - 1}`;
+    },
   },
 };
 </script>

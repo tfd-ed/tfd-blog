@@ -13,7 +13,7 @@
       </template>
     </Quote>
     <nuxt-content
-      class="mt-20 prose prose-md md:prose-xl text-justify mx-auto"
+      class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
       :document="about"
     ></nuxt-content>
     <AbaDonation />

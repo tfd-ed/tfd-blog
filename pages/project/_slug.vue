@@ -87,7 +87,6 @@
           <img
             :src="post.media"
             class="object-cover w-full h-64 bg-center rounded"
-            alt="Kutty"
           />
         </div>
         <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">

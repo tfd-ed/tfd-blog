@@ -1,19 +1,11 @@
 ---
 title: "កម្មវិធីធ្វើត្រាប់តាម ចរាចរណ៍នៅផ្លូវប្រសព្វ ដោយប្រើគណិត នឹង ភាសាប្រូក្រាម C/C++"
 category: programming
-description: "Intersection simulation program written in C++"
+description: "កម្មវិធីធ្វើត្រាប់តាម ចរាចរណ៍នៅផ្លូវប្រសព្វ​ដែល​មាន​សមត្ថភាព​បង្កើត​យានជំនិះ​ដែល​មក​ដល់​ក្នុង​អត្រា​ដែល​អាច​គ្រប់​គ្រង​ខុសៗ​គ្នា។"
 media: https://i.imgur.com/YgaJFP9.png
 git: https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization
-by: "Chau Dara"
+by: "ចៅ ដារ៉ា"
 ---
-
-#  Road  Intersection  Simulation  and  Visulization
-
-![Logo](https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization/blob/master/Image/logo_inter.png?raw=true)
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![Version](https://img.shields.io/badge/Qt-5.12.10-41cd52.svg)
-
-![Binary Release Windows x86x64](https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization/workflows/Binary%20Release%20Windows%20x64/badge.svg?branch=master)
 
 I've  decided  to  open-source  this  source  code  under  **GPLv3(GNU  General  Public  License,  version  3)** after  my  graduation  from  the  university.
 
@@ -23,7 +15,7 @@ This  is  a  intersection  simulation  software  capable  of  generating  the  a
 Obey  the  traffic  lights  or  not,  treat  front  vehicles  are  invisible  or  not.  
 **Demo** : https://www.youtube.com/watch?v=yKl4c4eQUy8
 
-```sh   
+```bash   
 $  git  clone  https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization.git   
 ```  
 ##  Gallery
@@ -39,7 +31,7 @@ I have complied the source code and test on the following systems:
 ##  Build  Instructions
 RISV  requires  [Qt  5.0.0+](https://download.qt.io/archive/qt/)  to  to  complie  and  run.  The  source  code  can  be  compiled  using  one  of  these  options.
 #### Clone the source code
-```sh   
+```bash   
 $ git  clone  https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization.git  
 ```  
 ###  Quick Run on Windows, Mac, and Linux  with  Qt  Creator
@@ -49,7 +41,7 @@ $ git  clone  https://github.com/KimangKhenng/Traffic-SImulation-and-Visualizati
 ###  Manually Build Release on Windows with MingGW
 Make sure you add ***Qt/5.XX/mingw/mingwXXX_64/bin/*** and **Qt/Tools/mingwXXX_64/bin/** to your **PATH** in system environment variables.
 
-```sh  
+```bash  
 $ cd Traffic-SImulation-and-Visualization  
 $ qmake  
 $ mingw32-make  
@@ -57,12 +49,17 @@ $ mingw32-make clean
 $ cd release  
 $ windeployqt --quick --no-translations .  
 ```  
-##  Contributors
-- **KimAng Kheang**, TFD ( Software Architect, AI Developer)
-- **Sokchea Kor**, ITED, FE, RUPP ( Advisor, Initiator)
+##  អ្នករួមចំណែក
+- **ឃាង គឹមអាង**, TFD ( ស្ថាបត្យករ Software, អ្នកអភិវឌ្ឍន៍ AI)
+- **កោ សុខជា**, ដេប៉ាតឺម៉ង់វិស្វកម្មបច្ចេកវិទ្យាព័ត៌មាន, មហាវិទ្យាល័យ​វិស្វកម្ម, សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ ( Advisor, Initiator)
 
-Interested in becoming one of the contributors? Wanna take part in our community? Send me an email detaling how you would like to add features, fixe certain part, or whatever on your mind to kimangkheang@gmail.com
-## Acknowledgement
-[![Logo](https://i.imgur.com/VRomAuU.jpg)](https://www.rupp.edu.kh/fe/) [![Logo](https://i.imgur.com/UyGOhnf.png)](https://www.rupp.edu.kh/) [![Logo](https://i.imgur.com/LW2lDla.png)](https://www.youtube.com/c/TeachingForDevelopment)
-- Thanks to **endrll**  for providing [CQtDeployer](https://github.com/QuasarApp/CQtDeployer) packaging system to ship this software in production.
-- Thanks to **jurplel** for providing [install-qt-action](https://github.com/jurplel/install-qt-action) that helps us in creating automating build process.
+ចាប់អារម្មណ៍ចង់ក្លាយជាអ្នករួមចំណែកម្នាក់? ចង់ចូលរួមក្នុងសហគមន៍របស់យើងទេ? ផ្ញើអ៊ីមែលមកខ្ញុំដោយលម្អិតអំពីរបៀបដែលអ្នកចង់បន្ថែមលក្ខណៈពិសេស ជួសជុលផ្នែកខ្លះ ឬអ្វីក៏ដោយដែលអ្នកចង់បានមកកាន់ kimangkheang@gmail.com
+## ថ្លែងអំណរគុណ
+<div class="flex flex-row space-x-2">
+  <a href="https://www.rupp.edu.kh/fe/" target="_blank"><img src="https://i.imgur.com/VRomAuU.jpg" ></a>
+  <a href="https://www.rupp.edu.kh/" target="_blank"><img src="https://i.imgur.com/UyGOhnf.png" ></a>
+  <a href="https://www.youtube.com/c/TeachingForDevelopment" target="_blank"><img src="https://i.imgur.com/LW2lDla.png" ></a>
+</div>
+
+- សូមអរគុណដល់ endrll សម្រាប់ការផ្តល់ប្រព័ន្ធវេចខ្ចប់ [CQtDeployer](https://github.com/QuasarApp/CQtDeployer) ដើម្បីផលិតកម្មវិធីនេះ។
+- សូមអរគុណដល់ jurplel សម្រាប់ការផ្តល់ [install-qt-action](https://github.com/jurplel/install-qt-action) ដែលជួយយើងក្នុងការបង្កើតដំណើរការបង្កើតដោយស្វ័យប្រវត្តិ។

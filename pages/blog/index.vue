@@ -29,60 +29,42 @@
           :post="post"
         ></HorizontalCard>
       </XyzTransitionGroup>
-      <!--      <infinite-loading-->
-      <!--        spinner="circles"-->
-      <!--        @infinite="infiniteScroll"-->
-      <!--      ></infinite-loading>-->
+      <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
+        <div class="btn-group">
+          <button class="btn">«</button>
+          <button class="btn">{{ $t("page") }} 1</button>
+          <nuxt-link class="btn" :to="localePath('/project/page/2')"
+            >»</nuxt-link
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
 export default {
-  name: "Blog",
   components: { HorizontalCard },
   async asyncData(context) {
-    const { $content, app } = context;
+    const { $content, app, params } = context;
+    const pageNo = parseInt(params.number);
     const defaultLocale = app.i18n.locale;
-    const posts = await $content(`${defaultLocale}/blog`, {
+    const tenPosts = await $content(`${defaultLocale}/blog`, {
       text: true,
-    }).fetch();
+    })
+      .sortBy("createdAt", "desc")
+      .limit(10)
+      .fetch();
+    const nextPage = tenPosts.length === 10;
+    const posts = nextPage ? tenPosts.slice(0, -1) : tenPosts;
     return {
       posts: posts.map((post) => ({
         ...post,
         path: post.path.replace(`/${defaultLocale}`, ""),
       })),
+      nextPage,
+      pageNo,
     };
-  },
-  // data() {
-  //   return {
-  //     posts: [],
-  //     page: 1,
-  //     limit: 5,
-  //   };
-  // },
-  methods: {
-    infiniteScroll($state) {
-      setTimeout(async () => {
-        let newPost = await this.$content(`${this.$i18n.locale}/blog`, {
-          text: true,
-        })
-          .skip((+this.page - 1) * this.limit)
-          .limit(this.limit)
-          .fetch();
-        newPost = newPost.map((post) => ({
-          ...post,
-          path: post.path.replace(`/${this.$i18n.locale}`, ""),
-        }));
-        if (newPost.length) {
-          this.page += 1;
-          $state.loaded();
-          this.posts.push(...newPost);
-        } else {
-          $state.complete();
-        }
-      }, 500);
-    },
   },
 };
 </script>

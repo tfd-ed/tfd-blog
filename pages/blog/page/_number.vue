@@ -6,7 +6,7 @@
           <h1
             class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
           >
-            {{ $t("projects") }}
+            {{ $t("articles") }}
           </h1>
         </div>
         <div class="relative">
@@ -25,16 +25,19 @@
           xyz="fade back-1 small-1 ease-out stagger-2 perspective-2"
         >
           <HorizontalCard
-            v-for="(project, $index) in projects"
-            :key="`project-${$index}`"
-            :post="project"
+            v-for="(post, $index) in posts"
+            :key="`post-${$index}`"
+            :post="post"
           ></HorizontalCard>
         </XyzTransitionGroup>
-        <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
+        <div class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
-            <button class="btn">«</button>
-            <button class="btn">{{ $t("page") }} 1</button>
-            <nuxt-link class="btn" :to="localePath('/project/page/2')"
+            <nuxt-link :to="prevLink" class="btn">«</nuxt-link>
+            <button class="btn">{{ $t("page") + pageNo }}</button>
+            <nuxt-link
+              v-if="nextPage"
+              class="btn"
+              :to="`project/page/${pageNo + 1}`"
               >»</nuxt-link
             >
           </div>
@@ -48,23 +51,31 @@ import HorizontalCard from "@/components/card/horizontal-card";
 export default {
   components: { HorizontalCard },
   async asyncData(context) {
-    const { $content, app } = context;
+    const { $content, app, params } = context;
+    const pageNo = parseInt(params.number);
     const defaultLocale = app.i18n.locale;
-    const tenProjects = await $content(`${defaultLocale}/project`, {
+    const tenBlogs = await $content(`${defaultLocale}/blog`, {
       text: true,
     })
       .sortBy("createdAt", "desc")
       .limit(10)
+      .skip(9 * (pageNo - 1))
       .fetch();
-    const nextPage = tenProjects.length === 10;
-    const projects = nextPage ? tenProjects.slice(0, -1) : tenProjects;
+    const nextPage = tenBlogs.length === 10;
+    const posts = nextPage ? tenBlogs.slice(0, -1) : tenBlogs;
     return {
-      projects: projects.map((project) => ({
-        ...project,
-        path: project.path.replace(`/${defaultLocale}`, ""),
+      posts: posts.map((post) => ({
+        ...post,
+        path: post.path.replace(`/${defaultLocale}`, ""),
       })),
       nextPage,
+      pageNo,
     };
+  },
+  computed: {
+    prevLink() {
+      return this.pageNo === 2 ? "/blog" : `blog/page/${this.pageNo - 1}`;
+    },
   },
 };
 </script>
