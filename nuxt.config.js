@@ -1,4 +1,5 @@
 import createSitemapRoutes from "./utils/createSitemap";
+import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -64,49 +65,10 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxt/content",
+    "@nuxtjs/feed",
     "nuxt-i18n",
     "vue-social-sharing/nuxt",
     "cookie-universal-nuxt",
-    // [
-    //   "nuxt-cookie-control",
-    //   {
-    //     css: true,
-    //     locales: ["en", "kh"],
-    //     barPosition: "bottom-full",
-    //     colors: {
-    //       barBackground: "#2c3e50",
-    //       checkboxActiveBackground: "#2ecc71",
-    //       checkboxInactiveBackground: "#95a5a6",
-    //     },
-    //     text: {
-    //       locale: {
-    //         kh: {
-    //           acceptAll: "យល់ព្រម",
-    //           declineAll: "លុបចោលទាំងអស់",
-    //           manageCookies: "គ្រប់គ្រងខូគី",
-    //           unsaved: "អ្នកមានការកំណត់ដែលមិនបានរក្សាទុក",
-    //           close: "ចាកចេញ",
-    //           save: "រក្សាទុក",
-    //           necessary: "ខូឃីចាំបាច់",
-    //           optional: "ខូគីជ្រេីសរើស",
-    //         },
-    //         en: {
-    //           acceptAll: "Accept",
-    //           declineAll: "Delete all",
-    //           manageCookies: "Manage cookies",
-    //           unsaved: "You have unsaved settings",
-    //           close: "Close",
-    //           save: "Save",
-    //           necessary: "Necessary cookies",
-    //           optional: "Optional cookies",
-    //           functional: "Functional cookies",
-    //           blockedIframe: "To see this, please enable functional cookies",
-    //           here: "here",
-    //         },
-    //       },
-    //     },
-    //   },
-    // ],
     "@nuxtjs/sitemap",
     [
       "nuxt-youtube-subscribe-module",
@@ -115,6 +77,16 @@ export default {
       },
     ],
     // "cookie-universal-nuxt",
+  ],
+  // Feed Configuration
+  feed: [
+    {
+      path: "/feed.xml",
+      create,
+      cacheTime: 1000 * 60 * 15,
+      type: "rss2",
+      data: ["kh/project", "xml"],
+    },
   ],
   // Sitemap Config
   sitemap: {
@@ -164,56 +136,12 @@ export default {
     disabled: true,
     checkDuplicatedScript: true,
     debug: {
-      enabled: process.env.NODE_ENV !== "production",
+      enabled: process.env.NODE_ENV !== "release",
       sendHitTask: true,
     },
     autoTracking: {
       screenview: true,
     },
-  },
-
-  // Cookie control configure
-  cookies: {
-    necessary: [
-      {
-        name: {
-          en: "Default cookies",
-          kh: "Cookie មានស្រាប",
-        },
-
-        description: {
-          en: "Used for cookie control.",
-          kh: "ប្រើសម្រាប់ការគ្រប់គ្រង Cookie ។",
-        },
-        // cookies: ["cookie_control_consent", "cookie_control_enabled_cookies"],
-      },
-    ],
-    optional: [
-      {
-        name: {
-          en: "Google Analytics",
-          kh: "Google វិភាគ",
-        },
-        description: {
-          en: "Google Analytics is a web analytics service offered by Google that tracks and reports website traffic.",
-          kh: "Google Analytics គឺជាសេវាកម្មវិភាគគេហទំព័រដែលផ្តល់ដោយ Google ដែលតាមដាន និងរាយការណ៍អំពីចរាចរណ៍គេហទំព័រ។",
-        },
-        // src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`,
-        // async: true,
-        // cookies: [
-        //   "_ga",
-        //   "_gat_gtag_" + process.env.GOOGLE_ANALYTICS_ID_,
-        //   "_gid",
-        // ],
-        accepted: () => {
-          document.cookie = "google_analytics_enabled=true";
-        },
-        declined: () => {
-          document.cookie = "google_analytics_enabled=";
-          document.cookie = "cookie_widget_hidden=true";
-        },
-      },
-    ],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -19,20 +19,27 @@ module.exports = {
     extend: {
       backgroundColor: (theme) => ({
         facebook: "#1778F2",
-        aba: "#005d85",
+        aba: "#007297",
       }),
       colors: (theme) => ({
         facebook: "#1778F2",
-        ba: "#005d85",
+        aba: "#007297",
       }),
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          primary: "#1f2937",
+        },
+      },
+    ],
   },
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("daisyui"),
   ],
-  daisyui: {
-    themes: ["light"],
-  },
 };
