@@ -17,13 +17,23 @@ export default {
   components: { CookiesModal, CookiesInfo, Footer, NavBar },
   mounted() {
     onAnalyticsReady().then(() => {
-      this.activeGA();
+      if (
+        this.$cookies.get("google_analytics") === undefined ||
+        this.$cookies.get("google_analytics") === true
+      ) {
+        this.activeGA();
+      } else if (this.$cookies.get("google_analytics") === false) {
+        this.disableGA();
+      }
     });
   },
   methods: {
     activeGA() {
       this.$ga.enable(); // Activate module
       this.$ga.page(this.$route.path);
+    },
+    disableGA() {
+      this.$ga.disable(); // User chose to disable
     },
   },
 };

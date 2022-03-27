@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="getBanner && $cookies.get('open') === 'true'"
+    v-if="getBanner && $cookies.get('accept_cookies') === undefined"
     class="sticky bottom-0 alert shadow-lg"
   >
     <div>
@@ -45,8 +45,7 @@ export default {
     }),
     acceptCookie() {
       this.$cookies.set("google_analytics", true);
-      this.$cookies.set("site_cookies", true);
-      this.$cookies.set("open", false);
+      this.$cookies.set("accept_cookies", true);
       this.changeBannerState(false);
     },
   },

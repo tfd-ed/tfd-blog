@@ -7,22 +7,27 @@ git: https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization
 by: "ចៅ ដារ៉ា"
 ---
 
-I've  decided  to  open-source  this  source  code  under  **GPLv3(GNU  General  Public  License,  version  3)** after  my  graduation  from  the  university.
+ខ្ញុំបានសម្រេចចិត្តបង្ហាញកូដគំរោងនេះជាសាធារណៈនៅក្រោម GPLv3 (អាជ្ញាប័ណ្ណសាធារណៈទូទៅរបស់ GNU, កំណែ 3) បន្ទាប់ពីខ្ញុំបានបញ្ចប់ការសិក្សាពីសាកលវិទ្យាល័យ។
 
+នេះ​ជា​កម្មវិធីធ្វើត្រាប់តាមចរាចរណ៍នៅផ្លូវប្រសព្វ​ដែល​មាន​សមត្ថភាព​បង្កើត​យានជំនិះ​ដែល​មក​ដល់​ក្នុង​អត្រា​អាច​គ្រប់​គ្រង​ខុសៗ​គ្នា។
 
-This  is  a  intersection  simulation  software  capable  of  generating  the  arriving  vehicles  in  varying  controllable  rate.  The  vehicle  behavior  can  be  changed  in  realtime  in  the  following  mode:
+ឥរិយាបថរថយន្តអាចត្រូវបានផ្លាស់ប្តូរក្នុងពេលវេលាជាក់ស្តែងនៅក្នុងរបៀបដូចខាងក្រោម៖
 
-Obey  the  traffic  lights  or  not,  treat  front  vehicles  are  invisible  or  not.  
-**Demo** : https://www.youtube.com/watch?v=yKl4c4eQUy8
+- គោរព​ភ្លើង​សញ្ញា​ចរាចរណ៍
+- មិន​គោរព​ច្បាប់​ចរាចរណ៍​
+- មើលអ្នកនៅ​មិន​ឃើញ​ឬ​អត់
+  
+## បទបង្ហាញ
 
-```bash   
-$  git  clone  https://github.com/KimangKhenng/Traffic-SImulation-and-Visualization.git   
-```  
-##  Gallery
-![alt text](https://i.imgur.com/gXGH3w4l.png)
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/yKl4c4eQUy8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/r1cmzhc8LH8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-##  Tested  Systems
-I have complied the source code and test on the following systems:
+##  ប្រព័ន្ធដែលបានសាកល្បង
+ខ្ញុំបានសាកល្បងដំណើការប្រូក្រាមនេះលើប្រព័ន្ធខាងក្រោម៖
 
 * Windows  10 20H2 19042
 * macOS  Big Sur 11.2.1

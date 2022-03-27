@@ -68,11 +68,13 @@ export default {
     }),
     acceptAll() {
       this.$cookies.set("google_analytics", true);
+      this.$cookies.set("accept_cookies", true);
       this.$ga.enable();
       this.$ga.page(this.$route.path);
     },
     deleteAll() {
       this.$cookies.set("google_analytics", false);
+      this.$cookies.set("accept_cookies", false);
       this.$ga.disable();
     },
   },
