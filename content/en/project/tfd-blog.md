@@ -6,6 +6,13 @@ media: https://i.imgur.com/eFmAzaH.jpg
 git: https://github.com/tfd-ed/tfd-blog
 by: "Chau Dara"
 ---
+We often hear the term **vlog** on YouTube nowadays. What about **Blog**?
+
+Blog is a website that regularly updates information concerning specific topics that people who really care and are interested in the topics in question. Blog can be a news website, personal diary, tips, DIY, etc.
+
+So the **V** in front of the blog means **video**. We can say  that vlog is a version of blog that tells stories in video instead of writing.
+
+You can start writing your own blog with **TFD Blog**.
 
 ## Features
 
@@ -53,7 +60,7 @@ Make sure [NodeJS](https://nodejs.dev/) version 16.4.0+ is installed in your mac
 $ yarn install  
 $ yarn dev  
 ````  
-Visit http://localhost:8000/
+Visit http://localhost:3000/
 
 ### Production
 ```bash  
