@@ -94,6 +94,7 @@
             :document="post"
             class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
           />
+          <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
         </div>
       </article>
     </div>
@@ -102,8 +103,9 @@
 <script>
 import { format } from "date-fns";
 import GitHubLogo from "@/components/logo/GitHubLogo";
+import Comments from "@/components/global/comments";
 export default {
-  components: { GitHubLogo },
+  components: { Comments, GitHubLogo },
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;
     const slug = params.slug;
