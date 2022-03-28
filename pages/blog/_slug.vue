@@ -80,12 +80,14 @@
       class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
       :document="post"
     />
+    <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
   </article>
 </template>
 <script>
 import { format } from "date-fns";
-import { onAnalyticsReady } from "vue-analytics";
+import Comments from "@/components/global/comments";
 export default {
+  components: { Comments },
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;
     const slug = params.slug;
