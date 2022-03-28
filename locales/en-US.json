@@ -53,5 +53,6 @@
   "donation": "Donation",
   "get_source_code": "Get source code",
   "page":"Page",
-  "no_articles": "There is no articles to read yet."
+  "no_articles": "There is no articles to read yet.",
+  "comments": "Comments"
 }
