@@ -1,5 +1,7 @@
 <template>
   <div class="dark:bg-gray-800 font-sans bg-white relative">
+    <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
+    </vue-scroll-indicator>
     <NavBar />
     <nuxt />
     <CookiesInfo />

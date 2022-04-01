@@ -5,7 +5,7 @@
         <XyzTransition
           appear-visible
           class="rounded-lg h-64 overflow-hidden"
-          xyz="fade back-1 small-50% ease-out stagger-2 perspective-2"
+          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
         >
           <img
             alt="content"
@@ -23,7 +23,7 @@
         <XyzTransitionGroup
           appear-visible
           class="flex flex-col sm:flex-row mt-10"
-          xyz="fade back-1 small-50% ease-out stagger-2 perspective-2"
+          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
         >
           <div :key="1" class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
             <div
@@ -40,7 +40,7 @@
               >
                 {{ $t("chau_dara") }}, {{ $t("founder") }}
               </h2>
-              <div class="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
+              <div class="w-12 h-1 bg-red-600 rounded mt-2 mb-4"></div>
               <p
                 class="text-base text-justify capitalize"
                 v-html="$t('chau_dara_quote')"
@@ -65,7 +65,7 @@
               <!--              ></youtube-subscribe-button>-->
               <nuxt-link
                 :to="localePath('blog')"
-                class="text-red-500 inline-flex items-center capitalize"
+                class="text-red-600 inline-flex items-center capitalize"
                 >{{ $t("read_articles") }}
                 <svg
                   fill="none"
@@ -81,7 +81,7 @@
               </nuxt-link>
               <nuxt-link
                 :to="localePath('project')"
-                class="text-red-500 inline-flex items-center"
+                class="text-red-600 inline-flex items-center"
                 >{{ $t("our_project") }}
                 <svg
                   fill="none"
