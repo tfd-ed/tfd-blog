@@ -5,8 +5,23 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: content
-  label: Content
+  path: content/kh/blog
+  label: Khmer Articles
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/en/blog
+  label: English Articles
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/en/project
+  label: English Project
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/kh/project
+  label: Khmer Project
   create: all
   match: "**/*"
 upload_dir: static
