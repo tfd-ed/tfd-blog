@@ -1,0 +1,22 @@
+---
+label: Project
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: category
+  label: category
+- type: text
+  name: description
+  label: description
+- type: file
+  name: media
+  label: media
+- type: text
+  name: git
+  label: git
+- type: text
+  name: by
+  label: by
