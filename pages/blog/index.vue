@@ -21,7 +21,7 @@
       <XyzTransitionGroup
         appear-visible
         class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
-        xyz="fade back-1 small-1 ease-out stagger-2 perspective-2"
+        xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
       >
         <HorizontalCard
           v-for="(post, $index) in posts"

@@ -26,7 +26,7 @@ export default {
   plugins: [
     { src: "~/plugins/country-flag.js", mode: "client" },
     { src: "~/plugins/animxyz.js", mode: "client" },
-    { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
+    { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -17,6 +17,8 @@ export default {
 
 <style>
 .utterances {
-  @apply w-full max-w-full;
+  width: 100%;
+  margin: 0 !important;
+  max-width: 100%;
 }
 </style>
