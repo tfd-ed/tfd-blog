@@ -36,17 +36,18 @@ $ git clone https://github.com/tfd-ed/tfd-blog
 
 បង្កើតឯកសារថ្មីមួយឈ្មោះ **.env** ពីឯកសារឈ្មោះ **.env.example** ហើយ ជំនួស **អថេរ** ទាំងអស់ជាមួយរបស់អ្នក.
 
-| អថេរ                | ពណ៌នា                                          | លំនាំដើម                                         |
-|---|---|---|
-| GOOGLE_ANALYTICS_ID | Google Analytics UA ID របស់អ្នក (UA-XXXXX-X)   |                                                  |
-| WEB_URL             | ដែនប្លុករបស់អ្នក។                              | https://www.tfdevs.com                           |
-| FACEBOOK_URL        | តំណរភ្ជាប់ទៅកាន់ទំព័រ Facebook ឬក្រុមរបស់អ្នក។ | https://www.facebook.com/teachingfordevelopment  |
-| TELEGRAM_URL        | តំណរភ្ជាប់ទៅបណ្តាញ Telegram ឬក្រុមរបស់អ្នក។    | https://t.me/tfdTech                             |
-| GITHUB_URL          | តំណរភ្ជាប់ទៅគណនី Github របស់អ្នក។              | https://github.com/tfd-ed                        |
-| YOUTUBE_URL         | តំណរភ្ជាប់ទៅឆានែល YouTube របស់អ្នក។            | https://www.youtube.com/c/TeachingForDevelopment |
-| SITE_TITLE          | ចំណងជើងប្លុករបស់អ្នក។                          | TFD Blog                                         |
-| EMAIL               | អាសយដ្ឋានអ៊ីមែលប្លុករបស់អ្នក។                  | info@tfdevs.com                                  |
-| YOUTUBE_CHANNEL_ID  | លេខសម្គាល់ប៉ុស្តិ៍ YouTube របស់អ្នក។           | UCJHZ__wUxS9lgTZHMxpMJcQ                         |
+| អថេរ                | ពណ៌នា                                          | លំនាំដើម                  |
+|---------------------|------------------------------------------------|---------------------------|
+| GOOGLE_ANALYTICS_ID | Google Analytics UA ID របស់អ្នក (UA-XXXXX-X)   |                           |
+| WEB_URL             | ដែនប្លុករបស់អ្នក។                              | https://www.tfdevs.com    |
+| FACEBOOK_URL        | តំណរភ្ជាប់ទៅកាន់ទំព័រ Facebook ឬក្រុមរបស់អ្នក។ |                           |
+| TELEGRAM_URL        | តំណរភ្ជាប់ទៅបណ្តាញ Telegram ឬក្រុមរបស់អ្នក។    | https://t.me/tfdTech      |
+| GITHUB_URL          | តំណរភ្ជាប់ទៅគណនី Github របស់អ្នក។              | https://github.com/tfd-ed |
+| YOUTUBE_URL         | តំណរភ្ជាប់ទៅឆានែល YouTube របស់អ្នក។            |                           |
+| SITE_TITLE          | ចំណងជើងប្លុករបស់អ្នក។                          | TFD Blog                  |
+| EMAIL               | អាសយដ្ឋានអ៊ីមែលប្លុករបស់អ្នក។                  | info@tfdevs.com           |
+| YOUTUBE_CHANNEL_ID  | លេខសម្គាល់ប៉ុស្តិ៍ YouTube របស់អ្នក។           | UCJHZ__wUxS9lgTZHMxpMJcQ  |
+
 
 
 បន្ទាប់មកត្រូវប្រើប្រាស់ បទបញ្ជារដូចខាងក្រោម៖

@@ -5,7 +5,7 @@ export default {
     const scriptTag = document.createElement("SCRIPT");
     scriptTag.setAttribute("src", "https://utteranc.es/client.js");
     scriptTag.setAttribute("repo", "tfd-ed/tfd-blog");
-    scriptTag.setAttribute("issue-term", "pathname");
+    scriptTag.setAttribute("issue-term", "title");
     scriptTag.setAttribute("label", "Comment");
     scriptTag.setAttribute("theme", "github-light");
     scriptTag.setAttribute("crossorigin", "anonymous");
