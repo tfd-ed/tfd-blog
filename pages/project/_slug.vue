@@ -119,7 +119,7 @@ export default {
   },
   head() {
     return {
-      title: this.post.title,
+      title: this.post.token,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
