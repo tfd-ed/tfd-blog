@@ -1,5 +1,6 @@
 ---  
-title: "សរសេរគេហទំព័រ ប្លក់(Blog) ដោយ មិនត្រូវការ Server តាមរយៈ TFD Blog  ជាមួយបច្ចេកវិទ្យា Nuxt/Content  នឹង TailwindCSS"  
+title: "សរសេរគេហទំព័រ ប្លក់(Blog) ដោយ មិនត្រូវការ Server តាមរយៈ TFD Blog  ជាមួយបច្ចេកវិទ្យា Nuxt/Content  នឹង TailwindCSS"
+token: "A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD"
 category: project  
 description: "សរសេរគេហទំព័រ ប្លក់(Blog) ដោយ មិនត្រូវការ Server តាមរយៈ TFD Blog  ជាមួយបច្ចេកវិទ្យា​ Nuxt/Content  នឹង TailwindCSS"  
 media: https://i.imgur.com/eFmAzaH.jpg

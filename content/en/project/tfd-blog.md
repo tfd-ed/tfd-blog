@@ -1,5 +1,6 @@
 ---
 title: "A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD"
+token: "A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD"
 category: project
 description: "A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD"
 media: https://i.imgur.com/eFmAzaH.jpg
