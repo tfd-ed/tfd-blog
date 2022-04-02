@@ -37,17 +37,18 @@ $ git clone https://github.com/tfd-ed/tfd-blog
 ````  
 Create **.env** file from **.env.example** and replace **environment variables** with your owns.
 
-| Variable  | Description  | Default                                          |  
-|---|---|--------------------------------------------------|
-| GOOGLE_ANALYTICS_ID  |  Your Google Analytics UA ID (UA-XXXXX-X) |                                                  | 
-|  WEB_URL |  Your blog domain | https://www.tfdevs.com                           | 
-|  FACEBOOK_URL |  Link to your Facebook page or group | https://www.facebook.com/teachingfordevelopment  | 
-|  TELEGRAM_URL | Link to your Telegram channel or group  | https://t.me/tfdTech                             | 
-|  GITHUB_URL | Link to your Github account  | https://github.com/tfd-ed                        | 
-| YOUTUBE_URL  |  Link to your YouTube channel | https://www.youtube.com/c/TeachingForDevelopment | 
-|  SITE_TITLE | Your blog title  | TFD Blog                                         | 
-|  EMAIL |  Your blog email address | info@tfdevs.com                                  | 
-| YOUTUBE_CHANNEL_ID | Your YouTube channel id | UCJHZ__wUxS9lgTZHMxpMJcQ                                                 |
+| Variable            | Description                              | Default                   |
+|---------------------|------------------------------------------|---------------------------|
+| GOOGLE_ANALYTICS_ID | Your Google Analytics UA ID (UA-XXXXX-X) |                           |
+| WEB_URL             | Your blog domain                         | www.tfdevs.com            |
+| FACEBOOK_URL        | Link to your Facebook page or group      |                           |
+| TELEGRAM_URL        | Link to your Telegram channel or group   | https://t.me/tfdTech      |
+| GITHUB_URL          | Link to your Github account              | https://github.com/tfd-ed |
+| YOUTUBE_URL         | Link to your YouTube channel             |                           |
+| SITE_TITLE          | Your blog title                          | TFD Blog                  |
+| EMAIL               | Your blog email address                  | info@tfdevs.com           |
+| YOUTUBE_CHANNEL_ID  | Your YouTube channel id                  | UCJHZ__wUxS9lgTZHMxpMJcQ  |
+
 
 ```bash    
 $ cd tfd-blog   

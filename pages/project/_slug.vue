@@ -4,11 +4,11 @@
       class="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-7xl"
     >
       <article>
-        <h1 class="sr-only leading-loose">{{ post.title }}</h1>
+        <h1 class="sr-only">{{ post.title }}</h1>
         <div class="mx-auto mb-10 text-left max-w-2xl md:max-w-4xl">
           <div class="pb-6 mb-6 border-b border-gray-200">
             <h1
-              class="mb-3 text-3xl font-bold text-gray-900 md:leading-tight md:text-4xl capitalize"
+              class="mb-3 text-3xl font-bold leading-relaxed text-justify text-gray-900 md:leading-tight md:text-4xl capitalize"
               itemprop="headline"
             >
               {{ post.title }}
@@ -92,7 +92,7 @@
         <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">
           <nuxt-content
             :document="post"
-            class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
+            class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose prose-sm sm:prose lg:prose-lg text-justify"
           />
           <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
         </div>
