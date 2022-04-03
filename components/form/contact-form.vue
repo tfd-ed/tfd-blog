@@ -4,7 +4,6 @@
     name="Contact"
     method="POST"
     netlify-honeypot="bot-field"
-    data-netlify-recaptcha="true"
     action="/contact-us/thanks"
     class="flex flex-wrap -m-2"
   >
@@ -55,7 +54,7 @@
         ></textarea>
       </div>
     </div>
-    <div data-netlify-recaptcha="true"></div>
+    <!--    <div data-netlify-recaptcha="true"></div>-->
     <div class="p-2 w-full">
       <button
         type="submit"
