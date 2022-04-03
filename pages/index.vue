@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import HorizontalCard from "~/components/card/horizontal-card";
 import SocialCard from "~/components/card/social-card";
 import Founder from "@/components/hero/founder";
 import Quote from "@/components/card/quote";
@@ -26,7 +25,6 @@ export default {
     Quote,
     Founder,
     SocialCard,
-    HorizontalCard,
   },
   head() {
     return {
