@@ -56,5 +56,6 @@
   "no_articles": "There is no articles to read yet.",
   "comments": "Comments",
   "contact_us": "Get in touch with us! How can we help you?",
-  "submit": "Submit"
+  "submit": "Submit",
+  "submit_success": "Thanks very much! We received your request! We'll contact you back."
 }

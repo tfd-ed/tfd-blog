@@ -1,10 +1,19 @@
+<!--This form only works in production when you integrate your site with Netlify.-->
 <template>
   <form
-    name="contact"
+    netlify
+    name="Contact"
     method="POST"
-    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/contact-us/thanks"
     class="flex flex-wrap -m-2"
   >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <input type="hidden" name="form-name" value="Contact" />
     <div class="p-2 w-1/2">
       <div class="relative">
         <label for="name" class="leading-7 text-sm text-gray-600">{{
@@ -46,6 +55,7 @@
         ></textarea>
       </div>
     </div>
+    <!--    <div data-netlify-recaptcha="true"></div>-->
     <div class="p-2 w-full">
       <button
         type="submit"

@@ -67,33 +67,13 @@
                 :to="localePath('blog')"
                 class="text-red-600 inline-flex items-center capitalize"
                 >{{ $t("read_articles") }}
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
+                <Arrow />
               </nuxt-link>
               <nuxt-link
                 :to="localePath('project')"
                 class="text-red-600 inline-flex items-center"
                 >{{ $t("our_project") }}
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
+                <Arrow />
               </nuxt-link>
             </div>
           </div>
@@ -102,3 +82,9 @@
     </div>
   </div>
 </template>
+<script>
+import Arrow from "@/components/icon/arrow";
+export default {
+  components: { Arrow },
+};
+</script>
