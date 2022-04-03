@@ -1,5 +1,17 @@
 <template>
-  <form netlify name="Contact" method="POST" class="flex flex-wrap -m-2">
+  <form
+    netlify
+    name="Contact"
+    method="POST"
+    netlify-honeypot="bot-field"
+    data-netlify-recaptcha="true"
+    class="flex flex-wrap -m-2"
+  >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
     <input type="hidden" name="form-name" value="Contact" />
     <div class="p-2 w-1/2">
       <div class="relative">
@@ -42,6 +54,7 @@
         ></textarea>
       </div>
     </div>
+    <div data-netlify-recaptcha="true"></div>
     <div class="p-2 w-full">
       <button
         type="submit"
