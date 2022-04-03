@@ -1,10 +1,6 @@
 <template>
-  <form
-    name="contact"
-    method="POST"
-    data-netlify="true"
-    class="flex flex-wrap -m-2"
-  >
+  <form netlify name="Contact" method="POST" class="flex flex-wrap -m-2">
+    <input type="hidden" name="form-name" value="Contact" />
     <div class="p-2 w-1/2">
       <div class="relative">
         <label for="name" class="leading-7 text-sm text-gray-600">{{
