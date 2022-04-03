@@ -1,3 +1,4 @@
+<!--This form only works in production when you integrate your site with Netlify.-->
 <template>
   <form
     netlify
