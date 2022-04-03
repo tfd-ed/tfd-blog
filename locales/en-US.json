@@ -1,9 +1,9 @@
 {
   "site_title": "Sarpheab",
-  "firstname": "first name",
-  "lastname": "last name",
+  "name": "Name",
   "date_of_birth": "date of birth",
-  "email": "email address",
+  "email": "Email Address",
+  "message": "Message",
   "phone": "phone number",
   "phone_error": "Phone number already registered.",
   "email_error": "Email address already registered.",
@@ -54,5 +54,7 @@
   "get_source_code": "Get source code",
   "page":"Page",
   "no_articles": "There is no articles to read yet.",
-  "comments": "Comments"
+  "comments": "Comments",
+  "contact_us": "Get in touch with us! How can we help you?",
+  "submit": "Submit"
 }
