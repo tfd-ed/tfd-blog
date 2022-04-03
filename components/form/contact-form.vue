@@ -5,6 +5,7 @@
     method="POST"
     netlify-honeypot="bot-field"
     data-netlify-recaptcha="true"
+    action="/contact-us/thanks"
     class="flex flex-wrap -m-2"
   >
     <p class="hidden">
