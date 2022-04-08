@@ -53,6 +53,10 @@ export default {
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID,
     },
+    "google-adsense": {
+      id: process.env.GOOGLE_ADSENSE_ID,
+      test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
+    },
     FACEBOOK_URL: process.env.FACEBOOK_URL,
     TELEGRAM_URL: process.env.TELEGRAM_URL,
     GITHUB_URL: process.env.GITHUB_URL,
@@ -74,6 +78,12 @@ export default {
       "nuxt-youtube-subscribe-module",
       {
         tag: "YoutubeSubscribeButton",
+      },
+    ],
+    [
+      "@nuxtjs/google-adsense",
+      {
+        id: process.env.GOOGLE_ADSENSE_ID,
       },
     ],
     // "cookie-universal-nuxt",

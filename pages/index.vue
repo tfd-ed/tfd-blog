@@ -1,5 +1,5 @@
 <template>
-  <section class="px-4 py-24 mx-auto max-w-7xl">
+  <section class="px-4 py-12 mx-auto max-w-7xl">
     <Founder />
     <SocialCard />
     <Quote quote="about_quote" owner="quote_owner" image_quote="random_image">

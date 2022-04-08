@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 py-12 mx-auto">
+  <div class="px-4 py-12 mx-auto h-screen">
     <div class="max-w-4xl pt-12 mx-auto">
       <div class="mb-6 text-left md:text-center">
         <h1

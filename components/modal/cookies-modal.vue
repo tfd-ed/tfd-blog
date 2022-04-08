@@ -1,7 +1,7 @@
 <template>
   <div>
     <input id="cookie-modal" type="checkbox" class="modal-toggle" />
-    <div class="modal">
+    <div class="modal modal-bottom sm:modal-middle">
       <div class="modal-box relative">
         <label
           for="cookie-modal"
