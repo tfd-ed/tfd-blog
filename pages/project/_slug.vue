@@ -93,7 +93,6 @@
             ad-layout="in-article"
             ad-format="fluid"
             :ad-slot="$config.GOOGLE_ADSENSE_SLOT"
-            :analytics-uacct="$config.GOOGLE_ANALYTICS_ID"
           />
         </div>
         <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">

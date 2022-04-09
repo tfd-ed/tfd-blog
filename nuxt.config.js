@@ -56,6 +56,7 @@ export default {
     "google-adsense": {
       id: process.env.GOOGLE_ADSENSE_ID,
       test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
+      analyticsUacct: process.env.GOOGLE_ADSENSE_ID,
     },
     FACEBOOK_URL: process.env.FACEBOOK_URL,
     TELEGRAM_URL: process.env.TELEGRAM_URL,
