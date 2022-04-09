@@ -64,6 +64,7 @@ export default {
     SITE_TITLE: process.env.SITE_TITLE,
     EMAIL: process.env.EMAIL,
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
+    GOOGLE_ADSENSE_SLOT: process.env.GOOGLE_ADSENSE_SLOT,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

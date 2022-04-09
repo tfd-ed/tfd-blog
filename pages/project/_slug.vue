@@ -88,6 +88,13 @@
             :src="post.media"
             class="object-cover w-full h-64 bg-center rounded"
           />
+          <adsbygoogle
+            class="py-4"
+            ad-layout="in-article"
+            ad-style="display:block; text-align:center;"
+            ad-format="fluid"
+            :ad-slot="$config.GOOGLE_ADSENSE_SLOT"
+          />
         </div>
         <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">
           <nuxt-content
