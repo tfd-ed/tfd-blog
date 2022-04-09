@@ -56,6 +56,7 @@ export default {
     "google-adsense": {
       id: process.env.GOOGLE_ADSENSE_ID,
       test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
+      analyticsUacct: process.env.GOOGLE_ADSENSE_ID,
     },
     FACEBOOK_URL: process.env.FACEBOOK_URL,
     TELEGRAM_URL: process.env.TELEGRAM_URL,
@@ -64,6 +65,8 @@ export default {
     SITE_TITLE: process.env.SITE_TITLE,
     EMAIL: process.env.EMAIL,
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
+    GOOGLE_ADSENSE_SLOT: process.env.GOOGLE_ADSENSE_SLOT,
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
