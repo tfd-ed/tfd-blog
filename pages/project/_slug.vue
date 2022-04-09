@@ -92,13 +92,19 @@
             class="py-4"
             ad-layout="in-article"
             ad-format="fluid"
-            :ad-slot="$config.GOOGLE_ADSENSE_SLOT"
+            :ad-slot="$config.GOOGLE_ADSENSE_SLOT.toString()"
           />
         </div>
         <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">
           <nuxt-content
             :document="post"
             class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose prose-sm sm:prose lg:prose-lg text-justify"
+          />
+          <adsbygoogle
+            class="py-4"
+            ad-layout="in-article"
+            ad-format="fluid"
+            :ad-slot="$config.GOOGLE_ADSENSE_SLOT.toString()"
           />
           <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
         </div>
