@@ -67,6 +67,9 @@ export default {
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
     GOOGLE_ADSENSE_SLOT: process.env.GOOGLE_ADSENSE_SLOT,
     GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
+    REPO: process.env.REPO,
+    REPO_ID: process.env.REPO_ID,
+    REPO_CAT_ID: process.env.REPO_CAT_ID,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
