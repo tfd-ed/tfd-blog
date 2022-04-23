@@ -8,24 +8,13 @@
 </template>
 <script>
 export default {
-  // mounted() {
-  //   const scriptTag = document.createElement("SCRIPT");
-  //   scriptTag.setAttribute("src", "https://utteranc.es/client.js");
-  //   scriptTag.setAttribute("repo", "tfd-ed/tfd-blog");
-  //   scriptTag.setAttribute("issue-term", "title");
-  //   scriptTag.setAttribute("label", "Comment");
-  //   scriptTag.setAttribute("theme", "github-light");
-  //   scriptTag.setAttribute("crossorigin", "anonymous");
-  //   scriptTag.setAttribute("async", "async");
-  //   this.$el.append(scriptTag);
-  // },
   mounted() {
     const scriptTag = document.createElement("SCRIPT");
     scriptTag.setAttribute("src", "https://giscus.app/client.js");
-    scriptTag.setAttribute("data-repo", "tfd-ed/tfd-blog");
-    scriptTag.setAttribute("data-repo-id", "R_kgDOHCysnQ");
+    scriptTag.setAttribute("data-repo", this.$config.REPO);
+    scriptTag.setAttribute("data-repo-id", this.$config.REPO_ID);
     scriptTag.setAttribute("data-category", "Announcements");
-    scriptTag.setAttribute("data-category-id", "DIC_kwDOHCysnc4COO75");
+    scriptTag.setAttribute("data-category-id", this.$config.REPO_CAT_ID);
     scriptTag.setAttribute("data-mapping", "title");
     scriptTag.setAttribute("data-reactions-enabled", "1");
     scriptTag.setAttribute("data-emit-metadata", "0");
