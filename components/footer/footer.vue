@@ -4,7 +4,7 @@
       <nuxt-link :to="localePath('/')"
         ><nuxt-img src="/tfd_logo.jpeg" class="w-12"></nuxt-img
       ></nuxt-link>
-      <p>TFD<br />Teaching For Devs</p>
+      <p>Kon-IT<br />Teaching For Devs</p>
       <a :href="`mailto:${$config.EMAIL}`">{{ $config.EMAIL }}</a>
     </div>
     <div>

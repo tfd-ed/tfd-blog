@@ -38,12 +38,12 @@
               <h2
                 class="font-medium title-font mt-4 text-gray-900 text-lg capitalize"
               >
-                {{ $t("chau_dara") }}, {{ $t("founder") }}
+                {{ $t("nat_karona") }}, {{ $t("founder") }}
               </h2>
               <div class="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
               <p
                 class="text-base text-justify capitalize"
-                v-html="$t('chau_dara_quote')"
+                v-html="$t('nat_karona_quote')"
               ></p>
             </div>
           </div>

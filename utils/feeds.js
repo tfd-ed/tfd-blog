@@ -26,7 +26,7 @@ export const create = async (feed, args) => {
       ? process.env.WEB_URL
       : "http://localhost:3000";
   feed.options = {
-    title: "TFD Blog",
+    title: "DEV Blog",
     description: "Blog Stuff!",
     link: `${hostname}/feed.${ext}`,
   };

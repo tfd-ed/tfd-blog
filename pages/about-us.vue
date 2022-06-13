@@ -7,7 +7,7 @@
         {{ $t("about_us") }}
       </h1>
     </div>
-    <Quote quote="founder_quote" owner="chau_dara">
+    <Quote quote="founder_quote" owner="nat_karona">
       <template #image>
         <nuxt-img src="/founder.jpeg"></nuxt-img>
       </template>

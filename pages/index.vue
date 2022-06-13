@@ -30,7 +30,7 @@ export default {
   },
   head() {
     return {
-      title: "TFD Blogs",
+      title: "DEV Blogs",
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
