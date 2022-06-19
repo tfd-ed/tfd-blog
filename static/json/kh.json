@@ -1,0 +1,31 @@
+{
+  "code": "kh",
+  "messages": {
+    "alpha": "{_field_} អាចមានតែតួអក្សរអក្ខរក្រម តែប៉ុណ្ណោះ",
+    "alpha_num": "The {_field_} field may only contain alpha-numeric characters",
+    "alpha_dash": "{_field_} អាចមានតែអក្ខរក្រម តួលេខ ព្រមទាំងសញ្ញាដាច់ៗ និងសញ្ញាគូសក្រោម",
+    "alpha_spaces": "{_field_} អាចមានតែតួអក្សរអក្ខរក្រម និងដកឃ្លាប៉ុណ្ណោះ",
+    "between": "The {_field_} field must be between {min} and {max}",
+    "confirmed": "{_field_} ការបញ្ជាក់មិនត្រឹមត្រូវ",
+    "digits": "The {_field_} field must be numeric and exactly contain {length} digits",
+    "dimensions": "The {_field_} field must be {width} pixels by {height} pixels",
+    "email": "ត្រូវតែមានទម្រង់ជា អាស័យដ្ឋាន សារអេឡិចត្រូនិច (example@email.com)",
+    "excluded": "The {_field_} field is not a valid value",
+    "ext": "The {_field_} field is not a valid file",
+    "image": "The {_field_} field must be an image",
+    "integer": "The {_field_} field must be an integer",
+    "length": "The {_field_} field must be {length} long",
+    "max_value": "The {_field_} field must be {max} or less",
+    "max": "{_field_} ត្រូវតែមានយ៉ាងច្រើន {length} តួរអក្សរ",
+    "mimes": "The {_field_} field must have a valid file type",
+    "min_value": "The {_field_} field must be {min} or more",
+    "min": "{_field_} ត្រូវតែមានយ៉ាងតិច {length} តួរអក្សរ",
+    "numeric": "The {_field_} field may only contain numeric characters",
+    "oneOf": "The {_field_} field is not a valid value",
+    "regex": "The {_field_} field format is invalid",
+    "required_if": "The {_field_} field is required",
+    "required": "តម្រូវឲ្យមាន {_field_}",
+    "size": "The {_field_} field size must be less than {size}KB",
+    "double": "The {_field_} field must be a valid decimal"
+  }
+}

@@ -1,0 +1,21 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    :width="width"
+    :height="width"
+    viewBox="0 0 48 48"
+  >
+    <title>ic_insert_emoticon_48px</title>
+    <g fill="#00a8ff">
+      <path
+        d="M23.99 4C12.94 4 4 12.95 4 24s8.94 20 19.99 20C35.04 44 44 35.05 44 24S35.04 4 23.99 4zM24 40c-8.84 0-16-7.16-16-16S15.16 8 24 8s16 7.16 16 16-7.16 16-16 16zm7-18c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-14 0c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm7 13c4.66 0 8.61-2.91 10.21-7H13.79c1.6 4.09 5.55 7 10.21 7z"
+      ></path>
+    </g>
+  </svg>
+</template>
+<script>
+export default {
+  name: "EmojiIcon",
+  props: ["width"],
+};
+</script>

@@ -2,7 +2,7 @@ import createSitemapRoutes from "./utils/createSitemap";
 import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+  target: "server",
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -16,7 +16,7 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/tfd_logo.jpeg" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -27,7 +27,11 @@ export default {
     { src: "~/plugins/country-flag.js", mode: "client" },
     { src: "~/plugins/animxyz.js", mode: "client" },
     { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
+    { src: "~/plugins/vee-validate.js", mode: "client" },
+    { src: "~/plugins/i18n.js" },
+    { src: "~/plugins/axios.js" },
   ],
+  serverMiddleware: ["~/api/recaptcha"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   // components: true,
@@ -70,6 +74,11 @@ export default {
     REPO: process.env.REPO,
     REPO_ID: process.env.REPO_ID,
     REPO_CAT_ID: process.env.REPO_CAT_ID,
+    baseURL: process.env.BASE_URL || "http://localhost:80",
+    webURL: process.env.WEB_URL || "http://localhost:3000",
+    nodeEnv: process.env.NODE_ENV || "development",
+    GEETEST_ID: process.env.GEETEST_ID,
+    GEETEST_KEY: process.env.GEETEST_KEY,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -80,6 +89,9 @@ export default {
     "vue-social-sharing/nuxt",
     "cookie-universal-nuxt",
     "@nuxtjs/sitemap",
+    "@nuxtjs/axios",
+    "@nuxtjs/toast",
+    "@nuxtjs/auth-next",
     [
       "nuxt-youtube-subscribe-module",
       {
@@ -117,31 +129,88 @@ export default {
   },
   // i18n options
   i18n: {
+    detectBrowserLanguage: false,
     locales: [
       {
         code: "en",
         iso: "en-US",
-        file: "en-US.json",
+        file: "en-US.js",
         dir: "ltr",
         moment: "en",
       },
       {
         code: "kh",
         iso: "kh-KH",
-        file: "kh-KH.json",
+        file: "kh-KH.js",
         dir: "ltr",
         moment: "kh",
       },
     ],
     defaultLocale: "kh",
-    lazy: true,
-    langDir: "locales/",
+    fallbackLocale: "kh",
+    // rootRedirect: "kh",
+    // strategy: "prefix",
     noPrefixDefaultLocale: true,
+    lazy: true,
+    loadLanguagesAsync: true,
+    langDir: "locales/",
     vueI18n: {
       fallbackLocale: "kh",
       messages: {
         "en-US": require("./locales/en-US"),
         "kh-KH": require("./locales/kh-KH"),
+      },
+    },
+  },
+
+  /**
+   * Toast Config
+   */
+  toast: {
+    className: "rounded-lg text-base mx-auto mt-24 p-4 shadow-lg",
+    position: "top-center",
+  },
+
+  // Nuxt Axios
+  axios: {
+    proxy: true,
+    baseURL: process.env.BASE_URL || "http://localhost:80",
+    // proxyHeaders: false,
+    credentials: true,
+  },
+  proxy: {
+    "/v1/": {
+      target: `${process.env.BASE_URL}/v1`,
+      pathRewrite: { "^/v1/": "" },
+    },
+    "/api/": {
+      target: `${process.env.WEB_URL}/api`,
+    },
+  },
+  // Nuxt Auth Plugin
+  auth: {
+    redirect: {
+      login: "/",
+    },
+    strategies: {
+      local: {
+        token: {
+          property: "accessToken",
+          required: true,
+          type: "bearer",
+        },
+        user: {
+          property: "false",
+          autoFetch: false,
+        },
+        endpoints: {
+          login: {
+            url: "v1/auth/login",
+            method: "post",
+          },
+          logout: false,
+          user: { url: "v1/auth/me", method: "get" },
+        },
       },
     },
   },
@@ -162,6 +231,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // Add exception
+    transpile: ["vee-validate/dist/rules"],
     html: {
       minify: {
         collapseWhitespace: true, // as @dario30186 mentioned

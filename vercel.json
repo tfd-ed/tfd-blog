@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": [
+          "plugins/**",
+          "locales/**",
+          "static/**",
+          "content/**",
+          "api/**"
+        ]
+      }
+    }
+  ]
+}

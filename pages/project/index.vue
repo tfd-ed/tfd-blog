@@ -30,7 +30,13 @@
             :post="project"
           ></HorizontalCard>
         </XyzTransitionGroup>
-        <Confused v-if="projects.length === 0" />
+        <Confused v-if="projects.length === 0">
+          <template #content>
+            <p class="mt-6 text-gray-500">
+              {{ $t("no_articles") }}
+            </p>
+          </template>
+        </Confused>
         <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
             <button class="btn">«</button>
@@ -46,7 +52,7 @@
 </template>
 <script>
 import HorizontalCard from "@/components/card/horizontal-card";
-import Confused from "@/components/card/confused";
+import Confused from "../../components/common/confused";
 export default {
   components: { Confused, HorizontalCard },
   async asyncData(context) {

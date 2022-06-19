@@ -7,24 +7,9 @@
     </div>
     <div class="flex-none">
       <ul v-if="!$device.isMobile" class="menu menu-horizontal p-0">
-        <li>
-          <nuxt-link :to="localePath('index')" class="capitalize">{{
-            $t("home")
-          }}</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="localePath('blog')" class="capitalize">{{
-            $t("articles")
-          }}</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="localePath('project')" class="capitalize">{{
-            $t("projects")
-          }}</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="localePath('about-us')" class="capitalize">{{
-            $t("about_us")
+        <li v-for="(route, index) in routes" :key="index">
+          <nuxt-link :to="localePath(route.path)" class="capitalize">{{
+            $t(route.label)
           }}</nuxt-link>
         </li>
         <li>
@@ -64,24 +49,9 @@
           tabindex="0"
           class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
         >
-          <li>
-            <nuxt-link :to="localePath('index')" class="capitalize">{{
-              $t("home")
-            }}</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link :to="localePath('blog')" class="capitalize">{{
-              $t("articles")
-            }}</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link :to="localePath('project')" class="capitalize">{{
-              $t("projects")
-            }}</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link :to="localePath('about-us')" class="capitalize">{{
-              $t("about_us")
+          <li v-for="(route, index) in routes" :key="index">
+            <nuxt-link :to="localePath(route.path)" class="capitalize">{{
+              $t(route.label)
             }}</nuxt-link>
           </li>
           <li>
@@ -104,13 +74,42 @@
           </li>
         </ul>
       </div>
+      <label v-if="!isAuth" for="login-modal">
+        <ShadowButton text="login" color="bg-red-600"></ShadowButton>
+      </label>
+      <ShadowButton
+        v-if="isAuth"
+        text="logout"
+        color="bg-gray-700"
+        @onClick="logout"
+      ></ShadowButton>
     </div>
   </header>
 </template>
 <script>
 import CountryFlag from "vue-country-flag";
+import ShadowButton from "../button/shadow-button";
+import { routes } from "../../static/js/routes";
+import { mapGetters } from "vuex";
 export default {
   name: "NavBar",
-  components: { CountryFlag },
+  components: { ShadowButton, CountryFlag },
+  data() {
+    return {
+      routes: routes,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      isAuth: "isAuthenticated",
+      getLoggedUser: "loggedInUser",
+    }),
+  },
+  methods: {
+    async logout() {
+      window.localStorage.clear();
+      await this.$auth.logout();
+    },
+  },
 };
 </script>

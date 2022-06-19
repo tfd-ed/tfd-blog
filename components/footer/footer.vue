@@ -15,6 +15,12 @@
       <nuxt-link :to="localePath('contact-us')" class="capitalize">{{
         $t("contact")
       }}</nuxt-link>
+      <nuxt-link :to="localePath('tos')" class="capitalize">{{
+        $t("term_of_service")
+      }}</nuxt-link>
+      <nuxt-link :to="localePath('privacy')" class="capitalize">{{
+        $t("privacy")
+      }}</nuxt-link>
     </div>
     <div>
       <span class="footer-title">{{ $t("social") }}</span>
