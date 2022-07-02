@@ -68,6 +68,7 @@ const messages = {
   submit_success:
     "អរគុណ\u200Bច្រើន! យើងបានទទួលសំណើរបស់អ្នកហើយ! យើង\u200Bនឹង\u200Bទាក់ទង\u200Bទៅ\u200Bអ្នក\u200Bវិញ\u200B។",
   course: "មេរៀន",
+  all_course: "មេរៀនទាំងអស់",
   email_not_exist: "មិនមានគណនីជាមួយអ៊ីមែលនេះទេ!",
   wrong_credential: "ព័ត៍មានចូលមិនត្រឹមត្រូវ!",
   username_already_exists: "ឈ្មោះអ្នកប្រើប្រាស់មានរួចមកហើយ សូមដាក់ឈ្មោះផ្សេង",
@@ -88,6 +89,7 @@ const messages = {
   login_now: "ចូលឥឡូវនេះ!",
   sign_up_now: "ចុះឈ្មោះឥឡូវនេះ!",
   sign_up: "ចុះឈ្មោះ",
+  enroll: "ចុះឈ្មោះចូលរៀន",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

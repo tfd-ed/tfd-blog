@@ -28,6 +28,7 @@ export default {
     { src: "~/plugins/animxyz.js", mode: "client" },
     { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
     { src: "~/plugins/vee-validate.js", mode: "client" },
+    { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
   ],

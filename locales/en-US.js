@@ -66,6 +66,7 @@ const messages = {
   submit_success:
     "Thanks very much! We received your request! We'll contact you back.",
   course: "Course",
+  all_course: "All courses",
   email_not_exist: "Email doesn't exist",
   wrong_credential: "Wrong credential provided",
   username_already_exists: "Username already existed",
@@ -87,6 +88,7 @@ const messages = {
   login_now: "Log in now!",
   sign_up_now: "Sign up now!",
   sign_up: "Sign up",
+  enroll: "Enroll",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",
