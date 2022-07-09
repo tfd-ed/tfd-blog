@@ -5,24 +5,26 @@ const axios = require("axios");
 /**
  * It is highly recommended to use environment variables instead of hardcoded secrets.
  */
-const CAPTCHA_ID = process.env.GEETEST_ID;
-
-const CAPTCHA_KEY = process.env.GEETEST_KEY;
+// const CAPTCHA_ID = process.env.GEETEST_ID;
+//
+// const CAPTCHA_KEY = process.env.GEETEST_KEY;
 
 const API_SERVER = "https://gcaptcha4.geetest.com";
-
-const API_URL = API_SERVER + "/validate" + "?captcha_id=" + CAPTCHA_ID;
 
 app.get("/api/check-token", function (req, res, next) {
   const lot_number = req.query.lot_number;
   const captcha_output = req.query.captcha_output;
   const pass_token = req.query.pass_token;
   const gen_time = req.query.gen_time;
+  const captcha_key = req.query.captcha_key;
+  const captcha_id = req.query.captcha_id;
+
+  const API_URL = API_SERVER + "/validate" + "?captcha_id=" + captcha_id;
 
   // Generate signature
   // Generate the signature using the standard hmac algorithm, use the user's current verification serial number lot_number as the original message, and use the customer's verification private key as the key
   // One-way hashing of message and key using sha256 hashing algorithm to generate the final "sign_token" signature
-  const sign_token = hmac_sha256_encode(lot_number, CAPTCHA_KEY);
+  const sign_token = hmac_sha256_encode(lot_number, captcha_key);
 
   const data = {
     lot_number: lot_number,

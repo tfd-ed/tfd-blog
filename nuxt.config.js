@@ -78,8 +78,10 @@ export default {
     baseURL: process.env.BASE_URL || "http://localhost:80",
     webURL: process.env.WEB_URL || "http://localhost:3000",
     nodeEnv: process.env.NODE_ENV || "development",
-    GEETEST_ID: process.env.GEETEST_ID,
-    GEETEST_KEY: process.env.GEETEST_KEY,
+    GEETEST_ID_SIGN_UP: process.env.GEETEST_ID_SIGN_UP,
+    GEETEST_KEY_SIGN_UP: process.env.GEETEST_KEY_SIGN_UP,
+    GEETEST_ID_RESET: process.env.GEETEST_ID_RESET,
+    GEETEST_KEY_RESET: process.env.GEETEST_KEY_RESET,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

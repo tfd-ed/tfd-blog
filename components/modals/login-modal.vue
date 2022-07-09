@@ -26,13 +26,17 @@
             @submit.prevent="handleSubmit(emailLogin)"
           >
             <BasicInput
+              id="login_email"
               v-model="login.email"
               name="email"
+              label="email"
               rules="required|email"
             />
             <BasicInput
+              id="login_password"
               v-model="login.password"
               name="password"
+              label="password"
               rules="required|min:8"
               type="password"
             />
@@ -147,7 +151,7 @@ export default {
         // this.$toast.global.error(); //Using custom toast
         this.logging = false;
         this.$refs.form.setErrors({
-          email: err.response.data.message,
+          login_email: err.response.data.message,
         });
         this.$toast.error(err.response.data.message, {
           duration: 3000,

@@ -25,34 +25,44 @@
           @submit.prevent="handleSubmit(handleForm)"
         >
           <BasicInput
+            id="firstname_sign_up"
             v-model="firstname"
             name="firstname"
+            label="firstname"
             rules="required|alpha_spaces"
             :auto-complete="false"
           />
           <BasicInput
+            id="lastname_sign_up"
             v-model="lastname"
             name="lastname"
+            label="lastname"
             rules="required|alpha"
             :auto-complete="false"
           />
           <BasicInput
+            id="email_sign_up"
             v-model="email"
             name="email"
+            label="email"
             rules="required|email"
             :auto-complete="false"
           />
           <BasicInput
+            id="password_sign_up"
             v-model="password"
             name="password"
+            label="password"
             rules="required|min:8"
             type="password"
             :auto-complete="false"
           />
           <BasicInput
+            id="confirmation_sign_up"
             v-model="confirmation"
             name="confirmation"
-            rules="required|confirmed:password"
+            label="confirmation"
+            rules="required|confirmed:password_sign_up"
             type="password"
             :auto-complete="false"
           />
@@ -121,23 +131,26 @@ export default {
       geetest: "",
     };
   },
-  mounted() {
-    this.initializeGeeTest();
-  },
+  // mounted() {
+  //   this.initializeGeeTest();
+  // },
   methods: {
     close() {
       this.$refs.register_label.click();
       this.$refs.form.reset();
     },
     async handleForm() {
+      this.submitting = true;
+      this.initializeGeeTest();
       /**
        * Verify reCaptcha
        */
-      this.geetest.showBox();
+      setTimeout(() => {
+        this.geetest.showBox();
+      }, 2000);
     },
     async register() {
       try {
-        this.submitting = true;
         const response = await this.$axios.$post("/v1/user-auth/register", {
           firstname: this.firstname,
           lastname: this.lastname,
@@ -159,11 +172,11 @@ export default {
       let web = this;
       await initGeetest4(
         {
-          captchaId: web.$config.GEETEST_ID,
+          captchaId: web.$config.GEETEST_ID_SIGN_UP,
           product: "bind",
           language: "eng",
         },
-        function (captchaObj) {
+        async function (captchaObj) {
           web.geetest = captchaObj;
           captchaObj
             .onReady(function () {
@@ -177,14 +190,17 @@ export default {
               const recaptcha_response = await web.$axios.$get(
                 "/api/check-token",
                 {
-                  params: result,
+                  params: {
+                    ...result,
+                    captcha_key: web.$config.GEETEST_KEY_SIGN_UP,
+                  },
                 }
               );
               /**
                * If reCAPTCHA is validated, let go
                */
               if (recaptcha_response === "success") {
-                web.register();
+                await web.register();
               }
             })
             .onError(function () {

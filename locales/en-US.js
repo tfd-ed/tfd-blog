@@ -89,6 +89,8 @@ const messages = {
   sign_up_now: "Sign up now!",
   sign_up: "Sign up",
   enroll: "Enroll",
+  your_password_is_reset:
+    "Your password has been reset! Please check your email and follow the instructions!",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

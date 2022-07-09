@@ -9,7 +9,7 @@
     <CookiesModal />
     <LoginModal />
     <UserRegistrationModal v-if="isGeeTestLoaded" />
-    <ForgotPasswordModal />
+    <ForgotPasswordModal v-if="isGeeTestLoaded" />
     <Footer />
   </div>
 </template>

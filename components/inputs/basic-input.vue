@@ -1,7 +1,7 @@
 <template>
   <ValidationProvider
     v-slot="{ errors }"
-    :vid="name"
+    :vid="id"
     :name="name"
     tag="div"
     :rules="rules"
@@ -12,7 +12,7 @@
       :for="name"
     >
       <input
-        :id="name"
+        :id="id"
         :value="value"
         class="w-full px-0 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer"
         :type="type"
@@ -24,7 +24,7 @@
       <span
         class="absolute bg-transparent text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-2 scale-75 top-2 z-10 origin-[0] dark:bg-gray-800 px-2 peer-focus:px-2 peer-focus:text-sarpheab peer-focus:dark:text-sarpheab peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-4 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
       >
-        {{ $t(name) }}
+        {{ $t(label) }}
       </span>
     </label>
     <div class="text-xs font-medium text-red-500 mt-2">
@@ -44,7 +44,15 @@ export default {
       type: String,
       required: true,
     },
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
+      type: String,
+      default: "",
+    },
+    label: {
       type: String,
       default: "",
     },
