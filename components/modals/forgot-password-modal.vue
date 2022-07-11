@@ -135,9 +135,12 @@ export default {
     },
     async resetPassword() {
       try {
-        const response = await this.$axios.$post("/v1/user-auth/reset", {
-          email: this.email,
-        });
+        const response = await this.$axios.$post(
+          "/v1/user-auth/forgot-password",
+          {
+            email: this.email,
+          }
+        );
         this.doing = false;
         this.done = true;
       } catch (e) {

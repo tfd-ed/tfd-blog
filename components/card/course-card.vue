@@ -3,11 +3,14 @@
     <div
       class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
     >
-      <img
-        class="lg:h-48 md:h-36 w-full object-cover object-center"
-        :src="course.thumbnail.url"
-        alt="blog"
-      />
+      <nuxt-link :to="localePath('/course/' + course.id)">
+        <img
+          class="lg:h-48 md:h-36 w-full object-cover object-center transform hover:scale-105 transition duration-700 ease-out"
+          :src="course.thumbnail.url"
+          alt="blog"
+        />
+      </nuxt-link>
+
       <div class="p-6">
         <h2
           class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"

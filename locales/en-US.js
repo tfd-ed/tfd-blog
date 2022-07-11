@@ -91,6 +91,8 @@ const messages = {
   enroll: "Enroll",
   your_password_is_reset:
     "Your password has been reset! Please check your email and follow the instructions!",
+  please_set_new_password: "Please set your new password!",
+  password_reset_done: "Your password has been reset, Please login!",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

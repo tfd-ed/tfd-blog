@@ -74,7 +74,7 @@ const messages = {
   username_already_exists: "ឈ្មោះអ្នកប្រើប្រាស់មានរួចមកហើយ សូមដាក់ឈ្មោះផ្សេង",
   email_verification_done: "សារអេឡិចត្រូនិចត្រូវបានបញ្ជាក់រួចរាល់",
   password_conform_mismatched: "បញ្ជាក់លេខសំងាត់មិនត្រូវ",
-  verification_error: "ការបញ្ជាក់សារអេឡិចត្រូនិចមានបញ្ហា:",
+  verification_error: "ការបញ្ជាក់មានបញ្ហា:",
   username: "ឈ្មោះអ្នកប្រើប្រាស់",
   password: "លេខសំងាត់",
   confirmation: "បញ្ជាក់លេខសំងាត់",
@@ -92,6 +92,9 @@ const messages = {
   enroll: "ចុះឈ្មោះចូលរៀន",
   your_password_is_reset:
     "ពាក្យសម្ងាត់របស់អ្នកត្រូវបានកំណត់ឡើងវិញ! សូមពិនិត្យមើលអ៊ីមែល ហើយធ្វើតាមការណែនាំ!",
+  please_set_new_password: "សូមកំណត់ពាក្យសម្ងាត់ថ្មីរបស់អ្នក!",
+  password_reset_done:
+    "ពាក្យសម្ងាត់របស់អ្នកត្រូវបានកំណត់ឡើងវិញ សូមចូលទៅកាន់ប្រព័ន្ធ!",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",
