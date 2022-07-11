@@ -5,5 +5,8 @@ export default {
     state.courses = state.courses.concat(courses);
     state.coursesFetchSize = courses.length;
   },
+  SET_COURSE(state, course) {
+    state.course = course;
+  },
   updateField,
 };

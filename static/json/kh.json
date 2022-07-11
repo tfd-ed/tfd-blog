@@ -7,7 +7,7 @@
     "alpha_spaces": "{_field_} អាចមានតែតួអក្សរអក្ខរក្រម និងដកឃ្លាប៉ុណ្ណោះ",
     "between": "The {_field_} field must be between {min} and {max}",
     "confirmed": "{_field_} ការបញ្ជាក់មិនត្រឹមត្រូវ",
-    "digits": "The {_field_} field must be numeric and exactly contain {length} digits",
+    "digits": "{_field_} តម្រូវឲ្យមានលេខដាច់ខាត {length} ខ្ទង់",
     "dimensions": "The {_field_} field must be {width} pixels by {height} pixels",
     "email": "ត្រូវតែមានទម្រង់ជា អាស័យដ្ឋាន សារអេឡិចត្រូនិច (example@email.com)",
     "excluded": "The {_field_} field is not a valid value",

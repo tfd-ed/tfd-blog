@@ -295,6 +295,11 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.7.tgz#fc19b645a5456c8d6fdb6cecd3c66c0173902800"
   integrity sha512-bm3AQf45vR4gKggRfvJdYJ0gFLoCbsPxiFLSH6hTVYABptNHY6l9NrhnucVjQ/X+SPtLANT9lc0fFhikj+VBRA==
 
+"@babel/parser@^7.18.4":
+  version "7.18.8"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.18.8.tgz#822146080ac9c62dac0823bb3489622e0bc1cbdf"
+  integrity sha512-RSKRfYX20dyH+elbJK2uqAkVyucL+xXzhqlMD5/ZXx+dAAwpyB7HsvnHe/ZUGOF+xLr5Wx9/JoXVTj6BQE2/oA==
+
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.16.7":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/-/plugin-bugfix-safari-id-destructuring-collision-in-function-expression-7.16.7.tgz#4eda6d6c2a0aa79c70fa7b6da67763dfe2141050"
@@ -2229,6 +2234,15 @@
     "@vue/babel-plugin-transform-vue-jsx" "^1.2.1"
     camelcase "^5.0.0"
 
+"@vue/compiler-sfc@2.7.4":
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-2.7.4.tgz#41cb520a3ea65f7081194e79c0de412c75bda236"
+  integrity sha512-WCaF33mlKLSvHDKvOD6FzTa5CI2FlMTeJf3MxJsNP0KDgRoI6RdXhHo9dtvCqV4Sywf9Owm17wTLT1Ymu/WsOQ==
+  dependencies:
+    "@babel/parser" "^7.18.4"
+    postcss "^8.4.14"
+    source-map "^0.6.1"
+
 "@vue/component-compiler-utils@^3.1.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-3.3.0.tgz#f9f5fb53464b0c37b2c8d2f3fbfe44df60f61dc9"
@@ -4162,6 +4176,11 @@ csso@^4.0.2:
   integrity sha512-wvlcdIbf6pwKEk7vHj8/Bkc0B4ylXZruLvOgs9doS5eOsOpuodOV2zJChSpkp+pRpYQLQMeF04nr3Z68Sta9jA==
   dependencies:
     css-tree "^1.1.2"
+
+csstype@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.0.tgz#4ddcac3718d787cf9df0d1b7d15033925c8f29f2"
+  integrity sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==
 
 csvtojson@^2.0.10:
   version "2.0.10"
@@ -7880,6 +7899,11 @@ nanoid@^3.1.23, nanoid@^3.3.1:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.1.tgz#6347a18cac88af88f58af0b3594b723d5e99bb35"
   integrity sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==
 
+nanoid@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
+  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -9556,6 +9580,15 @@ postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.15, postcss@^8.3.5, postcss@^8.4.1
   integrity sha512-D+jFLnT0ilGfy4CVBGbC+XE68HkVpT8+CUkDrcSpgxmo4RKco2uaZ4kIoyVGEm+m8KN/+Vwgs8MtpNbQ3/ma9w==
   dependencies:
     nanoid "^3.3.1"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
+postcss@^8.4.14:
+  version "8.4.14"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.14.tgz#ee9274d5622b4858c1007a74d76e42e56fd21caf"
+  integrity sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==
+  dependencies:
+    nanoid "^3.3.4"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
@@ -12080,6 +12113,21 @@ vue-vimeo-player@^0.2.2:
   dependencies:
     "@vimeo/player" "^2.14.1"
     object-assign "^4.1.1"
+
+vue-window-portal@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/vue-window-portal/-/vue-window-portal-1.6.1.tgz#0f1e9646bf7a4303f99a5d9aa75d5f3379f35648"
+  integrity sha512-QxXyB2caWwksLEz6qaMT5LINuC/1uTX76Wkc4WcYVhdmE/lbi8De5tjqh/Zo+94k7wLQ6UyDMrk5kAJcvD/oLA==
+  dependencies:
+    vue "^2.6.10"
+
+vue@^2.6.10:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.7.4.tgz#f5578bd47f0cef8d4f3eb4c6bbebad47341d11fb"
+  integrity sha512-8KGyyzFSj/FrKj1y7jyEpv8J4osgZx6Lk1lVzh1aP4BqsXZhATH1r0gdJNz00MMyBhK0/m2cNoPuOZ1NzeiUEw==
+  dependencies:
+    "@vue/compiler-sfc" "2.7.4"
+    csstype "^3.1.0"
 
 vue@^2.6.12, vue@^2.6.14:
   version "2.6.14"

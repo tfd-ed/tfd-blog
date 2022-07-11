@@ -8,6 +8,7 @@
     <CookiesInfo />
     <CookiesModal />
     <LoginModal />
+    <PurchaseModal />
     <UserRegistrationModal v-if="isGeeTestLoaded" />
     <ForgotPasswordModal v-if="isGeeTestLoaded" />
     <Footer />
@@ -23,9 +24,11 @@ import LoginModal from "../components/modals/login-modal";
 import UserRegistrationModal from "../components/modals/user-registration-modal";
 import FlexNavbar from "../components/navbar/flex-navbar";
 import ForgotPasswordModal from "../components/modals/forgot-password-modal";
+import PurchaseModal from "../components/modals/purchase-modal";
 
 export default {
   components: {
+    PurchaseModal,
     ForgotPasswordModal,
     FlexNavbar,
     UserRegistrationModal,

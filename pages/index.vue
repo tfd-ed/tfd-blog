@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import SocialCard from "~/components/card/social-card";
+import SocialCard from "@/components/card/social-card";
 import Founder from "@/components/hero/founder";
 import Quote from "@/components/card/quote";
 export default {

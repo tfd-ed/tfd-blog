@@ -93,6 +93,11 @@ const messages = {
     "Your password has been reset! Please check your email and follow the instructions!",
   please_set_new_password: "Please set your new password!",
   password_reset_done: "Your password has been reset, Please login!",
+  buy: "Buy",
+  learn: "Learn",
+  click_here_to_pay: "Click Here To Pay With",
+  transaction_number: "Transaction Number",
+  login_to_purchase: "Login To Purchase",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

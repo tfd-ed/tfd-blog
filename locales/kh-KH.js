@@ -95,6 +95,11 @@ const messages = {
   please_set_new_password: "សូមកំណត់ពាក្យសម្ងាត់ថ្មីរបស់អ្នក!",
   password_reset_done:
     "ពាក្យសម្ងាត់របស់អ្នកត្រូវបានកំណត់ឡើងវិញ សូមចូលទៅកាន់ប្រព័ន្ធ!",
+  buy: "ជាវ",
+  learn: "ចូលរៀន",
+  click_here_to_pay: "ចុចទីនេះដើម្បីទូទាត់ជាមួយ",
+  transaction_number: "លេខប្រតិបត្តិការ(Transaction Number)",
+  login_to_purchase: "សូមចុះឈ្មោះជាមុនដើម្បីទិញ",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

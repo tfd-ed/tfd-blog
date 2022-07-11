@@ -29,6 +29,7 @@ export default {
     { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
     { src: "~/plugins/vee-validate.js", mode: "client" },
     { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
+    { src: "~/plugins/vue-vimeo.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
   ],
@@ -194,7 +195,11 @@ export default {
   auth: {
     redirect: {
       login: "/",
+      logout: false,
+      callback: false,
+      home: false,
     },
+    rewriteRedirects: false,
     strategies: {
       local: {
         token: {
@@ -234,6 +239,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    vendor: ["vue-vimeo-player"],
     // Add exception
     transpile: ["vee-validate/dist/rules"],
     html: {

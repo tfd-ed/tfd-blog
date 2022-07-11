@@ -33,6 +33,7 @@
             <nuxt-link
               v-for="(route, index) in routes"
               :key="index"
+              exact
               :to="localePath(route.path)"
               class="capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
               >{{ $t(route.label) }}</nuxt-link
@@ -54,7 +55,7 @@
           </ul>
         </div>
 
-        <nuxt-link :to="localePath('index')">
+        <nuxt-link exact :to="localePath('index')">
           <nuxt-img src="/tfd_logo.jpeg" class="w-8" />
         </nuxt-link>
       </div>
@@ -66,6 +67,7 @@
           <nuxt-link
             v-for="(route, index) in routes"
             :key="index"
+            exact
             :to="localePath(route.path)"
             class="capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
             >{{ $t(route.label) }}</nuxt-link
@@ -90,29 +92,29 @@
           <div
             class="flex items-center border-gray-100 divide-x divide-gray-100 border-x"
           >
-            <span>
-              <nuxt-link
-                to="/cart"
-                class="block p-6 border-b-4 border-transparent hover:border-red-700"
-              >
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                  />
-                </svg>
+            <!--            <span>-->
+            <!--              <nuxt-link-->
+            <!--                to="/cart"-->
+            <!--                class="block p-6 border-b-4 border-transparent hover:border-red-700"-->
+            <!--              >-->
+            <!--                <svg-->
+            <!--                  class="w-4 h-4"-->
+            <!--                  fill="none"-->
+            <!--                  viewBox="0 0 24 24"-->
+            <!--                  stroke="currentColor"-->
+            <!--                  xmlns="http://www.w3.org/2000/svg"-->
+            <!--                >-->
+            <!--                  <path-->
+            <!--                    stroke-linecap="round"-->
+            <!--                    stroke-linejoin="round"-->
+            <!--                    stroke-width="2"-->
+            <!--                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"-->
+            <!--                  />-->
+            <!--                </svg>-->
 
-                <span class="sr-only">Cart</span>
-              </nuxt-link>
-            </span>
+            <!--                <span class="sr-only">Cart</span>-->
+            <!--              </nuxt-link>-->
+            <!--            </span>-->
 
             <span>
               <nuxt-link

@@ -132,7 +132,9 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.login,
         });
+        console.log(response);
         this.$auth.setUser(response.data.user);
+        // this.$router.push("/");
         this.logging = false;
         this.logged = true;
         // this.$toast.success(this.$i18n.t("welcome_to_sarpheab"), {

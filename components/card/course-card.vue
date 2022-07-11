@@ -1,7 +1,7 @@
 <template>
   <div class="p-4 md:w-1/3">
     <div
-      class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+      class="h-full border-2 border-gray-200 bg-gray-50 border-opacity-60 rounded-lg overflow-hidden"
     >
       <nuxt-link :to="localePath('/course/' + course.id)">
         <img
