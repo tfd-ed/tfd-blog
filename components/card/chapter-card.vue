@@ -2,10 +2,10 @@
   <div class="py-8 flex flex-wrap md:flex-nowrap">
     <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
       <span class="font-semibold title-font text-2xl text-gray-700">{{
-        chapter.chapterNumber
+        convertNumber(chapter.chapterNumber)
       }}</span>
       <span class="mt-1 text-gray-500 text-sm">{{
-        $moment(chapter.createdDate).format("YYYY-MM-DD")
+        $moment(chapter.createdDate).format("ll")
       }}</span>
     </div>
     <div class="md:flex-grow">
@@ -53,6 +53,7 @@
 <script>
 import { mapGetters } from "vuex";
 import LockedIcon from "../icons/locked-icon";
+import convertKhmerNumber from "../../utils/convert-khmer-number";
 
 export default {
   components: { LockedIcon },
@@ -72,6 +73,11 @@ export default {
           vimeoId: "",
         };
       },
+    },
+  },
+  methods: {
+    convertNumber(num) {
+      return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
     },
   },
   computed: {

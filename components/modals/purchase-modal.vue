@@ -83,19 +83,15 @@ export default {
   computed: {
     ...mapGetters({
       getCourse: "course/getCourse",
+      loggedInUser: "loggedInUser",
     }),
   },
   data() {
     return {
       transaction_number: "",
-      lastname: "",
-      email: "",
-      password: "",
-      confirmation: "",
       loading: false,
       submitting: false,
       submitted: false,
-      geetest: "",
     };
   },
   methods: {
@@ -103,7 +99,30 @@ export default {
       window.open(link, "popup", "width=800,height=600");
       return false;
     },
-    handleForm() {},
+    async handleForm() {
+      this.submitting = true;
+      try {
+        const result = await this.$axios.$post(
+          `/v1/course/${this.getCourse.id}/purchase`,
+          {
+            byUserId: this.loggedInUser.id,
+            courseId: this.getCourse.id,
+            price: this.getCourse.price,
+            transaction: this.transaction_number,
+          }
+        );
+        this.submitting = false;
+        this.submitted = true;
+      } catch (e) {
+        this.submitting = false;
+        this.$toast.error(e.response.data.message, {
+          duration: 3000,
+        });
+        this.$refs.purchase_form.setErrors({
+          transaction_number: e.response.data.message,
+        });
+      }
+    },
   },
 };
 </script>

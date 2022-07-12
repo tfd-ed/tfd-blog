@@ -25,8 +25,7 @@
               <XyzTransitionGroup
                 appear-visible
                 class="flex flex-wrap -m-4"
-                xyz="fade small-1 stagger-4 ease-ease up-5"
-                tag="CourseCard"
+                xyz="fade back-1 small-80% ease-out stagger-3 perspective-2"
               >
                 <CourseCard
                   v-for="(course, index) in courses"

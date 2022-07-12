@@ -75,12 +75,12 @@
           <nuxt-link
             v-if="$i18n.locale === 'en'"
             class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-            :to="switchLocalePath('kh')"
+            :to="switchLocalePath('km')"
           >
             <CountryFlag country="kh" size="normal" />
           </nuxt-link>
           <nuxt-link
-            v-if="$i18n.locale === 'kh'"
+            v-if="$i18n.locale === 'km'"
             class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
             :to="switchLocalePath('en')"
           >

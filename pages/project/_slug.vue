@@ -13,7 +13,9 @@
             >
               {{ post.title }}
             </h1>
-            <p class="text-base text-gray-500">{{ getDate }} — {{ post.by }}</p>
+            <p class="text-base text-gray-500">
+              {{ $moment(getDate).format("ll") }} — {{ post.by }}
+            </p>
           </div>
           <div class="flex items-center mb-6 space-x-2">
             <p class="text-gray-600">{{ $t("share_this_article") }}</p>

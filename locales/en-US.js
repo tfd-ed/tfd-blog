@@ -98,6 +98,10 @@ const messages = {
   click_here_to_pay: "Click Here To Pay With",
   transaction_number: "Transaction Number",
   login_to_purchase: "Login To Purchase",
+  confirming_payment: "Confirming Payment",
+  payment_confirmed: "Purchased",
+  at: "At",
+  price: "price",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

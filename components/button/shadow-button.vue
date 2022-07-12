@@ -11,6 +11,7 @@
       class="relative inline-block px-4 py-1 text-sm font-bold tracking-widest uppercase border-2 border-black text-white"
       @click="handleClick"
     >
+      <slot name="icon"></slot>
       {{ $t(text) }}
     </span>
   </div>

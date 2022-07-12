@@ -29,7 +29,9 @@ export default {
     { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
     { src: "~/plugins/vee-validate.js", mode: "client" },
     { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
+    { src: "~/plugins/vuex-persist.client.js", mode: "client" },
     { src: "~/plugins/vue-vimeo.js" },
+    { src: "~/plugins/moment.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
   ],
@@ -130,6 +132,8 @@ export default {
   moment: {
     timezone: true,
     defaultTimezone: "Asia/Phnom_Penh",
+    defaultLocale: "km",
+    locales: ["km"],
   },
   // i18n options
   i18n: {
@@ -143,15 +147,15 @@ export default {
         moment: "en",
       },
       {
-        code: "kh",
+        code: "km",
         iso: "kh-KH",
         file: "kh-KH.js",
         dir: "ltr",
-        moment: "kh",
+        moment: "km",
       },
     ],
-    defaultLocale: "kh",
-    fallbackLocale: "kh",
+    defaultLocale: "km",
+    fallbackLocale: "km",
     // rootRedirect: "kh",
     // strategy: "prefix",
     noPrefixDefaultLocale: true,
@@ -159,7 +163,7 @@ export default {
     loadLanguagesAsync: true,
     langDir: "locales/",
     vueI18n: {
-      fallbackLocale: "kh",
+      fallbackLocale: "km",
       messages: {
         "en-US": require("./locales/en-US"),
         "kh-KH": require("./locales/kh-KH"),
@@ -195,7 +199,7 @@ export default {
   auth: {
     redirect: {
       login: "/",
-      logout: false,
+      logout: "/",
       callback: false,
       home: false,
     },

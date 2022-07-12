@@ -1,6 +1,13 @@
 <template>
   <div class="p-4 md:w-1/3">
     <div
+      v-if="$fetchState.pending"
+      class="transition h-full rounded-lg p-8 flex flex-col mx-auto w-full"
+    >
+      <GeneralLoading text="loading" />
+    </div>
+    <div
+      v-else
       class="h-full border-2 border-gray-200 bg-gray-50 border-opacity-60 rounded-lg overflow-hidden"
     >
       <nuxt-link :to="localePath('/course/' + course.id)">
@@ -30,10 +37,16 @@
         <div class="flex items-center flex-wrap">
           <nuxt-link :to="localePath('/course/' + course.id)">
             <ShadowButton
+              v-if="!purchase"
               class="inline-flex items-center md:mb-2 lg:mb-0"
               color="bg-green-600"
               text="enroll"
             ></ShadowButton>
+            <ShadowButton v-else text="payment_confirmed" color="bg-blue-600">
+              <template #icon
+                ><ProcessIcon class="inline" width="15"></ProcessIcon
+              ></template>
+            </ShadowButton>
           </nuxt-link>
           <span
             class="text-gray-800 text-xl mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1"
@@ -59,13 +72,17 @@
 </template>
 <script>
 import ShadowButton from "../button/shadow-button";
+import { mapGetters } from "vuex";
+import GeneralLoading from "../loadings/general-loading";
+import ProcessIcon from "../icons/process-icon";
 export default {
-  components: { ShadowButton },
+  components: { ProcessIcon, GeneralLoading, ShadowButton },
   props: {
     course: {
       type: Object,
       default() {
         return {
+          id: "",
           title: "",
           description: "",
           instructor: "",
@@ -81,8 +98,23 @@ export default {
       },
     },
   },
+  computed: {
+    ...mapGetters({
+      isAuth: "isAuthenticated",
+      loggedUser: "loggedInUser",
+    }),
+  },
   data() {
-    return {};
+    return {
+      purchase: "",
+    };
+  },
+  async fetch() {
+    if (this.isAuth) {
+      this.purchase = await this.$axios.$get(
+        `/v1/course/${this.course.id}/user-purchase/${this.loggedUser.id}`
+      );
+    }
   },
   methods: {
     getShortContents(content, length) {
