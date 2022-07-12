@@ -1,34 +1,30 @@
 <template>
   <ModalTemplate id="purchase-modal">
-    <template #content>
+    <template v-if="getCourse" #content>
       <label
         for="purchase-modal"
         class="btn btn-sm btn-circle absolute right-2 top-2"
         >✕</label
       >
-      <div v-if="getCourse">
-        <h2
-          class="mt-2 text-center text-green-600 text-3xl md:text-4xl font-semibold uppercase"
-        >
-          ${{ getCourse.price }}
-        </h2>
-      </div>
-      <button
-        class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-aba_dark rounded-lg transition hover:scale-90"
-        @click="openPayment(getCourse.paymentLink)"
-      >
-        {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
-        <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
-      </button>
       <ValidationObserver
         v-show="!submitting && !submitted"
         ref="purchase_form"
         v-slot="{ handleSubmit }"
       >
+        <h2 class="mt-2 text-center text-gray-700 text-2xl md:text-xl">
+          {{ $t("choose_payment_method") }}:
+        </h2>
+        <button
+          class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-aba_dark rounded-lg transition hover:scale-90"
+          @click="openPayment(getCourse.paymentLink)"
+        >
+          {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
+          <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
+        </button>
         <form
-          method="post"
           class="flex flex-col mt-16 space-y-2"
-          @submit.prevent="handleSubmit(handleForm)"
+          method="post"
+          @submit.prevent="handleSubmit(submitPurchase)"
         >
           <BasicInput
             id="transaction_number"
@@ -39,7 +35,7 @@
             :auto-complete="false"
           />
           <div class="flex justify-center py-4">
-            <button type="button">
+            <button type="submit">
               <ShadowButton text="submit" color="bg-red-700" />
             </button>
           </div>
@@ -52,10 +48,10 @@
       >
         <GeneralContentLoading />
       </div>
-      <div v-if="submitted" class="flex flex-row mx-auto py-24">
+      <div v-if="submitted" class="flex flex-row justify-center mx-auto py-24">
         <p class="text-center leading-relaxed items-center">
-          <DoneIcon class="inline" /> {{ $t("registration_done") }}<br />
-          {{ $t("please_check_email_inbox") }}
+          <DoneIcon class="inline" /> {{ $t("confirming_payment") }}<br />
+          {{ $t("please_wait_for_a_while") }}
         </p>
       </div>
     </template>
@@ -63,13 +59,13 @@
 </template>
 <script>
 import ModalTemplate from "./modal-template";
-import { mapGetters } from "vuex";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "../inputs/basic-input";
 import TosRemind from "../common/tos-remind";
 import ShadowButton from "../button/shadow-button";
 import DoneIcon from "../icons/done-icon";
 import GeneralContentLoading from "../loadings/general-content-loading";
+import { mapGetters } from "vuex";
 export default {
   components: {
     GeneralContentLoading,
@@ -80,12 +76,6 @@ export default {
     ValidationObserver,
     ModalTemplate,
   },
-  computed: {
-    ...mapGetters({
-      getCourse: "course/getCourse",
-      loggedInUser: "loggedInUser",
-    }),
-  },
   data() {
     return {
       transaction_number: "",
@@ -94,23 +84,30 @@ export default {
       submitted: false,
     };
   },
+  computed: {
+    ...mapGetters({
+      getCourse: "course/getCourse",
+      loggedInUser: "loggedInUser",
+    }),
+  },
   methods: {
     openPayment(link) {
       window.open(link, "popup", "width=800,height=600");
       return false;
     },
-    async handleForm() {
+    async submitPurchase() {
       this.submitting = true;
       try {
         const result = await this.$axios.$post(
           `/v1/course/${this.getCourse.id}/purchase`,
           {
-            byUserId: this.loggedInUser.id,
-            courseId: this.getCourse.id,
+            byUser: this.loggedInUser.id,
+            course: this.getCourse.id,
             price: this.getCourse.price,
             transaction: this.transaction_number,
           }
         );
+
         this.submitting = false;
         this.submitted = true;
       } catch (e) {

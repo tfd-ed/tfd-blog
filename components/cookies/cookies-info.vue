@@ -25,7 +25,10 @@
     </div>
   </div>
   <div v-else class="sticky bottom-0 right-0">
-    <label for="cookie-modal" class="cursor-pointer">
+    <label
+      for="cookie-modal"
+      class="btn bg-transparent border-none hover:bg-transparent cursor-pointer"
+    >
       <nuxt-img src="/cookie.png" class="w-12 p-2 opacity-80"></nuxt-img
     ></label>
   </div>

@@ -1,35 +1,37 @@
 <template>
   <div class="py-8 flex flex-wrap md:flex-nowrap">
     <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-      <span class="font-semibold title-font text-2xl text-gray-700">{{
+      <span class="font-semibold title-font text-2xl text-gray-800">{{
         convertNumber(chapter.chapterNumber)
       }}</span>
-      <span class="mt-1 text-gray-500 text-sm">{{
+      <span class="mt-1 text-amber-600 text-sm">{{
         $moment(chapter.createdDate).format("ll")
       }}</span>
     </div>
     <div class="md:flex-grow">
-      <div v-if="!isAuth">
-        <LockedIcon :width="25" />
+      <nuxt-link
+        v-if="isAuth && purchase.status === 'VERIFIED'"
+        :to="localePath('/chapter/' + chapter.id)"
+      >
         <h2
-          class="text-2xl font-medium text-gray-500 title-font mb-2 hover:underline cursor-pointer"
-        >
-          {{ chapter.name }}
-        </h2>
-      </div>
-      <nuxt-link v-else :to="localePath('/chapter/' + chapter.id)">
-        <h2
-          class="text-2xl font-medium text-gray-900 title-font mb-2 hover:underline"
+          class="text-2xl font-semibold text-gray-900 title-font mb-2 hover:underline"
         >
           {{ chapter.name }}
         </h2>
       </nuxt-link>
-
-      <p class="leading-relaxed">
+      <div v-else>
+        <LockedIcon :width="25" />
+        <h2
+          class="text-2xl font-medium text-gray-500 hover:underline cursor-pointer"
+        >
+          {{ chapter.name }}
+        </h2>
+      </div>
+      <p class="leading-relaxed mt-2">
         {{ chapter.description }}
       </p>
       <nuxt-link
-        v-if="isAuth"
+        v-if="isAuth && purchase.status === 'VERIFIED'"
         :to="localePath('/chapter/' + chapter.id)"
         class="text-red-600 inline-flex items-center mt-4 hover:underline"
       >
@@ -74,16 +76,24 @@ export default {
         };
       },
     },
-  },
-  methods: {
-    convertNumber(num) {
-      return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
+    purchase: {
+      type: Object,
+      default() {
+        return {
+          status: "SUBMITTED",
+        };
+      },
     },
   },
   computed: {
     ...mapGetters({
       isAuth: "isAuthenticated",
     }),
+  },
+  methods: {
+    convertNumber(num) {
+      return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
+    },
   },
 };
 </script>

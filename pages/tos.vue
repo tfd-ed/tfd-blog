@@ -7,7 +7,7 @@
         {{ tos.title }}
       </h1>
       <p class="text-base text-gray-500 md:text-lg">
-        Last updated: {{ $moment(tos.createdAt).format("YYYY-MM-DD") }}
+        {{ $t("last_update") }}: {{ $moment(tos.createdAt).format("LLLL") }}
       </p>
     </div>
     <nuxt-content

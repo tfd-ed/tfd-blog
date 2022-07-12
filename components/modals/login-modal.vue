@@ -132,7 +132,6 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.login,
         });
-        console.log(response);
         this.$auth.setUser(response.data.user);
         // this.$router.push("/");
         this.logging = false;

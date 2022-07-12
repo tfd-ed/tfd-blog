@@ -99,9 +99,13 @@ const messages = {
   transaction_number: "Transaction Number",
   login_to_purchase: "Login To Purchase",
   confirming_payment: "Confirming Payment",
+  confirming_payment_short: "Confirming",
   payment_confirmed: "Purchased",
   at: "At",
   price: "price",
+  last_update: "Last updated",
+  choose_payment_method: "Please choose payment method",
+  please_wait_for_a_while: "Please wait for a while",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

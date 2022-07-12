@@ -101,9 +101,13 @@ const messages = {
   transaction_number: "លេខប្រតិបត្តិការ(Transaction Number)",
   login_to_purchase: "សូមចុះឈ្មោះជាមុនដើម្បីទិញ",
   confirming_payment: "យើងកំពុងបញ្ជាក់ការទូទាត់",
+  confirming_payment_short: "កំពុងបញ្ជាក់",
   payment_confirmed: "បានទិញ",
   at: "នៅថ្ងៃ",
   price: "តម្លៃ",
+  last_update: "ធ្វើបច្ចុប្បន្នភាពចុងក្រោយនៅថ្ងៃ",
+  choose_payment_method: "សូមជ្រើសរើសវិធីបង់ប្រាក់",
+  please_wait_for_a_while: "សូមរង់ចាំបន្តិច",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",
