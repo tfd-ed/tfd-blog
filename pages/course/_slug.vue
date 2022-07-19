@@ -17,7 +17,14 @@
         <!--        </div>-->
         <div class="flex flex-col sm:flex-row mt-10 mb-20">
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-            <img class="inline-flex h-20" :src="getCourse.thumbnail.url" />
+            <img
+              class="inline-flex h-20"
+              :src="
+                getCourse.thumbnail
+                  ? getCourse.thumbnail.path
+                  : 'https://dummyimage.com/720x400'
+              "
+            />
 
             <div class="flex flex-col items-center text-center justify-center">
               <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
@@ -47,7 +54,7 @@
             <!--              >Link to chart</a-->
             <!--            >-->
             <label
-              v-if="isAuth && !purchase"
+              v-if="isAuth && !getPurchase"
               for="purchase-modal"
               class="cursor-pointer"
             >
@@ -85,28 +92,32 @@
               </div>
             </label>
             <button
-              v-if="isAuth && purchase"
+              v-if="isAuth && getPurchase"
               disabled
               class="flex items-center justify-center w-full px-8 py-4 mt-4 text-white rounded-sm"
               :class="{
                 'bg-green-700 hover:bg-green-500':
-                  purchase.status === 'VERIFIED',
+                  getPurchase.status === 'VERIFIED',
                 'bg-yellow-600 hover:bg-yellow-500':
-                  purchase.status === 'SUBMITTED',
+                  getPurchase.status === 'SUBMITTED',
               }"
             >
               <span class="text-lg font-semibold mr-2"
-                >${{ purchase.price }}</span
+                >${{ getPurchase.price }}</span
               >
               <ProcessIcon class="text-white mr-2" :width="20" />
               <span class="text-sm font-medium">
                 {{
-                  purchase.status === "SUBMITTED"
+                  getPurchase.status === "SUBMITTED"
                     ? $t("confirming_payment")
                     : $t("payment_confirmed")
                 }}
-                {{ $t("at") }}
-                {{ $moment(purchase.createdDate).format("ll") }}
+                {{ getPurchase.status === "VERIFIED" ? $t("at") : "" }}
+                {{
+                  getPurchase.status === "VERIFIED"
+                    ? $moment(purchase.createdDate).format("ll")
+                    : ""
+                }}
               </span>
             </button>
           </div>
@@ -120,7 +131,7 @@
             v-for="(chapter, index) in getCourse.chapters"
             :key="index"
             :chapter="chapter"
-            :purchase="purchase"
+            :purchase="getPurchase"
           />
         </XyzTransitionGroup>
       </div>
@@ -142,27 +153,27 @@ export default {
       purchase: "",
     };
   },
-  computed: {
-    ...mapGetters({
-      getCourse: "course/getCourse",
-      isAuth: "isAuthenticated",
-      getUser: "loggedInUser",
-    }),
-  },
-  methods: {
-    ...mapActions({
-      fetchCourse: "course/fetchCourse",
-    }),
-  },
   async fetch() {
     const param = this.$route.params.slug;
     await this.fetchCourse({ id: param });
     // if auth check user purchase
     if (this.isAuth) {
-      this.purchase = await this.$axios.$get(
-        `/v1/course/${param}/user-purchase/${this.getUser.id}`
-      );
+      await this.fetchPurchase({ id: param, userId: this.getUser.id });
     }
+  },
+  computed: {
+    ...mapGetters({
+      getCourse: "course/getCourse",
+      isAuth: "isAuthenticated",
+      getUser: "loggedInUser",
+      getPurchase: "course/getPurchase",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchCourse: "course/fetchCourse",
+      fetchPurchase: "course/fetchCoursePurchase",
+    }),
   },
 };
 </script>

@@ -13,7 +13,11 @@
       <nuxt-link :to="localePath('/course/' + course.id)">
         <img
           class="lg:h-48 md:h-36 w-full object-cover object-center transform hover:scale-105 transition duration-700 ease-out"
-          :src="course.thumbnail.url"
+          :src="
+            course.thumbnail
+              ? course.thumbnail.path
+              : 'https://dummyimage.com/720x400'
+          "
           alt="blog"
         />
       </nuxt-link>
@@ -78,27 +82,14 @@
           <!--            >{{ course.price }}-->
           <!--          </span>-->
           <span
-            class="text-gray-900 text-lg mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+            class="text-gray-900 text-lg font-semibold mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
           >
             ${{ course.price }}
           </span>
           <span
             class="text-gray-900 text-lg inline-flex items-center leading-none text-sm"
           >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+            <DurationIcon width="18" />
             <p class="ml-1 text-xs font-medium">9h:30m</p>
           </span>
         </div>
@@ -111,8 +102,9 @@ import ShadowButton from "../button/shadow-button";
 import { mapGetters } from "vuex";
 import GeneralLoading from "../loadings/general-loading";
 import ProcessIcon from "../icons/process-icon";
+import DurationIcon from "../icons/duration-icon";
 export default {
-  components: { ProcessIcon, GeneralLoading, ShadowButton },
+  components: { DurationIcon, ProcessIcon, GeneralLoading, ShadowButton },
   props: {
     course: {
       type: Object,

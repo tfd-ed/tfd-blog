@@ -8,5 +8,8 @@ export default {
   SET_COURSE(state, course) {
     state.course = course;
   },
+  UPDATE_PURCHASE(state, purchase) {
+    state.purchase = purchase;
+  },
   updateField,
 };

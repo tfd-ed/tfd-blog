@@ -65,7 +65,7 @@ import TosRemind from "../common/tos-remind";
 import ShadowButton from "../button/shadow-button";
 import DoneIcon from "../icons/done-icon";
 import GeneralContentLoading from "../loadings/general-content-loading";
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
     GeneralContentLoading,
@@ -91,6 +91,9 @@ export default {
     }),
   },
   methods: {
+    ...mapActions({
+      fetchPurchase: "course/fetchCoursePurchase",
+    }),
     openPayment(link) {
       window.open(link, "popup", "width=800,height=600");
       return false;
@@ -107,7 +110,10 @@ export default {
             transaction: this.transaction_number,
           }
         );
-
+        await this.fetchPurchase({
+          id: this.getCourse.id,
+          userId: this.loggedInUser.id,
+        });
         this.submitting = false;
         this.submitted = true;
       } catch (e) {

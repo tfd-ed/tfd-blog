@@ -7,6 +7,10 @@
       <span class="mt-1 text-amber-600 text-sm">{{
         $moment(chapter.createdDate).format("ll")
       }}</span>
+      <span class="mt-1 text-gray-600 text-sm items-center"
+        ><DurationIcon width="18" class="inline mb-1" />
+        {{ convertNumber(formatD(chapter.duration)) }}
+      </span>
     </div>
     <div class="md:flex-grow">
       <nuxt-link
@@ -56,9 +60,11 @@
 import { mapGetters } from "vuex";
 import LockedIcon from "../icons/locked-icon";
 import convertKhmerNumber from "../../utils/convert-khmer-number";
+import DurationIcon from "../icons/duration-icon";
+const format = require("format-duration");
 
 export default {
-  components: { LockedIcon },
+  components: { DurationIcon, LockedIcon },
   props: {
     chapter: {
       type: Object,
@@ -91,6 +97,9 @@ export default {
     }),
   },
   methods: {
+    formatD(second) {
+      return format(1000 * parseInt(second));
+    },
     convertNumber(num) {
       return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
     },
