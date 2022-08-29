@@ -44,9 +44,10 @@
             >
               {{ getCourse.title }}
             </h2>
-            <p class="leading-relaxed text-lg mb-4 text-justify">
-              {{ getCourse.description }}
-            </p>
+            <article
+              class="prose lg:prose-lg leading-normal"
+              v-html="getCourse.description"
+            ></article>
             <!--            <a-->
             <!--              :href="getCourse.paymentLink"-->
             <!--              target="popup"-->

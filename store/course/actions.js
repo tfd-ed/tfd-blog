@@ -28,13 +28,12 @@ export default {
         },
       ],
     });
-    const response = await this.$axios.$get(`/v1/course`, {
+    const response = await this.$axios.$get(`/v1/courses`, {
       params: {},
       paramsSerializer: (param) => {
         return query.query();
       },
     });
-    console.log(response.data);
     commit("SET_COURSES", response.data);
   },
   async fetchCourse(
@@ -57,7 +56,7 @@ export default {
         },
       ],
     });
-    const response = await this.$axios.$get(`/v1/course/${id}`, {
+    const response = await this.$axios.$get(`/v1/courses/${id}`, {
       params: {},
       paramsSerializer: (param) => {
         return query.query();
@@ -71,7 +70,7 @@ export default {
     { id, userId }
   ) {
     const response = await this.$axios.$get(
-      `/v1/course/${id}/user-purchase/${userId}`
+      `/v1/courses/${id}/user-purchase/${userId}`
     );
     commit("UPDATE_PURCHASE", response);
   },

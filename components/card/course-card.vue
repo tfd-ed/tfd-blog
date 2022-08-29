@@ -35,7 +35,7 @@
           {{ course.title }}
         </nuxt-link>
         <p class="leading-relaxed mb-3">
-          {{ getShortContents(course.description, 90) }}
+          {{ getShortContents(course.shortDescription, 90) }}
         </p>
 
         <div class="flex items-center flex-wrap">

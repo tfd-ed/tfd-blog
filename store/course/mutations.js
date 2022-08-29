@@ -11,5 +11,9 @@ export default {
   UPDATE_PURCHASE(state, purchase) {
     state.purchase = purchase;
   },
+  CLEAR(state) {
+    state.courses = [];
+    state.coursesFetchSize = 0;
+  },
   updateField,
 };

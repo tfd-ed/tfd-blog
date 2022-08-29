@@ -25,7 +25,7 @@
               <XyzTransitionGroup
                 appear-visible
                 class="flex flex-wrap -m-4"
-                xyz="fade back-1 small-80% ease-out stagger-3 perspective-2"
+                xyz="fade small-1 stagger-4 ease-ease up-5"
               >
                 <CourseCard
                   v-for="(course, index) in courses"
@@ -45,7 +45,7 @@
   </section>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 import CourseCard from "../../components/card/course-card";
 import { createHelpers } from "vuex-map-fields";
 const { mapMultiRowFields, mapFields } = createHelpers({
@@ -64,9 +64,15 @@ export default {
     ...mapMultiRowFields(["courses"]),
     ...mapFields(["coursesFetchSize"]),
   },
+  mounted() {
+    this.clear();
+  },
   methods: {
     ...mapActions({
       fetchCourses: "course/fetchCourses",
+    }),
+    ...mapMutations({
+      clear: "course/CLEAR",
     }),
     infiniteScroll($state) {
       setTimeout(async () => {
