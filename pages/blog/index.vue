@@ -49,8 +49,8 @@
   </div>
 </template>
 <script>
-import HorizontalCard from "@/components/card/horizontal-card";
-import Confused from "../../components/common/confused";
+import HorizontalCard from "@/components/cards/horizontal-card";
+import Confused from "../../components/commons/confused";
 export default {
   components: { Confused, HorizontalCard },
   async asyncData(context) {

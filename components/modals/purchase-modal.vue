@@ -61,8 +61,8 @@
 import ModalTemplate from "./modal-template";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "../inputs/basic-input";
-import TosRemind from "../common/tos-remind";
-import ShadowButton from "../button/shadow-button";
+import TosRemind from "../commons/tos-remind";
+import ShadowButton from "../buttons/shadow-button";
 import DoneIcon from "../icons/done-icon";
 import GeneralContentLoading from "../loadings/general-content-loading";
 import { mapActions, mapGetters } from "vuex";
@@ -102,7 +102,7 @@ export default {
       this.submitting = true;
       try {
         const result = await this.$axios.$post(
-          `/v1/course/${this.getCourse.id}/purchase`,
+          `/v1/courses/${this.getCourse.id}/purchase`,
           {
             byUser: this.loggedInUser.id,
             course: this.getCourse.id,

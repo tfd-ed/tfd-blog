@@ -47,10 +47,10 @@
   </section>
 </template>
 <script>
-import ShadowButton from "~/components/button/shadow-button";
+import ShadowButton from "~/components/buttons/shadow-button";
 import EmailIcon from "~/components/icons/email-icon";
 import GeneralContentLoading from "~/components/loadings/general-content-loading";
-import Confused from "../components/common/confused";
+import Confused from "../components/commons/confused";
 
 export default {
   components: {

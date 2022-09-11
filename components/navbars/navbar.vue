@@ -88,8 +88,8 @@
 </template>
 <script>
 import CountryFlag from "vue-country-flag";
-import ShadowButton from "../button/shadow-button";
-import { routes } from "../../static/js/routes";
+import ShadowButton from "../buttons/shadow-button";
+import { routes } from "static/js/routes";
 import { mapGetters } from "vuex";
 export default {
   name: "NavBar",

@@ -102,7 +102,7 @@
 </template>
 <script>
 import { format } from "date-fns";
-import Comments from "@/components/global/comments";
+import Comments from "@/components/globals/comments";
 export default {
   components: { Comments },
   async asyncData(context) {

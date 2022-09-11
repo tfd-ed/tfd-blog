@@ -62,6 +62,12 @@ export default {
         return query.query();
       },
     });
+    // let chapters = response.chapters;
+    // for (let i = 0; i < chapters.length; i++) {
+    //   chapters[i].next = chapters[i + 1];
+    //   chapters[i].previous = chapters[i - 1];
+    // }
+    // response.chapters = chapters;
     commit("SET_COURSE", response);
   },
   async fetchCoursePurchase(

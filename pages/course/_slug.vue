@@ -141,7 +141,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ChapterCard from "../../components/card/chapter-card";
+import ChapterCard from "../../components/cards/chapter-card";
 import LockedIcon from "../../components/icons/locked-icon";
 import ProcessIcon from "../../components/icons/process-icon";
 import GeneralContentLoading from "../../components/loadings/general-content-loading";

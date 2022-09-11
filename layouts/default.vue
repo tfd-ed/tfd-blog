@@ -1,10 +1,12 @@
 <template>
-  <div class="dark:bg-gray-800 font-sans bg-white relative">
+  <div
+    class="dark:bg-gray-800 font-sans bg-white relative flex flex-col h-screen"
+  >
     <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
     </vue-scroll-indicator>
     <!--    <NavBar />-->
     <FlexNavbar />
-    <nuxt />
+    <nuxt class="flex-grow" />
     <CookiesInfo />
     <CookiesModal />
     <LoginModal />
@@ -15,14 +17,14 @@
   </div>
 </template>
 <script>
-import NavBar from "~/components/navbar/navbar";
-import Footer from "~/components/footer/footer";
+import NavBar from "~/components/navbars/navbar";
+import Footer from "~/components/footers/footer";
 import { onAnalyticsReady } from "vue-analytics";
 import CookiesInfo from "~/components/cookies/cookies-info";
 import CookiesModal from "../components/modals/cookies-modal";
 import LoginModal from "../components/modals/login-modal";
 import UserRegistrationModal from "../components/modals/user-registration-modal";
-import FlexNavbar from "../components/navbar/flex-navbar";
+import FlexNavbar from "../components/navbars/flex-navbar";
 import ForgotPasswordModal from "../components/modals/forgot-password-modal";
 import PurchaseModal from "../components/modals/purchase-modal";
 

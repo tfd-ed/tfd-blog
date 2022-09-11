@@ -116,8 +116,8 @@
 </template>
 <script>
 import { format } from "date-fns";
-import GitHubLogo from "@/components/logo/GitHubLogo";
-import Comments from "@/components/global/comments";
+import GitHubLogo from "@/components/logos/GitHubLogo";
+import Comments from "@/components/globals/comments";
 export default {
   components: { Comments, GitHubLogo },
   async asyncData(context) {

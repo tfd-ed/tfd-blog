@@ -9,6 +9,8 @@ import {
   alpha_spaces,
   max,
   digits,
+  mimes,
+  size,
 } from "vee-validate/dist/rules";
 import { ValidationProvider, extend } from "vee-validate";
 
@@ -21,5 +23,7 @@ extend("alpha", alpha);
 extend("alpha_dash", alpha_dash);
 extend("alpha_spaces", alpha_spaces);
 extend("digits", digits);
+extend("size", size);
+extend("mimes", mimes);
 // Register it globally
 Vue.component("ValidationProvider", ValidationProvider);

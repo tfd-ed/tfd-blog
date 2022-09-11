@@ -88,9 +88,9 @@
   </ModalTemplate>
 </template>
 <script>
-import ShadowButton from "~/components/button/shadow-button";
+import ShadowButton from "~/components/buttons/shadow-button";
 import ModalTemplate from "~/components/modals/modal-template";
-import TosRemind from "~/components/common/tos-remind";
+import TosRemind from "~/components/commons/tos-remind";
 import GeneralLoading from "~/components/loadings/general-loading";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "~/components/inputs/basic-input";
@@ -139,10 +139,11 @@ export default {
         // this.$toast.success(this.$i18n.t("welcome_to_sarpheab"), {
         //   duration: 3000,
         // });
-        setTimeout(() => {
+        setTimeout(async () => {
           this.resetForm();
           this.close();
           this.logged = false;
+          await this.$router.push(this.localePath("/"));
         }, 3000);
         this.login = {
           email: "",

@@ -20,8 +20,8 @@
   </section>
 </template>
 <script>
-import Quote from "@/components/card/quote";
-import AbaDonation from "@/components/card/aba-donation";
+import Quote from "@/components/cards/quote";
+import AbaDonation from "@/components/cards/aba-donation";
 export default {
   components: { AbaDonation, Quote },
   async asyncData(context) {

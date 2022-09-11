@@ -30,6 +30,7 @@ export default {
     { src: "~/plugins/vee-validate.js", mode: "client" },
     { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
     { src: "~/plugins/vuex-persist.client.js", mode: "client" },
+    { src: "~/plugins/v-lazy-image.js", mode: "client" },
     { src: "~/plugins/vue-vimeo.js" },
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/i18n.js" },

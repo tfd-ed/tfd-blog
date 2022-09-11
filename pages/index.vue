@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import SocialCard from "@/components/card/social-card";
-import Founder from "@/components/hero/founder";
-import Quote from "@/components/card/quote";
+import SocialCard from "@/components/cards/social-card";
+import Founder from "@/components/heros/founder";
+import Quote from "@/components/cards/quote";
 export default {
   name: "IndexPage",
   components: {

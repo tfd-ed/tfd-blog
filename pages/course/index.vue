@@ -36,17 +36,17 @@
             </div>
           </div>
         </div>
-        <infinite-loading
-          spinner="circles"
-          @infinite="infiniteScroll"
-        ></infinite-loading>
+        <infinite-loading spinner="circles" @infinite="infiniteScroll">
+          <div slot="no-more">{{ $t("no_more") }}</div>
+          <div slot="no-results">{{ $t("no_results") }}</div>
+        </infinite-loading>
       </div>
     </div>
   </section>
 </template>
 <script>
 import { mapActions, mapMutations } from "vuex";
-import CourseCard from "../../components/card/course-card";
+import CourseCard from "../../components/cards/course-card";
 import { createHelpers } from "vuex-map-fields";
 const { mapMultiRowFields, mapFields } = createHelpers({
   getterType: "course/getField",

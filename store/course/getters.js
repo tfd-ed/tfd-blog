@@ -5,5 +5,10 @@ export default {
   getChapter: (state) => (id) => {
     return state.course.chapters.find((chapter) => chapter.id === id);
   },
+  getChapterByNumber: (state) => (chapterNumber) => {
+    return state.course.chapters.find(
+      (chapter) => chapter.chapterNumber === chapterNumber
+    );
+  },
   getField,
 };

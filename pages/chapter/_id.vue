@@ -22,23 +22,39 @@
           <vimeo-player
             ref="player"
             class="video-container"
-            :video-id="getChapter($route.params.id).vimeoId"
+            :video-url="getChapter($route.params.id).url"
             @ready="onReady"
           />
         </client-only>
       </div>
-      <button
-        class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-      >
-        Next
-      </button>
+      <div class="flex flex-row justify-center space-x-4">
+        <ShadowButton
+          v-if="parseInt(getChapter($route.params.id).chapterNumber) > 1"
+          color="bg-gray-500"
+          text="previous"
+          @onClick="goToPrevious"
+        ></ShadowButton>
+        <ShadowButton
+          color="bg-red-500"
+          text="next"
+          @onClick="goToNext"
+        ></ShadowButton>
+      </div>
+
+      <!--      <button-->
+      <!--        class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"-->
+      <!--      >-->
+      <!--        Next-->
+      <!--      </button>-->
     </div>
   </section>
 </template>
 <script>
 import { mapGetters } from "vuex";
+import ShadowButton from "@/components/buttons/shadow-button";
 
 export default {
+  components: { ShadowButton },
   middleware: "auth",
   data() {
     return {
@@ -51,6 +67,7 @@ export default {
   computed: {
     ...mapGetters({
       getChapter: "course/getChapter",
+      getChapterByNumber: "course/getChapterByNumber",
       getCourse: "course/getCourse",
     }),
   },
@@ -59,6 +76,22 @@ export default {
   //   // const param = this.$route.params.id;
   // },
   methods: {
+    goToNext() {
+      const next = this.getChapterByNumber(
+        parseInt(this.getChapter(this.$route.params.id).chapterNumber) + 1
+      );
+      if (next) {
+        this.$router.push(this.localePath("chapter/" + next.id));
+      }
+    },
+    goToPrevious() {
+      const previous = this.getChapterByNumber(
+        parseInt(this.getChapter(this.$route.params.id).chapterNumber) - 1
+      );
+      if (previous) {
+        this.$router.push(this.localePath("chapter/" + previous.id));
+      }
+    },
     onReady(player) {
       this.playerReady = true;
 

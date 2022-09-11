@@ -83,7 +83,7 @@
   </div>
 </template>
 <script>
-import Arrow from "@/components/icon/arrow";
+import Arrow from "@/components/icons/arrow";
 export default {
   components: { Arrow },
 };

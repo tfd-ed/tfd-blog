@@ -56,7 +56,7 @@
 <script>
 import ModalTemplate from "./modal-template";
 import { ValidationObserver } from "vee-validate";
-import ShadowButton from "../button/shadow-button";
+import ShadowButton from "../buttons/shadow-button";
 import BasicInput from "../inputs/basic-input";
 import GeneralLoading from "../loadings/general-loading";
 export default {

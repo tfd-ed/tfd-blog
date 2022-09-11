@@ -90,7 +90,7 @@
             class="text-gray-900 text-lg inline-flex items-center leading-none text-sm"
           >
             <DurationIcon width="18" />
-            <p class="ml-1 text-xs font-medium">9h:30m</p>
+            <p class="ml-1 text-xs font-medium">{{ course.duration }}</p>
           </span>
         </div>
       </div>
@@ -98,7 +98,7 @@
   </div>
 </template>
 <script>
-import ShadowButton from "../button/shadow-button";
+import ShadowButton from "../buttons/shadow-button";
 import { mapGetters } from "vuex";
 import GeneralLoading from "../loadings/general-loading";
 import ProcessIcon from "../icons/process-icon";
@@ -126,6 +126,13 @@ export default {
       },
     },
   },
+  async fetch() {
+    if (this.isAuth) {
+      this.purchase = await this.$axios.$get(
+        `/v1/courses/${this.course.id}/user-purchase/${this.loggedUser.id}`
+      );
+    }
+  },
   computed: {
     ...mapGetters({
       isAuth: "isAuthenticated",
@@ -136,13 +143,6 @@ export default {
     return {
       purchase: "",
     };
-  },
-  async fetch() {
-    if (this.isAuth) {
-      this.purchase = await this.$axios.$get(
-        `/v1/course/${this.course.id}/user-purchase/${this.loggedUser.id}`
-      );
-    }
   },
   methods: {
     getShortContents(content, length) {

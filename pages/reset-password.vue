@@ -98,11 +98,11 @@
   </section>
 </template>
 <script>
-import Confused from "../components/common/confused";
-import ShadowButton from "../components/button/shadow-button";
+import Confused from "../components/commons/confused";
+import ShadowButton from "../components/buttons/shadow-button";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "../components/inputs/basic-input";
-import TosRemind from "../components/common/tos-remind";
+import TosRemind from "../components/commons/tos-remind";
 import GeneralContentLoading from "../components/loadings/general-content-loading";
 import ContentsLoader from "../components/loadings/contents-loader";
 import GeneralLoading from "../components/loadings/general-loading";
@@ -164,6 +164,7 @@ export default {
         });
         this.submitting = false;
         this.submitted = true;
+        await this.$router.push(this.localePath("/"));
       } catch (e) {
         this.submitting = false;
         this.$toast.error(e.response.data.message, {

@@ -139,28 +139,28 @@
               </nuxt-link>
             </span>
 
-            <span>
-              <div
-                class="cursor-pointer block p-6 border-b-4 border-transparent hover:border-red-700"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+            <!--            <span>-->
+            <!--              <div-->
+            <!--                class="cursor-pointer block p-6 border-b-4 border-transparent hover:border-red-700"-->
+            <!--              >-->
+            <!--                <svg-->
+            <!--                  class="w-4 h-4"-->
+            <!--                  xmlns="http://www.w3.org/2000/svg"-->
+            <!--                  fill="none"-->
+            <!--                  viewBox="0 0 24 24"-->
+            <!--                  stroke="currentColor"-->
+            <!--                >-->
+            <!--                  <path-->
+            <!--                    stroke-linecap="round"-->
+            <!--                    stroke-linejoin="round"-->
+            <!--                    stroke-width="2"-->
+            <!--                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"-->
+            <!--                  />-->
+            <!--                </svg>-->
 
-                <span class="sr-only"> Search </span>
-              </div>
-            </span>
+            <!--                <span class="sr-only"> Search </span>-->
+            <!--              </div>-->
+            <!--            </span>-->
             <span class="p-2">
               <label v-if="!isAuth" for="login-modal">
                 <ShadowButton text="login" color="bg-red-600"></ShadowButton>
@@ -179,9 +179,9 @@
   </header>
 </template>
 <script>
-import { routes } from "../../static/js/routes";
+import { routes } from "static/js/routes";
 import { mapGetters } from "vuex";
-import ShadowButton from "../button/shadow-button";
+import ShadowButton from "../buttons/shadow-button";
 
 export default {
   components: { ShadowButton },

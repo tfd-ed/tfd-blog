@@ -5,6 +5,7 @@
         ref="register_label"
         for="user-registration-modal"
         class="btn btn-sm btn-circle absolute right-2 top-2"
+        @click="clearData"
         >✕</label
       >
       <div>
@@ -103,8 +104,8 @@
 <script>
 import ModalTemplate from "~/components/modals/modal-template";
 import DoneIcon from "~/components/icons/done-icon";
-import ShadowButton from "~/components/button/shadow-button";
-import TosRemind from "~/components/common/tos-remind";
+import ShadowButton from "~/components/buttons/shadow-button";
+import TosRemind from "~/components/commons/tos-remind";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "~/components/inputs/basic-input";
 import GeneralContentLoading from "~/components/loadings/general-content-loading";
@@ -215,6 +216,9 @@ export default {
       this.firstname = "";
       this.lastname = "";
       this.email = "";
+      this.loading = false;
+      this.submitting = false;
+      this.submitted = false;
     },
   },
 };
