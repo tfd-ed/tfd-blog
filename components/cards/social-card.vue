@@ -16,7 +16,7 @@
         class="flex items-center justify-center"
       >
         <a :href="item.link" target="_blank">
-          <nuxt-img
+          <img
             :src="item.src"
             :alt="item.alt"
             class="block object-contain h-12"

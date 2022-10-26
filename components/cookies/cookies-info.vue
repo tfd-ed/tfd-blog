@@ -4,7 +4,7 @@
     class="sticky bottom-0 alert shadow-lg"
   >
     <div>
-      <nuxt-img src="/cookie.png" class="w-6"></nuxt-img>
+      <img src="/cookie.png" class="w-6"></img>
       <div>
         <h3 class="font-bold">{{ $t("cookies") }}</h3>
         <div class="text-xs leading-loose">{{ $t("cookies_description") }}</div>
@@ -29,7 +29,7 @@
       for="cookie-modal"
       class="btn bg-transparent border-none hover:bg-transparent cursor-pointer"
     >
-      <nuxt-img src="/cookie.png" class="w-12 p-2 opacity-80"></nuxt-img
+      <img src="/cookie.png" class="w-12 p-2 opacity-80"></img
     ></label>
   </div>
 </template>

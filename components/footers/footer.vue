@@ -2,7 +2,7 @@
   <footer class="footer p-10 bg-neutral text-neutral-content">
     <div>
       <nuxt-link :to="localePath('/')"
-        ><nuxt-img src="/tfd_logo.jpeg" class="w-12"></nuxt-img
+        ><img src="/tfd_logo.jpeg" class="w-12"></img
       ></nuxt-link>
       <p>TFD<br />Teaching For Devs</p>
       <a :href="`mailto:${$config.EMAIL}`">{{ $config.EMAIL }}</a>
@@ -26,7 +26,7 @@
       <span class="footer-title">{{ $t("social") }}</span>
       <div class="grid grid-flow-col gap-4">
         <a href="https://t.me/tfdTech" target="_blank">
-          <nuxt-img class="w-6" src="/telegram-svgrepo-com.svg"></nuxt-img>
+          <img class="w-6" src="/telegram-svgrepo-com.svg"></img>
         </a>
         <a :href="$config.YOUTUBE_URL" target="_blank"
           ><svg
@@ -53,7 +53,7 @@
             ></path></svg
         ></a>
         <a :href="$config.GITHUB_URL" target="_blank">
-          <nuxt-img class="w-6" src="/github.png"></nuxt-img>
+          <img class="w-6" src="/github.png"></img>
         </a>
       </div>
     </div>

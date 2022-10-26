@@ -56,7 +56,7 @@
         </div>
 
         <nuxt-link exact :to="localePath('index')">
-          <nuxt-img src="/tfd_logo.jpeg" class="w-8" />
+          <img src="/tfd_logo.jpeg" class="w-8" />
         </nuxt-link>
       </div>
 

@@ -29,10 +29,10 @@
             <div
               class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400"
             >
-              <nuxt-img
+              <img
                 src="/founder.jpeg"
                 class="object-cover rounded-full"
-              ></nuxt-img>
+              ></img>
             </div>
             <div class="flex flex-col items-center text-center justify-center">
               <h2

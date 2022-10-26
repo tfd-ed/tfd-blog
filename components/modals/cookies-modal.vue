@@ -7,7 +7,7 @@
         >✕</label
       >
       <div class="flex space-x-4">
-        <nuxt-img src="/cookie.png" class="h-6"></nuxt-img>
+        <img src="/cookie.png" class="h-6"></img>
         <h3 class="text-lg font-bold">
           {{ $t("cookies") }}
         </h3>
@@ -26,7 +26,7 @@
       <!--        </div>-->
 
       <div class="flex items-center space-x-4 items-center">
-        <nuxt-img src="/ga_logo.svg" class="w-28"></nuxt-img>
+        <img src="/ga_logo.svg" class="w-28"></img>
         <p class="py-4 leading-loose text-sm">
           {{ $t("ga_description") }}
         </p>

@@ -2,7 +2,7 @@
   <header class="sticky top-0 z-10 navbar bg-gray-100 mx-auto">
     <div class="flex-1">
       <nuxt-link :to="localePath('index')">
-        <nuxt-img src="/tfd_logo.jpeg" class="w-8" />
+        <img src="/tfd_logo.jpeg" class="w-8" />
       </nuxt-link>
     </div>
     <div class="flex-none">

@@ -69,7 +69,7 @@
               :media="post.media"
               class="text-gray-600 hover:text-gray-900 widget"
             >
-              <nuxt-img src="/telegram_black.png" class="w-6"></nuxt-img>
+              <img src="/telegram_black.png" class="w-6"></img>
             </ShareNetwork>
           </div>
           <img
