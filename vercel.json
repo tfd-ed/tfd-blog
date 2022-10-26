@@ -11,6 +11,7 @@
       "config": {
         "serverFiles": [
           "plugins/**",
+          "utils/**",
           "locales/**",
           "static/**",
           "content/**",
