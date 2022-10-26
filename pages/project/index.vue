@@ -19,24 +19,26 @@
             </span>
           </div>
         </div>
-        <XyzTransitionGroup
-          appear-visible
-          class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
-          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
-        >
-          <HorizontalCard
-            v-for="(project, $index) in projects"
-            :key="`project-${$index}`"
-            :post="project"
-          ></HorizontalCard>
-        </XyzTransitionGroup>
-        <Confused v-if="projects.length === 0">
-          <template #content>
-            <p class="mt-6 text-gray-500">
-              {{ $t("no_articles") }}
-            </p>
-          </template>
-        </Confused>
+        <client-only>
+          <XyzTransitionGroup
+            appear-visible
+            class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
+            xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
+          >
+            <HorizontalCard
+              v-for="(project, $index) in projects"
+              :key="`project-${$index}`"
+              :post="project"
+            ></HorizontalCard>
+          </XyzTransitionGroup>
+          <Confused v-if="projects.length === 0">
+            <template #content>
+              <p class="mt-6 text-gray-500">
+                {{ $t("no_articles") }}
+              </p>
+            </template>
+          </Confused>
+        </client-only>
         <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
             <button class="btn">«</button>

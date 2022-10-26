@@ -2,8 +2,10 @@
   <div
     class="dark:bg-gray-800 font-sans bg-white relative flex flex-col h-screen"
   >
-    <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
-    </vue-scroll-indicator>
+    <client-only>
+      <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
+      </vue-scroll-indicator>
+    </client-only>
     <!--    <NavBar />-->
     <FlexNavbar />
     <nuxt class="flex-grow" />

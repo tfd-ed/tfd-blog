@@ -22,24 +22,28 @@
         <div class="text-gray-600 body-font">
           <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
-              <XyzTransitionGroup
-                appear-visible
-                class="flex flex-wrap -m-4"
-                xyz="fade small-1 stagger-4 ease-ease up-5"
-              >
-                <CourseCard
-                  v-for="(course, index) in courses"
-                  :key="index"
-                  :course="course"
-                ></CourseCard>
-              </XyzTransitionGroup>
+              <client-only>
+                <XyzTransitionGroup
+                  appear-visible
+                  class="flex flex-wrap -m-4"
+                  xyz="fade small-1 stagger-4 ease-ease up-5"
+                >
+                  <CourseCard
+                    v-for="(course, index) in courses"
+                    :key="index"
+                    :course="course"
+                  ></CourseCard>
+                </XyzTransitionGroup>
+              </client-only>
             </div>
           </div>
         </div>
-        <infinite-loading spinner="circles" @infinite="infiniteScroll">
-          <div slot="no-more">{{ $t("no_more") }}</div>
-          <div slot="no-results">{{ $t("no_results") }}</div>
-        </infinite-loading>
+        <client-only>
+          <infinite-loading spinner="circles" @infinite="infiniteScroll">
+            <div slot="no-more">{{ $t("no_more") }}</div>
+            <div slot="no-results">{{ $t("no_results") }}</div>
+          </infinite-loading>
+        </client-only>
       </div>
     </div>
   </section>
