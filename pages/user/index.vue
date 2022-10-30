@@ -214,7 +214,7 @@ import { ValidationObserver } from "vee-validate";
 import StatusIcon from "~/components/icons/status-icon";
 import BasicInput from "@/components/inputs/basic-input";
 import GeneralContentLoading from "@/components/loadings/general-content-loading";
-import * as nsfwjs from "nsfwjs";
+// import * as nsfwjs from "nsfwjs";
 export default {
   components: {
     GeneralContentLoading,
