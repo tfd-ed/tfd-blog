@@ -18,6 +18,10 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  server: {
+    host: "0.0.0.0",
+    port: 7000,
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],

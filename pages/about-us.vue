@@ -2,7 +2,7 @@
   <section class="px-4 py-24 mx-auto max-w-7xl">
     <div class="mb-6 text-center md:text-center">
       <h1
-        class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
+        class="mb-4 text-2xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
       >
         {{ $t("about_us") }}
       </h1>

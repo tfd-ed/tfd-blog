@@ -8,7 +8,7 @@
         <div class="mx-auto mb-10 text-left max-w-2xl md:max-w-4xl">
           <div class="pb-6 mb-6 border-b border-gray-200">
             <h1
-              class="mb-3 text-3xl font-bold leading-relaxed text-left text-gray-900 md:leading-tight md:text-4xl capitalize"
+              class="mb-3 text-2xl font-bold leading-relaxed text-left text-gray-900 md:leading-tight md:text-4xl capitalize"
               itemprop="headline"
             >
               {{ post.title }}

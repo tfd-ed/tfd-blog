@@ -26,7 +26,7 @@
       <!--        </div>-->
 
       <div class="flex items-center space-x-4 items-center">
-        <img src="/ga_logo.svg" class="w-28"></img>
+        <img src="/ga_logo.svg" class="w-28">
         <p class="py-4 leading-loose text-sm">
           {{ $t("ga_description") }}
         </p>

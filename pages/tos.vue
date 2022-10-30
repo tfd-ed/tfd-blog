@@ -2,7 +2,7 @@
   <section>
     <div class="px-4 py-24 mb-20 text-left bg-gray-50 md:text-center">
       <h1
-        class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl"
+        class="mb-4 text-2xl font-bold leading-tight text-gray-900 md:text-5xl"
       >
         {{ tos.title }}
       </h1>

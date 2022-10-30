@@ -38,24 +38,6 @@
               class="capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
               >{{ $t(route.label) }}</nuxt-link
             >
-            <nuxt-link
-              v-if="$i18n.locale === 'en'"
-              class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-              :to="switchLocalePath('kh')"
-            >
-              <client-only>
-                <CountryFlag country="kh" size="normal" />
-              </client-only>
-            </nuxt-link>
-            <nuxt-link
-              v-if="$i18n.locale === 'kh'"
-              class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-              :to="switchLocalePath('en')"
-            >
-              <client-only>
-                <CountryFlag country="gb" size="normal" />
-              </client-only>
-            </nuxt-link>
           </ul>
         </div>
 
@@ -76,24 +58,6 @@
             class="capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
             >{{ $t(route.label) }}</nuxt-link
           >
-          <nuxt-link
-            v-if="$i18n.locale === 'en'"
-            class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-            :to="switchLocalePath('km')"
-          >
-            <client-only>
-              <CountryFlag country="kh" size="normal" />
-            </client-only>
-          </nuxt-link>
-          <nuxt-link
-            v-if="$i18n.locale === 'km'"
-            class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-            :to="switchLocalePath('en')"
-          >
-            <client-only>
-              <CountryFlag country="gb" size="normal" />
-            </client-only>
-          </nuxt-link>
         </nav>
 
         <div class="flex items-center ml-8">
@@ -124,7 +88,7 @@
             <!--              </nuxt-link>-->
             <!--            </span>-->
 
-            <span>
+            <span v-if="isAuth">
               <nuxt-link
                 to="/user"
                 class="block p-6 border-b-4 border-transparent hover:border-red-700"
@@ -169,7 +133,25 @@
             <!--                <span class="sr-only"> Search </span>-->
             <!--              </div>-->
             <!--            </span>-->
-            <span class="p-2">
+            <span class="p-2 flex space-x-4 items-center">
+              <nuxt-link
+                v-if="$i18n.locale === 'en'"
+                class="border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                :to="switchLocalePath('km')"
+              >
+                <client-only>
+                  <CountryFlag country="kh" size="normal" />
+                </client-only>
+              </nuxt-link>
+              <nuxt-link
+                v-if="$i18n.locale === 'km'"
+                class="border-b-4 border-transparent hover:text-red-700 hover:border-current"
+                :to="switchLocalePath('en')"
+              >
+                <client-only>
+                  <CountryFlag country="gb" size="normal" />
+                </client-only>
+              </nuxt-link>
               <label v-if="!isAuth" for="login-modal">
                 <ShadowButton text="login" color="bg-red-600"></ShadowButton>
               </label>
