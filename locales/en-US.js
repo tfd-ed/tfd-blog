@@ -115,6 +115,7 @@ const messages = {
   upload_a_file: "Upload a File",
   no_more: "No more :-)",
   no_results: "No result!",
+  updated: "updated!",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

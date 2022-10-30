@@ -16,7 +16,7 @@
           {{ $t(`${owner}`) }}
         </p>
         <div key="3" class="mb-3 shadow-lg avatar">
-          <div class="w-36 rounded">
+          <div class="w-96 rounded">
             <slot name="image"> </slot>
           </div>
         </div>

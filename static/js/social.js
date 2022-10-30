@@ -2,7 +2,12 @@ export const socialLink = [
   {
     src: "/logo/facebook.png",
     alt: "Facebook",
-    link: "https://www.facebook.com/teachingfordevelopment",
+    link: "https://www.facebook.com/ChauDaraScienceEngineer/",
+  },
+  {
+    src: "/logo/Instagram_icon.webp",
+    alt: "Facebook",
+    link: "https://www.instagram.com/darachaukh/",
   },
   {
     src: "/logo/telegram.png",

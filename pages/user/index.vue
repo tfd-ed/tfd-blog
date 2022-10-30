@@ -18,6 +18,7 @@
           <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div class="lg:col-span-2">
               <ImageLoader
+                id="profile-viewer"
                 class="object-cover w-full"
                 :src="
                   admin.profile
@@ -144,6 +145,7 @@
                     name="email"
                     label="email"
                     rules="email|required"
+                    disabled="true"
                   />
 
                   <BasicInput
@@ -212,6 +214,7 @@ import { ValidationObserver } from "vee-validate";
 import StatusIcon from "~/components/icons/status-icon";
 import BasicInput from "@/components/inputs/basic-input";
 import GeneralContentLoading from "@/components/loadings/general-content-loading";
+import * as nsfwjs from "nsfwjs";
 export default {
   components: {
     GeneralContentLoading,
@@ -230,9 +233,12 @@ export default {
       thumbnail: "",
       password: "",
       confirmation: "",
+      nsfwModel: "",
     };
   },
   async fetch() {
+    // Load NSFW model
+    this.nsfwModel = await nsfwjs.load();
     const join = [
       {
         field: "profile",
@@ -260,7 +266,7 @@ export default {
   methods: {
     popCourseUpdated() {
       this.$toast.success(
-        this.$i18n.t("admin") +
+        this.$i18n.t("user") +
           ": " +
           this.admin.username +
           " " +
@@ -274,7 +280,14 @@ export default {
       try {
         let file = "";
         if (this.thumbnail) {
-          console.log("Called block 1");
+          console.log("Checking NSFW");
+          const img = document.getElementById("profile-viewer");
+          if (img) {
+            // To-do
+            // // Classify the image
+            // const predictions = await this.nsfwModel.classify(img);
+            // console.log("Predictions: ", predictions);
+          }
           /**
            * Replace TB
            */

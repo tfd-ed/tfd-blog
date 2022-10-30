@@ -72,7 +72,9 @@
               <ShadowButton text="sign_up" color="bg-green-700" />
             </button>
           </div>
-          <TosRemind />
+          <label @click="close">
+            <TosRemind />
+          </label>
           <div class="mt-12 mx-auto text-center h-8">
             <p class="text-xs text-gray-500">
               {{ $t("have_account") }}

@@ -117,6 +117,7 @@ const messages = {
   upload_a_file: "បង្ហោះឯកសារ",
   no_more: "អស់ហើយ!",
   no_results: "គ្មានលទ្ធផល!",
+  updated: "ត្រូវបានធ្វើបច្ចុប្បន្នភាព!",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

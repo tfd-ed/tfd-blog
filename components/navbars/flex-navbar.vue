@@ -43,14 +43,18 @@
               class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
               :to="switchLocalePath('kh')"
             >
-              <CountryFlag country="kh" size="normal" />
+              <client-only>
+                <CountryFlag country="kh" size="normal" />
+              </client-only>
             </nuxt-link>
             <nuxt-link
               v-if="$i18n.locale === 'kh'"
               class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
               :to="switchLocalePath('en')"
             >
-              <CountryFlag country="gb" size="normal" />
+              <client-only>
+                <CountryFlag country="gb" size="normal" />
+              </client-only>
             </nuxt-link>
           </ul>
         </div>
@@ -77,14 +81,18 @@
             class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
             :to="switchLocalePath('km')"
           >
-            <CountryFlag country="kh" size="normal" />
+            <client-only>
+              <CountryFlag country="kh" size="normal" />
+            </client-only>
           </nuxt-link>
           <nuxt-link
             v-if="$i18n.locale === 'km'"
             class="mt-2 capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
             :to="switchLocalePath('en')"
           >
-            <CountryFlag country="gb" size="normal" />
+            <client-only>
+              <CountryFlag country="gb" size="normal" />
+            </client-only>
           </nuxt-link>
         </nav>
 

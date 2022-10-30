@@ -6,7 +6,7 @@
       <template #image>
         <div class="flex flex-col space-y-2">
           <img
-            src="https://picsum.photos/200?grayscale"
+            src="https://picsum.photos/800"
             class="object-cover w-36 h-full bg-center rounded-md shadow-xl"
           />
         </div>

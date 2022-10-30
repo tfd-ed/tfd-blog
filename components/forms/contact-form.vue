@@ -1,13 +1,6 @@
 <!--This form only works in production when you integrate your site with Netlify.-->
 <template>
-  <form
-    netlify
-    name="Contact"
-    method="POST"
-    netlify-honeypot="bot-field"
-    action="/contact-us/thanks"
-    class="flex flex-wrap -m-2"
-  >
+  <form method="POST" :action="$config.FORMSPREE" class="flex flex-wrap -m-2">
     <p class="hidden">
       <label>
         Don’t fill this out if you’re human: <input name="bot-field" />

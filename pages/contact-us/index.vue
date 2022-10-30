@@ -28,5 +28,6 @@
 import ContactForm from "@/components/forms/contact-form";
 export default {
   components: { ContactForm },
+  mounted() {},
 };
 </script>

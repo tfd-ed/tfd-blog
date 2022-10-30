@@ -14,6 +14,7 @@
       <input
         :id="id"
         :value="value"
+        :disabled="disabled"
         class="w-full px-0 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer"
         :type="type"
         :placeholder="getPlaceHolder"
@@ -86,6 +87,10 @@ export default {
     autoComplete: {
       type: Boolean,
       default: true,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

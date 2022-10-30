@@ -30,7 +30,11 @@
               <div
                 class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400"
               >
-                <img src="/founder.jpeg" class="object-cover rounded-full" />
+                <img
+                  src="/founder.jpg"
+                  class="object-cover rounded-full"
+                  alt="founder"
+                />
               </div>
               <div
                 class="flex flex-col items-center text-center justify-center"
@@ -63,6 +67,12 @@
                 <!--                theme="dark"-->
                 <!--                :count="true"-->
                 <!--              ></youtube-subscribe-button>-->
+                <nuxt-link
+                  :to="localePath('course')"
+                  class="text-red-600 inline-flex items-center capitalize"
+                  >{{ $t("course") }}
+                  <Arrow />
+                </nuxt-link>
                 <nuxt-link
                   :to="localePath('blog')"
                   class="text-red-600 inline-flex items-center capitalize"

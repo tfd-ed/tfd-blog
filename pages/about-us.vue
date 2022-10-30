@@ -9,14 +9,13 @@
     </div>
     <Quote quote="founder_quote" owner="chau_dara">
       <template #image>
-        <img src="/founder.jpeg" />
+        <img src="/founder.jpg" alt="founder" />
       </template>
     </Quote>
     <nuxt-content
       class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
       :document="about"
     ></nuxt-content>
-    <AbaDonation />
   </section>
 </template>
 <script>
