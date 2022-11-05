@@ -47,7 +47,7 @@
   </section>
 </template>
 <script>
-import HorizontalCard from "@/components/card/horizontal-card";
+import HorizontalCard from "@/components/cards/horizontal-card";
 export default {
   components: { HorizontalCard },
   async asyncData(context) {

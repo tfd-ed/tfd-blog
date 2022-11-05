@@ -1,27 +1,8 @@
-<h1>A serverless blog powered by Nuxt/Content  + TailwindCSS by TFD
+<h1>TFD E-Learning using Nuxt/Content  + TailwindCSS
   <a  
     href="https://nestjs.com/"  
     target="blank"  
-  >  
-<br/>  
-<br/> 
-    <img  
-      src="https://www.docker.com/wp-content/uploads/2022/03/horizontal-logo-monochromatic-white.png"  
-      width="180"  
-      alt="Nest Logo"  
-    /> 
-    <img  
-      src="https://content.nuxtjs.org/logo-light.svg"  
-      width="220"  
-      alt="Nest Logo"  
-    />  
-<img  
-      src="https://camo.githubusercontent.com/53b9876cd8e38928387c6824043b0e2772b15b1bfdb7f42d0864216abbf3dfe8/68747470733a2f2f7265666163746f72696e6775692e6e7963332e63646e2e6469676974616c6f6365616e7370616365732e636f6d2f7461696c77696e642d6c6f676f2e737667"  
-      width="200"  
-      alt="Nest Logo"  
-    />  
-
-  </a>  
+  ></a>
 </h1>
 
 <p align="center">  
@@ -33,7 +14,6 @@
 <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" width="110">
 <img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" width="60">  
 <br/>
-<a href="https://app.netlify.com/sites/relaxed-neumann-d28ee3/deploys"><img src="https://api.netlify.com/api/v1/badges/1f884128-722a-4ae3-bc04-8bf55bc27cd3/deploy-status"/></a>
 <a href="https://www.npmjs.com/package/nuxt" target="_blank"><img src="https://badgen.net/npm/v/nuxt" alt="Version" /></a>  
 <a href="https://www.gnu.org/licenses/gpl-3.0" target="_blank"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="Package License" /></a>  
 <img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCJHZ__wUxS9lgTZHMxpMJcQ?style=social">  
@@ -45,12 +25,13 @@
 This is a serverless blog powered by [@nuxt/content](https://content.nuxtjs.org/) and  [TailwindCSS](https://tailwindcss.com/)  with integration-ready with [forestry.io](https://forestry.io/) for headless CMS.
 
 - Use [Docker](https://www.docker.com/) to containerize with [NginX](https://www.nginx.com/) serves as a reverse proxy.
--  Integrated [nuxt/google-analytics](https://google-analytics.nuxtjs.org/) with easy web measurement.
+- Integrated [nuxt/google-analytics](https://google-analytics.nuxtjs.org/) with easy web measurement.
 - Preconfigured [daisyui](https://daisyui.com/) tailwind components with highly customizable interactive components
 - Integrated [nuxt-img](https://image.nuxtjs.org/components/nuxt-img/) to replace vanilla  ``<img>`` HTML tag for better image optimization with [Netlify](https://www.netlify.com/)
 - Integrated [@nuxtjs/moment](https://www.npmjs.com/package/@nuxtjs/moment) for time formatting
 - Smooth configurable page, layout transition at ``@/assets/css/main``
 - Integrated [@babel/eslint-parser, prettier](https://www.npmjs.com/package/@babel/eslint-parser) for codes' rules & styles checking and formatting
+- Integrated [geetest v4](https://www.geetest.com/en/) for bot prevention
 
 ## Demo
 [Official TFD Blog](https://tfdevs.com)
@@ -63,17 +44,23 @@ $ git clone https://github.com/tfd-ed/tfd-blog
 ````  
 Create **.env** file from **.env.example** and replace **environment variables** with your owns.
 
-| Variable  | Description  | Default                                          |  
-|---|---|--------------------------------------------------|
-| GOOGLE_ANALYTICS_ID  |  Your Google Analytics UA ID (UA-XXXXX-X) |                                                  | 
-|  WEB_URL |  Your blog domain | https://www.tfdevs.com                           | 
-|  FACEBOOK_URL |  Link to your Facebook page or group | https://www.facebook.com/teachingfordevelopment  | 
-|  TELEGRAM_URL | Link to your Telegram channel or group  | https://t.me/tfdTech                             | 
-|  GITHUB_URL | Link to your Github account  | https://github.com/tfd-ed                        | 
-| YOUTUBE_URL  |  Link to your YouTube channel | https://www.youtube.com/c/TeachingForDevelopment | 
-|  SITE_TITLE | Your blog title  | TFD Blog                                         | 
-|  EMAIL |  Your blog email address | info@tfdevs.com                                  | 
-| YOUTUBE_CHANNEL_ID | Your YouTube channel id | UCJHZ__wUxS9lgTZHMxpMJcQ                                                 |
+| Variable  | Description                               | Default                                         |  
+|---|-------------------------------------------|-------------------------------------------------|
+| GOOGLE_ANALYTICS_ID  | Your Google Analytics UA ID (UA-XXXXX-X)  |                                                 | 
+|  WEB_URL | Your blog domain                          | https://www.tfdevs.com                          |
+|  FORMSPREE | Formspree to handle contact us submission | Read more: https://formspree.io/                                     |
+|  INSTAGRAM_URL | Link to your Instragram                   | https://www.instagram.com/darachaukh/           |
+|  FACEBOOK_URL | Link to your Facebook page or group       | https://www.facebook.com/teachingfordevelopment | 
+|  TELEGRAM_URL | Link to your Telegram channel or group    | https://t.me/tfdTech                            | 
+|  GITHUB_URL | Link to your Github account               | https://github.com/tfd-ed                       | 
+| YOUTUBE_URL  | Link to your YouTube channel              | https://www.youtube.com/c/TeachingForDevelopment | 
+|  SITE_TITLE | Your blog title                           | TFD Blog                                        | 
+|  EMAIL | Your blog email address                   | info@tfdevs.com                                 | 
+| YOUTUBE_CHANNEL_ID | Your YouTube channel id                   |                        |
+| GEETEST_ID_SIGN_UP | Geetest ID for Sign Up                    |                        |
+| GEETEST_KEY_SIGN_UP | Geetest Key for Sign Up                   |                         |
+| GEETEST_ID_RESET | Geetest ID for Reset Password             |                          |
+| GEETEST_KEY_RESET | Geetest Key for Reset Password            |                          |
 
 ```bash    
 $ cd tfd-blog   

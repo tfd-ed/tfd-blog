@@ -4,7 +4,7 @@
     class="sticky bottom-0 alert shadow-lg"
   >
     <div>
-      <nuxt-img src="/cookie.png" class="w-6"></nuxt-img>
+      <img src="/cookie.png" class="w-6" alt="cookies" />
       <div>
         <h3 class="font-bold">{{ $t("cookies") }}</h3>
         <div class="text-xs leading-loose">{{ $t("cookies_description") }}</div>
@@ -18,22 +18,27 @@
       </div>
     </div>
     <div class="flex-none">
-      <button class="btn btn-sm" @click="acceptCookie">
+      <ShadowButton color="bg-green-700" text="acceptAll" @click="acceptCookie">
         {{ $t("acceptAll") }}
-      </button>
+      </ShadowButton>
       <!--      <button class="btn btn-sm">{{ $t("manageCookies") }}</button>-->
     </div>
   </div>
   <div v-else class="sticky bottom-0 right-0">
-    <label for="cookie-modal" class="cursor-pointer">
-      <nuxt-img src="/cookie.png" class="w-12 p-2 opacity-80"></nuxt-img
-    ></label>
+    <label
+      for="cookie-modal"
+      class="btn bg-transparent border-none hover:bg-transparent cursor-pointer"
+    >
+      <img src="/cookie.png" class="w-12 p-2 opacity-80"
+    /></label>
   </div>
 </template>
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import ShadowButton from "@/components/buttons/shadow-button";
 export default {
   name: "CookiesInfo",
+  components: { ShadowButton },
   computed: {
     ...mapGetters({
       getBanner: "setting/getBannerCookie",

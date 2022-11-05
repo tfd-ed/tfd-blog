@@ -1,22 +1,67 @@
 <template>
-  <div class="dark:bg-gray-800 font-sans bg-white relative">
-    <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
-    </vue-scroll-indicator>
-    <NavBar />
-    <nuxt />
+  <div
+    class="dark:bg-gray-800 font-sans bg-white relative flex flex-col h-screen"
+  >
+    <client-only>
+      <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
+      </vue-scroll-indicator>
+    </client-only>
+    <!--    <NavBar />-->
+    <FlexNavbar />
+    <nuxt class="flex-grow" />
     <CookiesInfo />
     <CookiesModal />
+    <LoginModal />
+    <PurchaseModal />
+    <UserRegistrationModal v-if="isGeeTestLoaded" />
+    <ForgotPasswordModal v-if="isGeeTestLoaded" />
     <Footer />
   </div>
 </template>
 <script>
-import NavBar from "~/components/navbar/navbar";
-import Footer from "~/components/footer/footer";
+import NavBar from "~/components/navbars/navbar";
+import Footer from "~/components/footers/footer";
 import { onAnalyticsReady } from "vue-analytics";
-import CookiesInfo from "@/components/cookies/cookies-info";
-import CookiesModal from "@/components/modal/cookies-modal";
+import CookiesInfo from "~/components/cookies/cookies-info";
+import CookiesModal from "../components/modals/cookies-modal";
+import LoginModal from "../components/modals/login-modal";
+import UserRegistrationModal from "../components/modals/user-registration-modal";
+import FlexNavbar from "../components/navbars/flex-navbar";
+import ForgotPasswordModal from "../components/modals/forgot-password-modal";
+import PurchaseModal from "../components/modals/purchase-modal";
+
 export default {
-  components: { CookiesModal, CookiesInfo, Footer, NavBar },
+  components: {
+    PurchaseModal,
+    ForgotPasswordModal,
+    FlexNavbar,
+    UserRegistrationModal,
+    LoginModal,
+    CookiesModal,
+    CookiesInfo,
+    Footer,
+    NavBar,
+  },
+  data() {
+    return {
+      isGeeTestLoaded: false,
+    };
+  },
+  head() {
+    return {
+      script: [
+        {
+          hid: "geetest",
+          src: "https://static.geetest.com/v4/gt4.js",
+          defer: true,
+          // Changed after script load
+          callback: () => {
+            this.isGeeTestLoaded = true;
+          },
+        },
+      ],
+    };
+  },
   mounted() {
     onAnalyticsReady().then(() => {
       if (

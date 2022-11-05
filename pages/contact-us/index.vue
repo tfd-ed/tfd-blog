@@ -25,8 +25,9 @@
   </section>
 </template>
 <script>
-import ContactForm from "@/components/form/contact-form";
+import ContactForm from "@/components/forms/contact-form";
 export default {
   components: { ContactForm },
+  mounted() {},
 };
 </script>
