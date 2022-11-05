@@ -22,7 +22,7 @@
           <vimeo-player
             ref="player"
             class="video-container"
-            :video-url="getChapter($route.params.id).url"
+            :video-id="getChapter($route.params.id).vimeoId"
             @ready="onReady"
           />
         </client-only>
