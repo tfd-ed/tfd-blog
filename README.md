@@ -22,16 +22,20 @@
 
 ## Features
 
-This is a serverless blog powered by [@nuxt/content](https://content.nuxtjs.org/) and  [TailwindCSS](https://tailwindcss.com/)  with integration-ready with [forestry.io](https://forestry.io/) for headless CMS.
+This is a blog with course selling feature powered by [@nuxt/content](https://content.nuxtjs.org/) and  [TailwindCSS](https://tailwindcss.com/)  with integration-ready with [forestry.io](https://forestry.io/) for headless CMS.
 
 - Use [Docker](https://www.docker.com/) to containerize with [NginX](https://www.nginx.com/) serves as a reverse proxy.
 - Integrated [nuxt/google-analytics](https://google-analytics.nuxtjs.org/) with easy web measurement.
 - Preconfigured [daisyui](https://daisyui.com/) tailwind components with highly customizable interactive components
-- Integrated [nuxt-img](https://image.nuxtjs.org/components/nuxt-img/) to replace vanilla  ``<img>`` HTML tag for better image optimization with [Netlify](https://www.netlify.com/)
 - Integrated [@nuxtjs/moment](https://www.npmjs.com/package/@nuxtjs/moment) for time formatting
 - Smooth configurable page, layout transition at ``@/assets/css/main``
 - Integrated [@babel/eslint-parser, prettier](https://www.npmjs.com/package/@babel/eslint-parser) for codes' rules & styles checking and formatting
 - Integrated [geetest v4](https://www.geetest.com/en/) for bot prevention
+
+## TFD E-Learning
+- TFD Blog (Now TFD E-Learning) : https://github.com/tfd-ed/tfd-blog
+- TFD E-Learning Admin: https://github.com/tfd-ed/tfd-elearning-admin
+- TFD E-Learning API: https://github.com/tfd-ed/tfd-nest-blog-api
 
 ## Demo
 [Official TFD Blog](https://tfdevs.com)
@@ -85,8 +89,3 @@ $ yarn start
 ## Managing Content
 
 All contents are located in `content/` directory where you can see the structure.
-
-## Donation
-
-Kindly donate to the following bank account (Cambodia) if you want to support our works.  
-<a href="https://imgur.com/fEjLJ0E"><img src="https://i.imgur.com/fEjLJ0E.jpg" title="source: imgur.com" width="350"  /></a> 
