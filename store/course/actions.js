@@ -52,6 +52,10 @@ export default {
           select: ["path"],
         },
         {
+          field: "purchases",
+          select: ["id"],
+        },
+        {
           field: "chapters",
         },
       ],
@@ -68,6 +72,7 @@ export default {
     //   chapters[i].previous = chapters[i - 1];
     // }
     // response.chapters = chapters;
+    response.purchase = response.purchases.length;
     commit("SET_COURSE", response);
   },
   async fetchCoursePurchase(

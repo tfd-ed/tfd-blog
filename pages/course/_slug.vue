@@ -26,14 +26,25 @@
               "
             />
 
-            <div class="flex flex-col items-center text-center justify-center">
+            <div class="flex flex-col">
               <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
                 {{ getCourse.category.name }}
               </h2>
-              <div class="w-12 h-1 bg-gray-500 rounded mt-2 mb-4"></div>
-              <p class="text-base">
+              <div class="w-12 h-1 bg-gray-500 rounded mt-2 mb-4 mx-auto"></div>
+              <p class="text-base text-justify">
                 {{ getCourse.category.description }}
               </p>
+              <div
+                v-if="getCourse.purchase > 0"
+                class="flex flex-col space-y-2 text-left mt-4"
+              >
+                <p class="text-gray-500 italic">
+                  {{ $t("students_enrolled") }}
+                </p>
+                <span class="text-5xl font-black sm:text-6xl">{{
+                  getCourse.purchase
+                }}</span>
+              </div>
             </div>
           </div>
           <div
@@ -48,6 +59,17 @@
               class="prose lg:prose-lg leading-normal"
               v-html="getCourse.description"
             ></article>
+            <div class="flex flex-wrap justify-center">
+              <client-only>
+                <vimeo-player
+                  ref="player"
+                  class="video-container"
+                  :video-id="getCourse.promotionalVimeoLink"
+                  @ready="onReady"
+                />
+              </client-only>
+            </div>
+
             <!--            <a-->
             <!--              :href="getCourse.paymentLink"-->
             <!--              target="popup"-->
@@ -175,6 +197,11 @@ export default {
       fetchCourse: "course/fetchCourse",
       fetchPurchase: "course/fetchCoursePurchase",
     }),
+    onReady(player) {
+      this.playerReady = true;
+
+      player.addCuePoint(10);
+    },
   },
 };
 </script>
