@@ -27,7 +27,7 @@
           />
         </client-only>
       </div>
-      <div class="flex flex-row justify-center space-x-4">
+      <div class="flex flex-row justify-center space-x-4 pt-4">
         <ShadowButton
           v-if="parseInt(getChapter($route.params.id).chapterNumber) > 1"
           color="bg-gray-500"

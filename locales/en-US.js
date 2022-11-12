@@ -116,6 +116,7 @@ const messages = {
   no_more: "No more :-)",
   no_results: "No result!",
   updated: "updated!",
+  students_enrolled: "Students Enrolled",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",
