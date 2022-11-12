@@ -18,7 +18,11 @@
       </div>
     </div>
     <div class="flex-none">
-      <ShadowButton color="bg-green-700" text="acceptAll" @click="acceptCookie">
+      <ShadowButton
+        color="bg-green-700"
+        text="acceptAll"
+        @onClick="acceptCookie"
+      >
         {{ $t("acceptAll") }}
       </ShadowButton>
       <!--      <button class="btn btn-sm">{{ $t("manageCookies") }}</button>-->

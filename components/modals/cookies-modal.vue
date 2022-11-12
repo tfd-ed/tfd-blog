@@ -31,31 +31,44 @@
           {{ $t("ga_description") }}
         </p>
       </div>
-      <div class="btn-group justify-center space-x-1">
-        <label
-          for="cookie-modal"
-          class="btn btn-success text-white text-xs lg:text-lg"
-          @click="acceptAll"
-        >
-          {{ $t("acceptAll") }}
+      <div class="flex flex-row space-x-2 justify-center">
+        <label for="cookie-modal" @click="acceptAll">
+          <ShadowButton text="acceptAll" color="bg-green-600"/>
         </label>
         <label
           for="cookie-modal"
-          class="btn btn-error text-white text-xs lg:text-lg"
           @click="deleteAll"
         >
-          {{ $t("declineAll") }}
+          <ShadowButton text="declineAll" color="bg-red-600" on-click="declineAll"/>
         </label>
+
       </div>
+<!--      <div class="btn-group justify-center space-x-1">-->
+<!--        <label-->
+<!--          for="cookie-modal"-->
+<!--          class="btn btn-success text-white text-xs lg:text-lg"-->
+<!--          @click="acceptAll"-->
+<!--        >-->
+<!--          {{ $t("acceptAll") }}-->
+<!--        </label>-->
+<!--        <label-->
+<!--          for="cookie-modal"-->
+<!--          class="btn btn-error text-white text-xs lg:text-lg"-->
+<!--          @click="deleteAll"-->
+<!--        >-->
+<!--          {{ $t("declineAll") }}-->
+<!--        </label>-->
+<!--      </div>-->
     </template>
   </ModalTemplate>
 </template>
 <script>
 import { mapMutations, mapGetters } from "vuex";
 import ModalTemplate from "./modal-template";
+import ShadowButton from "~/components/buttons/shadow-button";
 
 export default {
-  components: { ModalTemplate },
+  components: {ShadowButton, ModalTemplate },
   computed: {
     ...mapGetters({
       bannerStatus: "setting/getBannerCookie",
