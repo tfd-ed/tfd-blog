@@ -2,26 +2,25 @@
   <section class="px-4 py-24 mx-auto max-w-7xl">
     <div class="mb-6 text-center md:text-center">
       <h1
-        class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
+        class="mb-4 text-2xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
       >
         {{ $t("about_us") }}
       </h1>
     </div>
     <Quote quote="founder_quote" owner="chau_dara">
       <template #image>
-        <nuxt-img src="/founder.jpeg"></nuxt-img>
+        <img src="/founder.jpg" alt="founder" />
       </template>
     </Quote>
     <nuxt-content
       class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
       :document="about"
     ></nuxt-content>
-    <AbaDonation />
   </section>
 </template>
 <script>
-import Quote from "@/components/card/quote";
-import AbaDonation from "@/components/card/aba-donation";
+import Quote from "@/components/cards/quote";
+import AbaDonation from "@/components/cards/aba-donation";
 export default {
   components: { AbaDonation, Quote },
   async asyncData(context) {

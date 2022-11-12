@@ -8,12 +8,14 @@
         <div class="mx-auto mb-10 text-left max-w-2xl md:max-w-4xl">
           <div class="pb-6 mb-6 border-b border-gray-200">
             <h1
-              class="mb-3 text-3xl font-bold leading-relaxed text-left text-gray-900 md:leading-tight md:text-4xl capitalize"
+              class="mb-3 text-2xl font-bold leading-relaxed text-left text-gray-900 md:leading-tight md:text-4xl capitalize"
               itemprop="headline"
             >
               {{ post.title }}
             </h1>
-            <p class="text-base text-gray-500">{{ getDate }} — {{ post.by }}</p>
+            <p class="text-base text-gray-500">
+              {{ $moment(getDate).format("ll") }} — {{ post.by }}
+            </p>
           </div>
           <div class="flex items-center mb-6 space-x-2">
             <p class="text-gray-600">{{ $t("share_this_article") }}</p>
@@ -67,7 +69,7 @@
               :media="post.media"
               class="text-gray-600 hover:text-gray-900 widget"
             >
-              <nuxt-img src="/telegram_black.png" class="w-6"></nuxt-img>
+              <img src="/telegram_black.png" class="w-6"></img>
             </ShareNetwork>
           </div>
           <div class="flex items-center mb-6 space-x-2">
@@ -114,8 +116,8 @@
 </template>
 <script>
 import { format } from "date-fns";
-import GitHubLogo from "@/components/logo/GitHubLogo";
-import Comments from "@/components/global/comments";
+import GitHubLogo from "@/components/logos/GitHubLogo";
+import Comments from "@/components/globals/comments";
 export default {
   components: { Comments, GitHubLogo },
   async asyncData(context) {

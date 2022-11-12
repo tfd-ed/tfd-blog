@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="px-4 py-6 mx-auto">
-      <div class="max-w-4xl pt-24 mx-auto">
+      <div class="max-w-6xl pt-24 mx-auto">
         <div class="mb-6 text-left md:text-center">
           <h1
             class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
@@ -19,18 +19,26 @@
             </span>
           </div>
         </div>
-        <XyzTransitionGroup
-          appear-visible
-          class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
-          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
-        >
-          <HorizontalCard
-            v-for="(project, $index) in projects"
-            :key="`project-${$index}`"
-            :post="project"
-          ></HorizontalCard>
-        </XyzTransitionGroup>
-        <Confused v-if="projects.length === 0" />
+        <client-only>
+          <XyzTransitionGroup
+            appear-visible
+            class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
+            xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
+          >
+            <HorizontalCard
+              v-for="(project, $index) in projects"
+              :key="`project-${$index}`"
+              :post="project"
+            ></HorizontalCard>
+          </XyzTransitionGroup>
+          <Confused v-if="projects.length === 0">
+            <template #content>
+              <p class="mt-6 text-gray-500">
+                {{ $t("no_articles") }}
+              </p>
+            </template>
+          </Confused>
+        </client-only>
         <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
             <button class="btn">«</button>
@@ -45,8 +53,8 @@
   </section>
 </template>
 <script>
-import HorizontalCard from "@/components/card/horizontal-card";
-import Confused from "@/components/card/confused";
+import HorizontalCard from "@/components/cards/horizontal-card";
+import Confused from "../../components/commons/confused";
 export default {
   components: { Confused, HorizontalCard },
   async asyncData(context) {

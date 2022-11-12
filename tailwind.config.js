@@ -24,6 +24,7 @@ module.exports = {
       colors: (theme) => ({
         facebook: "#1778F2",
         aba: "#007297",
+        aba_dark: "#055d7c",
       }),
     },
   },

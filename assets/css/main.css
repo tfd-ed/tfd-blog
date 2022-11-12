@@ -21,10 +21,22 @@
   font-display: swap;
   src: url('~assets/fonts/Kantumruy-Regular.ttf') format('truetype');
 }
+/*Page component */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+.nuxt-link-active {
+  @apply text-red-700 border-current ;
+}
 .video-container {
   overflow: hidden;
   position: relative;
-  width:100%;
+  width:80%;
 }
 
 .video-container::after {
@@ -42,4 +54,16 @@
 }
 .widget{
   @apply transition duration-150 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+}
+/**
+Override QL style from Quill rich text editor
+ */
+.ql-align-right {
+  @apply text-right;
+}
+.ql-align-center {
+  @apply text-center;
+}
+.ql-align-left {
+  @apply text-left;
 }
