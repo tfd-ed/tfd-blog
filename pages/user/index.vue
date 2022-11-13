@@ -378,9 +378,10 @@ export default {
           this.thumbnail = "";
         }, 3000);
       } catch (e) {
-        console.log(e);
-        this.$toast.error(e.response.data.message, {
-          duration: 3000,
+        this.loading = false;
+        // console.log(e.response.data.detail);
+        this.$toast.error(e.response.data.detail, {
+          duration: 6000,
         });
       }
     },
