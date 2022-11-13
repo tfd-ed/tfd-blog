@@ -29,7 +29,7 @@
               <div class="shadow-lg rounded-lg">
                 <div class="px-4 py-3 border-0 card-header">
                   <h4 class="font-semibold mt-2 text-gray-800">
-                    {{ $t("admin") }}
+                    {{ $t("user") }}
                   </h4>
                 </div>
                 <div class="px-4 mb-1 -mt-2 divide-y divide-gray-200 card-body">
@@ -94,7 +94,7 @@
                       <span>{{ $t("username") }}</span>
                     </div>
                     <span class="font-mono text-gray-900">
-                      {{ getAuth.username }}</span
+                      {{ displayUsername }}</span
                     >
                   </div>
                   <div class="flex items-center justify-between py-3 text-sm">
@@ -252,6 +252,7 @@ export default {
     return {
       name: "",
       admin: {},
+      displayUsername: "",
       thumbnail: "",
       password: "",
       confirmation: "",
@@ -279,7 +280,7 @@ export default {
         },
       }
     );
-    console.log(this.admin);
+    this.displayUsername = this.admin.username;
   },
   computed: {
     ...mapGetters({
@@ -353,6 +354,7 @@ export default {
               lastname: this.admin.lastname,
             }
           );
+          this.displayUsername = this.admin.username;
         }
         /**
          * Password Updated
