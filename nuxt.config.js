@@ -54,7 +54,12 @@ export default {
     "@nuxt/image",
     "@nuxtjs/google-analytics",
     "@nuxtjs/device",
+    "@aceforth/nuxt-optimized-images",
   ],
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: true,
+  },
   image: {
     domains: ["tfdevs.com"],
     unsplash: {
@@ -120,6 +125,7 @@ export default {
     ],
     // "cookie-universal-nuxt",
   ],
+
   // Feed Configuration
   feed: [
     {
