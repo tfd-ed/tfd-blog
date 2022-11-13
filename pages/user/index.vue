@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$fetchState.pending">
+  <div v-if="!$fetchState.pending || loading">
     <header class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div class="flex flex-row items-center justify-between">
@@ -97,6 +97,28 @@
                       {{ getAuth.username }}</span
                     >
                   </div>
+                  <div class="flex items-center justify-between py-3 text-sm">
+                    <div class="flex items-center space-x-2 text-gray-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-5 h-5 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                        />
+                      </svg>
+                      <span>{{ $t("email") }}</span>
+                    </div>
+                    <span class="font-mono text-gray-900">
+                      {{ getAuth.email }}</span
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -139,14 +161,14 @@
                     rules="required"
                   />
 
-                  <BasicInput
-                    id="admin_email_edit"
-                    v-model="admin.email"
-                    name="email"
-                    label="email"
-                    rules="email|required"
-                    disabled="true"
-                  />
+                  <!--                  <BasicInput-->
+                  <!--                    id="admin_email_edit"-->
+                  <!--                    v-model="admin.email"-->
+                  <!--                    name="email"-->
+                  <!--                    label="email"-->
+                  <!--                    rules="email|required"-->
+                  <!--                    disabled="true"-->
+                  <!--                  />-->
 
                   <BasicInput
                     id="admin_dob"
@@ -234,11 +256,12 @@ export default {
       password: "",
       confirmation: "",
       nsfwModel: "",
+      loading: false,
     };
   },
   async fetch() {
     // Load NSFW model
-    this.nsfwModel = await nsfwjs.load();
+    // this.nsfwModel = await nsfwjs.load();
     const join = [
       {
         field: "profile",
@@ -256,6 +279,7 @@ export default {
         },
       }
     );
+    console.log(this.admin);
   },
   computed: {
     ...mapGetters({
@@ -278,6 +302,7 @@ export default {
     },
     async updateUserInfo() {
       try {
+        this.loading = true;
         let file = "";
         if (this.thumbnail) {
           console.log("Checking NSFW");
@@ -318,7 +343,7 @@ export default {
             }
           );
         } else {
-          console.log("Called block 2");
+          // console.log("Called block 2");
           await this.$axios.$patch(
             `/v1/user-own-management/${this.getAuth.id}`,
             {
@@ -333,7 +358,7 @@ export default {
          * Password Updated
          */
         if (this.password) {
-          console.log("Called block 3");
+          // console.log("Called block 3");
           await this.$axios.$patch(
             `/v1/user-own-management/${this.getAuth.id}`,
             {
@@ -341,6 +366,7 @@ export default {
             }
           );
         }
+        this.loading = false;
         this.popCourseUpdated();
         /**
          * Wait for image to be uploaded to AWS
