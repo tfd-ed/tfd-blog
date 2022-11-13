@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$fetchState.pending || loading">
+  <div v-if="!$fetchState.pending && !loading">
     <header class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div class="flex flex-row items-center justify-between">
