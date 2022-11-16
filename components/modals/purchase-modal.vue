@@ -4,6 +4,7 @@
       <label
         for="purchase-modal"
         class="btn btn-sm btn-circle absolute right-2 top-2"
+        @click="close"
         >✕</label
       >
       <ValidationObserver
@@ -125,6 +126,12 @@ export default {
           transaction_number: e.response.data.message,
         });
       }
+    },
+    close() {
+      this.transaction_number = "";
+      this.loading = false;
+      this.submitting = false;
+      this.submitted = false;
     },
   },
 };
