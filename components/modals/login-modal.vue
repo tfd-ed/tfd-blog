@@ -144,7 +144,7 @@ export default {
           this.close();
           this.logged = false;
           await this.$router.push(this.localePath("/"));
-        }, 3000);
+        }, 1000);
         this.login = {
           email: "",
           password: "",

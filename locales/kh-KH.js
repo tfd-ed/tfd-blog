@@ -119,6 +119,9 @@ const messages = {
   no_results: "គ្មានលទ្ធផល!",
   updated: "ត្រូវបានធ្វើបច្ចុប្បន្នភាព!",
   students_enrolled: "ចំនួនសិស្សចុះឈ្មោះ",
+  duration: "រយៈពេលសរុប",
+  ohno: "ចុម!",
+  cant_find_page: "ចូលមករកអី? ចង់Hackមែន?",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

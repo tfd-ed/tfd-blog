@@ -55,16 +55,33 @@ export default {
     "@nuxtjs/google-analytics",
     "@nuxtjs/device",
     "@aceforth/nuxt-optimized-images",
+    "@nuxtjs/google-fonts",
   ],
   optimizedImages: {
     optimizeImages: true,
-    optimizeImagesInDev: true,
+    optimizeImagesInDev: false,
   },
   image: {
     domains: ["tfdevs.com"],
     unsplash: {
       baseURL: "https://images.unsplash.com",
     },
+  },
+  // Google Font
+  googleFonts: {
+    display: "swap",
+    families: {
+      Kantumruy: {
+        wght: [300, 400, 700],
+      },
+      "Source Sans Pro": {
+        wght: [300, 400, 700],
+      },
+      "Noto Serif Khmer": {
+        wght: [300, 400, 700],
+      },
+    },
+    subsets: ["latin", "khmer"],
   },
   publicRuntimeConfig: {
     WEB_URL: process.env.WEB_URL,

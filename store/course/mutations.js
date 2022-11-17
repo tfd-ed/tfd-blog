@@ -8,6 +8,12 @@ export default {
   SET_COURSE(state, course) {
     state.course = course;
   },
+  SET_COURSE_DURATION(state, { id, duration }) {
+    let course = state.courses.find((item) => {
+      return item.id === id;
+    });
+    course.duration = duration;
+  },
   UPDATE_PURCHASE(state, purchase) {
     state.purchase = purchase;
   },

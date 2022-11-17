@@ -1,8 +1,6 @@
 export default () => ({
   courses: [],
-  course: {
-    chapters: [],
-  },
+  course: "",
   coursesFetchSize: 0,
   purchase: {},
 });

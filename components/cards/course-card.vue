@@ -1,17 +1,24 @@
 <template>
-  <div class="p-4 md:w-1/3">
+  <div class="p-4 w-full md:w-1/2">
     <div
       v-if="$fetchState.pending"
       class="transition h-full rounded-lg p-8 flex flex-col mx-auto w-full"
     >
       <GeneralLoading text="loading" />
     </div>
-    <div
-      v-else
-      class="h-full border-2 border-gray-200 bg-gray-50 border-opacity-60 rounded-lg overflow-hidden"
-    >
-      <nuxt-link :to="localePath('/course/' + course.id)">
-        <img
+    <div v-else class="h-full shadow-2xl rounded-lg overflow-hidden">
+      <nuxt-link :to="localePath('/course/' + course.titleURL)">
+        <!--        <img-->
+        <!--          class="lg:h-48 md:h-36 w-full object-cover object-center transform hover:scale-105 transition duration-700 ease-out"-->
+        <!--          :src="-->
+        <!--            course.thumbnail-->
+        <!--              ? course.thumbnail.path-->
+        <!--              : 'https://dummyimage.com/720x400'-->
+        <!--          "-->
+        <!--          alt="blog"-->
+        <!--        />-->
+        <ImageLoader
+          id="course-viewer"
           class="lg:h-48 md:h-36 w-full object-cover object-center transform hover:scale-105 transition duration-700 ease-out"
           :src="
             course.thumbnail
@@ -24,12 +31,12 @@
 
       <div class="p-6">
         <h2
-          class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+          class="tracking-widest text-base title-font font-medium text-gray-400 mb-1"
         >
           {{ course.category.name }}
         </h2>
         <nuxt-link
-          :to="localePath('/course/' + course.id)"
+          :to="localePath('/course/' + course.titleURL)"
           class="title-font font-semibold text-lg text-gray-900 mb-3 hover:underline"
         >
           {{ course.title }}
@@ -39,7 +46,7 @@
         </p>
 
         <div class="flex items-center flex-wrap">
-          <nuxt-link :to="localePath('/course/' + course.id)">
+          <nuxt-link :to="localePath('/course/' + course.titleURL)">
             <ShadowButton
               v-if="!purchase"
               class="inline-flex items-center md:mb-2 lg:mb-0"
@@ -50,7 +57,7 @@
               v-else
               :text="
                 purchase.status === 'VERIFIED'
-                  ? 'payment_confirmed'
+                  ? 'learn'
                   : 'confirming_payment_short'
               "
               :color="
@@ -82,15 +89,15 @@
           <!--            >{{ course.price }}-->
           <!--          </span>-->
           <span
-            class="text-gray-900 text-lg font-semibold mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
+            class="text-green-600 text-2xl font-extrabold mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none pr-3 py-1 border-r-2 border-gray-200"
           >
             ${{ course.price }}
           </span>
           <span
             class="text-gray-900 text-lg inline-flex items-center leading-none text-sm"
           >
-            <DurationIcon width="18" />
-            <p class="ml-1 text-xs font-medium">{{ course.duration }}</p>
+            <DurationIcon width="20" class="mr-2" />
+            {{ totalDuration }}
           </span>
         </div>
       </div>
@@ -99,12 +106,20 @@
 </template>
 <script>
 import ShadowButton from "../buttons/shadow-button";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import GeneralLoading from "../loadings/general-loading";
 import ProcessIcon from "../icons/process-icon";
 import DurationIcon from "../icons/duration-icon";
+import ImageLoader from "@/components/loaders/image-loader";
+import format from "format-duration";
 export default {
-  components: { DurationIcon, ProcessIcon, GeneralLoading, ShadowButton },
+  components: {
+    ImageLoader,
+    DurationIcon,
+    ProcessIcon,
+    GeneralLoading,
+    ShadowButton,
+  },
   props: {
     course: {
       type: Object,
@@ -118,6 +133,7 @@ export default {
           thumbnail: {
             url: "",
           },
+          chapters: [],
           category: {
             name: "",
           },
@@ -126,11 +142,20 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      purchase: "",
+      totalDuration: 0,
+    };
+  },
   async fetch() {
     if (this.isAuth) {
       this.purchase = await this.$axios.$get(
         `/v1/courses/${this.course.id}/user-purchase/${this.loggedUser.id}`
       );
+    }
+    for (let chapter of this.course.chapters) {
+      this.totalDuration += parseInt(chapter.duration);
     }
   },
   computed: {
@@ -139,12 +164,10 @@ export default {
       loggedUser: "loggedInUser",
     }),
   },
-  data() {
-    return {
-      purchase: "",
-    };
-  },
   methods: {
+    ...mapMutations({
+      setDuration: "course/SET_COURSE_DURATION",
+    }),
     getShortContents(content, length) {
       let count = content.length;
       if (count < length) {
@@ -153,6 +176,9 @@ export default {
       } else {
         return content.substring(0, length) + " ...";
       }
+    },
+    formatD(second) {
+      return format(1000 * parseInt(second));
     },
   },
 };

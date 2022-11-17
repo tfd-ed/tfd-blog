@@ -57,6 +57,7 @@
     "@nuxtjs/device": "^2.1.0",
     "@nuxtjs/eslint-config": "^9.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
+    "@nuxtjs/google-fonts": "^2.0.0",
     "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "autoprefixer": "^10.4.3",

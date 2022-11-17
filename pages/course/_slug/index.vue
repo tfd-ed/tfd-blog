@@ -7,6 +7,7 @@
       >
         <GeneralContentLoading />
       </div>
+      <div v-else-if="$fetchState.error"><NotFound /></div>
       <div v-else class="lg:w-4/6 mx-auto">
         <!--        <div class="rounded-lg h-64 overflow-hidden">-->
         <!--          <img-->
@@ -17,23 +18,33 @@
         <!--        </div>-->
         <div class="flex flex-col sm:flex-row mt-10 mb-20">
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-            <img
+            <ImageLoader
               class="inline-flex h-20"
               :src="
                 getCourse.thumbnail
                   ? getCourse.thumbnail.path
                   : 'https://dummyimage.com/720x400'
               "
-            />
+            >
+            </ImageLoader>
 
             <div class="flex flex-col">
               <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
                 {{ getCourse.category.name }}
               </h2>
               <div class="w-12 h-1 bg-gray-500 rounded mt-2 mb-4 mx-auto"></div>
-              <p class="text-base text-justify">
+              <p class="text-base">
                 {{ getCourse.category.description }}
               </p>
+              <div class="flex flex-col space-y-2 text-left mt-4">
+                <p class="text-gray-500 italic">
+                  {{ $t("price") }}
+                </p>
+                <span
+                  class="text-5xl font-mono font-black text-green-700 sm:text-6xl"
+                  >${{ getCourse.price }}</span
+                >
+              </div>
               <div
                 v-if="getCourse.purchase > 0"
                 class="flex flex-col space-y-2 text-left mt-4"
@@ -42,21 +53,27 @@
                   {{ $t("students_enrolled") }}
                 </p>
                 <span class="text-5xl font-black sm:text-6xl">{{
-                  getCourse.purchase
+                  convertNumber(getCourse.purchase)
                 }}</span>
               </div>
+              <!--              <div class="flex flex-col space-y-2 text-left mt-4">-->
+              <!--                <p class="text-gray-500 italic">-->
+              <!--                  {{ $t("duration") }}-->
+              <!--                </p>-->
+              <!--                <span class="text-5xl font-black sm:text-6xl">{{ 314 }}</span>-->
+              <!--              </div>-->
             </div>
           </div>
           <div
             class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left"
           >
             <h2
-              class="sm:text-3xl text-2xl text-gray-900 font-medium title-font mb-2"
+              class="sm:text-3xl text-2xl text-gray-900 font-medium font-mono mb-2"
             >
               {{ getCourse.title }}
             </h2>
             <article
-              class="prose lg:prose-lg leading-normal"
+              class="prose lg:prose-lg leading-normal text-justify"
               v-html="getCourse.description"
             ></article>
             <div class="flex flex-wrap justify-center">
@@ -163,13 +180,23 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ChapterCard from "../../components/cards/chapter-card";
-import LockedIcon from "../../components/icons/locked-icon";
-import ProcessIcon from "../../components/icons/process-icon";
-import GeneralContentLoading from "../../components/loadings/general-content-loading";
+import GeneralContentLoading from "@/components/loadings/general-content-loading";
+import LockedIcon from "@/components/icons/locked-icon";
+import ProcessIcon from "@/components/icons/process-icon";
+import ChapterCard from "@/components/cards/chapter-card";
+import convertKhmerNumber from "@/utils/convert-khmer-number";
+import ImageLoader from "@/components/loaders/image-loader";
+import NotFound from "@/components/errors/not-found";
 
 export default {
-  components: { GeneralContentLoading, ProcessIcon, LockedIcon, ChapterCard },
+  components: {
+    NotFound,
+    ImageLoader,
+    ChapterCard,
+    ProcessIcon,
+    LockedIcon,
+    GeneralContentLoading,
+  },
   data() {
     return {
       openPurchase: false,
@@ -181,7 +208,10 @@ export default {
     await this.fetchCourse({ id: param });
     // if auth check user purchase
     if (this.isAuth) {
-      await this.fetchPurchase({ id: param, userId: this.getUser.id });
+      await this.fetchPurchase({
+        id: this.getCourse.id,
+        userId: this.getUser.id,
+      });
     }
   },
   computed: {
@@ -192,6 +222,12 @@ export default {
       getPurchase: "course/getPurchase",
     }),
   },
+  activated() {
+    // Call fetch again if last fetch more than 15 sec ago
+    if (this.$fetchState.timestamp <= Date.now() - 15000) {
+      this.$fetch();
+    }
+  },
   methods: {
     ...mapActions({
       fetchCourse: "course/fetchCourse",
@@ -199,8 +235,10 @@ export default {
     }),
     onReady(player) {
       this.playerReady = true;
-
       player.addCuePoint(10);
+    },
+    convertNumber(num) {
+      return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
     },
   },
 };
