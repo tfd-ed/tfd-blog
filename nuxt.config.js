@@ -72,15 +72,15 @@ export default {
   //     xxl: 1536,
   //     "2xl": 1536,
   //   },
-    presets: {
-      avatar: {
-        modifiers: {
-          width: 320,
-          height: 320,
-        },
-      },
-    },
-  },
+  //   presets: {
+  //     avatar: {
+  //       modifiers: {
+  //         width: 320,
+  //         height: 320,
+  //       },
+  //     },
+  //   },
+  // },
   // Google Font
   googleFonts: {
     display: "swap",
