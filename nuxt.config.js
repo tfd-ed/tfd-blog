@@ -51,7 +51,6 @@ export default {
     "@nuxt/postcss8",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
-    "@nuxt/image",
     // "@nuxtjs/google-analytics",
     "@nuxtjs/device",
     "@aceforth/nuxt-optimized-images",
