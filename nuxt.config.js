@@ -63,6 +63,23 @@ export default {
   },
   image: {
     provider: process.env.NODE_ENV === "dev" ? "ipx" : "vercel",
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      "2xl": 1536,
+    },
+    presets: {
+      avatar: {
+        modifiers: {
+          width: 320,
+          height: 320,
+        },
+      },
+    },
   },
   // Google Font
   googleFonts: {
