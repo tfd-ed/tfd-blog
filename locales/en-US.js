@@ -120,6 +120,7 @@ const messages = {
   duration: "Duration",
   ohno: "Uh-oh!",
   cant_find_page: "We can't find that page.",
+  chapter: "Chapter",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

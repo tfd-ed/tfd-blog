@@ -122,6 +122,7 @@ const messages = {
   duration: "រយៈពេលសរុប",
   ohno: "ចុម!",
   cant_find_page: "ចូលមករកអី? ចង់Hackមែន?",
+  chapter: "មេរៀន",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

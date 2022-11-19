@@ -35,7 +35,7 @@
                 <div class="px-4 mb-1 -mt-2 divide-y divide-gray-200 card-body">
                   <div class="flex items-center justify-between py-3 text-sm">
                     <div class="flex items-center space-x-2 text-gray-700">
-                      <StatusIcon />
+                      <LazyIconsStatusIcon />
                       <span>{{ $t("roles") }}</span>
                     </div>
                     <span
@@ -104,7 +104,7 @@
                         class="w-5 h-5 text-gray-400"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="#34495e"
                       >
                         <path
                           stroke-linecap="round"
