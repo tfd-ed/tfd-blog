@@ -148,7 +148,6 @@ export default {
         tag: "YoutubeSubscribeButton",
       },
     ],
-    "@nuxt/image",
     // [
     //   "@nuxtjs/google-adsense",
     //   {
