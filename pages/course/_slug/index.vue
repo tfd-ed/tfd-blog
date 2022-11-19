@@ -224,8 +224,7 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content:
-            this.$config.SITE_TITLE + " | " + this.getCourse.shortDescription,
+          content: this.getCourse.shortDescription,
         },
         {
           property: "og:title",
