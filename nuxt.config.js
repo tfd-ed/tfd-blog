@@ -52,7 +52,7 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
     "@nuxt/image",
-    "@nuxtjs/google-analytics",
+    // "@nuxtjs/google-analytics",
     "@nuxtjs/device",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/google-fonts",
@@ -62,10 +62,7 @@ export default {
     optimizeImagesInDev: false,
   },
   image: {
-    domains: ["tfdevs.com"],
-    unsplash: {
-      baseURL: "https://images.unsplash.com",
-    },
+    provider: process.env.NODE_ENV === "dev" ? "ipx" : "vercel",
   },
   // Google Font
   googleFonts: {
@@ -88,11 +85,11 @@ export default {
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID,
     },
-    "google-adsense": {
-      id: process.env.GOOGLE_ADSENSE_ID,
-      test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
-      analyticsUacct: process.env.GOOGLE_ADSENSE_ID,
-    },
+    // "google-adsense": {
+    //   id: process.env.GOOGLE_ADSENSE_ID,
+    //   test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
+    //   analyticsUacct: process.env.GOOGLE_ADSENSE_ID,
+    // },
     FORMSPREE: process.env.FORMSPREE,
     NODE_ENV: process.env.NODE_ENV,
     INSTAGRAM_URL: process.env.INSTAGRAM_URL,
@@ -134,12 +131,13 @@ export default {
         tag: "YoutubeSubscribeButton",
       },
     ],
-    [
-      "@nuxtjs/google-adsense",
-      {
-        id: process.env.GOOGLE_ADSENSE_ID,
-      },
-    ],
+    "@nuxt/image",
+    // [
+    //   "@nuxtjs/google-adsense",
+    //   {
+    //     id: process.env.GOOGLE_ADSENSE_ID,
+    //   },
+    // ],
     // "cookie-universal-nuxt",
   ],
 
@@ -259,23 +257,23 @@ export default {
   },
 
   // GA Setting
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
-    disabled: true,
-    checkDuplicatedScript: true,
-    debug: {
-      enabled: process.env.NODE_ENV !== "release",
-      sendHitTask: true,
-    },
-    autoTracking: {
-      screenview: true,
-    },
-  },
-  optimization: {
-    splitChunks: {
-      maxSize: 300000,
-    },
-  },
+  // googleAnalytics: {
+  //   id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+  //   disabled: true,
+  //   checkDuplicatedScript: true,
+  //   debug: {
+  //     enabled: process.env.NODE_ENV !== "release",
+  //     sendHitTask: true,
+  //   },
+  //   autoTracking: {
+  //     screenview: true,
+  //   },
+  // },
+  // optimization: {
+  //   splitChunks: {
+  //     maxSize: 300000,
+  //   },
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
