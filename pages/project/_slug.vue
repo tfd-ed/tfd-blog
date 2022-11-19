@@ -80,7 +80,7 @@
                   target="_blank"
                   class="inline-flex items-center py-2 px-3 space-x-2 rounded-md bg-gray-800 text-gray-300 text-sm leading-5 font-medium shadow-lg hover:bg-gray-700 transition ease-in-out duration-100"
                 >
-                  <GitHubLogo />
+                  <LazyLogosGitHubLogo />
                   <span>{{ $t("get_source_code") }}</span>
                 </a>
               </div>
@@ -108,7 +108,7 @@
           <!--            ad-format="fluid"-->
           <!--            :ad-slot="$config.GOOGLE_ADSENSE_SLOT.toString()"-->
           <!--          />-->
-          <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
+          <LazyGlobalsComments class="max-w-2xl md:max-w-4xl mx-auto" />
         </div>
       </article>
     </div>
@@ -116,10 +116,8 @@
 </template>
 <script>
 import { format } from "date-fns";
-import GitHubLogo from "@/components/logos/GitHubLogo";
-import Comments from "@/components/globals/comments";
 export default {
-  components: { Comments, GitHubLogo },
+
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;
     const slug = params.slug;

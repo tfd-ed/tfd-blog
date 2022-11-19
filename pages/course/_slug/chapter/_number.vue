@@ -80,6 +80,47 @@ export default {
       await this.fetchCourse({ id: courseId });
     }
   },
+  head() {
+    return {
+      title:
+        this.$config.SITE_TITLE +
+        " | " +
+        this.getCourse.title +
+        " | " +
+        this.$t("chapter") +
+        " " +
+        this.$route.params.number,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.getCourse.shortDescription,
+        },
+        {
+          property: "og:title",
+          hid: "og:title",
+          content:
+            this.$config.SITE_TITLE +
+            " | " +
+            this.getCourse.title +
+            " | " +
+            this.$t("chapter") +
+            " " +
+            this.$route.params.number,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.getCourse.thumbnail
+            ? this.getCourse.thumbnail.path
+            : "https://dummyimage.com/720x400",
+        },
+      ],
+    };
+  },
   computed: {
     ...mapGetters({
       getChapter: "course/getChapter",

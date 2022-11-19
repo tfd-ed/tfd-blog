@@ -28,6 +28,25 @@
 import ContactForm from "@/components/forms/contact-form";
 export default {
   components: { ContactForm },
-  mounted() {},
+  head() {
+    return {
+      title: this.$config.SITE_TITLE + " | " + this.$t("contact"),
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          property: "og:title",
+          hid: "og:title",
+          content: this.$config.SITE_TITLE + " | " + this.$t("contact"),
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "/front_cover.png",
+        },
+      ],
+    };
+  },
 };
 </script>

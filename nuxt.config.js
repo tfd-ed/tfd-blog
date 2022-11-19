@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "TFD Blog",
+    title: process.env.SITE_TITLE,
     htmlAttrs: {
       lang: "kh",
     },
@@ -43,7 +43,7 @@ export default {
   serverMiddleware: ["~/api/recaptcha"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  // components: true,
+  components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -269,6 +269,11 @@ export default {
     },
     autoTracking: {
       screenview: true,
+    },
+  },
+  optimization: {
+    splitChunks: {
+      maxSize: 300000,
     },
   },
 

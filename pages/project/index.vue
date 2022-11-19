@@ -25,19 +25,19 @@
             class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
             xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
           >
-            <HorizontalCard
+            <LazyCardsHorizontalCard
               v-for="(project, $index) in projects"
               :key="`project-${$index}`"
               :post="project"
-            ></HorizontalCard>
+            ></LazyCardsHorizontalCard>
           </XyzTransitionGroup>
-          <Confused v-if="projects.length === 0">
+          <LazyCommonsConfused v-if="projects.length === 0">
             <template #content>
               <p class="mt-6 text-gray-500">
                 {{ $t("no_articles") }}
               </p>
             </template>
-          </Confused>
+          </LazyCommonsConfused>
         </client-only>
         <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
@@ -53,10 +53,7 @@
   </section>
 </template>
 <script>
-import HorizontalCard from "@/components/cards/horizontal-card";
-import Confused from "../../components/commons/confused";
 export default {
-  components: { Confused, HorizontalCard },
   async asyncData(context) {
     const { $content, app } = context;
     const defaultLocale = app.i18n.locale;

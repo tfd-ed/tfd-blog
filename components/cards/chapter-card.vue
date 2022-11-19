@@ -107,7 +107,9 @@ export default {
   },
   methods: {
     formatD(second) {
-      return format(1000 * parseInt(second));
+      return format(1000 * parseInt(second), {
+        leading: true,
+      });
     },
     convertNumber(num) {
       return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
