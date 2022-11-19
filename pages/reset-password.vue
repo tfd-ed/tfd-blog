@@ -5,7 +5,7 @@
         v-if="$fetchState.pending"
         class="transition lg:w-2/6 md:w-1/2 rounded-lg p-8 flex flex-col mx-auto w-full"
       >
-        <GeneralContentLoading />
+        <LazyLoadingsGeneralContentLoading />
       </div>
       <div v-else>
         <div v-if="!error">
@@ -25,7 +25,7 @@
                 class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl"
                 @submit.prevent="handleSubmit(handleForm)"
               >
-                <BasicInput
+                <LazyInputsBasicInput
                   id="password_new"
                   v-model="password"
                   name="password"
@@ -34,7 +34,7 @@
                   type="password"
                   :auto-complete="false"
                 />
-                <BasicInput
+                <LazyInputsBasicInput
                   id="confirmation_reset"
                   v-model="confirmation"
                   name="confirmation"
@@ -45,10 +45,10 @@
                 />
 
                 <button type="submit" class="block w-full px-5 py-3">
-                  <ShadowButton text="reset" color="bg-green-600" />
+                  <LazyButtonsShadowButton text="reset" color="bg-green-600" />
                 </button>
 
-                <TosRemind />
+                <LazyCommonsTosRemind />
                 <div class="mt-12 mx-auto text-center h-8">
                   <p class="text-xs text-gray-500">
                     {{ $t("have_account") }}
@@ -65,7 +65,7 @@
               v-if="submitting && !submitted"
               class="transition rounded-lg p-8 flex flex-col mx-auto w-full"
             >
-              <GeneralLoading text="loading" />
+              <LazyLoadingsGeneralLoading text="loading" />
             </div>
             <div v-if="submitted" class="flex flex-col mx-auto py-24">
               <h1 class="text-xl font-medium title-font mb-4 text-gray-900">
@@ -73,7 +73,7 @@
               </h1>
               <div class="py-6 mx-auto">
                 <label for="login-modal">
-                  <ShadowButton text="login" color="bg-red-600" />
+                  <LazyButtonsShadowButton text="login" color="bg-red-600" />
                 </label>
               </div>
             </div>
@@ -84,7 +84,7 @@
             <h1 class="text-xl font-medium title-font mb-4 text-gray-900">
               {{ $t("verification_error") }}
             </h1>
-            <Confused
+            <LazyCommonsConfused
               width="120"
               class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
             />
@@ -98,25 +98,11 @@
   </section>
 </template>
 <script>
-import Confused from "../components/commons/confused";
-import ShadowButton from "../components/buttons/shadow-button";
 import { ValidationObserver } from "vee-validate";
-import BasicInput from "../components/inputs/basic-input";
-import TosRemind from "../components/commons/tos-remind";
-import GeneralContentLoading from "../components/loadings/general-content-loading";
-import ContentsLoader from "../components/loadings/contents-loader";
-import GeneralLoading from "../components/loadings/general-loading";
 
 export default {
   components: {
-    GeneralLoading,
-    ContentsLoader,
-    GeneralContentLoading,
-    TosRemind,
-    BasicInput,
     ValidationObserver,
-    ShadowButton,
-    Confused,
   },
   data() {
     return {

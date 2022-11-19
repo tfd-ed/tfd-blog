@@ -24,11 +24,11 @@
           class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
           xyz="fade back-1 small-1 ease-out stagger-2 perspective-2"
         >
-          <HorizontalCard
+          <LazyCardsHorizontalCard
             v-for="(post, $index) in posts"
             :key="`post-${$index}`"
             :post="post"
-          ></HorizontalCard>
+          ></LazyCardsHorizontalCard>
         </XyzTransitionGroup>
         <div class="flex flex-row justify-center mx-auto mt-12">
           <div class="btn-group">
@@ -47,9 +47,7 @@
   </section>
 </template>
 <script>
-import HorizontalCard from "@/components/cards/horizontal-card";
 export default {
-  components: { HorizontalCard },
   async asyncData(context) {
     const { $content, app, params } = context;
     const pageNo = parseInt(params.number);

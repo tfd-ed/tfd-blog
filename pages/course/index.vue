@@ -21,21 +21,19 @@
         </div>
         <div class="text-gray-600 body-font">
           <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-wrap -m-4">
-              <client-only>
-                <XyzTransitionGroup
-                  appear-visible
-                  class="flex flex-wrap -m-4"
-                  xyz="fade front-1 stagger-2 ease-out delay-2"
-                >
-                  <CourseCard
-                    v-for="(course, index) in courses"
-                    :key="index"
-                    :course="course"
-                  ></CourseCard>
-                </XyzTransitionGroup>
-              </client-only>
-            </div>
+            <client-only>
+              <XyzTransitionGroup
+                appear-visible
+                class="flex flex-wrap -m-4 justify-center"
+                xyz="fade front-1 stagger-2 ease-out delay-2"
+              >
+                <LazyCardsCourseCard
+                  v-for="(course, index) in courses"
+                  :key="index"
+                  :course="course"
+                ></LazyCardsCourseCard>
+              </XyzTransitionGroup>
+            </client-only>
           </div>
         </div>
         <client-only>
@@ -50,14 +48,13 @@
 </template>
 <script>
 import { mapActions, mapMutations } from "vuex";
-import CourseCard from "../../components/cards/course-card";
+// import CourseCard from "../../components/cards/course-card";
 import { createHelpers } from "vuex-map-fields";
 const { mapMultiRowFields, mapFields } = createHelpers({
   getterType: "course/getField",
   mutationType: "course/updateField",
 });
 export default {
-  components: { CourseCard },
   data() {
     return {
       page: 1,

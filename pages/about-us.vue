@@ -7,11 +7,11 @@
         {{ $t("about_us") }}
       </h1>
     </div>
-    <Quote quote="founder_quote" owner="chau_dara">
+    <LazyCardsQuote quote="founder_quote" owner="chau_dara">
       <template #image>
         <img src="/founder.jpg" alt="founder" />
       </template>
-    </Quote>
+    </LazyCardsQuote>
     <nuxt-content
       class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose md:prose-xl text-justify"
       :document="about"
@@ -20,9 +20,9 @@
 </template>
 <script>
 import Quote from "@/components/cards/quote";
-import AbaDonation from "@/components/cards/aba-donation";
+
 export default {
-  components: { AbaDonation, Quote },
+  components: { Quote },
   async asyncData(context) {
     const { $content, app } = context;
     const defaultLocale = app.i18n.locale;

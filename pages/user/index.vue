@@ -17,7 +17,7 @@
         <div class="px-4 py-6 sm:px-0">
           <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div class="lg:col-span-2">
-              <ImageLoader
+              <LazyLoadersImageLoader
                 id="profile-viewer"
                 class="object-cover w-full"
                 :src="
@@ -137,7 +137,7 @@
                   class="space-y-4"
                   @submit.prevent="handleSubmit(updateUserInfo)"
                 >
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_name_edit"
                     v-model="admin.username"
                     name="username"
@@ -145,7 +145,7 @@
                     rules="required"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_firstname_edit"
                     v-model="admin.firstname"
                     name="firstname"
@@ -153,7 +153,7 @@
                     rules="required"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_lastname_edit"
                     v-model="admin.lastname"
                     name="lastname"
@@ -170,7 +170,7 @@
                   <!--                    disabled="true"-->
                   <!--                  />-->
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_dob"
                     v-model="admin.dateOfBirth"
                     type="date"
@@ -178,7 +178,7 @@
                     label="date_of_birth"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_password_edit"
                     v-model="password"
                     name="password"
@@ -187,7 +187,7 @@
                     rules="min:8"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_password_edit_2"
                     v-model="confirmation"
                     name="confirmation"
@@ -196,7 +196,7 @@
                   />
 
                   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <SimpleFileUpload
+                    <LazyInputsSimpleFileUpload
                       id="admin_tb_edit"
                       v-model="thumbnail"
                       class="col-span-2"
@@ -208,7 +208,10 @@
 
                   <div class="mt-4 flex flex-row justify-center">
                     <button type="submit">
-                      <ShadowButton color="bg-green-700" text="submit" />
+                      <LazyButtonsShadowButton
+                        color="bg-green-700"
+                        text="submit"
+                      />
                     </button>
                   </div>
                 </form>
@@ -223,29 +226,17 @@
     v-else
     class="transition lg:w-1/2 rounded-lg p-8 flex flex-col mx-auto w-full"
   >
-    <GeneralContentLoading />
+    <LazyLoadingsGeneralContentLoading />
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
-import ImageLoader from "~/components/loaders/image-loader";
-import SimpleFileUpload from "~/components/inputs/simple-file-upload";
-import ShadowButton from "~/components/buttons/shadow-button";
 import { ValidationObserver } from "vee-validate";
-import StatusIcon from "~/components/icons/status-icon";
-import BasicInput from "@/components/inputs/basic-input";
-import GeneralContentLoading from "@/components/loadings/general-content-loading";
 // import * as nsfwjs from "nsfwjs";
 export default {
   components: {
-    GeneralContentLoading,
-    BasicInput,
-    StatusIcon,
     ValidationObserver,
-    ShadowButton,
-    SimpleFileUpload,
-    ImageLoader,
   },
   middleware: "auth",
   data() {

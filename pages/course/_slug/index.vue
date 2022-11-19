@@ -214,6 +214,34 @@ export default {
       });
     }
   },
+  head() {
+    return {
+      title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: "og:description",
+          property: "og:description",
+          content:
+            this.$config.SITE_TITLE + " | " + this.getCourse.shortDescription,
+        },
+        {
+          property: "og:title",
+          hid: "og:title",
+          content: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.getCourse.thumbnail
+            ? this.getCourse.thumbnail.path
+            : "https://dummyimage.com/720x400",
+        },
+      ],
+    };
+  },
   computed: {
     ...mapGetters({
       getCourse: "course/getCourse",
