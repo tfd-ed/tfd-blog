@@ -7,7 +7,7 @@
         >✕</label
       >
       <div class="flex space-x-4">
-        <nuxt-img preset="avatar" src="/cookie.png" class="h-6" />
+        <img src="/cookie.png" class="h-6" />
         <h3 class="text-lg font-bold">
           {{ $t("cookies") }}
         </h3>
