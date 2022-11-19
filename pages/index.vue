@@ -24,7 +24,7 @@ export default {
   name: "IndexPage",
   head() {
     return {
-      title: "TFD Blogs",
+      title: this.$config.SITE_TITLE + " | " + this.$t("home"),
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -38,7 +38,7 @@ export default {
         {
           property: "og:title",
           hid: "og:title",
-          content: "Welcome to TFD",
+          content: this.$config.SITE_TITLE + " | " + this.$t("home"),
         },
         {
           hid: "og:image",

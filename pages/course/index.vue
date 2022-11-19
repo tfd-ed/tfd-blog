@@ -61,6 +61,32 @@ export default {
       limit: 9,
     };
   },
+  head() {
+    return {
+      title: this.$config.SITE_TITLE + " | " + this.$t("course"),
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: "og:description",
+          property: "og:description",
+          content:
+            "TFDevs is a new initiative aiming at bringing uncovered facts that people might not be aware of to the public.",
+        },
+        {
+          property: "og:title",
+          hid: "og:title",
+          content: this.$config.SITE_TITLE + " | " + this.$t("course"),
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "/front_cover.png",
+        },
+      ],
+    };
+  },
   computed: {
     ...mapMultiRowFields(["courses"]),
     ...mapFields(["coursesFetchSize"]),

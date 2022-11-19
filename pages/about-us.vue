@@ -31,7 +31,7 @@ export default {
   },
   head() {
     return {
-      title: this.about.title,
+      title: this.$config.SITE_TITLE + " | " + this.about.title,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -44,12 +44,12 @@ export default {
         {
           property: "og:title",
           hid: "og:title",
-          content: this.about.title,
+          content: this.$config.SITE_TITLE + " | " + this.about.title,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.about.media,
+          content: "/front_cover.png",
         },
       ],
     };
