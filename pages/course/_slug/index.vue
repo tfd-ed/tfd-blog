@@ -214,6 +214,7 @@ export default {
       });
     }
   },
+  fetchOnServer: false,
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
