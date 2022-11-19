@@ -5,7 +5,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "vercel-build": "yarn global add node-gyp sharp"
   },
   "dependencies": {
     "@animxyz/vue": "^0.6.7",

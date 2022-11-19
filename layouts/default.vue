@@ -62,7 +62,6 @@ export default {
         {
           src: "https://plausible.io/js/script.js",
           defer: true,
-          type: "text/partytown",
           "data-domain": "tfdevs.com",
         },
       ],
