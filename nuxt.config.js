@@ -39,6 +39,7 @@ export default {
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
+    { src: "~/plugins/vue2-filters.js", mode: "client" },
   ],
   serverMiddleware: ["~/api/recaptcha"],
 

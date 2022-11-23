@@ -168,7 +168,11 @@
           xyz="fade small-1 stagger-4 ease-ease up-5 perspective-2"
         >
           <ChapterCard
-            v-for="(chapter, index) in getCourse.chapters"
+            v-for="(chapter, index) in orderBy(
+              getCourse.chapters,
+              'chapterNumber',
+              true
+            )"
             :key="index"
             :chapter="chapter"
             :purchase="getPurchase"
@@ -187,6 +191,7 @@ import ChapterCard from "@/components/cards/chapter-card";
 import convertKhmerNumber from "@/utils/convert-khmer-number";
 import ImageLoader from "@/components/loaders/image-loader";
 import NotFound from "@/components/errors/not-found";
+import Vue2Filters from "vue2-filters";
 
 export default {
   components: {
@@ -197,6 +202,7 @@ export default {
     LockedIcon,
     GeneralContentLoading,
   },
+  mixins: [Vue2Filters.mixin],
   data() {
     return {
       openPurchase: false,
