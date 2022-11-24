@@ -16,12 +16,18 @@
           {{ $t("choose_payment_method") }}:
         </h2>
         <button
+          v-if="getCourse.type === 'PAID'"
           class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-aba_dark rounded-lg transition hover:scale-90"
           @click="openPayment(getCourse.paymentLink)"
         >
           {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
           <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
         </button>
+        <p class="mt-8 max-w-lg text-gray-500 italic">
+          នេះជាមេរៀន {{ $t("free") }} សូមវាយបញ្ចូលលេខ
+          <strong>000000000000000</strong> នៅក្នុងប្រអប់ រួចចុច
+          {{ $t("submit") }} ដើម្បីទទួលបានមេរៀន
+        </p>
         <form
           class="flex flex-col mt-16 space-y-2"
           method="post"
@@ -100,6 +106,7 @@ export default {
       return false;
     },
     async submitPurchase() {
+      console.log(this.loggedInUser);
       this.submitting = true;
       try {
         const result = await this.$axios.$post(

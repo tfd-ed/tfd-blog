@@ -65,12 +65,19 @@
             </ShadowButton>
           </nuxt-link>
           <span
+            v-if="course.type === 'PAID'"
             class="text-green-600 text-2xl font-mono font-extrabold mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none pr-3 py-1 border-r-2 border-gray-200"
           >
             ${{ course.price }}
           </span>
           <span
-            class="text-gray-900 text-lg inline-flex items-center leading-none text-sm"
+            v-else
+            class="text-red-600 text-2xl font-extrabold mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none pr-3 py-1 border-r-2 border-gray-200"
+          >
+            {{ $t("free") }}
+          </span>
+          <span
+            class="text-gray-900 text-xs inline-flex items-center leading-none"
           >
             <DurationIcon width="20" class="mr-2" />
             {{ convertNumber(formatD(totalDuration)) }}

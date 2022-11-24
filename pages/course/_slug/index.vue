@@ -9,13 +9,6 @@
       </div>
       <div v-else-if="$fetchState.error"><NotFound /></div>
       <div v-else class="lg:w-4/6 mx-auto">
-        <!--        <div class="rounded-lg h-64 overflow-hidden">-->
-        <!--          <img-->
-        <!--            alt="content"-->
-        <!--            class="object-cover object-center h-full w-full"-->
-        <!--            :src="getCourse.thumbnail.url"-->
-        <!--          />-->
-        <!--        </div>-->
         <div class="flex flex-col sm:flex-row mt-10 mb-20">
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
             <ImageLoader
@@ -38,9 +31,10 @@
               </p>
               <div class="flex flex-col space-y-2 text-left mt-4">
                 <p class="text-gray-500 italic">
-                  {{ $t("price") }}
+                  {{ getCourse.type === "PAID" ? $t("price") : $t("free") }}
                 </p>
                 <span
+                  v-if="getCourse.type === 'PAID'"
                   class="text-5xl font-mono font-black text-green-700 sm:text-6xl"
                   >${{ getCourse.price }}</span
                 >
@@ -183,7 +177,7 @@
   </section>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import GeneralContentLoading from "@/components/loadings/general-content-loading";
 import LockedIcon from "@/components/icons/locked-icon";
 import ProcessIcon from "@/components/icons/process-icon";
@@ -220,7 +214,6 @@ export default {
       });
     }
   },
-  fetchOnServer: false,
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
@@ -248,6 +241,7 @@ export default {
       ],
     };
   },
+  fetchOnServer: false,
   computed: {
     ...mapGetters({
       getCourse: "course/getCourse",
@@ -255,6 +249,9 @@ export default {
       getUser: "loggedInUser",
       getPurchase: "course/getPurchase",
     }),
+  },
+  beforeDestroy() {
+    this.clearPurchase();
   },
   activated() {
     // Call fetch again if last fetch more than 15 sec ago
@@ -266,6 +263,9 @@ export default {
     ...mapActions({
       fetchCourse: "course/fetchCourse",
       fetchPurchase: "course/fetchCoursePurchase",
+    }),
+    ...mapMutations({
+      clearPurchase: "course/CLEAR_PURCHASE",
     }),
     onReady(player) {
       this.playerReady = true;

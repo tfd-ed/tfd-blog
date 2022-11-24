@@ -143,7 +143,7 @@ export default {
           this.resetForm();
           this.close();
           this.logged = false;
-          await this.$router.push(this.localePath("/"));
+          await this.$router.push(this.localePath("/course"));
         }, 1000);
         this.login = {
           email: "",
