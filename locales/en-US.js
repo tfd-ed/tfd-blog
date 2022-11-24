@@ -121,6 +121,8 @@ const messages = {
   ohno: "Uh-oh!",
   cant_find_page: "We can't find that page.",
   chapter: "Chapter",
+  paid: "Paid",
+  free: "Free",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

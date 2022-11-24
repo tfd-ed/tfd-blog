@@ -123,6 +123,8 @@ const messages = {
   ohno: "ចុម!",
   cant_find_page: "ចូលមករកអី? ចង់Hackមែន?",
   chapter: "មេរៀន",
+  paid: "បង់លុយ",
+  free: "ឥតគិតថ្លៃ",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",
