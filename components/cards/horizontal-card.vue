@@ -1,9 +1,8 @@
 <template>
   <div class="pt-8 grid grid-cols-1 gap-6 md:grid-cols-4">
-    <img
+    <ImageLoader
       :src="post.media"
       class="object-cover w-full h-40 col-span-1 bg-center"
-      loading="lazy"
     />
     <div class="col-span-1 md:col-span-3">
       <p class="mb-2 -mt-1 text-sm font-normal text-gray-500">
@@ -39,7 +38,9 @@
 </template>
 <script>
 import { readingTime } from "reading-time-estimator";
+import ImageLoader from "@/components/loaders/image-loader";
 export default {
+  components: { ImageLoader },
   props: {
     post: Object,
   },

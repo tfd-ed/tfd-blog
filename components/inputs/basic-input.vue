@@ -17,6 +17,7 @@
         :disabled="disabled"
         class="w-full px-0 pt-3.5 pb-0 text-sm placeholder-transparent border-none focus:ring-0 peer"
         :type="type"
+        :name="name"
         :placeholder="getPlaceHolder"
         :autoComplete="autoComplete"
         @input="onInput"

@@ -24,5 +24,30 @@ export default {
     const tos = await $content(`${defaultLocale}/tos`).fetch();
     return { tos };
   },
+  head() {
+    return {
+      title: this.$config.SITE_TITLE + " | " + this.tos.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.tos.description,
+        },
+        {
+          property: "og:title",
+          hid: "og:title",
+          content: this.$config.SITE_TITLE + " | " + this.tos.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "/front_cover.png",
+        },
+      ],
+    };
+  },
 };
 </script>

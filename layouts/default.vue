@@ -21,7 +21,7 @@
 <script>
 import NavBar from "~/components/navbars/navbar";
 import Footer from "~/components/footers/footer";
-import { onAnalyticsReady } from "vue-analytics";
+// import { onAnalyticsReady } from "vue-analytics";
 import CookiesInfo from "~/components/cookies/cookies-info";
 import CookiesModal from "../components/modals/cookies-modal";
 import LoginModal from "../components/modals/login-modal";
@@ -59,29 +59,34 @@ export default {
             this.isGeeTestLoaded = true;
           },
         },
+        {
+          src: "https://plausible.io/js/script.js",
+          defer: true,
+          "data-domain": "tfdevs.com",
+        },
       ],
     };
   },
-  mounted() {
-    onAnalyticsReady().then(() => {
-      if (
-        this.$cookies.get("google_analytics") === undefined ||
-        this.$cookies.get("google_analytics") === true
-      ) {
-        this.activeGA();
-      } else if (this.$cookies.get("google_analytics") === false) {
-        this.disableGA();
-      }
-    });
-  },
-  methods: {
-    activeGA() {
-      this.$ga.enable(); // Activate module
-      this.$ga.page(this.$route.path);
-    },
-    disableGA() {
-      this.$ga.disable(); // User chose to disable
-    },
-  },
+  // mounted() {
+  //   onAnalyticsReady().then(() => {
+  //     if (
+  //       this.$cookies.get("google_analytics") === undefined ||
+  //       this.$cookies.get("google_analytics") === true
+  //     ) {
+  //       this.activeGA();
+  //     } else if (this.$cookies.get("google_analytics") === false) {
+  //       this.disableGA();
+  //     }
+  //   });
+  // },
+  // methods: {
+  //   activeGA() {
+  //     this.$ga.enable(); // Activate module
+  //     this.$ga.page(this.$route.path);
+  //   },
+  //   disableGA() {
+  //     this.$ga.disable(); // User chose to disable
+  //   },
+  // },
 };
 </script>
