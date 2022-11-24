@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$fetchState.pending">
+  <div v-if="!$fetchState.pending && !loading">
     <header class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div class="flex flex-row items-center justify-between">
@@ -17,7 +17,7 @@
         <div class="px-4 py-6 sm:px-0">
           <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div class="lg:col-span-2">
-              <ImageLoader
+              <LazyLoadersImageLoader
                 id="profile-viewer"
                 class="object-cover w-full"
                 :src="
@@ -29,13 +29,13 @@
               <div class="shadow-lg rounded-lg">
                 <div class="px-4 py-3 border-0 card-header">
                   <h4 class="font-semibold mt-2 text-gray-800">
-                    {{ $t("admin") }}
+                    {{ $t("user") }}
                   </h4>
                 </div>
                 <div class="px-4 mb-1 -mt-2 divide-y divide-gray-200 card-body">
                   <div class="flex items-center justify-between py-3 text-sm">
                     <div class="flex items-center space-x-2 text-gray-700">
-                      <StatusIcon />
+                      <LazyIconsStatusIcon />
                       <span>{{ $t("roles") }}</span>
                     </div>
                     <span
@@ -94,7 +94,29 @@
                       <span>{{ $t("username") }}</span>
                     </div>
                     <span class="font-mono text-gray-900">
-                      {{ getAuth.username }}</span
+                      {{ displayUsername }}</span
+                    >
+                  </div>
+                  <div class="flex items-center justify-between py-3 text-sm">
+                    <div class="flex items-center space-x-2 text-gray-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-5 h-5 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#34495e"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                        />
+                      </svg>
+                      <span>{{ $t("email") }}</span>
+                    </div>
+                    <span class="font-mono text-gray-900">
+                      {{ getAuth.email }}</span
                     >
                   </div>
                 </div>
@@ -115,7 +137,7 @@
                   class="space-y-4"
                   @submit.prevent="handleSubmit(updateUserInfo)"
                 >
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_name_edit"
                     v-model="admin.username"
                     name="username"
@@ -123,7 +145,7 @@
                     rules="required"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_firstname_edit"
                     v-model="admin.firstname"
                     name="firstname"
@@ -131,7 +153,7 @@
                     rules="required"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_lastname_edit"
                     v-model="admin.lastname"
                     name="lastname"
@@ -139,16 +161,16 @@
                     rules="required"
                   />
 
-                  <BasicInput
-                    id="admin_email_edit"
-                    v-model="admin.email"
-                    name="email"
-                    label="email"
-                    rules="email|required"
-                    disabled="true"
-                  />
+                  <!--                  <BasicInput-->
+                  <!--                    id="admin_email_edit"-->
+                  <!--                    v-model="admin.email"-->
+                  <!--                    name="email"-->
+                  <!--                    label="email"-->
+                  <!--                    rules="email|required"-->
+                  <!--                    disabled="true"-->
+                  <!--                  />-->
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_dob"
                     v-model="admin.dateOfBirth"
                     type="date"
@@ -156,7 +178,7 @@
                     label="date_of_birth"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_password_edit"
                     v-model="password"
                     name="password"
@@ -165,7 +187,7 @@
                     rules="min:8"
                   />
 
-                  <BasicInput
+                  <LazyInputsBasicInput
                     id="admin_password_edit_2"
                     v-model="confirmation"
                     name="confirmation"
@@ -174,7 +196,7 @@
                   />
 
                   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <SimpleFileUpload
+                    <LazyInputsSimpleFileUpload
                       id="admin_tb_edit"
                       v-model="thumbnail"
                       class="col-span-2"
@@ -186,7 +208,10 @@
 
                   <div class="mt-4 flex flex-row justify-center">
                     <button type="submit">
-                      <ShadowButton color="bg-green-700" text="submit" />
+                      <LazyButtonsShadowButton
+                        color="bg-green-700"
+                        text="submit"
+                      />
                     </button>
                   </div>
                 </form>
@@ -201,44 +226,34 @@
     v-else
     class="transition lg:w-1/2 rounded-lg p-8 flex flex-col mx-auto w-full"
   >
-    <GeneralContentLoading />
+    <LazyLoadingsGeneralContentLoading />
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
-import ImageLoader from "~/components/loaders/image-loader";
-import SimpleFileUpload from "~/components/inputs/simple-file-upload";
-import ShadowButton from "~/components/buttons/shadow-button";
 import { ValidationObserver } from "vee-validate";
-import StatusIcon from "~/components/icons/status-icon";
-import BasicInput from "@/components/inputs/basic-input";
-import GeneralContentLoading from "@/components/loadings/general-content-loading";
 // import * as nsfwjs from "nsfwjs";
 export default {
   components: {
-    GeneralContentLoading,
-    BasicInput,
-    StatusIcon,
     ValidationObserver,
-    ShadowButton,
-    SimpleFileUpload,
-    ImageLoader,
   },
   middleware: "auth",
   data() {
     return {
       name: "",
       admin: {},
+      displayUsername: "",
       thumbnail: "",
       password: "",
       confirmation: "",
       nsfwModel: "",
+      loading: false,
     };
   },
   async fetch() {
     // Load NSFW model
-    this.nsfwModel = await nsfwjs.load();
+    // this.nsfwModel = await nsfwjs.load();
     const join = [
       {
         field: "profile",
@@ -256,6 +271,7 @@ export default {
         },
       }
     );
+    this.displayUsername = this.admin.username;
   },
   computed: {
     ...mapGetters({
@@ -278,6 +294,7 @@ export default {
     },
     async updateUserInfo() {
       try {
+        this.loading = true;
         let file = "";
         if (this.thumbnail) {
           console.log("Checking NSFW");
@@ -318,7 +335,7 @@ export default {
             }
           );
         } else {
-          console.log("Called block 2");
+          // console.log("Called block 2");
           await this.$axios.$patch(
             `/v1/user-own-management/${this.getAuth.id}`,
             {
@@ -328,12 +345,13 @@ export default {
               lastname: this.admin.lastname,
             }
           );
+          this.displayUsername = this.admin.username;
         }
         /**
          * Password Updated
          */
         if (this.password) {
-          console.log("Called block 3");
+          // console.log("Called block 3");
           await this.$axios.$patch(
             `/v1/user-own-management/${this.getAuth.id}`,
             {
@@ -341,6 +359,7 @@ export default {
             }
           );
         }
+        this.loading = false;
         this.popCourseUpdated();
         /**
          * Wait for image to be uploaded to AWS
@@ -350,9 +369,10 @@ export default {
           this.thumbnail = "";
         }, 3000);
       } catch (e) {
-        console.log(e);
-        this.$toast.error(e.response.data.message, {
-          duration: 3000,
+        this.loading = false;
+        // console.log(e.response.data.detail);
+        this.$toast.error(e.response.data.detail, {
+          duration: 6000,
         });
       }
     },

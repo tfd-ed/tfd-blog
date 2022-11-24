@@ -117,6 +117,12 @@ const messages = {
   no_results: "No result!",
   updated: "updated!",
   students_enrolled: "Students Enrolled",
+  duration: "Duration",
+  ohno: "Uh-oh!",
+  cant_find_page: "We can't find that page.",
+  chapter: "Chapter",
+  paid: "Paid",
+  free: "Free",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

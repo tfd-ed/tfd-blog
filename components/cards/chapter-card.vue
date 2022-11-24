@@ -15,7 +15,11 @@
     <div class="md:flex-grow">
       <nuxt-link
         v-if="isAuth && purchase.status === 'VERIFIED'"
-        :to="localePath('/chapter/' + chapter.id)"
+        :to="
+          localePath(
+            `/course/${getCourse.titleURL}/chapter/` + chapter.chapterNumber
+          )
+        "
       >
         <h2
           class="text-2xl font-semibold text-gray-900 title-font mb-2 hover:underline"
@@ -36,7 +40,11 @@
       </p>
       <nuxt-link
         v-if="isAuth && purchase.status === 'VERIFIED'"
-        :to="localePath('/chapter/' + chapter.id)"
+        :to="
+          localePath(
+            `/course/${getCourse.titleURL}/chapter/` + chapter.chapterNumber
+          )
+        "
         class="text-red-600 inline-flex items-center mt-4 hover:underline"
       >
         {{ $t("learn") }}
@@ -94,11 +102,14 @@ export default {
   computed: {
     ...mapGetters({
       isAuth: "isAuthenticated",
+      getCourse: "course/getCourse",
     }),
   },
   methods: {
     formatD(second) {
-      return format(1000 * parseInt(second));
+      return format(1000 * parseInt(second), {
+        leading: true,
+      });
     },
     convertNumber(num) {
       return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;

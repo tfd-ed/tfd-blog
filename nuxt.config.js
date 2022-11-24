@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "TFD Blog",
+    title: process.env.SITE_TITLE,
     htmlAttrs: {
       lang: "kh",
     },
@@ -39,11 +39,12 @@ export default {
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
+    { src: "~/plugins/vue2-filters.js", mode: "client" },
   ],
   serverMiddleware: ["~/api/recaptcha"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  // components: true,
+  components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -51,26 +52,61 @@ export default {
     "@nuxt/postcss8",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/moment",
-    "@nuxt/image",
-    "@nuxtjs/google-analytics",
+    // "@nuxtjs/google-analytics",
     "@nuxtjs/device",
+    "@aceforth/nuxt-optimized-images",
+    "@nuxtjs/google-fonts",
   ],
-  image: {
-    domains: ["tfdevs.com"],
-    unsplash: {
-      baseURL: "https://images.unsplash.com",
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: false,
+  },
+  // image: {
+  //   provider: process.env.NODE_ENV === "dev" ? "ipx" : "vercel",
+  //   screens: {
+  //     xs: 320,
+  //     sm: 640,
+  //     md: 768,
+  //     lg: 1024,
+  //     xl: 1280,
+  //     xxl: 1536,
+  //     "2xl": 1536,
+  //   },
+  //   presets: {
+  //     avatar: {
+  //       modifiers: {
+  //         width: 320,
+  //         height: 320,
+  //       },
+  //     },
+  //   },
+  // },
+  // Google Font
+  googleFonts: {
+    display: "swap",
+    families: {
+      Kantumruy: {
+        wght: [300, 400, 700],
+      },
+      "Source Sans Pro": {
+        wght: [300, 400, 700],
+      },
+      "Noto Serif Khmer": {
+        wght: [300, 400, 700],
+      },
     },
+    subsets: ["latin", "khmer"],
   },
   publicRuntimeConfig: {
     WEB_URL: process.env.WEB_URL,
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID,
     },
-    "google-adsense": {
-      id: process.env.GOOGLE_ADSENSE_ID,
-      test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
-      analyticsUacct: process.env.GOOGLE_ADSENSE_ID,
-    },
+    // "google-adsense": {
+    //   id: process.env.GOOGLE_ADSENSE_ID,
+    //   test: process.env.GOOGLE_ADSENSE_TEST_MODE === "true",
+    //   analyticsUacct: process.env.GOOGLE_ADSENSE_ID,
+    // },
     FORMSPREE: process.env.FORMSPREE,
     NODE_ENV: process.env.NODE_ENV,
     INSTAGRAM_URL: process.env.INSTAGRAM_URL,
@@ -112,14 +148,15 @@ export default {
         tag: "YoutubeSubscribeButton",
       },
     ],
-    [
-      "@nuxtjs/google-adsense",
-      {
-        id: process.env.GOOGLE_ADSENSE_ID,
-      },
-    ],
+    // [
+    //   "@nuxtjs/google-adsense",
+    //   {
+    //     id: process.env.GOOGLE_ADSENSE_ID,
+    //   },
+    // ],
     // "cookie-universal-nuxt",
   ],
+
   // Feed Configuration
   feed: [
     {
@@ -236,18 +273,23 @@ export default {
   },
 
   // GA Setting
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
-    disabled: true,
-    checkDuplicatedScript: true,
-    debug: {
-      enabled: process.env.NODE_ENV !== "release",
-      sendHitTask: true,
-    },
-    autoTracking: {
-      screenview: true,
-    },
-  },
+  // googleAnalytics: {
+  //   id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+  //   disabled: true,
+  //   checkDuplicatedScript: true,
+  //   debug: {
+  //     enabled: process.env.NODE_ENV !== "release",
+  //     sendHitTask: true,
+  //   },
+  //   autoTracking: {
+  //     screenview: true,
+  //   },
+  // },
+  // optimization: {
+  //   splitChunks: {
+  //     maxSize: 300000,
+  //   },
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

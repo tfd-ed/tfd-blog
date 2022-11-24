@@ -1,8 +1,12 @@
 <template>
   <section class="px-4 py-12 mx-auto max-w-7xl">
-    <Founder />
-    <SocialCard />
-    <Quote quote="about_quote" owner="quote_owner" image_quote="random_image">
+    <LazyHerosFounder />
+    <LazyCardsSocialCard />
+    <LazyCardsQuote
+      quote="about_quote"
+      owner="quote_owner"
+      image_quote="random_image"
+    >
       <template #image>
         <div class="flex flex-col space-y-2">
           <img
@@ -11,24 +15,16 @@
           />
         </div>
       </template>
-    </Quote>
+    </LazyCardsQuote>
   </section>
 </template>
 
 <script>
-import SocialCard from "@/components/cards/social-card";
-import Founder from "@/components/heros/founder";
-import Quote from "@/components/cards/quote";
 export default {
   name: "IndexPage",
-  components: {
-    Quote,
-    Founder,
-    SocialCard,
-  },
   head() {
     return {
-      title: "TFD Blogs",
+      title: this.$config.SITE_TITLE + " | " + this.$t("home"),
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -42,7 +38,7 @@ export default {
         {
           property: "og:title",
           hid: "og:title",
-          content: "Welcome to TFD",
+          content: this.$config.SITE_TITLE + " | " + this.$t("home"),
         },
         {
           hid: "og:image",

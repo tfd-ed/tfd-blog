@@ -7,33 +7,38 @@
       >
         <GeneralContentLoading />
       </div>
+      <div v-else-if="$fetchState.error"><NotFound /></div>
       <div v-else class="lg:w-4/6 mx-auto">
-        <!--        <div class="rounded-lg h-64 overflow-hidden">-->
-        <!--          <img-->
-        <!--            alt="content"-->
-        <!--            class="object-cover object-center h-full w-full"-->
-        <!--            :src="getCourse.thumbnail.url"-->
-        <!--          />-->
-        <!--        </div>-->
         <div class="flex flex-col sm:flex-row mt-10 mb-20">
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-            <img
+            <ImageLoader
               class="inline-flex h-20"
               :src="
                 getCourse.thumbnail
                   ? getCourse.thumbnail.path
                   : 'https://dummyimage.com/720x400'
               "
-            />
+            >
+            </ImageLoader>
 
             <div class="flex flex-col">
               <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
                 {{ getCourse.category.name }}
               </h2>
               <div class="w-12 h-1 bg-gray-500 rounded mt-2 mb-4 mx-auto"></div>
-              <p class="text-base text-justify">
+              <p class="text-base">
                 {{ getCourse.category.description }}
               </p>
+              <div class="flex flex-col space-y-2 text-left mt-4">
+                <p class="text-gray-500 italic">
+                  {{ getCourse.type === "PAID" ? $t("price") : $t("free") }}
+                </p>
+                <span
+                  v-if="getCourse.type === 'PAID'"
+                  class="text-5xl font-mono font-black text-green-700 sm:text-6xl"
+                  >${{ getCourse.price }}</span
+                >
+              </div>
               <div
                 v-if="getCourse.purchase > 0"
                 class="flex flex-col space-y-2 text-left mt-4"
@@ -42,21 +47,27 @@
                   {{ $t("students_enrolled") }}
                 </p>
                 <span class="text-5xl font-black sm:text-6xl">{{
-                  getCourse.purchase
+                  convertNumber(getCourse.purchase)
                 }}</span>
               </div>
+              <!--              <div class="flex flex-col space-y-2 text-left mt-4">-->
+              <!--                <p class="text-gray-500 italic">-->
+              <!--                  {{ $t("duration") }}-->
+              <!--                </p>-->
+              <!--                <span class="text-5xl font-black sm:text-6xl">{{ 314 }}</span>-->
+              <!--              </div>-->
             </div>
           </div>
           <div
             class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left"
           >
             <h2
-              class="sm:text-3xl text-2xl text-gray-900 font-medium title-font mb-2"
+              class="sm:text-3xl text-2xl text-gray-900 font-medium font-mono mb-2"
             >
               {{ getCourse.title }}
             </h2>
             <article
-              class="prose lg:prose-lg leading-normal"
+              class="prose lg:prose-lg leading-normal text-justify"
               v-html="getCourse.description"
             ></article>
             <div class="flex flex-wrap justify-center">
@@ -151,7 +162,11 @@
           xyz="fade small-1 stagger-4 ease-ease up-5 perspective-2"
         >
           <ChapterCard
-            v-for="(chapter, index) in getCourse.chapters"
+            v-for="(chapter, index) in orderBy(
+              getCourse.chapters,
+              'chapterNumber',
+              true
+            )"
             :key="index"
             :chapter="chapter"
             :purchase="getPurchase"
@@ -162,14 +177,26 @@
   </section>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
-import ChapterCard from "../../components/cards/chapter-card";
-import LockedIcon from "../../components/icons/locked-icon";
-import ProcessIcon from "../../components/icons/process-icon";
-import GeneralContentLoading from "../../components/loadings/general-content-loading";
+import { mapActions, mapGetters, mapMutations } from "vuex";
+import GeneralContentLoading from "@/components/loadings/general-content-loading";
+import LockedIcon from "@/components/icons/locked-icon";
+import ProcessIcon from "@/components/icons/process-icon";
+import ChapterCard from "@/components/cards/chapter-card";
+import convertKhmerNumber from "@/utils/convert-khmer-number";
+import ImageLoader from "@/components/loaders/image-loader";
+import NotFound from "@/components/errors/not-found";
+import Vue2Filters from "vue2-filters";
 
 export default {
-  components: { GeneralContentLoading, ProcessIcon, LockedIcon, ChapterCard },
+  components: {
+    NotFound,
+    ImageLoader,
+    ChapterCard,
+    ProcessIcon,
+    LockedIcon,
+    GeneralContentLoading,
+  },
+  mixins: [Vue2Filters.mixin],
   data() {
     return {
       openPurchase: false,
@@ -181,9 +208,40 @@ export default {
     await this.fetchCourse({ id: param });
     // if auth check user purchase
     if (this.isAuth) {
-      await this.fetchPurchase({ id: param, userId: this.getUser.id });
+      await this.fetchPurchase({
+        id: this.getCourse.id,
+        userId: this.getUser.id,
+      });
     }
   },
+  head() {
+    return {
+      title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.getCourse.shortDescription,
+        },
+        {
+          property: "og:title",
+          hid: "og:title",
+          content: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.getCourse.thumbnail
+            ? this.getCourse.thumbnail.path
+            : "https://dummyimage.com/720x400",
+        },
+      ],
+    };
+  },
+  fetchOnServer: false,
   computed: {
     ...mapGetters({
       getCourse: "course/getCourse",
@@ -192,15 +250,29 @@ export default {
       getPurchase: "course/getPurchase",
     }),
   },
+  beforeDestroy() {
+    this.clearPurchase();
+  },
+  activated() {
+    // Call fetch again if last fetch more than 15 sec ago
+    if (this.$fetchState.timestamp <= Date.now() - 15000) {
+      this.$fetch();
+    }
+  },
   methods: {
     ...mapActions({
       fetchCourse: "course/fetchCourse",
       fetchPurchase: "course/fetchCoursePurchase",
     }),
+    ...mapMutations({
+      clearPurchase: "course/CLEAR_PURCHASE",
+    }),
     onReady(player) {
       this.playerReady = true;
-
       player.addCuePoint(10);
+    },
+    convertNumber(num) {
+      return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
     },
   },
 };

@@ -66,6 +66,7 @@ export default {
         return query.query();
       },
     });
+
     // let chapters = response.chapters;
     // for (let i = 0; i < chapters.length; i++) {
     //   chapters[i].next = chapters[i + 1];

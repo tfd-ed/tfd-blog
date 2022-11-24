@@ -15,6 +15,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Source Sans Pro", "Kantumruy", ...defaultTheme.fontFamily.sans],
+      mono: ["Georgia", "Noto Serif Khmer", ...defaultTheme.fontFamily.mono],
     },
     extend: {
       backgroundColor: (theme) => ({

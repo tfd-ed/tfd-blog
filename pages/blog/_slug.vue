@@ -94,7 +94,7 @@
           <!--            ad-format="fluid"-->
           <!--            :ad-slot="$config.GOOGLE_ADSENSE_SLOT.toString()"-->
           <!--          />-->
-          <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
+          <LazyGlobalsComments class="max-w-2xl md:max-w-4xl mx-auto" />
         </div>
       </article>
     </div>
@@ -102,9 +102,8 @@
 </template>
 <script>
 import { format } from "date-fns";
-import Comments from "@/components/globals/comments";
+
 export default {
-  components: { Comments },
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;
     const slug = params.slug;

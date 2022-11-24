@@ -1,30 +1,7 @@
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('~assets/fonts/SourceSansPro-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('~assets/fonts/SourceSansPro-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Kantumruy';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('~assets/fonts/Kantumruy-Regular.ttf') format('truetype');
-}
 /*Page component */
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.05s;
 }
 .page-enter,
 .page-leave-to {
