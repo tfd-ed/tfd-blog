@@ -10,7 +10,7 @@
     <div v-else class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-4">
         <h2
-          class="text-xs text-red-600 tracking-widest font-medium title-font mb-1"
+          class="text-base text-red-600 tracking-widest font-medium title-font mb-1"
         >
           {{ getCourse.title }}
         </h2>
@@ -28,20 +28,23 @@
         <client-only>
           <vimeo-player
             ref="player"
+            :autoplay="true"
             class="video-container"
             :video-id="getChapter($route.params.number).vimeoId"
             @ready="onReady"
+            @ended="goToNext"
           />
         </client-only>
       </div>
       <div class="flex flex-row justify-center space-x-4 pt-4">
         <ShadowButton
-          v-if="parseInt(getChapter($route.params.number).chapterNumber) > 1"
+          v-if="parseInt($route.params.number) > 1"
           color="bg-gray-500"
           text="previous"
           @onClick="goToPrevious"
         ></ShadowButton>
         <ShadowButton
+          v-if="parseInt($route.params.number) !== getCourse.chapters.length"
           color="bg-red-500"
           text="next"
           @onClick="goToNext"
