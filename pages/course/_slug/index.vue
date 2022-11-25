@@ -172,6 +172,7 @@
             :purchase="getPurchase"
           />
         </XyzTransitionGroup>
+        <LazyGlobalsComments />
       </div>
     </div>
   </section>
