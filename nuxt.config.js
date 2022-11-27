@@ -136,7 +136,6 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxt/content",
-    "@nuxtjs/feed",
     "nuxt-i18n",
     "vue-social-sharing/nuxt",
     "cookie-universal-nuxt",
@@ -160,15 +159,15 @@ export default {
   ],
 
   // Feed Configuration
-  feed: [
-    {
-      path: "/feed.xml",
-      create,
-      cacheTime: 1000 * 60 * 15,
-      type: "rss2",
-      data: ["kh/project", "xml"],
-    },
-  ],
+  // feed: [
+  //   {
+  //     path: "/feed.xml",
+  //     create,
+  //     cacheTime: 1000 * 60 * 15,
+  //     type: "rss2",
+  //     data: ["kh/project", "xml"],
+  //   },
+  // ],
   // Sitemap Config
   sitemap: {
     hostname: process.env.WEB_URL,
