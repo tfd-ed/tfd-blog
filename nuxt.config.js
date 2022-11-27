@@ -4,7 +4,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "server",
 
-  ssr: false,
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -227,7 +227,7 @@ export default {
 
   // Nuxt Axios
   axios: {
-    proxy: true,
+    proxy: process.env.NODE_ENV === "dev",
     baseURL: process.env.BASE_URL || "http://localhost:80",
     // proxyHeaders: false,
     credentials: true,
