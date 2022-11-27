@@ -290,7 +290,7 @@ export default {
     for (let chapter of this.getCourse.chapters) {
       this.totalDuration += parseInt(chapter.duration);
     }
-    this.course = this.getCourse();
+    this.course = this.getCourse;
     // if auth check user purchase
     if (this.isAuth) {
       await this.fetchPurchase({
