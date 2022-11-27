@@ -23,6 +23,12 @@
           {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
           <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
         </button>
+        <img
+          v-if="getCourse.type === 'PAID'"
+          src="/payment_sample.png"
+          class="w-11/12 mx-auto shadow-2xl mt-2 mb-2 rounded-lg"
+          alt="purchase sample"
+        />
         <p v-else class="mt-8 max-w-lg text-gray-500 italic">
           នេះជាមេរៀន {{ $t("free") }} សូមវាយបញ្ចូលលេខ
           <strong>000000000000000</strong> នៅក្នុងប្រអប់ រួចចុច
