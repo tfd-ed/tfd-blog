@@ -123,6 +123,8 @@ const messages = {
   chapter: "Chapter",
   paid: "Paid",
   free: "Free",
+  share_this_course: "Share this course",
+  number_of_chapters: "Number of Chapters",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

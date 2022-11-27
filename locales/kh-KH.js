@@ -125,6 +125,8 @@ const messages = {
   chapter: "មេរៀន",
   paid: "បង់លុយ",
   free: "ឥតគិតថ្លៃ",
+  share_this_course: "ចែករំលែកវគ្គសិក្សានេះ",
+  number_of_chapters: "ចំនួនជំពូក",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",
