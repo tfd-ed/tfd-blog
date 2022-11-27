@@ -301,7 +301,9 @@ export default {
   },
   head() {
     return {
-      title: this.$config.SITE_TITLE + " | " + this.course.title,
+      title:
+        this.$config.SITE_TITLE +
+        " | នេះជាកម្មវិធីសិក្សាដំបូងពីការសរសេរ Website សំរាប់សិស្សវិទ្យាល័យដែលមានបំណង រៀន IT នឹង និសិ្សត្រឆ្នាំទី១ ទី ២។",
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
