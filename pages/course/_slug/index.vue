@@ -58,12 +58,14 @@
                   convertNumber(getCourse.chapters.length)
                 }}</span>
               </div>
-              <!--              <div class="flex flex-col space-y-2 text-left mt-4">-->
-              <!--                <p class="text-gray-500 italic">-->
-              <!--                  {{ $t("duration") }}-->
-              <!--                </p>-->
-              <!--                <span class="text-5xl font-black sm:text-6xl">{{ 314 }}</span>-->
-              <!--              </div>-->
+              <div class="flex flex-col space-y-2 text-left mt-4">
+                <p class="text-gray-500 italic">
+                  {{ $t("duration") }}
+                </p>
+                <span class="text-5xl font-black sm:text-6xl">{{
+                  convertNumber(formatD(totalDuration))
+                }}</span>
+              </div>
             </div>
           </div>
           <div
@@ -262,6 +264,7 @@ import convertKhmerNumber from "@/utils/convert-khmer-number";
 import ImageLoader from "@/components/loaders/image-loader";
 import NotFound from "@/components/errors/not-found";
 import Vue2Filters from "vue2-filters";
+import format from "format-duration";
 
 export default {
   components: {
@@ -276,12 +279,16 @@ export default {
   data() {
     return {
       openPurchase: false,
+      totalDuration: 0,
       purchase: "",
     };
   },
   async fetch() {
     const param = this.$route.params.slug;
     await this.fetchCourse({ id: param });
+    for (let chapter of this.getCourse.chapters) {
+      this.totalDuration += parseInt(chapter.duration);
+    }
     // if auth check user purchase
     if (this.isAuth) {
       await this.fetchPurchase({
@@ -352,6 +359,11 @@ export default {
     },
     convertNumber(num) {
       return this.$i18n.locale === "km" ? convertKhmerNumber(num) : num;
+    },
+    formatD(second) {
+      return format(1000 * parseInt(second), {
+        leading: true,
+      });
     },
   },
 };
