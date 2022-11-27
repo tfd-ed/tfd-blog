@@ -281,6 +281,7 @@ export default {
       openPurchase: false,
       totalDuration: 0,
       purchase: "",
+      course: "",
     };
   },
   async fetch() {
@@ -289,6 +290,7 @@ export default {
     for (let chapter of this.getCourse.chapters) {
       this.totalDuration += parseInt(chapter.duration);
     }
+    this.course = this.getCourse();
     // if auth check user purchase
     if (this.isAuth) {
       await this.fetchPurchase({
@@ -299,7 +301,7 @@ export default {
   },
   head() {
     return {
-      title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+      title: this.$config.SITE_TITLE + " | " + this.course.title,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -307,18 +309,18 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content: this.getCourse.shortDescription,
+          content: this.course.shortDescription,
         },
         {
           property: "og:title",
           hid: "og:title",
-          content: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+          content: this.$config.SITE_TITLE + " | " + this.course.title,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.getCourse.thumbnail
-            ? this.getCourse.thumbnail.path
+          content: this.course.thumbnail
+            ? this.course.thumbnail.path
             : "https://dummyimage.com/720x400",
         },
       ],
