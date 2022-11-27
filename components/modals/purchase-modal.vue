@@ -23,7 +23,7 @@
           {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
           <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
         </button>
-        <p class="mt-8 max-w-lg text-gray-500 italic">
+        <p v-else class="mt-8 max-w-lg text-gray-500 italic">
           នេះជាមេរៀន {{ $t("free") }} សូមវាយបញ្ចូលលេខ
           <strong>000000000000000</strong> នៅក្នុងប្រអប់ រួចចុច
           {{ $t("submit") }} ដើម្បីទទួលបានមេរៀន
