@@ -301,7 +301,9 @@ export default {
   },
   head() {
     return {
-      title: this.$config.SITE_TITLE + " | " + this.course.title,
+      title:
+        this.$config.SITE_TITLE +
+        " | នេះជាកម្មវិធីសិក្សាដំបូងពីការសរសេរ Website សំរាប់សិស្សវិទ្យាល័យដែលមានបំណង រៀន IT នឹង និសិ្សត្រឆ្នាំទី១ ទី ២។",
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -309,19 +311,20 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content: this.course.shortDescription,
+          content:
+            "នេះជាកម្មវិធីសិក្សាដំបូងពីការសរសេរ Website សំរាប់សិស្សវិទ្យាល័យដែលមានបំណង រៀន IT នឹង និសិ្សត្រឆ្នាំទី១ ទី ២។",
         },
         {
           property: "og:title",
           hid: "og:title",
-          content: this.$config.SITE_TITLE + " | " + this.course.title,
+          content:
+            this.$config.SITE_TITLE +
+            " | មូលដ្ឋានគ្រឹះនៃការអភិវឌ្ឍន៍គេហទំព័រ (HTML, CSS, Javascript, Git, Netlify)",
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.course.thumbnail
-            ? this.course.thumbnail.path
-            : "https://dummyimage.com/720x400",
+          content: "https://i.imgur.com/g68YL37.jpg",
         },
       ],
     };
