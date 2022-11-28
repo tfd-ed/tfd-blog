@@ -5,27 +5,26 @@
     >
       {{ $t("join_our_social_networks") }}
     </h1>
-    <client-only>
-      <XyzTransitionGroup
-        appear-visible
-        class="flex flex-row justify-center gap-10"
-        xyz="fade back-1 small-80% ease-out stagger-1 perspective-2"
+
+    <XyzTransitionGroup
+      appear-visible
+      class="flex flex-row justify-center gap-10"
+      xyz="fade back-1 small-80% ease-out stagger-1 perspective-2"
+    >
+      <div
+        v-for="(item, index) in social"
+        :key="index"
+        class="flex items-center justify-center"
       >
-        <div
-          v-for="(item, index) in social"
-          :key="index"
-          class="flex items-center justify-center"
-        >
-          <a :href="item.link" target="_blank">
-            <img
-              :src="item.src"
-              :alt="item.alt"
-              class="block object-contain h-12"
-            />
-          </a>
-        </div>
-      </XyzTransitionGroup>
-    </client-only>
+        <a :href="item.link" target="_blank">
+          <img
+            :src="item.src"
+            :alt="item.alt"
+            class="block object-contain h-12"
+          />
+        </a>
+      </div>
+    </XyzTransitionGroup>
   </div>
 </template>
 <script>
