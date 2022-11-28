@@ -1,10 +1,10 @@
 import createSitemapRoutes from "./utils/createSitemap";
-import { create } from "./utils/feeds";
+// import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+  target: "server",
 
-  ssr: true,
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -43,7 +43,7 @@ export default {
     { src: "~/plugins/axios.js" },
     { src: "~/plugins/vue2-filters.js", mode: "client" },
   ],
-  serverMiddleware: ["~/api/recaptcha"],
+  serverMiddleware: [{ path: "/api", handler: "~/api/recaptcha.js" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -227,8 +227,11 @@ export default {
 
   // Nuxt Axios
   axios: {
-    proxy: process.env.NODE_ENV === "dev",
-    baseURL: process.env.BASE_URL || "http://localhost:80",
+    /**
+     * Proxy and BaseURL can't be used at the same time
+     */
+    proxy: true,
+    // baseURL: process.env.BASE_URL || "http://localhost:80",
   },
   proxy: {
     "/v1/": {
@@ -294,12 +297,12 @@ export default {
   build: {
     // Add exception
     transpile: ["vee-validate/dist/rules"],
-    // html: {
-    //   minify: {
-    //     collapseWhitespace: true, // as @dario30186 mentioned
-    //     removeComments: true, // 👈 add this line
-    //   },
-    // },
+    html: {
+      minify: {
+        collapseWhitespace: true, // as @dario30186 mentioned
+        removeComments: true, // 👈 add this line
+      },
+    },
     postcss: {
       plugins: {
         tailwindcss: {},
