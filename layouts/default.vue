@@ -6,8 +6,9 @@
       <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
       </vue-scroll-indicator>
     </client-only>
-    <!--    <NavBar />-->
-    <FlexNavbar />
+    <client-only>
+      <FlexNavbar />
+    </client-only>
     <nuxt class="flex-grow" />
     <CookiesInfo />
     <CookiesModal />
@@ -19,7 +20,6 @@
   </div>
 </template>
 <script>
-import NavBar from "~/components/navbars/navbar";
 import Footer from "~/components/footers/footer";
 import CookiesInfo from "~/components/cookies/cookies-info";
 import CookiesModal from "../components/modals/cookies-modal";
