@@ -2,7 +2,7 @@ import createSitemapRoutes from "./utils/createSitemap";
 import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "server",
+  target: "static",
 
   ssr: true,
 
@@ -227,10 +227,8 @@ export default {
 
   // Nuxt Axios
   axios: {
-    proxy: true,
+    proxy: process.env.NODE_ENV === "dev",
     baseURL: process.env.BASE_URL || "http://localhost:80",
-    // proxyHeaders: false,
-    credentials: true,
   },
   proxy: {
     "/v1/": {
@@ -294,15 +292,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    vendor: ["vue-vimeo-player"],
     // Add exception
     transpile: ["vee-validate/dist/rules"],
-    html: {
-      minify: {
-        collapseWhitespace: true, // as @dario30186 mentioned
-        removeComments: true, // 👈 add this line
-      },
-    },
+    // html: {
+    //   minify: {
+    //     collapseWhitespace: true, // as @dario30186 mentioned
+    //     removeComments: true, // 👈 add this line
+    //   },
+    // },
     postcss: {
       plugins: {
         tailwindcss: {},
