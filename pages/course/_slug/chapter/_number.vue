@@ -83,6 +83,17 @@ export default {
     if (!this.getCourse) {
       await this.fetchCourse({ id: courseId });
     }
+    /**
+     * Verify Purchase ID
+     * @type {string}
+     */
+    await this.fetchPurchase({
+      id: this.getCourse.id,
+      userId: this.getUser.id,
+    });
+    /**
+     * If not found execution return from server, display error in $fetchState.error
+     */
   },
   head() {
     return {
@@ -130,6 +141,8 @@ export default {
       getChapter: "course/getChapter",
       getChapterByNumber: "course/getChapterByNumber",
       getCourse: "course/getCourse",
+      getUser: "loggedInUser",
+      getPurchase: "course/getPurchase",
     }),
   },
   activated() {
@@ -141,6 +154,7 @@ export default {
   methods: {
     ...mapActions({
       fetchCourse: "course/fetchCourse",
+      fetchPurchase: "course/fetchCoursePurchase",
     }),
     goToNext() {
       const next = parseInt(this.$route.params.number) + 1;

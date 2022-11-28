@@ -283,7 +283,6 @@ export default {
       openPurchase: false,
       totalDuration: 0,
       purchase: "",
-      course: "",
     };
   },
   async fetch() {
@@ -292,7 +291,6 @@ export default {
     for (let chapter of this.getCourse.chapters) {
       this.totalDuration += parseInt(chapter.duration);
     }
-    this.course = this.getCourse;
     // if auth check user purchase
     if (this.isAuth) {
       await this.fetchPurchase({
@@ -303,9 +301,7 @@ export default {
   },
   head() {
     return {
-      title:
-        this.$config.SITE_TITLE +
-        " | នេះជាកម្មវិធីសិក្សាដំបូងពីការសរសេរ Website សំរាប់សិស្សវិទ្យាល័យដែលមានបំណង រៀន IT នឹង និសិ្សត្រឆ្នាំទី១ ទី ២។",
+      title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -313,20 +309,19 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content:
-            "នេះជាកម្មវិធីសិក្សាដំបូងពីការសរសេរ Website សំរាប់សិស្សវិទ្យាល័យដែលមានបំណង រៀន IT នឹង និសិ្សត្រឆ្នាំទី១ ទី ២។",
+          content: this.getCourse.shortDescription,
         },
         {
           property: "og:title",
           hid: "og:title",
-          content:
-            this.$config.SITE_TITLE +
-            " | មូលដ្ឋានគ្រឹះនៃការអភិវឌ្ឍន៍គេហទំព័រ (HTML, CSS, Javascript, Git, Netlify)",
+          content: this.$config.SITE_TITLE + " | " + this.getCourse.title,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: "https://i.imgur.com/g68YL37.jpg",
+          content: this.getCourse.thumbnail
+            ? this.getCourse.thumbnail.path
+            : "https://dummyimage.com/720x400",
         },
       ],
     };
