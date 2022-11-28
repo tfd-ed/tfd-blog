@@ -21,7 +21,6 @@
 <script>
 import NavBar from "~/components/navbars/navbar";
 import Footer from "~/components/footers/footer";
-// import { onAnalyticsReady } from "vue-analytics";
 import CookiesInfo from "~/components/cookies/cookies-info";
 import CookiesModal from "../components/modals/cookies-modal";
 import LoginModal from "../components/modals/login-modal";
@@ -40,7 +39,6 @@ export default {
     CookiesModal,
     CookiesInfo,
     Footer,
-    NavBar,
   },
   data() {
     return {
