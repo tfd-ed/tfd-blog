@@ -132,6 +132,10 @@ export default {
     GEETEST_ID_RESET: process.env.GEETEST_ID_RESET,
     GEETEST_KEY_RESET: process.env.GEETEST_KEY_RESET,
   },
+  privateRuntimeConfig: {
+    baseURL: process.env.BASE_URL || "http://localhost:80",
+    nodeEnv: process.env.NODE_ENV || "dev",
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -240,6 +244,7 @@ export default {
     },
     "/api/": {
       target: `${process.env.WEB_URL}/api`,
+      pathRewrite: { "^/api/": "" },
     },
   },
   // Nuxt Auth Plugin
