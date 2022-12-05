@@ -31,7 +31,7 @@ export default {
     const defaultLocale = this.$i18n.locale;
     this.about = await this.$content(`${defaultLocale}/about-us`).fetch();
   },
-  fetchOnServer: false,
+  fetchOnServer: true,
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.about.title,
