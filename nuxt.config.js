@@ -234,7 +234,9 @@ export default {
     /**
      * Proxy and BaseURL can't be used at the same time
      */
-    proxy: true,
+    // proxy: true,
+    proxy: process.env.NODE_ENV === "dev",
+    baseURL: process.env.BASE_URL || "http://localhost:80",
     // baseURL: process.env.BASE_URL || "http://localhost:80",
   },
   proxy: {
