@@ -2,9 +2,9 @@ import createSitemapRoutes from "./utils/createSitemap";
 // import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "server",
+  target: "static",
 
-  ssr: false,
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -234,9 +234,10 @@ export default {
     /**
      * Proxy and BaseURL can't be used at the same time
      */
-    // proxy: true,
-    proxy: process.env.NODE_ENV === "dev",
-    baseURL: process.env.BASE_URL || "http://localhost:80",
+    proxy: true,
+    // proxy: process.env.NODE_ENV === "dev",
+    // baseURL: process.env.BASE_URL || "http://localhost:80",
+    // browserBaseURL: process.env.WEB_URL || "http://localhost:80",
     // baseURL: process.env.BASE_URL || "http://localhost:80",
   },
   proxy: {
