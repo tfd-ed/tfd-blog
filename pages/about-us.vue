@@ -21,11 +21,10 @@
 </template>
 <script>
 export default {
-  async asyncData(context) {
-    const { $content, app } = context;
-    const defaultLocale = app.i18n.locale;
-    const about = await $content(`${defaultLocale}/about-us`).fetch();
-    return { about };
+  data() {
+    return {
+      about: "",
+    };
   },
   head() {
     return {
@@ -51,6 +50,11 @@ export default {
         },
       ],
     };
+  },
+  async mounted() {
+    // const { $content, app } = context;
+    const defaultLocale = this.$i18n.locale;
+    this.about = await this.$content(`${defaultLocale}/about-us`).fetch();
   },
 };
 </script>
