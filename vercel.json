@@ -21,6 +21,6 @@
       }
     }
   ],
-  "buildCommand": "nuxt build",
+  "buildCommand": "nuxt generate",
   "framework": "nuxtjs"
 }
