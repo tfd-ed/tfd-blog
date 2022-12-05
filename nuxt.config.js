@@ -2,7 +2,7 @@ import createSitemapRoutes from "./utils/createSitemap";
 // import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+  target: "server",
 
   ssr: true,
 
