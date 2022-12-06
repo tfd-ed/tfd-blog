@@ -14,8 +14,8 @@
           "utils/**",
           "locales/**",
           "static/**",
-          ".nuxt/content/**",
           "content/**",
+          ".nuxt/content/**",
           "api/**"
         ]
       }
