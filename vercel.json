@@ -21,7 +21,7 @@
       }
     }
   ],
-  "buildCommand": "yarn build",
+  "buildCommand": "yarn generate",
   "outputDirectory": "dist",
   "framework": "nuxtjs"
 }
