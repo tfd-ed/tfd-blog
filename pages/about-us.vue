@@ -23,7 +23,7 @@
 export default {
   async asyncData(context) {
     const { $content, app } = context;
-    const defaultLocale = app.$i18n.locale;
+    const defaultLocale = app.i18n.locale;
     const about = await $content(`${defaultLocale}/about-us`).fetch();
     return { about };
   },
