@@ -44,6 +44,10 @@ node_modules_dev/
 node_modules_prod/
 jspm_packages/
 
+.vercel
+.vercel_build_output
+.vercel_cache
+
 # TypeScript v1 declaration files
 typings/
 

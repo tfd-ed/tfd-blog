@@ -246,7 +246,6 @@ export default {
     },
     "/api/": {
       target: `${process.env.WEB_URL}/api`,
-      pathRewrite: { "^/api/": "" },
     },
   },
   // Nuxt Auth Plugin
