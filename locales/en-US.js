@@ -96,7 +96,7 @@ const messages = {
   buy: "Buy",
   learn: "Learn",
   click_here_to_pay: "Click Here To Pay With",
-  transaction_number: "Transaction Number",
+  transaction_number: "Transaction Code",
   login_to_purchase: "Login To Purchase",
   confirming_payment: "Confirming Payment",
   confirming_payment_short: "Confirming",
@@ -125,6 +125,8 @@ const messages = {
   free: "Free",
   share_this_course: "Share this course",
   number_of_chapters: "Number of Chapters",
+  pay_with_aba: "How can I purchase via ABA?",
+  pay_with_bakong: "How can I purchase via Bakong?",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

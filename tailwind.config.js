@@ -21,11 +21,13 @@ module.exports = {
       backgroundColor: (theme) => ({
         facebook: "#1778F2",
         aba: "#007297",
+        bakong: "#f70110",
       }),
       colors: (theme) => ({
         facebook: "#1778F2",
         aba: "#007297",
         aba_dark: "#055d7c",
+        bakong: "#f70110",
       }),
     },
   },

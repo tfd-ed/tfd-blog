@@ -2,9 +2,10 @@
   <ModalTemplate id="purchase-modal">
     <template v-if="getCourse" #content>
       <label
+        ref="purchase_label"
         for="purchase-modal"
         class="btn btn-sm btn-circle absolute right-2 top-2"
-        @click="close"
+        @click="resetForm"
         >✕</label
       >
       <ValidationObserver
@@ -23,19 +24,110 @@
           {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
           <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
         </button>
-        <img
+        <button
           v-if="getCourse.type === 'PAID'"
-          src="/payment_sample.png"
-          class="w-11/12 mx-auto shadow-2xl mt-2 mb-2 rounded-lg"
-          alt="purchase sample"
-        />
-        <p v-else class="mt-8 max-w-lg text-gray-500 italic">
-          នេះជាមេរៀន {{ $t("free") }} សូមវាយបញ្ចូលលេខ
-          <strong>000000000000000</strong> នៅក្នុងប្រអប់ រួចចុច
-          {{ $t("submit") }} ដើម្បីទទួលបានមេរៀន
-        </p>
+          class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-bakong rounded-lg transition hover:scale-90"
+          @click="openPayment(getCourse.bkPaymentLink)"
+        >
+          {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
+          <img src="/bakong_icon.png" class="h-14" />
+        </button>
+        <div class="space-y-2 py-4">
+          <details class="group">
+            <summary
+              class="flex cursor-pointer items-center justify-between rounded-lg p-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 48 48"
+              >
+                <title>ic_help_48px</title>
+                <g fill="#34495e">
+                  <path
+                    d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"
+                  ></path>
+                </g>
+              </svg>
+              <h2 class="text-center font-medium text-gray-900">
+                {{ $t("pay_with_aba") }}
+              </h2>
+
+              <svg
+                class="ml-1.5 h-5 w-5 flex-shrink-0 transition duration-300 group-open:-rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+
+            <img
+              src="/payment_sample.png"
+              class="w-11/12 mx-auto shadow-2xl mt-2 mb-2 rounded-lg"
+              alt="purchase sample"
+            />
+          </details>
+          <details class="group">
+            <summary
+              class="flex cursor-pointer items-center justify-between rounded-lg p-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 48 48"
+              >
+                <title>ic_help_48px</title>
+                <g fill="#34495e">
+                  <path
+                    d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"
+                  ></path>
+                </g>
+              </svg>
+              <h2 class="text-center font-medium text-gray-900">
+                {{ $t("pay_with_bakong") }}
+              </h2>
+
+              <svg
+                class="ml-1.5 h-5 w-5 flex-shrink-0 transition duration-300 group-open:-rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </summary>
+
+            <img
+              src="/bakong_sample.png"
+              class="w-11/12 mx-auto shadow-2xl mt-2 mb-2 rounded-lg"
+              alt="purchase sample"
+            />
+          </details>
+        </div>
+
+        <!--        <p v-else class="mt-8 max-w-lg text-gray-500 italic">-->
+        <!--          នេះជាមេរៀន {{ $t("free") }} សូមវាយបញ្ចូលលេខ-->
+        <!--          <strong>000000000000000</strong> នៅក្នុងប្រអប់ រួចចុច-->
+        <!--          {{ $t("submit") }} ដើម្បីទទួលបានមេរៀន-->
+        <!--        </p>-->
         <form
-          class="flex flex-col mt-16 space-y-2"
+          class="flex flex-col mt-8 space-y-2"
           method="post"
           @submit.prevent="handleSubmit(submitPurchase)"
         >
@@ -44,7 +136,7 @@
             v-model="transaction_number"
             name="transaction_number"
             label="transaction_number"
-            rules="required|digits:15"
+            rules="required|alpha_dash|length:15"
             :auto-complete="false"
           />
           <div class="flex justify-center py-4">
@@ -52,7 +144,9 @@
               <ShadowButton text="submit" color="bg-red-700" />
             </button>
           </div>
-          <TosRemind />
+          <label @click="close">
+            <TosRemind />
+          </label>
         </form>
       </ValidationObserver>
       <div
@@ -141,6 +235,10 @@ export default {
       }
     },
     close() {
+      this.$refs.purchase_label.click();
+      this.resetForm();
+    },
+    resetForm() {
       this.transaction_number = "";
       this.loading = false;
       this.submitting = false;

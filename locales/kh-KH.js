@@ -98,7 +98,7 @@ const messages = {
   buy: "ទិញ",
   learn: "ចូលរៀន",
   click_here_to_pay: "ចុចទីនេះដើម្បីទូទាត់ជាមួយ",
-  transaction_number: "លេខប្រតិបត្តិការ(Transaction Number)",
+  transaction_number: "លេខកូដ(Transaction Code)",
   login_to_purchase: "សូមចុះឈ្មោះជាមុនដើម្បីទិញ",
   confirming_payment: "យើងកំពុងបញ្ជាក់ការទូទាត់",
   confirming_payment_short: "កំពុងបញ្ជាក់",
@@ -127,6 +127,8 @@ const messages = {
   free: "ឥតគិតថ្លៃ",
   share_this_course: "ចែករំលែកវគ្គសិក្សានេះ",
   number_of_chapters: "ចំនួនជំពូក",
+  pay_with_aba: "តើខ្ញុំអាចជាវមេរៀននេះតាម ABA ដោយរៀបណា?",
+  pay_with_bakong: "តើខ្ញុំអាចជាវមេរៀននេះតាម បាគង ដោយរៀបណា?",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",
