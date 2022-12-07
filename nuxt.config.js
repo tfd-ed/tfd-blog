@@ -2,7 +2,7 @@ import createSitemapRoutes from "./utils/createSitemap";
 // import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+  target: "server",
 
   ssr: true,
 
@@ -31,7 +31,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: "~/plugins/country-flag.js", mode: "client" },
-    { src: "~/plugins/animxyz.js", mode: "client" },
+    // { src: "~/plugins/animxyz.js", mode: "client" },
     { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
     { src: "~/plugins/vee-validate.js", mode: "client" },
     { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
@@ -131,6 +131,10 @@ export default {
     GEETEST_KEY_SIGN_UP: process.env.GEETEST_KEY_SIGN_UP,
     GEETEST_ID_RESET: process.env.GEETEST_ID_RESET,
     GEETEST_KEY_RESET: process.env.GEETEST_KEY_RESET,
+  },
+  privateRuntimeConfig: {
+    baseURL: process.env.BASE_URL || "http://localhost:80",
+    nodeEnv: process.env.NODE_ENV || "dev",
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -232,6 +236,8 @@ export default {
      */
     proxy: true,
     // baseURL: process.env.BASE_URL || "http://localhost:80",
+    // browserBaseURL: process.env.WEB_URL || "http://localhost:80",
+    // baseURL: process.env.BASE_URL || "http://localhost:80",
   },
   proxy: {
     "/v1/": {
@@ -240,6 +246,7 @@ export default {
     },
     "/api/": {
       target: `${process.env.WEB_URL}/api`,
+      pathRewrite: { "^/api/": "" },
     },
   },
   // Nuxt Auth Plugin

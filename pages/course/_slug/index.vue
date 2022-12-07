@@ -235,11 +235,23 @@
             </button>
           </div>
         </div>
-        <XyzTransitionGroup
-          appear-visible
-          class="mt-2 divide-y-2 divide-gray-100 xyz-none"
-          xyz="fade small-1 stagger-4 ease-ease up-5 perspective-2"
-        >
+        <!--        <XyzTransitionGroup-->
+        <!--          appear-visible-->
+        <!--          class="mt-2 divide-y-2 divide-gray-100 xyz-none"-->
+        <!--          xyz="fade small-1 stagger-4 ease-ease up-5 perspective-2"-->
+        <!--        >-->
+        <!--          <ChapterCard-->
+        <!--            v-for="(chapter, index) in orderBy(-->
+        <!--              getCourse.chapters,-->
+        <!--              'chapterNumber',-->
+        <!--              true-->
+        <!--            )"-->
+        <!--            :key="index"-->
+        <!--            :chapter="chapter"-->
+        <!--            :purchase="getPurchase"-->
+        <!--          />-->
+        <!--        </XyzTransitionGroup>-->
+        <div class="mt-2 divide-y-2 divide-gray-100 xyz-none">
           <ChapterCard
             v-for="(chapter, index) in orderBy(
               getCourse.chapters,
@@ -250,7 +262,7 @@
             :chapter="chapter"
             :purchase="getPurchase"
           />
-        </XyzTransitionGroup>
+        </div>
         <LazyGlobalsComments />
       </div>
     </div>

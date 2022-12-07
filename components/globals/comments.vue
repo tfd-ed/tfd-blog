@@ -15,7 +15,7 @@ export default {
     scriptTag.setAttribute("data-repo-id", this.$config.REPO_ID);
     scriptTag.setAttribute("data-category", "Announcements");
     scriptTag.setAttribute("data-category-id", this.$config.REPO_CAT_ID);
-    scriptTag.setAttribute("data-mapping", "title");
+    scriptTag.setAttribute("data-mapping", "pathname");
     scriptTag.setAttribute("data-reactions-enabled", "1");
     scriptTag.setAttribute("data-emit-metadata", "0");
     scriptTag.setAttribute("data-input-position", "top");

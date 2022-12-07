@@ -14,14 +14,14 @@
           "utils/**",
           "locales/**",
           "static/**",
-          ".nuxt/content/**",
           "content/**",
+          ".nuxt/content/**",
           "api/**"
         ]
       }
     }
   ],
-  "buildCommand": "yarn build",
+  "buildCommand": "yarn generate",
   "outputDirectory": "dist",
   "framework": "nuxtjs"
 }
