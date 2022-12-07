@@ -7,6 +7,7 @@
         {{ $t("about_us") }}
       </h1>
     </div>
+    <!--    <LazyGlobalsMaintenance />-->
     <LazyCardsQuote quote="founder_quote" owner="chau_dara">
       <template #image>
         <img src="/founder.jpg" alt="founder" />
@@ -19,10 +20,7 @@
   </section>
 </template>
 <script>
-import Quote from "@/components/cards/quote";
-
 export default {
-  components: { Quote },
   async asyncData(context) {
     const { $content, app } = context;
     const defaultLocale = app.i18n.locale;

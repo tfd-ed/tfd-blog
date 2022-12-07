@@ -1,5 +1,6 @@
 <template>
   <div class="px-4 py-12 mx-auto h-screen">
+    <!--    <LazyGlobalsMaintenance />-->
     <div class="max-w-6xl pt-12 mx-auto">
       <div class="mb-6 text-left md:text-center">
         <h1
@@ -18,26 +19,33 @@
           </span>
         </div>
       </div>
-      <client-only>
-        <XyzTransitionGroup
-          appear-visible
-          class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
-          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
-        >
-          <HorizontalCard
-            v-for="(post, $index) in posts"
-            :key="`post-${$index}`"
-            :post="post"
-          ></HorizontalCard>
-        </XyzTransitionGroup>
-        <Confused v-if="posts.length === 0">
-          <template #content>
-            <p class="mt-6 text-gray-500">
-              {{ $t("no_articles") }}
-            </p>
-          </template>
-        </Confused>
-      </client-only>
+      <!--      <client-only>-->
+      <!--        <XyzTransitionGroup-->
+      <!--          appear-visible-->
+      <!--          class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"-->
+      <!--          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"-->
+      <!--        >-->
+      <!--          <HorizontalCard-->
+      <!--            v-for="(post, $index) in posts"-->
+      <!--            :key="`post-${$index}`"-->
+      <!--            :post="post"-->
+      <!--          ></HorizontalCard>-->
+      <!--        </XyzTransitionGroup>-->
+      <!--      </client-only>-->
+      <div class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100">
+        <HorizontalCard
+          v-for="(post, $index) in posts"
+          :key="`post-${$index}`"
+          :post="post"
+        ></HorizontalCard>
+      </div>
+      <Confused v-if="posts.length === 0">
+        <template #content>
+          <p class="mt-6 text-gray-500">
+            {{ $t("no_articles") }}
+          </p>
+        </template>
+      </Confused>
       <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
         <div class="btn-group">
           <button class="btn">«</button>

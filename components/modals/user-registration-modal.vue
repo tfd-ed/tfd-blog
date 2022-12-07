@@ -17,7 +17,7 @@
       </div>
       <ValidationObserver
         v-show="!submitting && !submitted"
-        ref="form"
+        ref="form_reg"
         v-slot="{ handleSubmit }"
       >
         <form
@@ -140,7 +140,7 @@ export default {
   methods: {
     close() {
       this.$refs.register_label.click();
-      this.$refs.form.reset();
+      this.$refs.form_reg.reset();
     },
     async handleForm() {
       this.submitting = true;
@@ -154,7 +154,7 @@ export default {
     },
     async register() {
       try {
-        const response = await this.$axios.$post("/v1/user-auth/register", {
+        await this.$axios.$post("/v1/user-auth/register", {
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
@@ -163,11 +163,12 @@ export default {
         });
         this.submitting = false;
         this.submitted = true;
-        this.$refs.form.reset();
+        this.$refs.form_reg.reset();
       } catch (e) {
+        console.log(e.response.data.message);
         this.submitting = false;
-        this.$refs.form.setErrors({
-          email: this.$i18n.t("email_already_exists"),
+        this.$refs.form_reg.setErrors({
+          email_sign_up: e.response.data.message,
         });
       }
     },

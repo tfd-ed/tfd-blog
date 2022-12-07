@@ -1,62 +1,58 @@
 <template>
   <section class="text-gray-600 body-font">
-    <div
-      v-if="$fetchState.pending"
-      class="transition lg:w-2/6 md:w-1/2 rounded-lg p-8 flex flex-col mx-auto w-full"
-    >
-      <GeneralContentLoading />
-    </div>
-    <div v-else-if="$fetchState.error"><NotFound /></div>
-    <div v-else class="container px-5 py-24 mx-auto">
-      <div class="flex flex-col text-center w-full mb-4">
-        <h2
-          class="text-base text-red-600 tracking-widest font-medium title-font mb-1"
-        >
-          {{ getCourse.title }}
-        </h2>
-        <h1
-          class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
-        >
-          {{ getChapter($route.params.number).chapterNumber }} -
-          {{ getChapter($route.params.number).name }}
-        </h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-          {{ getChapter($route.params.number).description }}
-        </p>
+    <div class="container px-5 py-24 mx-auto flex flex-col">
+      <div
+        v-if="$fetchState.pending"
+        class="transition lg:w-2/6 md:w-1/2 rounded-lg p-8 flex flex-col mx-auto w-full"
+      >
+        <GeneralContentLoading />
       </div>
-      <div class="flex flex-wrap justify-center">
-        <client-only>
-          <vimeo-player
-            ref="player"
-            :autoplay="true"
-            class="video-container"
-            :video-id="getChapter($route.params.number).vimeoId"
-            @ready="onReady"
-            @ended="goToNext"
-          />
-        </client-only>
+      <div v-else-if="$fetchState.error || error"><NotFound /></div>
+      <div v-else class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-4">
+          <h2
+            class="text-base text-red-600 tracking-widest font-medium title-font mb-1"
+          >
+            {{ getCourse.title }}
+          </h2>
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+          >
+            {{ getChapter($route.params.number).chapterNumber }} -
+            {{ getChapter($route.params.number).name }}
+          </h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            {{ getChapter($route.params.number).description }}
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center">
+          <client-only>
+            <vimeo-player
+              ref="player"
+              :autoplay="true"
+              class="video-container"
+              :video-id="getChapter($route.params.number).vimeoId"
+              @ready="onReady"
+              @ended="goToNext"
+            />
+          </client-only>
+        </div>
+        <div class="flex flex-row justify-center space-x-4 pt-4">
+          <ShadowButton
+            v-if="parseInt($route.params.number) > 1"
+            color="bg-gray-500"
+            text="previous"
+            @onClick="goToPrevious"
+          ></ShadowButton>
+          <ShadowButton
+            v-if="parseInt($route.params.number) !== getCourse.chapters.length"
+            color="bg-red-500"
+            text="next"
+            @onClick="goToNext"
+          ></ShadowButton>
+        </div>
+        <LazyGlobalsComments />
       </div>
-      <div class="flex flex-row justify-center space-x-4 pt-4">
-        <ShadowButton
-          v-if="parseInt($route.params.number) > 1"
-          color="bg-gray-500"
-          text="previous"
-          @onClick="goToPrevious"
-        ></ShadowButton>
-        <ShadowButton
-          v-if="parseInt($route.params.number) !== getCourse.chapters.length"
-          color="bg-red-500"
-          text="next"
-          @onClick="goToNext"
-        ></ShadowButton>
-      </div>
-      <LazyGlobalsComments />
-
-      <!--      <button-->
-      <!--        class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"-->
-      <!--      >-->
-      <!--        Next-->
-      <!--      </button>-->
     </div>
   </section>
 </template>
@@ -75,6 +71,7 @@ export default {
       height: 500,
       options: {},
       playerReady: false,
+      error: false,
     };
   },
   async fetch() {
@@ -83,6 +80,21 @@ export default {
     if (!this.getCourse) {
       await this.fetchCourse({ id: courseId });
     }
+    /**
+     * Verify Purchase ID
+     * @type {string}
+     */
+    await this.fetchPurchase({
+      id: this.getCourse.id,
+      userId: this.getUser.id,
+    });
+
+    if (!this.getPurchase) {
+      this.error = true;
+    }
+    /**
+     * If not found execution return from server, display error in $fetchState.error
+     */
   },
   head() {
     return {
@@ -130,6 +142,8 @@ export default {
       getChapter: "course/getChapter",
       getChapterByNumber: "course/getChapterByNumber",
       getCourse: "course/getCourse",
+      getUser: "loggedInUser",
+      getPurchase: "course/getPurchase",
     }),
   },
   activated() {
@@ -138,9 +152,13 @@ export default {
       this.$fetch();
     }
   },
+  beforeDestroy() {
+    this.error = false;
+  },
   methods: {
     ...mapActions({
       fetchCourse: "course/fetchCourse",
+      fetchPurchase: "course/fetchCoursePurchase",
     }),
     goToNext() {
       const next = parseInt(this.$route.params.number) + 1;

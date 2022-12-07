@@ -1,8 +1,10 @@
 import createSitemapRoutes from "./utils/createSitemap";
-import { create } from "./utils/feeds";
+// import { create } from "./utils/feeds";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "server",
+
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -29,19 +31,19 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: "~/plugins/country-flag.js", mode: "client" },
-    { src: "~/plugins/animxyz.js", mode: "client" },
+    // { src: "~/plugins/animxyz.js", mode: "client" },
     { src: "~/plugins/vue-scroll-indicator.js", mode: "client" },
     { src: "~/plugins/vee-validate.js", mode: "client" },
     { src: "~/plugins/vue-infinite-loading.js", mode: "client" },
     { src: "~/plugins/vuex-persist.client.js", mode: "client" },
     { src: "~/plugins/v-lazy-image.js", mode: "client" },
-    { src: "~/plugins/vue-vimeo.js" },
-    { src: "~/plugins/moment.js" },
+    { src: "~/plugins/vue-vimeo.js", mode: "client" },
+    { src: "~/plugins/moment.js", mode: "client" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
     { src: "~/plugins/vue2-filters.js", mode: "client" },
   ],
-  serverMiddleware: ["~/api/recaptcha"],
+  serverMiddleware: [{ path: "/api", handler: "~/api/recaptcha.js" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -130,11 +132,14 @@ export default {
     GEETEST_ID_RESET: process.env.GEETEST_ID_RESET,
     GEETEST_KEY_RESET: process.env.GEETEST_KEY_RESET,
   },
+  privateRuntimeConfig: {
+    baseURL: process.env.BASE_URL || "http://localhost:80",
+    nodeEnv: process.env.NODE_ENV || "dev",
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxt/content",
-    "@nuxtjs/feed",
     "nuxt-i18n",
     "vue-social-sharing/nuxt",
     "cookie-universal-nuxt",
@@ -158,15 +163,15 @@ export default {
   ],
 
   // Feed Configuration
-  feed: [
-    {
-      path: "/feed.xml",
-      create,
-      cacheTime: 1000 * 60 * 15,
-      type: "rss2",
-      data: ["kh/project", "xml"],
-    },
-  ],
+  // feed: [
+  //   {
+  //     path: "/feed.xml",
+  //     create,
+  //     cacheTime: 1000 * 60 * 15,
+  //     type: "rss2",
+  //     data: ["kh/project", "xml"],
+  //   },
+  // ],
   // Sitemap Config
   sitemap: {
     hostname: process.env.WEB_URL,
@@ -226,10 +231,13 @@ export default {
 
   // Nuxt Axios
   axios: {
+    /**
+     * Proxy and BaseURL can't be used at the same time
+     */
     proxy: true,
-    baseURL: process.env.BASE_URL || "http://localhost:80",
-    // proxyHeaders: false,
-    credentials: true,
+    // baseURL: process.env.BASE_URL || "http://localhost:80",
+    // browserBaseURL: process.env.WEB_URL || "http://localhost:80",
+    // baseURL: process.env.BASE_URL || "http://localhost:80",
   },
   proxy: {
     "/v1/": {
@@ -238,6 +246,7 @@ export default {
     },
     "/api/": {
       target: `${process.env.WEB_URL}/api`,
+      pathRewrite: { "^/api/": "" },
     },
   },
   // Nuxt Auth Plugin
@@ -293,7 +302,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    vendor: ["vue-vimeo-player"],
     // Add exception
     transpile: ["vee-validate/dist/rules"],
     html: {
