@@ -1,6 +1,7 @@
 <template>
-  <section>
-    <div class="px-4 py-24 mb-20 text-left bg-gray-50 md:text-center">
+  <section class="px-4 py-24 mx-auto max-w-7xl">
+    <!--    <LazyGlobalsMaintenance />-->
+    <div class="mb-12 text-center md:text-center">
       <h1
         class="mb-4 text-2xl font-bold leading-tight text-gray-900 md:text-5xl"
       >
@@ -10,6 +11,7 @@
         {{ $t("last_update") }}: {{ $moment(privacy.createdAt).format("LLLL") }}
       </p>
     </div>
+
     <nuxt-content
       class="px-4 pb-20 max-w-2xl md:max-w-4xl mx-auto prose text-justify"
       :document="privacy"

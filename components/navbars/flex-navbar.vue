@@ -139,18 +139,14 @@
                 class="border-b-4 border-transparent hover:text-red-700 hover:border-current"
                 :to="switchLocalePath('km')"
               >
-                <client-only>
-                  <CountryFlag country="kh" size="normal" />
-                </client-only>
+                <CountryFlag country="kh" size="normal" />
               </nuxt-link>
               <nuxt-link
                 v-if="$i18n.locale === 'km'"
                 class="border-b-4 border-transparent hover:text-red-700 hover:border-current"
                 :to="switchLocalePath('en')"
               >
-                <client-only>
-                  <CountryFlag country="gb" size="normal" />
-                </client-only>
+                <CountryFlag country="gb" size="normal" />
               </nuxt-link>
               <label v-if="!isAuth" for="login-modal">
                 <ShadowButton text="login" color="bg-red-600"></ShadowButton>

@@ -15,9 +15,13 @@
           "locales/**",
           "static/**",
           "content/**",
+          ".nuxt/content/**",
           "api/**"
         ]
       }
     }
-  ]
+  ],
+  "buildCommand": "yarn generate",
+  "outputDirectory": "dist",
+  "framework": "nuxtjs"
 }

@@ -69,7 +69,7 @@
               :media="post.media"
               class="text-gray-600 hover:text-gray-900 widget"
             >
-              <img src="/telegram_black.png" class="w-6"></img>
+              <img src="/telegram_black.png" class="w-6" />
             </ShareNetwork>
           </div>
           <div class="flex items-center mb-6 space-x-2">
@@ -117,7 +117,6 @@
 <script>
 import { format } from "date-fns";
 export default {
-
   async asyncData(context) {
     const { $content, params, app, route, redirect } = context;
     const slug = params.slug;

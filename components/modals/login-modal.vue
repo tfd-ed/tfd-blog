@@ -19,7 +19,7 @@
             {{ $t("join_community") }}
           </h2>
         </div>
-        <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+        <ValidationObserver ref="form_login" v-slot="{ handleSubmit }">
           <form
             class="mt-16 space-y-2"
             method="post"
@@ -124,7 +124,7 @@ export default {
       this.$refs.login_label.click();
     },
     resetForm() {
-      this.$refs.form.reset();
+      this.$refs.form_login.reset();
     },
     async emailLogin() {
       this.logging = true;
@@ -152,7 +152,7 @@ export default {
       } catch (err) {
         // this.$toast.global.error(); //Using custom toast
         this.logging = false;
-        this.$refs.form.setErrors({
+        this.$refs.form_login.setErrors({
           login_email: err.response.data.message,
         });
         this.$toast.error(err.response.data.message, {
