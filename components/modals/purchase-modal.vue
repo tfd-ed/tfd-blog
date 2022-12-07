@@ -50,7 +50,9 @@
                   ></path>
                 </g>
               </svg>
-              <h2 class="text-center font-medium text-gray-900">
+              <h2
+                class="text-center text-sm md:text-base font-medium text-gray-900"
+              >
                 {{ $t("pay_with_aba") }}
               </h2>
 
@@ -93,7 +95,9 @@
                   ></path>
                 </g>
               </svg>
-              <h2 class="text-center font-medium text-gray-900">
+              <h2
+                class="text-center text-sm md:text-base font-medium text-gray-900"
+              >
                 {{ $t("pay_with_bakong") }}
               </h2>
 
