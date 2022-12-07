@@ -21,19 +21,26 @@
         </div>
         <div class="text-gray-600 body-font">
           <div class="container px-5 py-24 mx-auto">
-            <client-only>
-              <XyzTransitionGroup
-                appear-visible
-                class="flex flex-wrap -m-4 justify-center"
-                xyz="fade front-1 stagger-2 ease-out delay-2"
-              >
-                <LazyCardsCourseCard
-                  v-for="(course, index) in courses"
-                  :key="index"
-                  :course="course"
-                ></LazyCardsCourseCard>
-              </XyzTransitionGroup>
-            </client-only>
+            <!--            <client-only>-->
+            <!--              <XyzTransitionGroup-->
+            <!--                appear-visible-->
+            <!--                class="flex flex-wrap -m-4 justify-center"-->
+            <!--                xyz="fade front-1 stagger-2 ease-out delay-2"-->
+            <!--              >-->
+            <!--                <LazyCardsCourseCard-->
+            <!--                  v-for="(course, index) in courses"-->
+            <!--                  :key="index"-->
+            <!--                  :course="course"-->
+            <!--                ></LazyCardsCourseCard>-->
+            <!--              </XyzTransitionGroup>-->
+            <!--            </client-only>-->
+            <div class="flex flex-wrap -m-4 justify-center">
+              <LazyCardsCourseCard
+                v-for="(course, index) in courses"
+                :key="index"
+                :course="course"
+              ></LazyCardsCourseCard>
+            </div>
           </div>
         </div>
         <client-only>

@@ -19,26 +19,33 @@
           </span>
         </div>
       </div>
-      <client-only>
-        <XyzTransitionGroup
-          appear-visible
-          class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"
-          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"
-        >
-          <LazyCardsHorizontalCard
-            v-for="(project, $index) in projects"
-            :key="`project-${$index}`"
-            :post="project"
-          ></LazyCardsHorizontalCard>
-        </XyzTransitionGroup>
-        <LazyCommonsConfused v-if="projects.length === 0">
-          <template #content>
-            <p class="mt-6 text-gray-500">
-              {{ $t("no_articles") }}
-            </p>
-          </template>
-        </LazyCommonsConfused>
-      </client-only>
+      <!--      <client-only>-->
+      <!--        <XyzTransitionGroup-->
+      <!--          appear-visible-->
+      <!--          class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100"-->
+      <!--          xyz="fade back-1 small-80% ease-out stagger-2 perspective-2"-->
+      <!--        >-->
+      <!--          <LazyCardsHorizontalCard-->
+      <!--            v-for="(project, $index) in projects"-->
+      <!--            :key="`project-${$index}`"-->
+      <!--            :post="project"-->
+      <!--          ></LazyCardsHorizontalCard>-->
+      <!--        </XyzTransitionGroup>-->
+      <!--      </client-only>-->
+      <div class="flex flex-col space-y-16 lg:divide-y lg:divide-gray-100">
+        <LazyCardsHorizontalCard
+          v-for="(project, $index) in projects"
+          :key="`project-${$index}`"
+          :post="project"
+        ></LazyCardsHorizontalCard>
+      </div>
+      <LazyCommonsConfused v-if="projects.length === 0">
+        <template #content>
+          <p class="mt-6 text-gray-500">
+            {{ $t("no_articles") }}
+          </p>
+        </template>
+      </LazyCommonsConfused>
       <div v-if="nextPage" class="flex flex-row justify-center mx-auto mt-12">
         <div class="btn-group">
           <button class="btn">«</button>
