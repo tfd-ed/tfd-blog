@@ -21,7 +21,7 @@
           class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-aba_dark rounded-lg transition hover:scale-90"
           @click="openPayment(getCourse.paymentLink)"
         >
-          {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
+          {{ $t("pay_via") }}
           <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
         </button>
         <button
@@ -29,7 +29,7 @@
           class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-bakong rounded-lg transition hover:scale-90"
           @click="openPayment(getCourse.bkPaymentLink)"
         >
-          {{ $t("ចុចទីនេះដើម្បីទូទាត់ជាមួយ") }}
+          {{ $t("pay_via") }}
           <img src="/bakong_icon.png" class="h-14" />
         </button>
         <div class="space-y-2 py-4">
@@ -135,12 +135,22 @@
           method="post"
           @submit.prevent="handleSubmit(submitPurchase)"
         >
+          <SimpleSelectLocal
+            id="purchased_type"
+            v-model="paymentType"
+            name="purchased_type"
+            label="purchased_from"
+            rules="required"
+            :options="options"
+          />
           <BasicInput
             id="transaction_number"
             v-model="transaction_number"
             name="transaction_number"
             label="transaction_number"
-            rules="required|alpha_dash"
+            :rules="
+              paymentType === 'ABA' ? 'required|digits:15' : 'required|digits:8'
+            "
             :auto-complete="false"
           />
           <div class="flex justify-center py-4">
@@ -177,8 +187,10 @@ import ShadowButton from "../buttons/shadow-button";
 import DoneIcon from "../icons/done-icon";
 import GeneralContentLoading from "../loadings/general-content-loading";
 import { mapActions, mapGetters } from "vuex";
+import SimpleSelectLocal from "@/components/inputs/simple-select-local";
 export default {
   components: {
+    SimpleSelectLocal,
     GeneralContentLoading,
     DoneIcon,
     ShadowButton,
@@ -190,6 +202,8 @@ export default {
   data() {
     return {
       transaction_number: "",
+      paymentType: "",
+      options: ["ABA", "Bakong"],
       loading: false,
       submitting: false,
       submitted: false,
