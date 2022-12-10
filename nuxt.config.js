@@ -259,24 +259,33 @@ export default {
     rewriteRedirects: false,
     strategies: {
       local: {
+        scheme: "refresh",
         token: {
           property: "accessToken",
           required: true,
-          type: "bearer",
-          maxAge: 60 * 30,
+          type: "Bearer",
+          global: true,
+          maxAge: 3600,
+        },
+        refreshToken: {
+          property: "refreshToken",
+          data: "refreshToken",
+          maxAge: 604800,
         },
         user: {
-          property: "false",
-          autoFetch: false,
+          property: false,
+          autoFetch: true,
         },
         endpoints: {
           login: {
             url: "v1/auth/login",
             method: "post",
           },
-          logout: false,
+          refresh: { url: "v1/auth/refresh", method: "get" },
+          logout: { url: "v1/auth/logout", method: "get" },
           user: { url: "v1/auth/me", method: "get" },
         },
+        autoLogout: true,
       },
     },
   },

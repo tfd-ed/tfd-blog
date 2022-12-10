@@ -154,7 +154,7 @@ export default {
     },
     async register() {
       try {
-        await this.$axios.$post("/v1/user-auth/register", {
+        await this.$axios.$post("/v1/auth/register", {
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
