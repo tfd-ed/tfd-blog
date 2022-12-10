@@ -263,6 +263,7 @@ export default {
           property: "accessToken",
           required: true,
           type: "bearer",
+          maxAge: 60 * 30,
         },
         user: {
           property: "false",

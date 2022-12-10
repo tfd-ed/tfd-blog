@@ -118,7 +118,7 @@
             </summary>
 
             <img
-              src="/bakong_sample.png"
+              src="/bakong-sample.png"
               class="w-11/12 mx-auto shadow-2xl mt-2 mb-2 rounded-lg"
               alt="purchase sample"
             />
@@ -140,7 +140,7 @@
             v-model="transaction_number"
             name="transaction_number"
             label="transaction_number"
-            rules="required|alpha_dash|length:15"
+            rules="required|alpha_dash"
             :auto-complete="false"
           />
           <div class="flex justify-center py-4">
