@@ -39,6 +39,7 @@ export default {
     { src: "~/plugins/v-lazy-image.js", mode: "client" },
     { src: "~/plugins/vue-vimeo.js", mode: "client" },
     { src: "~/plugins/moment.js", mode: "client" },
+    { src: "~/plugins/vue-select.js", mode: "client" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
     { src: "~/plugins/vue2-filters.js", mode: "client" },

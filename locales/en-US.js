@@ -127,6 +127,9 @@ const messages = {
   number_of_chapters: "Number of Chapters",
   pay_with_aba: "How can I purchase via ABA?",
   pay_with_bakong: "How can I purchase via Bakong?",
+  purchased_from: "I have paid by using:",
+  purchased_type: "Payment Method",
+  pay_via: "Click here to pay via ",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

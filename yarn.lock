@@ -13304,6 +13304,11 @@ vue-scroll-indicator@^0.1.3:
   resolved "https://registry.yarnpkg.com/vue-scroll-indicator/-/vue-scroll-indicator-0.1.3.tgz#e83e4eed3bcd976a38e5931fd1281162e0a0c896"
   integrity sha512-8LdU9SMHZdnlb6G4gpWZ7hpYEmruC6k38yql6ZQI1SMNnGrFDIHHCyfrLrcqhMoCflVFaZsY7b6njrUmdtwZEA==
 
+vue-select@^3.19.0:
+  version "3.20.0"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.20.0.tgz#a3c4eb046654f9991ce5240e3a0679daa9e992d3"
+  integrity sha512-Qau4BzpgAC+/9jM5oTlOrfA81ONdtTFH6PqeSDKvIB56f1F6EbIR8qAotpUxrIiNVppyPFjvVDkyriMfHjWBQA==
+
 vue-server-renderer@^2.6.12, vue-server-renderer@^2.6.14:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.6.14.tgz#c8bffff152df6b47b858818ef8d524d2fc351654"
