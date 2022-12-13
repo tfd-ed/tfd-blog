@@ -255,10 +255,10 @@ export default {
       login: "/",
       logout: "/",
       callback: "/",
-      home: "/",
+      home: false,
     },
-    resetOnError: true,
-    // rewriteRedirects: false,
+    resetOnError: false,
+    rewriteRedirects: false,
     strategies: {
       local: {
         scheme: "refresh",
