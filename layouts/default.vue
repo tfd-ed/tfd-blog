@@ -8,6 +8,7 @@
     </client-only>
     <client-only>
       <FlexNavbar />
+      <VerifyEmail v-if="isUnConfirmed" />
     </client-only>
     <nuxt class="flex-grow" />
     <CookiesInfo />
@@ -28,9 +29,12 @@ import UserRegistrationModal from "../components/modals/user-registration-modal"
 import FlexNavbar from "../components/navbars/flex-navbar";
 import ForgotPasswordModal from "../components/modals/forgot-password-modal";
 import PurchaseModal from "../components/modals/purchase-modal";
+import { mapGetters } from "vuex";
+import VerifyEmail from "@/components/announcements/verify-email";
 
 export default {
   components: {
+    VerifyEmail,
     PurchaseModal,
     ForgotPasswordModal,
     FlexNavbar,
@@ -44,6 +48,11 @@ export default {
     return {
       isGeeTestLoaded: false,
     };
+  },
+  computed: {
+    ...mapGetters({
+      isUnConfirmed: "isUnConfirmed",
+    }),
   },
   head() {
     return {

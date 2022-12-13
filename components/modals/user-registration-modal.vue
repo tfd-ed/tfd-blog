@@ -161,8 +161,22 @@ export default {
           password: this.password,
           passwordConfirmation: this.confirmation,
         });
+        await this.$auth.loginWith("local", {
+          data: {
+            email: this.email,
+            password: this.password,
+          },
+        });
+        this.close();
+        // setTimeout(async () => {
+        //   this.resetForm();
+        //   this.close();
+        //   this.logged = false;
+        //   await this.$router.push(this.localePath("/course"));
+        // }, 1000);
         this.submitting = false;
-        this.submitted = true;
+        await this.$nuxt.refresh();
+        // this.submitted = true;
         this.$refs.form_reg.reset();
       } catch (e) {
         console.log(e.response.data.message);

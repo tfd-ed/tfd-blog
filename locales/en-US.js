@@ -130,6 +130,8 @@ const messages = {
   purchased_from: "I have paid by using:",
   purchased_type: "Payment Method",
   pay_via: "Click here to pay via ",
+  email_not_verified:
+    "Your email is not verified! Please go to your email inbox or check in Spam folder to verify",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",
