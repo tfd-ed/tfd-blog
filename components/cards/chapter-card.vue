@@ -8,7 +8,7 @@
         $moment(chapter.createdDate).format("ll")
       }}</span>
       <span class="mt-1 text-gray-600 text-sm items-center"
-        ><DurationIcon width="18" class="inline mb-1" />
+        ><DurationIcon :width="18" class="inline mb-1" />
         {{ convertNumber(formatD(chapter.duration)) }}
       </span>
     </div>

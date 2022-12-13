@@ -254,10 +254,11 @@ export default {
     redirect: {
       login: "/",
       logout: "/",
-      callback: false,
-      home: false,
+      callback: "/",
+      home: "/",
     },
-    rewriteRedirects: false,
+    resetOnError: true,
+    // rewriteRedirects: false,
     strategies: {
       local: {
         scheme: "refresh",
@@ -266,12 +267,12 @@ export default {
           required: true,
           type: "Bearer",
           global: true,
-          maxAge: 3600,
+          // maxAge: 3600,
         },
         refreshToken: {
           property: "refreshToken",
           data: "refreshToken",
-          maxAge: 604800,
+          // maxAge: 604800,
         },
         user: {
           property: false,

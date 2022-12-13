@@ -79,7 +79,7 @@
           <span
             class="text-gray-900 text-xs inline-flex items-center leading-none"
           >
-            <DurationIcon width="20" class="mr-2" />
+            <DurationIcon :width="20" class="mr-2" />
             {{ convertNumber(formatD(totalDuration)) }}
           </span>
         </div>

@@ -290,6 +290,7 @@ export default {
     GeneralContentLoading,
   },
   mixins: [Vue2Filters.mixin],
+  auth: "guest",
   data() {
     return {
       openPurchase: false,
@@ -338,7 +339,7 @@ export default {
       ],
     };
   },
-  fetchOnServer: false,
+  // fetchOnServer: false,
   computed: {
     ...mapGetters({
       getCourse: "course/getCourse",

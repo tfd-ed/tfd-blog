@@ -68,6 +68,7 @@ export default {
       limit: 9,
     };
   },
+  auth: "guest",
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.$t("course"),
