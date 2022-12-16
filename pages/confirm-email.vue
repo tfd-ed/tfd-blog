@@ -73,7 +73,7 @@ export default {
       await this.$router.push("/");
     }
     try {
-      const result = await this.$axios.$post("/v1/user-auth/confirm", {
+      const result = await this.$axios.$post("/v1/auth/confirm", {
         token: token,
       });
       this.$toast.info(result.result, {

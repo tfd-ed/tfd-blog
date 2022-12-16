@@ -5,6 +5,12 @@ export const getters = {
   loggedInUser(state) {
     return state.auth.user;
   },
+  isUnConfirmed(state) {
+    if (state.auth.loggedIn) {
+      return state.auth.user.status === "UNCONFIRMED";
+    }
+    return false;
+  },
 };
 export const mutations = {
   UPDATE_LOGGED_USER(state, user) {

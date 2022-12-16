@@ -39,9 +39,11 @@ export default {
     { src: "~/plugins/v-lazy-image.js", mode: "client" },
     { src: "~/plugins/vue-vimeo.js", mode: "client" },
     { src: "~/plugins/moment.js", mode: "client" },
+    { src: "~/plugins/vue-select.js", mode: "client" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
     { src: "~/plugins/vue2-filters.js", mode: "client" },
+    { src: "~/plugins/pusher.js", mode: "client" },
   ],
   serverMiddleware: [{ path: "/api", handler: "~/api/recaptcha.js" }],
 
@@ -131,6 +133,8 @@ export default {
     GEETEST_KEY_SIGN_UP: process.env.GEETEST_KEY_SIGN_UP,
     GEETEST_ID_RESET: process.env.GEETEST_ID_RESET,
     GEETEST_KEY_RESET: process.env.GEETEST_KEY_RESET,
+    PUSHER_API_KEY: process.env.PUSHER_API_KEY,
+    PUSHER_API_CLUSTER: process.env.PUSHER_API_CLUSTER,
   },
   privateRuntimeConfig: {
     baseURL: process.env.BASE_URL || "http://localhost:80",
@@ -246,7 +250,6 @@ export default {
     },
     "/api/": {
       target: `${process.env.WEB_URL}/api`,
-      pathRewrite: { "^/api/": "" },
     },
   },
   // Nuxt Auth Plugin
@@ -254,29 +257,40 @@ export default {
     redirect: {
       login: "/",
       logout: "/",
-      callback: false,
+      callback: "/",
       home: false,
     },
+    resetOnError: false,
     rewriteRedirects: false,
     strategies: {
       local: {
+        scheme: "refresh",
         token: {
           property: "accessToken",
           required: true,
-          type: "bearer",
+          type: "Bearer",
+          global: true,
+          // maxAge: 3600,
+        },
+        refreshToken: {
+          property: "refreshToken",
+          data: "refreshToken",
+          // maxAge: 604800,
         },
         user: {
-          property: "false",
-          autoFetch: false,
+          property: false,
+          autoFetch: true,
         },
         endpoints: {
           login: {
             url: "v1/auth/login",
             method: "post",
           },
-          logout: false,
+          refresh: { url: "v1/auth/refresh", method: "get" },
+          logout: { url: "v1/auth/logout", method: "get" },
           user: { url: "v1/auth/me", method: "get" },
         },
+        autoLogout: true,
       },
     },
   },

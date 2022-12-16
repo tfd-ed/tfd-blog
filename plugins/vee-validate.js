@@ -11,6 +11,8 @@ import {
   digits,
   mimes,
   size,
+  length,
+  // between,
 } from "vee-validate/dist/rules";
 import { ValidationProvider, extend } from "vee-validate";
 
@@ -25,5 +27,7 @@ extend("alpha_spaces", alpha_spaces);
 extend("digits", digits);
 extend("size", size);
 extend("mimes", mimes);
+extend("length", length);
+// extend("between", between);
 // Register it globally
 Vue.component("ValidationProvider", ValidationProvider);

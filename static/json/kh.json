@@ -14,7 +14,7 @@
     "ext": "The {_field_} field is not a valid file",
     "image": "The {_field_} field must be an image",
     "integer": "The {_field_} field must be an integer",
-    "length": "The {_field_} field must be {length} long",
+    "length": " {_field_} តម្រូវឲ្យមាន {length} ខ្ទង់ដាច់ខាត",
     "max_value": "The {_field_} field must be {max} or less",
     "max": "{_field_} ត្រូវតែមានយ៉ាងច្រើន {length} តួរអក្សរ",
     "mimes": "The {_field_} field must have a valid file type",

@@ -132,7 +132,7 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.login,
         });
-        this.$auth.setUser(response.data.user);
+        // this.$auth.setUser(response.data.user);
         // this.$router.push("/");
         this.logging = false;
         this.logged = true;
@@ -151,6 +151,7 @@ export default {
         };
       } catch (err) {
         // this.$toast.global.error(); //Using custom toast
+        console.log(err);
         this.logging = false;
         this.$refs.form_login.setErrors({
           login_email: err.response.data.message,

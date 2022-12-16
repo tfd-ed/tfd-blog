@@ -13,7 +13,7 @@
 .video-container {
   overflow: hidden;
   position: relative;
-  width:80%;
+  width: 100%;
 }
 
 .video-container::after {

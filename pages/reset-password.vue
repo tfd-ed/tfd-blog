@@ -125,7 +125,7 @@ export default {
     }
     try {
       const result = await this.$axios.$get(
-        "/v1/user-auth/reset-token/" + this.token
+        "/v1/user/reset-token/" + this.token
       );
       this.email = result.email;
     } catch (err) {
@@ -142,7 +142,7 @@ export default {
     async handleForm() {
       this.submitting = true;
       try {
-        const result = await this.$axios.$post("/v1/user-auth/reset-password", {
+        const result = await this.$axios.$post("/v1/user/reset-password", {
           email: this.email,
           token: this.token,
           password: this.password,
