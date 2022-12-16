@@ -43,6 +43,7 @@ export default {
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/axios.js" },
     { src: "~/plugins/vue2-filters.js", mode: "client" },
+    { src: "~/plugins/pusher.js", mode: "client" },
   ],
   serverMiddleware: [{ path: "/api", handler: "~/api/recaptcha.js" }],
 
@@ -132,6 +133,8 @@ export default {
     GEETEST_KEY_SIGN_UP: process.env.GEETEST_KEY_SIGN_UP,
     GEETEST_ID_RESET: process.env.GEETEST_ID_RESET,
     GEETEST_KEY_RESET: process.env.GEETEST_KEY_RESET,
+    PUSHER_API_KEY: process.env.PUSHER_API_KEY,
+    PUSHER_API_CLUSTER: process.env.PUSHER_API_CLUSTER,
   },
   privateRuntimeConfig: {
     baseURL: process.env.BASE_URL || "http://localhost:80",
