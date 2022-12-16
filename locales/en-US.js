@@ -132,6 +132,8 @@ const messages = {
   pay_via: "Click here to pay via ",
   email_not_verified:
     "Your email is not verified! Please go to your email inbox or check in Spam folder to verify",
+  thanks_for_purchase: "Thanks For Your Purchase",
+  purchase_confirmation_done: "Purchase is Confirmed",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

@@ -159,7 +159,7 @@
               <!--              </client-only>-->
               <vimeo-player
                 ref="player"
-                class="video-container"
+                class="video-container mt-4 mb-4"
                 :video-id="getCourse.promotionalVimeoLink"
                 @ready="onReady"
               />
@@ -360,6 +360,11 @@ export default {
       return this.$config.WEB_URL + this.$route.path;
     },
   },
+  // mounted() {
+  //   if (this.isAuth) {
+  //     this.initializeNotification();
+  //   }
+  // },
   beforeDestroy() {
     this.clearPurchase();
   },

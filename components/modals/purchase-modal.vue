@@ -169,12 +169,38 @@
       >
         <GeneralContentLoading />
       </div>
-      <div v-if="submitted" class="flex flex-row justify-center mx-auto py-24">
+      <div
+        v-if="submitted && !approved"
+        class="flex flex-row justify-center mx-auto py-24"
+      >
         <p class="text-center leading-relaxed items-center">
           <DoneIcon class="inline" /> {{ $t("confirming_payment") }}<br />
           {{ $t("please_wait_for_a_while") }}
         </p>
       </div>
+      <Transition v-if="approved && submitted" appear>
+        <div class="flex flex-col mx-auto">
+          <p
+            class="text-center font-bold leading-relaxed text-2xl lg:text-3xl items-center"
+          >
+            {{ $t("purchase_confirmation_done") }}
+          </p>
+          <p
+            class="mt-16 text-gray-700 text-center leading-relaxed text-xl lg:text-2xl items-center"
+          >
+            {{ $t("thanks_for_purchase") }}
+          </p>
+          <img class="mx-auto w-40 lg:w-56" src="/cute.gif" alt="thanks" />
+
+          <label
+            for="purchase-modal"
+            class="mt-16 mx-auto"
+            @click="goChapter(1)"
+          >
+            <ShadowButton text="learn" color="bg-tfd" />
+          </label>
+        </div>
+      </Transition>
     </template>
   </ModalTemplate>
 </template>
@@ -186,7 +212,7 @@ import TosRemind from "../commons/tos-remind";
 import ShadowButton from "../buttons/shadow-button";
 import DoneIcon from "../icons/done-icon";
 import GeneralContentLoading from "../loadings/general-content-loading";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import SimpleSelectLocal from "@/components/inputs/simple-select-local";
 export default {
   components: {
@@ -207,6 +233,7 @@ export default {
       loading: false,
       submitting: false,
       submitted: false,
+      approved: false,
     };
   },
   computed: {
@@ -219,12 +246,20 @@ export default {
     ...mapActions({
       fetchPurchase: "course/fetchCoursePurchase",
     }),
+    ...mapMutations({
+      updatePurchase: "course/UPDATE_PURCHASE",
+    }),
     openPayment(link) {
       window.open(link, "popup", "width=800,height=600");
       return false;
     },
+    async goChapter(number) {
+      await this.$router.push(
+        this.localePath(`/course/${this.getCourse.titleURL}/chapter/${number}`)
+      );
+    },
     async submitPurchase() {
-      console.log(this.loggedInUser);
+      // console.log(this.loggedInUser);
       this.submitting = true;
       try {
         const result = await this.$axios.$post(
@@ -242,6 +277,7 @@ export default {
         });
         this.submitting = false;
         this.submitted = true;
+        this.initializeNotification();
       } catch (e) {
         this.submitting = false;
         this.$toast.error(e.response.data.message, {
@@ -261,6 +297,20 @@ export default {
       this.loading = false;
       this.submitting = false;
       this.submitted = false;
+    },
+    initializeNotification() {
+      console.log(
+        `${this.loggedInUser.username}_${this.getCourse.titleURL}_purchase`
+      );
+      let channel = this.$pusher.subscribe(
+        `${this.loggedInUser.username}_${this.getCourse.titleURL}_purchase`
+      );
+      console.log("Channel Initialized");
+      channel.bind("purchase-approved", (log) => {
+        // console.log(log);
+        this.updatePurchase(log);
+        this.approved = true;
+      });
     },
   },
 };
