@@ -135,7 +135,7 @@ export default {
     },
     async resetPassword() {
       try {
-        const response = await this.$axios.$post("/v1/user/forgot-password", {
+        const response = await this.$axios.$post("/v1/auth/forgot-password", {
           email: this.email,
         });
         this.doing = false;
