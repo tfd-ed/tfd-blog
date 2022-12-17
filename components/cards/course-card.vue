@@ -60,7 +60,7 @@
               "
             >
               <template #icon
-                ><ProcessIcon class="inline" width="15"></ProcessIcon
+                ><ProcessIcon class="inline" :width="15"></ProcessIcon
               ></template>
             </ShadowButton>
           </nuxt-link>
@@ -138,15 +138,17 @@ export default {
         `/v1/courses/${this.course.id}/user-purchase/${this.loggedUser.id}`
       );
     }
-    for (let chapter of this.course.chapters) {
-      this.totalDuration += parseInt(chapter.duration);
-    }
   },
   computed: {
     ...mapGetters({
       isAuth: "isAuthenticated",
       loggedUser: "loggedInUser",
     }),
+  },
+  mounted() {
+    for (let chapter of this.course.chapters) {
+      this.totalDuration += parseInt(chapter.duration);
+    }
   },
   methods: {
     ...mapMutations({

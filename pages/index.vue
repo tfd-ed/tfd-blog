@@ -50,5 +50,9 @@ export default {
       ],
     };
   },
+  // mounted() {
+  //   this.$auth.strategy.token.reset();
+  //   this.$auth.strategy.refreshToken.reset();
+  // },
 };
 </script>
