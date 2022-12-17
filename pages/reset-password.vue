@@ -125,7 +125,7 @@ export default {
     }
     try {
       const result = await this.$axios.$get(
-        "/v1/user-auth/reset-token/" + this.token
+        "/v1/auth/reset-token/" + this.token
       );
       this.email = result.email;
     } catch (err) {
@@ -142,15 +142,20 @@ export default {
     async handleForm() {
       this.submitting = true;
       try {
-        const result = await this.$axios.$post("/v1/user-auth/reset-password", {
+        await this.$axios.$post("/v1/auth/reset-password", {
           email: this.email,
           token: this.token,
           password: this.password,
           confirmation: this.confirmation,
         });
-        this.submitting = false;
-        this.submitted = true;
-        await this.$router.push(this.localePath("/"));
+        await this.$auth.loginWith("local", {
+          data: {
+            email: this.email,
+            password: this.password,
+          },
+        });
+        await this.$router.push(this.localePath("/course"));
+        // await this.$router.push(this.localePath("/"));
       } catch (e) {
         this.submitting = false;
         this.$toast.error(e.response.data.message, {
