@@ -167,6 +167,17 @@ export default {
             password: this.password,
           },
         });
+        /**
+         * Persist token in Storage to prevent false retrieval
+         */
+        this.$auth.$storage.setUniversal(
+          "access",
+          this.$auth.strategy.token.get()
+        );
+        this.$auth.$storage.setUniversal(
+          "refresh",
+          this.$auth.strategy.refreshToken.get()
+        );
         this.close();
         // setTimeout(async () => {
         //   this.resetForm();

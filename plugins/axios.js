@@ -6,54 +6,48 @@ export default ({ app, store, $axios, redirect }) => {
   /**
    * Refresh Token Upon Error
    */
-  // $axios.onError(async (error) => {
-  //   console.log("Request Error Occurred!");
-  //   const code = parseInt(error.response && error.response.status);
-  //
-  //   let originalRequest = error.config;
-  //   console.log(code);
-  //   if ([401, 403].includes(code)) {
-  //     // originalRequest.__isRetryRequest = true;
-  //
-  //     // let refresh_token = app.$auth.strategy.token.get();
-  //     // console.log(refresh_token);
-  //
-  //     return new Promise((resolve, reject) => {
-  //       app.$auth.refreshTokens().then((response) => {
-  //         resolve(response);
-  //       });
-  //       // $axios.$get(`v1/auth/refresh`).then((response) => {
-  //       //   console.log(response.data);
-  //       //   if (response.status === 200) {
-  //       //     app.$auth.strategy.token.set(response.data.accessToken);
-  //       //     // app.$auth.strategy.token.sync();
-  //       //     app.$auth.strategy.refreshToken.set(response.data.refreshToken);
-  //       //     // app.$auth.strategy.refreshToken.sync();
-  //       //     // app.$auth.ctx.app.$axios.setHeader(
-  //       //     //   "Authorization",
-  //       //     //   "Bearer " + response.data.access_token
-  //       //     // );
-  //       //     // app.$auth.setRefreshToken(
-  //       //     //   app.$auth.$storage.state.strategy,
-  //       //     //   "Bearer " + response.data.refresh_token
-  //       //     // );
-  //       //     originalRequest.headers[
-  //       //       "Authorization"
-  //       //     ] = `Bearer ${response.data.accessToken}`;
-  //       //   }
-  //       //   resolve(response);
-  //       // });
-  //     })
-  //       .then((res) => {
-  //         return $axios(originalRequest);
-  //       })
-  //       .catch((e) => {
-  //         app.$auth.logout();
-  //
-  //         setTimeout(() => {
-  //           app.router.push("/");
-  //         });
-  //       });
-  //   }
-  // });
+  $axios.onError(async (error) => {
+    console.log("Request Error Occurred!");
+    const code = parseInt(error.response && error.response.status);
+
+    let originalRequest = error.config;
+    if ([401, 403].includes(code)) {
+      /**
+       * Retrieve and set access and refresh token from universal storage as they are become 'false'
+       */
+      app.$auth.strategy.token.set(app.$auth.$storage.getUniversal("access"));
+      app.$auth.strategy.refreshToken.set(
+        app.$auth.$storage.getUniversal("refresh")
+      );
+      return new Promise((resolve, reject) => {
+        app.$auth.refreshTokens().then((response) => {
+          // console.log(response.status);
+          if (response.status === 200) {
+            /**
+             * Update both tokens in universal storage
+             */
+            app.$auth.$storage.setUniversal(
+              "access",
+              `Bearer ${response.data.accessToken}`
+            );
+            app.$auth.$storage.setUniversal(
+              "refresh",
+              response.data.refreshToken
+            );
+          }
+          resolve(response);
+        });
+      })
+        .then((res) => {
+          return $axios(originalRequest);
+        })
+        .catch((e) => {
+          app.$auth.logout();
+
+          setTimeout(() => {
+            app.router.push("/");
+          });
+        });
+    }
+  });
 };
