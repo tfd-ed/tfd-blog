@@ -209,7 +209,7 @@
                 {{ getPurchase.status === "VERIFIED" ? $t("at") : "" }}
                 {{
                   getPurchase.status === "VERIFIED"
-                    ? $moment(purchase.createdDate).format("ll")
+                    ? $moment(getPurchase.createdDate).format("ll")
                     : ""
                 }}
               </span>
