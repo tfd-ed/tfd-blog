@@ -323,7 +323,7 @@ export default {
   },
   head() {
     return {
-      title: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+      title: this.$config.SITE_TITLE + " | " + this.getTitle,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -331,19 +331,17 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content: this.getCourse.shortDescription,
+          content: this.getShortDescription,
         },
         {
           property: "og:title",
           hid: "og:title",
-          content: this.$config.SITE_TITLE + " | " + this.getCourse.title,
+          content: this.$config.SITE_TITLE + " | " + this.getTitle,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.getCourse.thumbnail
-            ? this.getCourse.thumbnail.path
-            : "https://dummyimage.com/720x400",
+          content: this.getTB,
         },
       ],
     };
@@ -358,6 +356,17 @@ export default {
     }),
     getSharePath() {
       return this.$config.WEB_URL + this.$route.path;
+    },
+    getTitle() {
+      return this.getCourse.title;
+    },
+    getShortDescription() {
+      return this.getCourse.shortDescription;
+    },
+    getTB() {
+      return this.getCourse.thumbnail
+        ? this.getCourse.thumbnail.path
+        : "https://dummyimage.com/720x400";
     },
   },
   // mounted() {

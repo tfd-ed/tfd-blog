@@ -132,6 +132,17 @@ export default {
         let response = await this.$auth.loginWith("local", {
           data: this.login,
         });
+        /**
+         * Persist token in Storage to prevent false retrieval
+         */
+        this.$auth.$storage.setUniversal(
+          "access",
+          this.$auth.strategy.token.get()
+        );
+        this.$auth.$storage.setUniversal(
+          "refresh",
+          this.$auth.strategy.refreshToken.get()
+        );
         // this.$auth.setUser(response.data.user);
         // this.$router.push("/");
         this.logging = false;
