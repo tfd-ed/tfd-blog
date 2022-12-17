@@ -30,7 +30,7 @@
             v-model="firstname"
             name="firstname"
             label="firstname"
-            rules="required|alpha_spaces"
+            rules="required|alpha"
             :auto-complete="false"
           />
           <BasicInput
