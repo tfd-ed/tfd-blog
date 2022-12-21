@@ -84,6 +84,10 @@ export default {
     const response = await this.$axios.$get(
       `/v1/courses/${id}/user-purchase/${userId}`
     );
-    commit("UPDATE_PURCHASE", response);
+    if (Object.keys(response).length === 0 && response.constructor === Object) {
+      commit("UPDATE_PURCHASE", 0);
+    } else {
+      commit("UPDATE_PURCHASE", response);
+    }
   },
 };
