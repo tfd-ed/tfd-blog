@@ -136,14 +136,8 @@ export default {
          * Persist token in Storage to prevent false retrieval
          */
         // console.log(response);
-        // this.$auth.$storage.setUniversal(
-        //   "access",
-        //   this.$auth.strategy.token.get()
-        // );
-        // this.$auth.$storage.setUniversal(
-        //   "refresh",
-        //   this.$auth.strategy.refreshToken.get()
-        // );
+        this.$auth.$storage.setUniversal("access", response.data.accessToken);
+        this.$auth.$storage.setUniversal("refresh", response.data.refreshToken);
         // this.$auth.setUser(response.data.user);
         // this.$router.push("/");
         this.logging = false;
