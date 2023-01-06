@@ -27,7 +27,7 @@
         >
           <BasicInput
             id="firstname_sign_up"
-            v-model="firstname"
+            v-model.trim="firstname"
             name="firstname"
             label="firstname"
             rules="required|alpha"
@@ -35,7 +35,7 @@
           />
           <BasicInput
             id="lastname_sign_up"
-            v-model="lastname"
+            v-model.trim="lastname"
             name="lastname"
             label="lastname"
             rules="required|alpha"
@@ -43,7 +43,7 @@
           />
           <BasicInput
             id="email_sign_up"
-            v-model="email"
+            v-model.trim="email"
             name="email"
             label="email"
             rules="required|email"

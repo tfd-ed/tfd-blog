@@ -149,7 +149,9 @@
             name="transaction_number"
             label="transaction_number"
             :rules="
-              paymentType === 'ABA' ? 'required|digits:15' : 'required|digits:8'
+              paymentType === 'ABA'
+                ? 'required|digits:15'
+                : 'required|alpha_num|max:8'
             "
             :auto-complete="false"
           />
