@@ -96,7 +96,7 @@ const messages = {
   buy: "Buy",
   learn: "Learn",
   click_here_to_pay: "Click Here To Pay With",
-  transaction_number: "Transaction Code",
+  transaction_number: "#Purchase",
   login_to_purchase: "Login To Purchase",
   confirming_payment: "Confirming Payment",
   confirming_payment_short: "Confirming",
