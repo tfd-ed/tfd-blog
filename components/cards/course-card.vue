@@ -134,9 +134,17 @@ export default {
   },
   async fetch() {
     if (this.isAuth) {
-      this.purchase = await this.$axios.$get(
+      const purchase = await this.$axios.$get(
         `/v1/courses/${this.course.id}/user-purchase/${this.loggedUser.id}`
       );
+      if (
+        Object.keys(purchase).length === 0 &&
+        purchase.constructor === Object
+      ) {
+        this.purchase = 0;
+      } else {
+        this.purchase = purchase;
+      }
     }
   },
   computed: {

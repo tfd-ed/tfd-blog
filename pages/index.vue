@@ -51,8 +51,10 @@ export default {
     };
   },
   // mounted() {
-  //   this.$auth.strategy.token.reset();
-  //   this.$auth.strategy.refreshToken.reset();
+  //   // this.$auth.refreshTokens();
+  //   // this.$auth.strategy.token.reset();
+  //   // this.$auth.strategy.refreshToken.reset();
+  //   console.log(this.$auth.strategy.token.get());
   // },
 };
 </script>
