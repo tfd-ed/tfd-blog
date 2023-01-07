@@ -98,7 +98,7 @@ const messages = {
   buy: "ទិញ",
   learn: "ចូលរៀន",
   click_here_to_pay: "ចុចទីនេះដើម្បីទូទាត់ជាមួយ",
-  transaction_number: "លេខកូដ(Transaction Code)",
+  transaction_number: "លេខកូដ(#Purchase)",
   login_to_purchase: "សូមចុះឈ្មោះជាមុនដើម្បីទិញ",
   confirming_payment: "យើងកំពុងបញ្ជាក់ការទូទាត់",
   confirming_payment_short: "កំពុងបញ្ជាក់",
