@@ -51,7 +51,7 @@
             @onClick="goToNext"
           ></ShadowButton>
         </div>
-        <LazyGlobalsComments />
+        <LazyGlobalComments />
       </div>
     </div>
   </section>

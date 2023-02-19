@@ -60,7 +60,9 @@ export default {
     "@nuxtjs/device",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/google-fonts",
+    "nuxt-animejs",
   ],
+  // Add global page transition
   optimizedImages: {
     optimizeImages: true,
     optimizeImagesInDev: false,

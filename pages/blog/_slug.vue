@@ -94,7 +94,7 @@
           <!--            ad-format="fluid"-->
           <!--            :ad-slot="$config.GOOGLE_ADSENSE_SLOT.toString()"-->
           <!--          />-->
-          <LazyGlobalsComments class="max-w-2xl md:max-w-4xl mx-auto" />
+          <LazyGlobalComments class="max-w-2xl md:max-w-4xl mx-auto" />
         </div>
       </article>
     </div>
