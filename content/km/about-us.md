@@ -20,7 +20,7 @@ works: [
 publications: [
 { "date": "2019-08-01T05:28:04+0000", "note": "Multi-Agents Approach to Autonomous Vehicles in Intersection Crossing" , "note2":"Niigata University Student Branch 13th Student Research Presentation Exchange Meeting" , "note3" : "Kheang Kim Ang, Tatsuya Yamazaki" },
 { "date": "2018-10-01T05:28:04+0000", "note": "A New Model for Simulating and Evaluating Congestion Cause at Signalized
-Intersection, Phnom Penh, Cambodia" , "note2" :"KSII The 10th International Conference on Internet (ICONI) 2018." , "note3","KimAng Kheang, Sokchea Kor, Sovila Srun"},
+Intersection, Phnom Penh, Cambodia" , "note2" :"KSII The 10th International Conference on Internet (ICONI) 2018." , "note3" : "KimAng Kheang, Sokchea Kor, Sovila Srun"},
 { "date": "2020-06-01T05:28:04+0000","note": "Point-Based Fast Triangle-Triangle Intersection Detection, Phnom Penh,
 Cambodia" , "note2": "The Sixth Asian Conference on Information Systems (ACIS) 2017." , "note3" :"Vichear Keo Ouk, KimAng Kheang, Seihakrith Tan, Sokha Heng, Pheakdey
 Nguonphan"}
