@@ -71,6 +71,7 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^9.0.0",
+    "nuxt-animejs": "^1.2.4",
     "postcss": "^8.4.11",
     "tailwindcss": "^3.0.23",
     "vuex": "^3.6.2",

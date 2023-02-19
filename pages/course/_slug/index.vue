@@ -272,7 +272,7 @@
             :purchase="getPurchase"
           />
         </div>
-        <LazyGlobalsComments />
+        <LazyGlobalComments />
       </div>
     </div>
   </section>
@@ -322,8 +322,13 @@ export default {
     }
   },
   head() {
+    const title = this.$config.SITE_TITLE + " | " + this.getTitle;
+    const description = this.getShortDescription;
+    const image = this.getTB;
+    const url = `https://www.tfdevs.com/course/${this.$route.params.slug}`;
+
     return {
-      title: this.$config.SITE_TITLE + " | " + this.getTitle,
+      title,
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -331,18 +336,29 @@ export default {
         {
           hid: "og:description",
           property: "og:description",
-          content: this.getShortDescription,
+          content: description,
         },
         {
           property: "og:title",
           hid: "og:title",
-          content: this.$config.SITE_TITLE + " | " + this.getTitle,
+          content: title,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.getTB,
+          content: image,
         },
+        {
+          hid: "description",
+          name: "description",
+          content: description,
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: url,
+        },
+        { hid: "og:type", property: "og:type", content: "article" },
       ],
     };
   },
