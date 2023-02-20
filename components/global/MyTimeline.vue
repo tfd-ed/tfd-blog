@@ -5,7 +5,8 @@
         <div v-for="(item, index) in biography" :key="index">
           <div v-if="index === biography.length - 1" class="flex relative">
             <div
-              class="flex-shrink-0 w-5 h-5 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10 translate-x-1/2"
+              class="flex-shrink-0 w-5 h-5 rounded-full inline-flex items-center justify-center text-white relative z-10 translate-x-1/2"
+              :class="color"
             ></div>
             <div class="flex-grow pl-4 -mt-6">
               <p
@@ -39,7 +40,8 @@
               <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
             </div>
             <div
-              class="flex-shrink-0 w-5 h-5 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10 translate-x-1/2"
+              class="flex-shrink-0 w-5 h-5 rounded-full inline-flex items-center justify-center text-white relative z-10 translate-x-1/2"
+              :class="color"
             ></div>
             <div class="flex-grow pl-4 -mt-6">
               <p
@@ -76,6 +78,10 @@ export default {
   props: {
     biography: {
       type: Array,
+    },
+    color: {
+      type: String,
+      default: "bg-green-500",
     },
   },
 };

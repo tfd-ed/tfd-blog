@@ -272,7 +272,7 @@
             :purchase="getPurchase"
           />
         </div>
-        <LazyGlobalComments />
+        <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
       </div>
     </div>
   </section>
@@ -288,9 +288,11 @@ import ImageLoader from "@/components/loaders/image-loader";
 import NotFound from "@/components/errors/not-found";
 import Vue2Filters from "vue2-filters";
 import format from "format-duration";
+import Comments from "@/components/global/comments";
 
 export default {
   components: {
+    Comments,
     NotFound,
     ImageLoader,
     ChapterCard,

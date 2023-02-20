@@ -18,13 +18,16 @@ works: [
 { "date": "2019-08-01T05:28:04+0000","to": "បច្ចុប្បន្ន", "note": "ធ្វើការឲ្យខ្លួនឯង (Freelance)" },
 ]
 publications: [
-{ "date": "2019-08-01T05:28:04+0000", "note": "Multi-Agents Approach to Autonomous Vehicles in Intersection Crossing" , "note2":"Niigata University Student Branch 13th Student Research Presentation Exchange Meeting" , "note3" : "Kheang Kim Ang, Tatsuya Yamazaki" },
+{ "date": "2022-12-23T01:17:26.000Z", "note": "Multi-Agents Approach to Autonomous Vehicles in Intersection Crossing" , "note2":"Niigata University Student Branch 13th Student Research Presentation Exchange Meeting" , "note3" : "Kheang Kim Ang, Tatsuya Yamazaki" },
 { "date": "2018-10-01T05:28:04+0000", "note": "A New Model for Simulating and Evaluating Congestion Cause at Signalized
-Intersection, Phnom Penh, Cambodia" , "note2" :"KSII The 10th International Conference on Internet (ICONI) 2018." , "note3" : "KimAng Kheang, Sokchea Kor, Sovila Srun"},
-{ "date": "2020-06-01T05:28:04+0000","note": "Point-Based Fast Triangle-Triangle Intersection Detection, Phnom Penh,
+Intersection, Phnom Penh, Cambodia" , "note2" :"KSII The 10th International Conference on Internet (ICONI) 2018." , "note3": "KimAng Kheang, Sokchea Kor, Sovila Srun"},
+{ "date": "2017-12-12T01:17:26.000Z","note": "Point-Based Fast Triangle-Triangle Intersection Detection, Phnom Penh,
 Cambodia" , "note2": "The Sixth Asian Conference on Information Systems (ACIS) 2017." , "note3" :"Vichear Keo Ouk, KimAng Kheang, Seihakrith Tan, Sokha Heng, Pheakdey
 Nguonphan"}
 ]
+color1: "bg-green-500"
+color2: "bg-tfd"
+color3: "bg-aba"
 --- 
 ## ហេតុអ្វីខ្ញុំបង្កើតគេហទំព័រនេះ?
 
@@ -41,13 +44,13 @@ Nguonphan"}
 
 ## ប្រវត្តិសិក្សា
 
-<my-timeline :biography="biography"></my-timeline>
+<my-timeline :biography="biography" :color="color1"></my-timeline>
 
 ## ប្រវត្តិការងារ
 
-<my-timeline :biography="works"></my-timeline>
+<my-timeline :biography="works" :color="color2"></my-timeline>
 
-## អត្ថបទចុះផ្សាយ
+## កិច្ចការស្រាវជ្រាវ
 
-<my-timeline :biography="publications"></my-timeline>
+<my-timeline :biography="publications" :color="color3"></my-timeline>
 

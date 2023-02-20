@@ -51,7 +51,7 @@
             @onClick="goToNext"
           ></ShadowButton>
         </div>
-        <LazyGlobalComments />
+        <Comments class="max-w-2xl md:max-w-4xl mx-auto" />
       </div>
     </div>
   </section>
@@ -61,9 +61,10 @@ import { mapActions, mapGetters } from "vuex";
 import ShadowButton from "@/components/buttons/shadow-button";
 import GeneralContentLoading from "@/components/loadings/general-content-loading";
 import NotFound from "@/components/errors/not-found";
+import Comments from "@/components/global/comments";
 
 export default {
-  components: { NotFound, GeneralContentLoading, ShadowButton },
+  components: { Comments, NotFound, GeneralContentLoading, ShadowButton },
   middleware: "auth",
   data() {
     return {
