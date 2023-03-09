@@ -12,7 +12,7 @@ biography: [
 Self-driving Cars" }
 ]
 works: [
-{ "date": "2021-06-01T05:28:04+0000", "to": "2022-09-01T05:28:04+0000", "note": "Contracted System Developer, The Council for the Development of Cambodia
+{ "date": "2021-02-01T05:28:04+0000", "to": "2022-09-01T05:28:04+0000", "note": "Contracted System Developer, The Council for the Development of Cambodia
 (CDC), Phnom Penh, Cambodia" },
 { "date": "2020-06-01T05:28:04+0000","to": "2021-07-01T05:28:04+0000", "note": "Project Manager, Inklusivity, Phnom Penh"},
 { "date": "2019-08-01T05:28:04+0000","to": "Present", "note": "Freelance" },
@@ -55,4 +55,3 @@ My real name is **(Kheang Kim Ang)** or in Chinese **强存志**
 ## Publications
 
 <my-timeline :biography="publications" :color="color3"></my-timeline>
-
