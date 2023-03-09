@@ -12,7 +12,7 @@ biography: [
 Self-driving Cars"}
 ]
 works: [
-{ "date": "2021-06-01T05:28:04+0000", "to": "2022-09-01T05:28:04+0000", "note": "Contracted System Developer, ក្រុមប្រឹក្សាអភិវឌ្ឍន៍កម្ពុជា
+{ "date": "2021-02-01T05:28:04+0000", "to": "2022-09-01T05:28:04+0000", "note": "Contracted System Developer, ក្រុមប្រឹក្សាអភិវឌ្ឍន៍កម្ពុជា
 (CDC)" },
 { "date": "2020-06-01T05:28:04+0000","to": "2021-07-01T05:28:04+0000", "note": "អ្នកដឹកនាំគម្រោង, Inklusivity, ភ្នំពេញ"},
 { "date": "2019-08-01T05:28:04+0000","to": "បច្ចុប្បន្ន", "note": "ធ្វើការឲ្យខ្លួនឯង (Freelance)" },
@@ -54,6 +54,4 @@ color3: "bg-aba"
 
 <my-timeline :biography="publications" :color="color3"></my-timeline>
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
-
+  
