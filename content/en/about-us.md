@@ -55,23 +55,3 @@ My real name is **(Kheang Kim Ang)** or in Chinese **强存志**
 ## Publications
 
 <my-timeline :biography="publications" :color="color3"></my-timeline>
-
-**オイラーの等式**
-$$
-e^{i\pi}+1= 0
-$$
-ネイピア数$e$、虚数$i$、円周率$\pi$と有名な定数に$0$と$1$がある全部入りの数式。
-
-**正規分布（ガウス分布）**
-$$
-f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp{-\frac{(x-\mu)^2}{2\sigma^2}}
-$$
-平均を$\mu$, 分散を$\sigma^2 \gt 0$とする正規分布とは、確率密度関数が次の形で与えられる確率密度関数。
-
-Here is an inline equation: $\\frac{1}{2} + \\frac{1}{3} = \\frac{5}{6}$
-
-Here is a display equation:
-
-$$
-\\int_{0}^{\\infty} x^2 e^{-x} dx = 2
-$$
