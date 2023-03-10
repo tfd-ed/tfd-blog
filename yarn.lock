@@ -20,20 +20,6 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
-"@animxyz/core@^0.6.6":
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/@animxyz/core/-/core-0.6.6.tgz#2c5eae54c7a6b98c3be79ae16fc1ec68991f67cc"
-  integrity sha512-NtAA/G0Gq3hzAiL6yuE/4U8IgHMPUl3MxbWUbhO443T9UCsf9rBY94P5aK79Zd+/529FeoNdDphIOcOZLsI2sA==
-
-"@animxyz/vue@^0.6.7":
-  version "0.6.7"
-  resolved "https://registry.yarnpkg.com/@animxyz/vue/-/vue-0.6.7.tgz#14c664958163311b7af61cf188fe3a6b4b10ae2d"
-  integrity sha512-qRBiae7QgobKjB/dtwbZnOJv10+vcIhqTLsOIEyiI5i8PZE18FsNm/24sgLQeYsGBgLSSJL6567PbwWxAih3UA==
-  dependencies:
-    "@animxyz/core" "^0.6.6"
-    clsx "^1.1.1"
-    vue-functional-data-merge "^3.1.0"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.16.7":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.16.7.tgz#44416b6bd7624b998f5b1af5d470856c40138789"
@@ -3484,9 +3470,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001228, caniuse-lite@^1.0.30001317:
-  version "1.0.30001317"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001317.tgz#0548fb28fd5bc259a70b8c1ffdbe598037666a1b"
-  integrity sha512-xIZLh8gBm4dqNX0gkzrBeyI86J2eCjWzYAs40q88smG844YIrN4tVQl/RhquHvKEKImWWFIVh1Lxe5n1G/N+GQ==
+  version "1.0.30001464"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001464.tgz"
+  integrity sha512-oww27MtUmusatpRpCGSOneQk2/l5czXANDSFvsc7VuOQ86s3ANhZetpwXNf1zY/zdfP63Xvjz325DAdAoES13g==
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -3735,11 +3721,6 @@ clone-response@^1.0.2:
   integrity sha512-ROoL94jJH2dUVML2Y/5PEDNaSHgeOdSDicUyS7izcF63G6sTc/FTjLub4b8Il9S8S0beOfYt0TaA5qvFK+w0wA==
   dependencies:
     mimic-response "^1.0.0"
-
-clsx@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
-  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
 
 co@^4.6.0:
   version "4.6.0"
@@ -4469,7 +4450,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-date-fns@^2.28.0:
+date-fns@2.28.0:
   version "2.28.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
   integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
@@ -9142,11 +9123,6 @@ nuxt-i18n@^6.28.1:
     ufo "^0.7.7"
     vue-i18n "^8.25.0"
 
-nuxt-youtube-subscribe-module@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/nuxt-youtube-subscribe-module/-/nuxt-youtube-subscribe-module-0.1.2.tgz#a12702b7e9a471fe34efb2d3158f14cf51a52f7e"
-  integrity sha512-UMJ1y1ZxL+g+ijaVU1Q7BFirzguxhsgUsAfPIhFNOB8rlaPRAWIF7HMdkleYMXFs2QIdD6/b9GqOJptHjTpf0w==
-
 nuxt@^2.15.8:
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"
@@ -13267,11 +13243,6 @@ vue-eslint-parser@^8.0.1, vue-eslint-parser@^8.3.0:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.5"
-
-vue-functional-data-merge@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/vue-functional-data-merge/-/vue-functional-data-merge-3.1.0.tgz#08a7797583b7f35680587f8a1d51d729aa1dc657"
-  integrity sha512-leT4kdJVQyeZNY1kmnS1xiUlQ9z1B/kdBFCILIjYYQDqZgLqCLa0UhjSSeRX6c3mUe6U5qYeM8LrEqkHJ1B4LA==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

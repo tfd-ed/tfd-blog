@@ -153,12 +153,6 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/toast",
     "@nuxtjs/auth-next",
-    [
-      "nuxt-youtube-subscribe-module",
-      {
-        tag: "YoutubeSubscribeButton",
-      },
-    ],
     // [
     //   "@nuxtjs/google-adsense",
     //   {
@@ -318,6 +312,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    analyze: true,
     // Add exception
     transpile: ["vee-validate/dist/rules"],
     html: {

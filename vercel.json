@@ -20,8 +20,14 @@
         ]
       }
     }
+    
   ],
   "buildCommand": "yarn build",
   "outputDirectory": "dist",
-  "framework": "nuxtjs"
+  "framework": "nuxtjs",
+  "functions": {
+    "pages/**": {
+      "excludeFiles": "node_modules/lodash/**"
+    }
+  }
 }

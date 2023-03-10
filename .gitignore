@@ -3,6 +3,7 @@
 # Logs
 /logs
 *.log
+/.pnp*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -98,4 +99,4 @@ sw.*
 
 # Vim swap files
 *.swp
-.vercel
+
