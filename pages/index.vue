@@ -1,23 +1,22 @@
 <template>
   <section class="px-4 py-12 mx-auto max-w-7xl">
-    <client-only>
-      <LazyHerosFounder />
-      <LazyCardsSocialCard />
-      <LazyCardsQuote
-        quote="about_quote"
-        owner="quote_owner"
-        image_quote="random_image"
-      >
-        <template #image>
-          <div class="flex flex-col space-y-2">
-            <img
-              src="https://picsum.photos/800"
-              class="object-cover w-36 h-full bg-center rounded-md shadow-xl"
-            />
-          </div>
-        </template>
-      </LazyCardsQuote>
-    </client-only>
+    <LazyHerosFounder class="box" />
+    <LazyCardsSocialCard class="box" />
+    <LazyCardsQuote
+      class="box"
+      quote="about_quote"
+      owner="quote_owner"
+      image_quote="random_image"
+    >
+      <template #image>
+        <div class="flex flex-col space-y-2">
+          <img
+            src="https://picsum.photos/800"
+            class="object-cover w-36 h-full bg-center rounded-md shadow-xl"
+          />
+        </div>
+      </template>
+    </LazyCardsQuote>
   </section>
 </template>
 
@@ -50,11 +49,24 @@ export default {
       ],
     };
   },
-  // mounted() {
-  //   // this.$auth.refreshTokens();
-  //   // this.$auth.strategy.token.reset();
-  //   // this.$auth.strategy.refreshToken.reset();
-  //   console.log(this.$auth.strategy.token.get());
-  // },
+  mounted() {
+    this.setAnimation();
+  },
+  methods: {
+    setAnimation() {
+      this.$anime.set(".box", {
+        opacity: 0,
+        translateY: 50,
+      });
+
+      this.$anime({
+        targets: ".box",
+        opacity: 1,
+        translateY: 0,
+        delay: this.$anime.stagger(100),
+        easing: "easeOutExpo",
+      });
+    },
+  },
 };
 </script>

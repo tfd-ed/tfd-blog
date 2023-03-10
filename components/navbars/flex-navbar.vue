@@ -48,7 +48,7 @@
 
       <div class="flex items-center justify-end flex-1">
         <nav
-          class="hidden lg:uppercase lg:text-gray-500 lg:tracking-wide lg:font-bold lg:text-xs lg:space-x-4 lg:flex"
+          class="hidden lg:uppercase lg:text-gray-500 lg:tracking-wide lg:font-bold lg:space-x-4 lg:flex"
         >
           <nuxt-link
             v-for="(route, index) in routes"
