@@ -20,6 +20,7 @@
         ]
       }
     }
+
   ],
   "buildCommand": "yarn build",
   "outputDirectory": "dist",
