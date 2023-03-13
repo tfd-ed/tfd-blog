@@ -1,7 +1,7 @@
 <template>
   <section class="px-4 py-12 mx-auto max-w-7xl">
     <LazyHerosFounder class="box" />
-    <LazyCardsSocialCard class="box" />
+    <LazyGlobalSocialCard class="box"/>
     <LazyCardsQuote
       class="box"
       quote="about_quote"
