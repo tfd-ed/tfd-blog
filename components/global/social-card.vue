@@ -29,7 +29,7 @@
       <div
         v-for="(item, index) in social"
         :key="index"
-        class="flex items-center justify-center"
+        class="flex items-center justify-center hover:scale-110 transition duration-100 ease-in-out"
       >
         <a :href="item.link" target="_blank">
           <img
