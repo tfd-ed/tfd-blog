@@ -1,7 +1,7 @@
 <template>
   <section class="px-4 py-12 mx-auto max-w-7xl">
     <LazyHerosFounder class="box" />
-    <LazyCardsSocialCard class="box" />
+    <SocialCard class="box"/>
     <LazyCardsQuote
       class="box"
       quote="about_quote"
@@ -21,8 +21,10 @@
 </template>
 
 <script>
+import SocialCard from "@/components/global/social-card";
 export default {
   name: "IndexPage",
+  components: {SocialCard},
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.$t("home"),
