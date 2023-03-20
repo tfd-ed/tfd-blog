@@ -24,14 +24,14 @@
           {{ $t("pay_via") }}
           <img src="https://i.imgur.com/MGe6N9C.png" class="h-14" />
         </button>
-        <button
-          v-if="getCourse.type === 'PAID'"
-          class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-bakong rounded-lg transition hover:scale-90"
-          @click="openPayment(getCourse.bkPaymentLink)"
-        >
-          {{ $t("pay_via") }}
-          <img src="/bakong_icon.png" class="h-14" />
-        </button>
+        <!--        <button-->
+        <!--          v-if="getCourse.type === 'PAID'"-->
+        <!--          class="flex items-center justify-center w-full px-8 py-2 mt-4 capitalize text-white bg-bakong rounded-lg transition hover:scale-90"-->
+        <!--          @click="openPayment(getCourse.bkPaymentLink)"-->
+        <!--        >-->
+        <!--          {{ $t("pay_via") }}-->
+        <!--          <img src="/bakong_icon.png" class="h-14" />-->
+        <!--        </button>-->
         <div class="space-y-2 py-4">
           <details class="group">
             <summary
@@ -147,11 +147,19 @@
             id="transaction_number"
             v-model="transaction_number"
             name="transaction_number"
-            label="transaction_number"
+            :label="
+              paymentType === 'ABA'
+                ? 'transaction_number'
+                : paymentType === 'Bakong'
+                ? 'transaction_number_bakong'
+                : 'transaction_number_other'
+            "
             :rules="
               paymentType === 'ABA'
                 ? 'required|digits:15'
-                : 'required|alpha_num|max:8'
+                : paymentType === 'Bakong'
+                ? 'required|alpha_num|max:8'
+                : 'required'
             "
             :auto-complete="false"
           />
@@ -231,7 +239,7 @@ export default {
     return {
       transaction_number: "",
       paymentType: "",
-      options: ["ABA", "Bakong"],
+      options: ["ABA", "Bakong", "Other (ACELEDA, Wing, etc.)"],
       loading: false,
       submitting: false,
       submitted: false,
