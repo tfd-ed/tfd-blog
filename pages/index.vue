@@ -1,7 +1,7 @@
 <template>
   <section class="px-4 py-12 mx-auto max-w-7xl">
     <LazyHerosFounder class="box" />
-    <SocialCard class="box"/>
+    <SocialCard class="box" />
     <LazyCardsQuote
       class="box"
       quote="about_quote"
@@ -11,6 +11,7 @@
       <template #image>
         <div class="flex flex-col space-y-2">
           <img
+            alt="random image"
             src="https://picsum.photos/800"
             class="object-cover w-36 h-full bg-center rounded-md shadow-xl"
           />
@@ -24,7 +25,7 @@
 import SocialCard from "@/components/global/social-card";
 export default {
   name: "IndexPage",
-  components: {SocialCard},
+  components: { SocialCard },
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.$t("home"),
