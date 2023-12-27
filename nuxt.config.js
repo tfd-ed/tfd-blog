@@ -21,8 +21,7 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   server: {
-    host: "0.0.0.0",
-    port: 7000,
+    port: 3000,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -152,7 +151,7 @@ export default {
     "@nuxtjs/sitemap",
     "@nuxtjs/axios",
     "@nuxtjs/toast",
-    "@nuxtjs/auth-next",
+    "@yashx/nuxt-auth-popup",
     // [
     //   "@nuxtjs/google-adsense",
     //   {
@@ -288,6 +287,43 @@ export default {
         },
         autoLogout: true,
       },
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        redirectUri: process.env.GOOGLE_CALLBACK_URL,
+        token: {
+          property: "accessToken",
+          type: "Bearer",
+        },
+        refreshToken: {
+          property: "refreshToken",
+        },
+        codeChallengeMethod: "",
+        responseType: "code",
+        accessType: "offline",
+        endpoints: {
+          token: `${process.env.BASE_URL}/v1/auth/google/callback/`,
+          userInfo: `${process.env.BASE_URL}/v1/auth/me/`,
+        },
+      },
+      github: {
+        clientId: process.env.GITHUB_CLIENT_ID,
+        // clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        redirectUri: process.env.GITHUB_CALLBACK_URL,
+        token: {
+          property: "accessToken",
+          required: true,
+          type: "Bearer",
+          global: true,
+        },
+        refreshToken: {
+          property: "refreshToken",
+          data: "refreshToken",
+        },
+        endpoints: {
+          token: `${process.env.BASE_URL}/v1/auth/github/callback`,
+          userInfo: `${process.env.BASE_URL}/v1/auth/me/`,
+        },
+      },
     },
   },
 
@@ -312,7 +348,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: true,
+    // analyze: true,
     // Add exception
     transpile: ["vee-validate/dist/rules"],
     html: {
