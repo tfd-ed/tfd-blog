@@ -11,7 +11,7 @@
   "dependencies": {
     "@nestjsx/crud-request": "^5.0.0-alpha.3",
     "@nuxt/content": "^1.15.1",
-    "@nuxtjs/auth-next": "5.0.0-1667386184.dfbbb54",
+    "@nuxtjs/auth-next": "5.0.0-1648802546.c9880dc",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/sitemap": "^2.4.0",

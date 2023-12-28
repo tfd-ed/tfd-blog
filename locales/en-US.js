@@ -1,4 +1,5 @@
 import en from "vee-validate/dist/locale/en.json";
+
 const messages = {
   name: "Name",
   firstname: "First name",
@@ -136,6 +137,8 @@ const messages = {
     "Your email is not verified! Please go to your email inbox or check in Spam folder to verify",
   thanks_for_purchase: "Thanks For Your Purchase",
   purchase_confirmation_done: "Purchase is Confirmed",
+  or_sign_in_with: "or sign in with",
+  continue_with: "Continue with",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

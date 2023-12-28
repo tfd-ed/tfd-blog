@@ -3,6 +3,27 @@ export default ({ app, store, $axios, redirect }) => {
     config.headers.common["Accept-Language"] = app.i18n.locale;
     // console.log(app.$auth.$storage.getState("_token.local"));
   });
+  $axios.onError((error) => {
+    const code = parseInt(error.response && error.response.status);
+
+    if (code === 400) {
+      const previousRegistration = store.getters["setting/getLoginType"];
+      const prefer = error.response.data.message;
+      setTimeout(() => {
+        app.router.push(
+          app.localePath(
+            `/integration?previous=${previousRegistration}&prefer=${prefer}`
+          )
+        );
+      });
+    }
+    // console.log(prefer);
+    // console.log(code);
+    // console.log(originalRequest.url);
+    // console.log(redirect);
+    // console.log(previousRegistration);
+    // console.log(app);
+  });
   /**
    * Refresh Token Upon Error
    */

@@ -1,4 +1,5 @@
 import kh from "../static/json/kh.json";
+
 const messages = {
   name: "ឈ្មោះ",
   firstname: "ឈ្មោះ",
@@ -138,6 +139,8 @@ const messages = {
     "អ៊ីមែលរបស់អ្នកមិនត្រូវបានផ្ទៀងផ្ទាត់ទេ! សូមចូលទៅកាន់ប្រអប់សំបុត្រអ៊ីមែលរបស់អ្នក ឬពិនិត្យមើលក្នុងថតសារ Spam ដើម្បីផ្ទៀងផ្ទាត់",
   thanks_for_purchase: "សូមអរគុណសំរាប់ការជាវ",
   purchase_confirmation_done: "ការបញ្ជាក់រួចរាល់",
+  or_sign_in_with: "រឺ ចូលជាមួយ",
+  continue_with: "បន្តជាមួយ",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

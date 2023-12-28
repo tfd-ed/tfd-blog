@@ -151,7 +151,8 @@ export default {
     "@nuxtjs/sitemap",
     "@nuxtjs/axios",
     "@nuxtjs/toast",
-    "@yashx/nuxt-auth-popup",
+    "@nuxtjs/auth-next",
+    // "@yashx/nuxt-auth-popup",
     // [
     //   "@nuxtjs/google-adsense",
     //   {
@@ -250,10 +251,10 @@ export default {
   // Nuxt Auth Plugin
   auth: {
     redirect: {
-      login: "/",
+      login: "/login",
       logout: "/",
-      callback: "/",
-      home: false,
+      callback: "/login",
+      home: "/",
     },
     resetOnError: false,
     rewriteRedirects: false,
@@ -301,8 +302,8 @@ export default {
         responseType: "code",
         accessType: "offline",
         endpoints: {
-          token: `${process.env.BASE_URL}/v1/auth/google/callback/`,
-          userInfo: `${process.env.BASE_URL}/v1/auth/me/`,
+          token: `${process.env.BASE_URL}/v1/auth/google/callback`,
+          userInfo: `${process.env.BASE_URL}/v1/auth/me`,
         },
       },
       github: {
@@ -311,9 +312,7 @@ export default {
         redirectUri: process.env.GITHUB_CALLBACK_URL,
         token: {
           property: "accessToken",
-          required: true,
           type: "Bearer",
-          global: true,
         },
         refreshToken: {
           property: "refreshToken",
@@ -321,7 +320,25 @@ export default {
         },
         endpoints: {
           token: `${process.env.BASE_URL}/v1/auth/github/callback`,
-          userInfo: `${process.env.BASE_URL}/v1/auth/me/`,
+          userInfo: `${process.env.BASE_URL}/v1/auth/me`,
+        },
+      },
+      facebook: {
+        clientId: process.env.FACEBOOK_APP_ID,
+        // clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        redirectUri: process.env.FACEBOOK_CALLBACK_URL,
+        token: {
+          property: "accessToken",
+          type: "Bearer",
+        },
+        refreshToken: {
+          property: "refreshToken",
+          data: "refreshToken",
+        },
+        responseType: "code",
+        endpoints: {
+          token: `${process.env.BASE_URL}/v1/auth/facebook/callback`,
+          userInfo: `${process.env.BASE_URL}/v1/auth/me`,
         },
       },
     },
