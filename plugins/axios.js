@@ -7,12 +7,15 @@ export default ({ app, store, $axios, redirect }) => {
     const code = parseInt(error.response && error.response.status);
 
     if (code === 400) {
-      const previousRegistration = store.getters["setting/getLoginType"];
-      const prefer = error.response.data.message;
+      const prefer = store.getters["setting/getLoginType"];
+      const previousRegistration =
+        error.response.data.integration[0].provider.toLowerCase();
+      const name = error.response.data.user.firstname;
+      const email = error.response.data.user.email;
       setTimeout(() => {
         app.router.push(
           app.localePath(
-            `/integration?previous=${previousRegistration}&prefer=${prefer}`
+            `/integration?previous=${previousRegistration}&prefer=${prefer}&name=${name}&email=${email}`
           )
         );
       });
