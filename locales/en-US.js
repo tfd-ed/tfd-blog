@@ -144,6 +144,9 @@ const messages = {
   already_registered_using: "is already registered using",
   please_sign_using: "Please sign in using",
   then_you_can_link: "then you can link to account with other social services.",
+  integration: "Integration",
+  integration_description:
+    "account was integrated and can be used for Single Sign-On",
   fields: {
     firstname: "Firstname",
     lastname: "Lastname",

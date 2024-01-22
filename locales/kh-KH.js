@@ -147,6 +147,9 @@ const messages = {
   please_sign_using: "សូមចូលដោយប្រើ",
   then_you_can_link:
     "បន្ទាប់មកអ្នកអាចភ្ជាប់គណនីរបស់អ្នកទៅកាន់សេវាផ្សេងៗទៀតតាមក្រោយ។",
+  integration: "ការភ្ជាប់ជាមួយបណ្តាញផ្សេងៗ",
+  integration_description:
+    "ត្រូវបានភ្ជាប់ដើម្បីចូលគណនីនេះដោយមិនបាច់ប្រើប្រាស់លេខសំងាត់",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

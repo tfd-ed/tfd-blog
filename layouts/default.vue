@@ -17,6 +17,7 @@
     <PurchaseModal />
     <UserRegistrationModal v-if="isGeeTestLoaded" />
     <ForgotPasswordModal v-if="isGeeTestLoaded" />
+    <IntegrationInfo />
     <Footer />
   </div>
 </template>
@@ -31,9 +32,11 @@ import ForgotPasswordModal from "../components/modals/forgot-password-modal";
 import PurchaseModal from "../components/modals/purchase-modal";
 import { mapGetters } from "vuex";
 import VerifyEmail from "@/components/announcements/verify-email";
+import IntegrationInfo from "@/components/modals/integration-info.vue";
 
 export default {
   components: {
+    IntegrationInfo,
     VerifyEmail,
     PurchaseModal,
     ForgotPasswordModal,
