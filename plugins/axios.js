@@ -5,11 +5,19 @@ export default ({ app, store, $axios, redirect }) => {
   });
   $axios.onError((error) => {
     const code = parseInt(error.response && error.response.status);
+    console.log(error.response.data);
+    console.log(code);
 
     if (code === 400) {
       const prefer = store.getters["setting/getLoginType"];
-      const previousRegistration =
-        error.response.data.integration[0].provider.toLowerCase();
+      let previousRegistration = "";
+      if (error.response.data.integration.length === 0) {
+        previousRegistration = "email";
+      } else {
+        previousRegistration =
+          error.response.data.integration[0].provider.toLowerCase();
+      }
+
       const name = error.response.data.user.firstname;
       const email = error.response.data.user.email;
       setTimeout(() => {
