@@ -8,21 +8,14 @@
       >
       <div class="flex space-x-4">
         <img
-          v-if="getCurrent.provider === 'GOOGLE'"
           class="h-7 w-7"
-          src="https://www.svgrepo.com/show/475656/google-color.svg"
-          alt=""
-        />
-        <img
-          v-if="getCurrent.provider === 'FACEBOOK'"
-          class="h-7 w-7"
-          src="https://www.svgrepo.com/show/448224/facebook.svg"
-          alt=""
-        />
-        <img
-          v-if="getCurrent.provider === 'GITHUB'"
-          class="h-7 w-7"
-          src="https://www.svgrepo.com/show/512317/github-142.svg"
+          :src="
+            getCurrent.provider === 'GOOGLE'
+              ? 'https://www.svgrepo.com/show/475656/google-color.svg'
+              : getCurrent.provider === 'FACEBOOK'
+              ? 'https://www.svgrepo.com/show/448224/facebook.svg'
+              : 'https://www.svgrepo.com/show/512317/github-142.svg'
+          "
           alt=""
         />
         <svg
