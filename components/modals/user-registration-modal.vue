@@ -72,6 +72,7 @@
               <ShadowButton text="sign_up" color="bg-green-700" />
             </button>
           </div>
+          <SocialSign />
           <label @click="close">
             <TosRemind />
           </label>
@@ -96,7 +97,8 @@
       </div>
       <div v-if="submitted" class="flex flex-row mx-auto py-24">
         <p class="text-center leading-relaxed items-center">
-          <DoneIcon class="inline" /> {{ $t("registration_done") }}<br />
+          <DoneIcon class="inline" />
+          {{ $t("registration_done") }}<br />
           {{ $t("please_check_email_inbox") }}
         </p>
       </div>
@@ -111,8 +113,11 @@ import TosRemind from "~/components/commons/tos-remind";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "~/components/inputs/basic-input";
 import GeneralContentLoading from "~/components/loadings/general-content-loading";
+import SocialSign from "@/components/commons/social-sign.vue";
+
 export default {
   components: {
+    SocialSign,
     GeneralContentLoading,
     BasicInput,
     ValidationObserver,

@@ -23,6 +23,7 @@
 
 <script>
 import SocialCard from "@/components/global/social-card";
+
 export default {
   name: "IndexPage",
   components: { SocialCard },
