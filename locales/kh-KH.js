@@ -1,4 +1,5 @@
 import kh from "../static/json/kh.json";
+
 const messages = {
   name: "ឈ្មោះ",
   firstname: "ឈ្មោះ",
@@ -138,6 +139,17 @@ const messages = {
     "អ៊ីមែលរបស់អ្នកមិនត្រូវបានផ្ទៀងផ្ទាត់ទេ! សូមចូលទៅកាន់ប្រអប់សំបុត្រអ៊ីមែលរបស់អ្នក ឬពិនិត្យមើលក្នុងថតសារ Spam ដើម្បីផ្ទៀងផ្ទាត់",
   thanks_for_purchase: "សូមអរគុណសំរាប់ការជាវ",
   purchase_confirmation_done: "ការបញ្ជាក់រួចរាល់",
+  or_sign_in_with: "រឺ ចូលជាមួយ",
+  continue_with: "បន្តជាមួយ",
+  hey: "សួស្តី",
+  we_found_that_your_email: "យើងរកឃើញថាអ៉ីមែលរបស់អ្នក",
+  already_registered_using: "ត្រូវបានយកទៅចុះឈ្មោះម្តងហើយដោយប្រើ",
+  please_sign_using: "សូមចូលដោយប្រើ",
+  then_you_can_link:
+    "បន្ទាប់មកអ្នកអាចភ្ជាប់គណនីរបស់អ្នកទៅកាន់សេវាផ្សេងៗទៀតតាមក្រោយ។",
+  integration: "ការភ្ជាប់ជាមួយបណ្តាញផ្សេងៗ",
+  integration_description:
+    "ត្រូវបានភ្ជាប់ដើម្បីចូលគណនីនេះដោយមិនបាច់ប្រើប្រាស់លេខសំងាត់",
   fields: {
     firstname: "ឈ្មោះ",
     lastname: "ត្រកូល",

@@ -119,6 +119,111 @@
                       {{ getAuth.email }}</span
                     >
                   </div>
+                  <div class="flex items-center justify-between py-3 text-sm">
+                    <div class="flex items-center space-x-2 text-gray-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 32 32"
+                      >
+                        <title>app-store</title>
+                        <g stroke-width="2" fill="#000000" stroke="#000000">
+                          <rect
+                            x="3"
+                            y="3"
+                            width="11"
+                            height="11"
+                            rx="2"
+                            fill="none"
+                            stroke="#000000"
+                            stroke-linecap="square"
+                            stroke-miterlimit="10"
+                          ></rect>
+                          <rect
+                            x="18.356"
+                            y="3.356"
+                            width="10.288"
+                            height="10.288"
+                            rx="1.871"
+                            transform="translate(0.873 19.107) rotate(-45)"
+                            fill="none"
+                            stroke-linecap="square"
+                            stroke-miterlimit="10"
+                          ></rect>
+                          <rect
+                            x="18"
+                            y="18"
+                            width="11"
+                            height="11"
+                            rx="2"
+                            fill="none"
+                            stroke="#000000"
+                            stroke-linecap="square"
+                            stroke-miterlimit="10"
+                          ></rect>
+                          <rect
+                            x="3"
+                            y="18"
+                            width="11"
+                            height="11"
+                            rx="2"
+                            fill="none"
+                            stroke="#000000"
+                            stroke-linecap="square"
+                            stroke-miterlimit="10"
+                          ></rect>
+                        </g>
+                      </svg>
+                      <span>{{ $t("integration") }}</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-1.5">
+                      <label
+                        v-for="(sso, index) in getIntegrations"
+                        :key="index"
+                        class="w-full flex items-center justify-center px-2 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer"
+                        for="integration-info"
+                        @click="setCurrent(sso)"
+                      >
+                        <img
+                          class="h-5 w-5"
+                          :src="
+                            sso.provider === 'GOOGLE'
+                              ? 'https://www.svgrepo.com/show/475656/google-color.svg'
+                              : sso.provider === 'FACEBOOK'
+                              ? 'https://www.svgrepo.com/show/448224/facebook.svg'
+                              : 'https://www.svgrepo.com/show/512317/github-142.svg'
+                          "
+                          alt=""
+                        />
+                      </label>
+                      <button
+                        v-for="(sso, index) in misIntegration"
+                        :key="index"
+                        class="w-full flex items-center justify-center px-2 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 hover:scale-110"
+                        @click="
+                          $auth.loginWith(
+                            sso.provider.toString().toLowerCase(),
+                            {
+                              params: { prompt: 'select_account' },
+                            }
+                          )
+                        "
+                      >
+                        <img
+                          class="h-5 w-5 grayscale"
+                          :src="
+                            sso.provider === 'GOOGLE'
+                              ? 'https://www.svgrepo.com/show/475656/google-color.svg'
+                              : sso.provider === 'GITHUB'
+                              ? 'https://www.svgrepo.com/show/449764/github.svg'
+                              : 'https://www.svgrepo.com/show/448224/facebook.svg'
+                          "
+                          alt=""
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,7 +335,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import { RequestQueryBuilder } from "@nestjsx/crud-request";
 import { ValidationObserver } from "vee-validate";
 // import * as nsfwjs from "nsfwjs";
@@ -243,6 +348,8 @@ export default {
     return {
       name: "",
       admin: {},
+      integration: [],
+      misIntegration: [],
       displayUsername: "",
       thumbnail: "",
       password: "",
@@ -271,11 +378,14 @@ export default {
         },
       }
     );
+    await this.fetchIntegration(this.getAuth.id);
+    this.misIntegration = this.findMissingIntegrations(this.getIntegrations);
     this.displayUsername = this.admin.username;
   },
   computed: {
     ...mapGetters({
       getAuth: "loggedInUser",
+      getIntegrations: "integration/getIntegration",
     }),
   },
 
@@ -376,6 +486,24 @@ export default {
         });
       }
     },
+    findMissingIntegrations(existingIntegrations) {
+      const allIntegrations = ["GOOGLE", "FACEBOOK", "GITHUB"];
+      const existingProviders = existingIntegrations.map(
+        (integration) => integration.provider
+      );
+
+      const missingIntegrations = allIntegrations.filter(
+        (integration) => !existingProviders.includes(integration)
+      );
+
+      return missingIntegrations.map((provider) => ({ provider }));
+    },
+    ...mapActions({
+      fetchIntegration: "integration/fetchIntegration",
+    }),
+    ...mapMutations({
+      setCurrent: "integration/SET_CURRENT",
+    }),
   },
 };
 </script>

@@ -55,6 +55,7 @@
             </div>
           </form>
         </ValidationObserver>
+        <SocialSign />
         <label @click="close">
           <TosRemind />
         </label>
@@ -95,8 +96,11 @@ import GeneralLoading from "~/components/loadings/general-loading";
 import { ValidationObserver } from "vee-validate";
 import BasicInput from "~/components/inputs/basic-input";
 import { mapGetters } from "vuex";
+import SocialSign from "~/components/commons/social-sign.vue";
+
 export default {
   components: {
+    SocialSign,
     BasicInput,
     ValidationObserver,
     GeneralLoading,
