@@ -38,6 +38,8 @@ I love expressing my opinion by writing. Writing improves my vocabulary. It can 
 
 The only knowledge I can share at that time (2014) was `English`. It wasn't perfect. Why did I have such a stomach to leave my comfort zone? I think it has something to do with `motivation`. I always have curiosity about how things work around me. I started a small blog with Google blogger when I was in grade 10. It wasn't a success, but it was fun. I learned about `html` and how to style my element. By keep doing this over and over, I gained knowledge and perfection along the way. I wasn't even aware of that. I hope this blog can inspire the younger generation to seek positive development in life.
 
+<social-card></social-card>
+
 ## A little bit about me
 
 **Chau Dara** is my norm de guerre where I used to present myself on social media

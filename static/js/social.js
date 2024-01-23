@@ -5,6 +5,11 @@ export const socialLink = [
     link: "https://www.facebook.com/ChauDaraScienceEngineer/",
   },
   {
+    src: "/logo/linkedin.png",
+    alt: "LinkedIn",
+    link: "https://www.linkedin.com/in/qiang-cun-zhi/",
+  },
+  {
     src: "/logo/Instagram_icon.webp",
     alt: "Facebook",
     link: "https://www.instagram.com/darachaukh/",
