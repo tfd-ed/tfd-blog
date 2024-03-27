@@ -2,7 +2,7 @@
   <section class="text-gray-600">
     <div class="flex flex-wrap w-full">
       <div class="lg:w-11/12 md:w-1/2">
-        <div v-for="(item, index) in biography" :key="index">
+        <div v-for="(item, index) in biography" :key="index" class="box">
           <div v-if="index === biography.length - 1" class="flex relative">
             <div
               class="flex-shrink-0 w-5 h-5 rounded-full inline-flex items-center justify-center text-white relative z-10 translate-x-1/2"
@@ -82,6 +82,25 @@ export default {
     color: {
       type: String,
       default: "bg-green-500",
+    },
+  },
+  mounted() {
+    this.setAnimation();
+  },
+  methods: {
+    setAnimation() {
+      this.$anime.set(".box", {
+        opacity: 0,
+        translateY: 50,
+      });
+
+      this.$anime({
+        targets: ".box",
+        opacity: 1,
+        translateY: 0,
+        delay: this.$anime.stagger(100),
+        easing: "easeOutExpo",
+      });
     },
   },
 };

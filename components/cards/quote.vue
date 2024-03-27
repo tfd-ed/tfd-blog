@@ -38,7 +38,7 @@
       </p>
       <div key="3" class="mb-3 shadow-lg avatar">
         <div class="w-56 md:w-72 lg:w-96 rounded">
-          <slot name="image"> </slot>
+          <slot name="image"></slot>
         </div>
       </div>
       <p

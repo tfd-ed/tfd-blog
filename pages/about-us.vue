@@ -1,6 +1,6 @@
 <template>
   <section class="px-4 py-24 mx-auto max-w-7xl">
-    <div class="mb-6 text-center md:text-center">
+    <div class="box mb-6 text-center md:text-center">
       <h1
         class="box mb-4 text-2xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
       >
@@ -10,7 +10,7 @@
     <!--    <LazyGlobalsMaintenance />-->
     <LazyCardsQuote class="box" quote="founder_quote" owner="chau_dara">
       <template #image>
-        <img src="/founder.jpg" alt="founder" />
+        <img src="/founder.jpeg" alt="founder" />
       </template>
     </LazyCardsQuote>
     <nuxt-content

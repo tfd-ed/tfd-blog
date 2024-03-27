@@ -1,5 +1,5 @@
 <template>
-  <section class="px-4 py-12 mx-auto max-w-7xl">
+  <div class="container px-4 py-12 mx-auto max-w-7xl">
     <LazyHerosFounder class="box" />
     <SocialCard class="box" />
     <LazyCardsQuote
@@ -18,7 +18,7 @@
         </div>
       </template>
     </LazyCardsQuote>
-  </section>
+  </div>
 </template>
 
 <script>
