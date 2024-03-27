@@ -10,15 +10,17 @@
       <FlexNavbar />
       <VerifyEmail v-if="isUnConfirmed" />
     </client-only>
-    <nuxt class="flex-grow" />
-    <CookiesInfo />
+    <main class="flex-1 overflow-y-scroll">
+      <nuxt />
+      <CookiesInfo />
+      <Footer />
+    </main>
     <CookiesModal />
     <LoginModal />
     <PurchaseModal />
     <UserRegistrationModal v-if="isGeeTestLoaded" />
     <ForgotPasswordModal v-if="isGeeTestLoaded" />
     <IntegrationInfo />
-    <Footer />
   </div>
 </template>
 <script>
