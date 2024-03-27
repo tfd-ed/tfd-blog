@@ -91,7 +91,7 @@
               class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400"
             >
               <img
-                src="/founder.jpg"
+                src="/founder.jpeg"
                 class="object-cover rounded-full"
                 alt="founder"
               />
@@ -152,6 +152,7 @@
 </template>
 <script>
 import Arrow from "@/components/icons/arrow";
+
 export default {
   components: { Arrow },
 };

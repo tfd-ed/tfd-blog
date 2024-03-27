@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 z-10 bg-gray-50 border-b border-2 border-gray-100"
+    class="z-10 bg-gray-50 border-b border-2 border-gray-100 sticky top-0"
   >
     <div
       class="flex items-center justify-between h-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8"
@@ -36,8 +36,8 @@
               exact
               :to="localePath(route.path)"
               class="capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-              >{{ $t(route.label) }}</nuxt-link
-            >
+              >{{ $t(route.label) }}
+            </nuxt-link>
           </ul>
         </div>
 
@@ -56,8 +56,8 @@
             exact
             :to="localePath(route.path)"
             class="capitalize block h-16 leading-[4rem] border-b-4 border-transparent hover:text-red-700 hover:border-current"
-            >{{ $t(route.label) }}</nuxt-link
-          >
+            >{{ $t(route.label) }}
+          </nuxt-link>
         </nav>
 
         <div class="flex items-center ml-8">
