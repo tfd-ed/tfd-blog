@@ -12,6 +12,7 @@ biography: [
 Self-driving Cars" }
 ]
 works: [
+{ "date": "2024-04-01T05:28:04+0000", "to": "Present", "note": "Instructor, CADT, Phnom Penh, Cambodia" },
 { "date": "2023-11-01T05:28:04+0000", "to": "2023-12-01T05:28:04+0000", "note": "Full Stack Engineer Intern, HENNGE, Tokyo, Japan" },
 { "date": "2021-02-01T05:28:04+0000", "to": "2021-09-01T05:28:04+0000", "note": "Contracted System Developer, The Council for the Development of Cambodia
 (CDC), Phnom Penh, Cambodia" },
