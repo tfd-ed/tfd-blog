@@ -1,6 +1,9 @@
 import en from "vee-validate/dist/locale/en.json";
 
 const messages = {
+  watch_video: "Watch Videos",
+  number_subscribers: "Number of Subscribers",
+  thanks_for_support: "Thanks for your continued support. Together, we are bringing empowered technology education to Cambodia!",
   name: "Name",
   firstname: "First name",
   lastname: "Lat name",

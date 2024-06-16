@@ -1,41 +1,42 @@
 <template>
-  <div
-    ref="counter"
-    class="mx-auto max-w-screen-xl px-4 py-4 lg:flex lg:h-screen lg:items-center"
-  >
+  <div class="mx-auto max-w-screen-xl px-4 py-4 lg:flex lg:items-center">
     <div class="mx-auto max-w-xl text-center">
-      <h1 class="text-3xl font-extrabold sm:text-5xl">
-        Number of Subscribers
-        <strong ref="subscriber" class="font-extrabold text-red-700 sm:block">
+      <YoutubeIcon class="w-48 md:w-52 mx-auto" />
+      <h1 class="sub-text text-3xl font-extrabold sm:text-5xl">
+        {{ $t("number_subscribers") }} -
+        <span class="font-extrabold text-red-700">
           {{ subscriber.value }}
-        </strong>
+        </span>
       </h1>
 
-      <p class="mt-4 sm:text-xl/relaxed">
-        Thanks for your continued support, together we bring empowered
-        technology education in Cambodia!
+      <p class="sub-text mt-4 sm:text-xl/relaxed">
+        {{ $t("thanks_for_support") }}
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a
           class="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
-          href="#"
+          href="https://youtube.com/@tfdevs"
+          target="_blank"
         >
-          Watch video
+          {{ $t("watch_video") }}
         </a>
 
-        <a
+        <nuxt-link
           class="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
-          href="#"
+          to="/about-us"
         >
-          Learn More
-        </a>
+          {{ $t("about_us") }}
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
 <script>
+import YoutubeIcon from "../icons/youtube-icon.vue";
+
 export default {
+  components: { YoutubeIcon },
   data() {
     return {
       subscriber: {
@@ -48,11 +49,34 @@ export default {
   },
   methods: {
     setAnimation() {
+      //Text
+      this.$anime.set(".sub-text", {
+        opacity: 0,
+        translateY: 50,
+      });
+
+      this.$anime({
+        targets: ".sub-text",
+        opacity: 1,
+        translateY: 0,
+        delay: this.$anime.stagger(500),
+        easing: "easeOutExpo",
+      });
+
       const instance = this;
       var subscriber = {
         value: 0,
       };
-      console.log(instance.$refs.subscriber);
+      this.$anime({
+        targets: subscriber,
+        value: "32K",
+        round: 1,
+        easing: "linear",
+        update: function () {
+          instance.subscriber = subscriber;
+        },
+      });
+
       this.$anime({
         targets: subscriber,
         value: "32K",

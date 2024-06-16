@@ -1,6 +1,9 @@
 import kh from "../static/json/kh.json";
 
 const messages = {
+  watch_video: "មើលវីដេអូ",
+  number_subscribers: "ចំនួនអ្នកជាវ",
+  thanks_for_support: "សូមអរគុណចំពោះការគាំទ្របន្តរបស់អ្នក។ យើងរួមគ្នានាំយកការអប់រំផ្នែកបច្ចេកវិទ្យាមកកម្ពុជា!",
   name: "ឈ្មោះ",
   firstname: "ឈ្មោះ",
   lastname: "ត្រកូល",
