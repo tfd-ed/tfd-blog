@@ -2,13 +2,13 @@
   <section>
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
       <div class="max-w-3xl">
-        <h2 class="text-3xl font-bold sm:text-4xl">
-          Let's Speard Technology For All
+        <h2 class="tfd-text text-3xl font-bold sm:text-4xl">
+          {{ $t("technology_for_all") }}
         </h2>
       </div>
 
       <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-        <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
+        <div class="tfd-image relative h-64 overflow-hidden sm:h-80 lg:h-full">
           <img
             alt=""
             src="/tfd-front.jpg"
@@ -16,23 +16,14 @@
           />
         </div>
 
-        <div class="lg:py-16">
+        <div class="lg:py-16 tfd-text">
           <article class="space-y-4 text-gray-600">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui
-              hic atque tenetur quis eius quos ea neque sunt, accusantium soluta
-              minus veniam tempora deserunt? Molestiae eius quidem quam
-              repellat.
+            <p class="italic font-semibold text-lg">
+              {{ $t("success_quote") }}
             </p>
 
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
-              explicabo quidem voluptatum voluptas illo accusantium ipsam quis,
-              vel mollitia? Vel provident culpa dignissimos possimus,
-              perferendis consectetur odit accusantium dolorem amet voluptates
-              aliquid, ducimus tempore incidunt quas. Veritatis molestias
-              tempora distinctio voluptates sint! Itaque quasi corrupti, sequi
-              quo odit illum impedit!
+            <p class="text-justify">
+              {{ $t("learn_to_update") }}
             </p>
           </article>
         </div>
@@ -42,11 +33,7 @@
 </template>
 
 <script>
-import ShadowButton from "../buttons/shadow-button.vue";
 export default {
-  components: {
-    ShadowButton,
-  },
   mounted() {
     this.setAnimation();
   },

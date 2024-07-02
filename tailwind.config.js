@@ -14,7 +14,11 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ["Source Sans Pro", "Kantumruy", ...defaultTheme.fontFamily.sans],
+      sans: [
+        "Playfair Display",
+        "Kantumruy Pro",
+        ...defaultTheme.fontFamily.sans,
+      ],
       mono: ["Georgia", "Noto Serif Khmer", ...defaultTheme.fontFamily.mono],
     },
     extend: {
@@ -23,6 +27,7 @@ module.exports = {
         aba: "#007297",
         bakong: "#f70110",
         tfd: "#dc2626",
+        cove: "#130f40",
       }),
       colors: (theme) => ({
         facebook: "#1778F2",
@@ -30,6 +35,7 @@ module.exports = {
         aba_dark: "#055d7c",
         bakong: "#f70110",
         tfd: "#dc2626",
+        cove: "#130f40",
       }),
     },
   },

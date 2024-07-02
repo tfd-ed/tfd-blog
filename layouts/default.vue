@@ -12,7 +12,7 @@
     </client-only>
     <main class="flex-1 overflow-y-scroll">
       <nuxt />
-      <CookiesInfo />
+      <!-- <CookiesInfo /> -->
       <Footer />
     </main>
     <CookiesModal />

@@ -1,9 +1,35 @@
 import kh from "../static/json/kh.json";
 
 const messages = {
+  bootcamps_description: `
+ពង្រឹងសក្តានុពលរបស់អ្នក និងចាប់យកជំនាញ IT ជាមួយ Bootcamp របស់យើង! Our intensive bootcamps in Fullstack Development, Data Science, Mobile App Development, and more are designed to equip you with the skills and experience needed to thrive in today’s tech-driven world. With expert instructors, hands-on projects, and a supportive community, Bootcamo helps you fast-track your journey to success. Join us today and step into your future with confidence!`,
+  class_start: "ចូលរៀន",
+  spam: "សំគាល់សារក្លែងក្លាយ - Spam Detection",
+  spam_description:
+    "Filter Out Spam: Learn to identify and filter out spam messages using powerful AI algorithms.",
+  rl: "AI រៀនតាមមនុស្ស - Reinforcement Learning",
+  rl_description:
+    "AI in Action: Train agents to learn and adapt in dynamic environments. Watch AI make decisions and improve over time!",
+  od: "សំគាល់វត្ថុ - Object Detection",
+  od_description:
+    "Spot It in Action: Unleash the power of AI to identify objects in real-time. Can you train the perfect model?",
+  da: "ឆ្លើយសំណួរទៅលើឯកសារ - Document Q&A",
+  da_description:
+    "Instant Answers: Dive into documents and extract information instantly with cutting-edge NLP tools.",
+  sum: "សង្ខេបអត្ថបទ - Summerization",
+  sum_description:
+    "Summarize It: Turn lengthy texts into concise summaries with advanced AI tools. Make information more accessible!",
+  ai_room_description: `ចូល​ទៅ​ក្នុង​ពិភព​ដ៏​គួរ​ឱ្យ​ចាប់​អារម្មណ៍​នៃ​បញ្ញា​សិប្បនិម្មិត ជា​កន្លែង​ដែល​ការ​ពិសោធន៍​ដោយ​ដៃ​ជួប​នឹង​ទ្រឹស្ដី​ដ៏​ទំនើប។ បញ្ចេញភាពច្នៃប្រឌិតរបស់អ្នកជាមួយនឹងឧបករណ៍AI របស់យើង មានដូចជា៖ Object Detection សួរសំណួរទៅលើឯកសារ និងច្រើនទៀត។ បន្ទប់ AI របស់យើងគឺជាច្រកផ្លូវរបស់អ្នកក្នុងការស្វែងយល់ពីគោលការណ៍នៅពីក្រោយបច្ចេកវិទ្យាទាំងនេះ ដែលធ្វើឲ្យការរៀនមានភាពសប្បាយរីករាយ និងមានឥទ្ធិពល។ មិន​ថា​អ្នក​ជា​អ្នក​ចាប់ផ្តើម​ដែល​ចង់​ដឹង​ចង់​ដឹង ឬ​ជា​អ្នក​ជំនាញ​ដែល​ប្រាថ្នា​ចង់​បាន​ទេ សូម​ស្វែង​រក​លទ្ធភាព​គ្មាន​ដែន​កំណត់​នៃ AI ជាមួយ​យើង!`,
+  ai_portal: "បន្ទប់ AI",
+  bootcamp: "Bootcamps",
+  success_quote:
+    "ខ្ញុំគិតថា ភាពជោគជ័យមិនមែនស្ថិតលើការទទួលបានរង្វាន់ម្តងៗនោះទេ ភាពជោគជ័យគឺជាដំណើរការវិវត្តន៏ទៅមុខ មានន័យថា យើងចេះដួលងើប នឹង កែប្រែខ្លួនឯង ទទួលស្គាល់ចំណុចខ្វះខាត នៅចំពោះមុខការបរាជ័យ។",
+  technology_for_all: "នាំយកបច្ចេកវិទ្យាសំរាប់ទាំងអស់គ្នា!",
+  learn_to_update: `កុំនៅជាប់តែជាមួយអ្វីដែលយើងចេះ! (Don’t be stuck with what you already know) ត្រូវមានទំលាប់ ចេះរៀនអ្វីថ្មីៗ នឹងដេញតាម បច្ចេកវិទ្យាដែលចេញមកថ្មីៗ។ ពេលមាន Technology អីថ្មីៗចេញមក ត្រូវសួរខ្លួនឯងថា "តើវាមានប្រយោជន៍អ្វីចំពោះ Project យើង បច្ចុប្បន្ន បើយើងយកវាមកបញ្ចូលលើ Project ដែលយើងមានហើយ តើ Project យើងអាចប្រសើរឡើងលើចំណុចណាខ្លះ? ហេតុអ្វីគេផ្សេងកំពុងសិក្សាចង់ប្រើវា?"។ ឃើញសិស្សយើងមួយចំនួន ចេញពីសាលាមកប្រើ PHP គិតចង់ប្រើវាមួយជីវិត នឹង គ្មានចំណង់សាកល្បងអីថ្មី! ចឹងហើយឱកាសការងារយើងក៏មិនទូលំទូលាយព្រោះ ក្រុមហ៊ុនក៏គេត្រូវការប្រើ អីថ្មីៗរហូតដើម្បីឲ្យផលិតផលគេល្អដែរ ចឹងគេត្រូវការបុគ្គលិកដែលចូលចិត្តរៀន នឹង រៀនបានលឿន!`,
   watch_video: "មើលវីដេអូ",
   number_subscribers: "ចំនួនអ្នកជាវ",
-  thanks_for_support: "សូមអរគុណចំពោះការគាំទ្របន្តរបស់អ្នក។ យើងរួមគ្នានាំយកការអប់រំផ្នែកបច្ចេកវិទ្យាមកកម្ពុជា!",
+  thanks_for_support:
+    "សូមអរគុណចំពោះការគាំទ្របន្តរបស់អ្នក។ យើងរួមគ្នានាំយកការអប់រំផ្នែកបច្ចេកវិទ្យាមកកម្ពុជា!",
   name: "ឈ្មោះ",
   firstname: "ឈ្មោះ",
   lastname: "ត្រកូល",

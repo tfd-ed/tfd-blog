@@ -20,7 +20,7 @@ works: [
 { "date": "2019-08-01T05:28:04+0000","to": "បច្ចុប្បន្ន", "note": "ធ្វើការឲ្យខ្លួនឯង (Freelance)" },
 ]
 publications: [
-{ "date": "2023-09-24T01:17:26.000Z", "note": "Intersection Crossing using Policy Optimization with Beta Distribution for Continuous" , "note2":"IEEE Shinetsu Section" , "note3" : "Kheang Kim Ang, Tatsuya Yamazaki" },
+{ "date": "2023-09-24T01:17:26.000Z", "note": "Intersection Crossing using Policy Optimization with Beta Distribution for Continuous Action" , "note2":"IEEE Shinetsu Section" , "note3" : "Kheang Kim Ang, Tatsuya Yamazaki" },
 { "date": "2022-12-23T01:17:26.000Z", "note": "Multi-Agents Approach to Autonomous Vehicles in Intersection Crossing" , "note2":"Niigata University Student Branch 13th Student Research Presentation Exchange Meeting" , "note3" : "Kheang Kim Ang, Tatsuya Yamazaki" },
 { "date": "2018-10-01T05:28:04+0000", "note": "A New Model for Simulating and Evaluating Congestion Cause at Signalized
 Intersection, Phnom Penh, Cambodia" , "note2" :"KSII The 10th International Conference on Internet (ICONI) 2018." , "note3": "KimAng Kheang, Sokchea Kor, Sovila Srun"},
