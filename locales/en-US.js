@@ -1,6 +1,8 @@
 import en from "vee-validate/dist/locale/en.json";
 
 const messages = {
+  fullstack_description: "",
+  ai_datascience_description: "",
   bootcamps_description: `
 Unlock your potential and transform your career with Bootcamo! Our intensive bootcamps in Fullstack Development, Data Science, Mobile App Development, and more are designed to equip you with the skills and experience needed to thrive in today’s tech-driven world. With expert instructors, hands-on projects, and a supportive community, Bootcamo helps you fast-track your journey to success. Join us today and step into your future with confidence!`,
   class_start: "Starting",
@@ -29,8 +31,8 @@ Unlock your potential and transform your career with Bootcamo! Our intensive boo
   of AI with us!`,
   ai_portal: "AI Room",
   bootcamp: "Bootcamps",
-  success_quote: `Success isn’t just about winning prizes; it’s about the journey. True success is found in resilience, bouncing back stronger with each setback.",
-  technology_for_all: "Let's Speard Technology For All`,
+  success_quote: `Success isn’t just about winning prizes; it’s about the journey. True success is found in resilience, bouncing back stronger with each setback.`,
+  technology_for_all: `Let's Speard Technology For All`,
   learn_to_update: `Don't get stuck in what you know! It's crucial to embrace continuous learning and stay updated with the latest technology trends. When new tech emerges, take a moment to ask yourself, "What good is a project if it just blends in with everything else out there?" It's important to stand out and innovate.
 
   I've seen some of our students leave school and cling to PHP, thinking they can rely on it for their entire careers without exploring anything new. This mindset can be limiting. In today's fast-paced tech world, job opportunities are abundant but also highly competitive. Companies are constantly seeking employees who are not only skilled but also eager to learn and adapt quickly.

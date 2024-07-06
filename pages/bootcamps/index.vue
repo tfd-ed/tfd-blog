@@ -48,6 +48,7 @@
           :title="item.title"
           :description="item.description"
           :path="item.path"
+          :launched="item.launched"
         >
           <template #icon>
             <svg

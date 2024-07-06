@@ -1,6 +1,8 @@
 import kh from "../static/json/kh.json";
 
 const messages = {
+  fullstack_description: "",
+  ai_datascience_description: "",
   bootcamps_description: `
 ពង្រឹងសក្តានុពលរបស់អ្នក និងចាប់យកជំនាញ IT ជាមួយ Bootcamp របស់យើង! Our intensive bootcamps in Fullstack Development, Data Science, Mobile App Development, and more are designed to equip you with the skills and experience needed to thrive in today’s tech-driven world. With expert instructors, hands-on projects, and a supportive community, Bootcamo helps you fast-track your journey to success. Join us today and step into your future with confidence!`,
   class_start: "ចូលរៀន",

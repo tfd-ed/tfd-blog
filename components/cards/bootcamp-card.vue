@@ -37,18 +37,43 @@
       </div>
 
       <div class="sm:flex sm:items-end sm:justify-end">
-        <a
-          href="#"
+        <nuxt-link
+          v-if="launched == true"
+          :to="`${path}`"
           class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
         >
           {{ $t("enroll") }}
-        </a>
+        </nuxt-link>
+        <div
+          v-else
+          class="block bg-tfd px-5 py-3 text-center text-xs font-bold uppercase text-white transition hover:bg-red-700"
+        >
+          {{ $t("coming") }}
+        </div>
       </div>
     </div>
   </article>
 </template>
 <script>
 export default {
-  props: ["path", "title", "description"],
+  // props: ["path", "title", "description", "status"],
+  props: {
+    path: {
+      type: String,
+      default: "",
+    },
+    title: {
+      type: String,
+      default: "",
+    },
+    description: {
+      type: String,
+      default: "",
+    },
+    launched: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
