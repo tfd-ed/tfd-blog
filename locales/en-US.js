@@ -2,7 +2,9 @@ import en from "vee-validate/dist/locale/en.json";
 
 const messages = {
   fullstack_description: "",
+  fullstack: "Fullstack",
   ai_datascience_description: "",
+  ai_datascience: "Data Scicence and AI",
   bootcamps_description: `
 Unlock your potential and transform your career with Bootcamo! Our intensive bootcamps in Fullstack Development, Data Science, Mobile App Development, and more are designed to equip you with the skills and experience needed to thrive in today’s tech-driven world. With expert instructors, hands-on projects, and a supportive community, Bootcamo helps you fast-track your journey to success. Join us today and step into your future with confidence!`,
   class_start: "Starting",

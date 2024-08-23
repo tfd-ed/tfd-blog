@@ -77,10 +77,10 @@
 </template>
 <script>
 import { bootcamps } from "../../static/js/bootcamps.js";
-import AiCard from "../../components/cards/ai-card.vue";
+
 import BootcampsCard from "../../components/cards/bootcamp-card.vue";
 export default {
-  components: { AiCard, BootcampsCard },
+  components: { BootcampsCard },
   data() {
     return {
       routes: bootcamps,

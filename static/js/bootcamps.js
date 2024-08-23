@@ -11,7 +11,7 @@ export const bootcamps = [
   },
   {
     path: "bootcamps/ai-datascience",
-    title: "ai-datascience",
+    title: "ai_datascience",
     launched: true,
     image: "/assets/ai-datascience-image.jpg",
     description: "ai_datascience_description",
