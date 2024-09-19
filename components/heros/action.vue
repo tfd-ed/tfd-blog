@@ -79,7 +79,7 @@ export default {
 
       this.$anime({
         targets: subscriber,
-        value: "32K",
+        value: "33K",
         round: 1,
         easing: "linear",
         update: function () {
