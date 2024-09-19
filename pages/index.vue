@@ -1,6 +1,8 @@
 <template>
   <div class="container px-4 py-12 mx-auto max-w-7xl">
-    <LazyHerosFounder class="box" />
+    <BannerContent />
+    <Action />
+    <!-- <LazyHerosFounder class="box" /> -->
     <SocialCard class="box" />
     <LazyCardsQuote
       class="box"
@@ -23,10 +25,11 @@
 
 <script>
 import SocialCard from "@/components/global/social-card";
-
+import BannerContent from "@/components/heros/banner-content.vue";
+import Action from "@/components/heros/action.vue";
 export default {
   name: "IndexPage",
-  components: { SocialCard },
+  components: { SocialCard, BannerContent, Action },
   head() {
     return {
       title: this.$config.SITE_TITLE + " | " + this.$t("home"),

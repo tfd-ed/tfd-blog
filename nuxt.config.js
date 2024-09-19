@@ -21,8 +21,8 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   server: {
-    // host: "0.0.0.0",
-    port: 3000,
+    host: "0.0.0.0",
+    port: process.env.PORT,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -91,15 +91,8 @@ export default {
   googleFonts: {
     display: "swap",
     families: {
-      Kantumruy: {
-        wght: [300, 400, 700],
-      },
-      "Source Sans Pro": {
-        wght: [300, 400, 700],
-      },
-      "Noto Serif Khmer": {
-        wght: [300, 400, 700],
-      },
+      "Kantumruy Pro": "100..700",
+      "Playfair Display": "100..700",
     },
     subsets: ["latin", "khmer"],
   },
