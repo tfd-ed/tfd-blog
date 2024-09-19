@@ -1,6 +1,49 @@
 import en from "vee-validate/dist/locale/en.json";
 
 const messages = {
+  fullstack_description: "",
+  fullstack: "Fullstack",
+  ai_datascience_description: "",
+  ai_datascience: "Data Scicence and AI",
+  bootcamps_description: `
+Unlock your potential and transform your career with Bootcamo! Our intensive bootcamps in Fullstack Development, Data Science, Mobile App Development, and more are designed to equip you with the skills and experience needed to thrive in today’s tech-driven world. With expert instructors, hands-on projects, and a supportive community, Bootcamo helps you fast-track your journey to success. Join us today and step into your future with confidence!`,
+  class_start: "Starting",
+  spam: "Spam Detection",
+  spam_description:
+    "Filter Out Spam: Learn to identify and filter out spam messages using powerful AI algorithms.",
+  rl: "Reinforcement Learning",
+  rl_description:
+    "AI in Action: Train agents to learn and adapt in dynamic environments. Watch AI make decisions and improve over time!",
+  od: "Object Detection",
+  od_description:
+    "Spot It in Action: Unleash the power of AI to identify objects in real-time. Can you train the perfect model?",
+  da: "Document Q&A",
+  da_description:
+    "Instant Answers: Dive into documents and extract information instantly with cutting-edge NLP tools.",
+  sum: "Summerization",
+  sum_description:
+    "Summarize It: Turn lengthy texts into concise summaries with advanced AI tools. Make information more accessible!",
+  ai_room_description: `Dive into the fascinating world of artificial intelligence where
+  hands- on experimentation meets cutting-edge theory.Unleash your
+  creativity with our interactive tools: detect objects in real - time,
+  get instant answers from documents, and much more.Our AI Room is your
+  gateway to understanding the principles behind these technologies,
+  making learning both fun and impactful.Whether you're a curious
+  beginner or an aspiring expert, discover the limitless possibilities
+  of AI with us!`,
+  ai_portal: "AI Room",
+  bootcamp: "Bootcamps",
+  success_quote: `Success isn’t just about winning prizes; it’s about the journey. True success is found in resilience, bouncing back stronger with each setback.`,
+  technology_for_all: `Let's Speard Technology For All`,
+  learn_to_update: `Don't get stuck in what you know! It's crucial to embrace continuous learning and stay updated with the latest technology trends. When new tech emerges, take a moment to ask yourself, "What good is a project if it just blends in with everything else out there?" It's important to stand out and innovate.
+
+  I've seen some of our students leave school and cling to PHP, thinking they can rely on it for their entire careers without exploring anything new. This mindset can be limiting. In today's fast-paced tech world, job opportunities are abundant but also highly competitive. Companies are constantly seeking employees who are not only skilled but also eager to learn and adapt quickly.
+  
+  Innovation drives success, and to innovate, you need to be open to new ideas and technologies. By expanding your skill set and staying current, you make yourself a more valuable asset to any team. Remember, the best products are created by those who push boundaries and continuously strive for improvement. So, make it a habit to learn new things and keep up with the latest advancements. This proactive approach will open up wider job opportunities and ensure you remain relevant in the ever-evolving tech landscape.`,
+  watch_video: "Watch Videos",
+  number_subscribers: "Subscribers",
+  thanks_for_support:
+    "Thanks for your continued support. Together, we are bringing empowered technology education to Cambodia!",
   name: "Name",
   firstname: "First name",
   lastname: "Lat name",
