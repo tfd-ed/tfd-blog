@@ -19,13 +19,6 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    script: [
-      {
-        src: "https://analytics.tfdevs.com/js/script.hash.outbound-links.tagged-events.js",
-        defer: true,
-        "data-domain": "tfdevs.com",
-      },
-    ],
   },
   server: {
     host: "0.0.0.0",
