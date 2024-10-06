@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="dark:bg-gray-800 font-sans bg-white relative flex flex-col h-screen"
-  >
+  <div class="dark:bg-gray-800 font-sans bg-white relative flex flex-col h-screen">
     <client-only>
       <vue-scroll-indicator color="#dc2626" background="#f3f4f6" height="4px">
       </vue-scroll-indicator>
@@ -72,7 +70,7 @@ export default {
           },
         },
         {
-          src: "https://plausible.io/js/script.js",
+          src: "https://analytics.tfdevs.com/js/script.hash.outbound-links.tagged-events.js",
           defer: true,
           "data-domain": "tfdevs.com",
         },
