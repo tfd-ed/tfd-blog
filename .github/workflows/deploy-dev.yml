@@ -1,0 +1,85 @@
+name: Deploy to Dev
+
+on:
+  push:
+    branches: [develop, dev]
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted]
+
+    env:
+      IMAGE_LOCAL: localhost:5000/tfd-blog
+      IMAGE_REGISTRY: registry.homelab.local/tfd-blog
+      ENVIRONMENT: dev
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -f Dockerfile-k8s . \
+            --build-arg API_BASE_URL=https://api-dev.tfdevs.com \
+            --build-arg APP_NAME="TFD Blog (Dev)" \
+            -t $IMAGE_LOCAL:$ENVIRONMENT-${{ github.sha }} \
+            -t $IMAGE_LOCAL:$ENVIRONMENT-latest \
+            -t $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }} \
+            -t $IMAGE_REGISTRY:$ENVIRONMENT-latest
+
+      - name: Push to registry
+        run: |
+          docker push $IMAGE_LOCAL:$ENVIRONMENT-latest
+          docker push $IMAGE_LOCAL:$ENVIRONMENT-${{ github.sha }}
+
+          docker push $IMAGE_REGISTRY:$ENVIRONMENT-latest
+          docker push $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}
+
+      - name: Verify image
+        run: |
+          echo "Dev images pushed successfully:"
+          echo "  - $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}"
+          echo "  - $IMAGE_REGISTRY:$ENVIRONMENT-latest"
+
+      - name: Verify image is pullable
+        run: |
+          docker pull $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}
+          echo "✓ Image pull successful"
+
+      - name: Deploy Reloader (if not exists)
+        run: |
+          if ! kubectl get namespace reloader &> /dev/null; then
+            echo "Deploying Reloader..."
+            kubectl apply -f k8s/reloader.yaml
+            echo "✓ Reloader deployed"
+          else
+            echo "✓ Reloader already exists"
+          fi
+
+      - name: Deploy to Dev Kubernetes
+        run: |
+          kubectl apply -f k8s/namespaces.yaml
+          kubectl apply -f k8s/dev/service.yaml
+          kubectl apply -f k8s/dev/deployment.yaml
+          kubectl apply -f k8s/dev/ingress.yaml
+
+      - name: Update deployment image
+        run: |
+          kubectl set image deployment/tfd-blog-$ENVIRONMENT \
+            tfd-blog=$IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }} \
+            -n $ENVIRONMENT
+          echo "Updated $ENVIRONMENT deployment to: $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}"
+
+      - name: Wait for rollout
+        run: |
+          kubectl rollout status deployment/tfd-blog-$ENVIRONMENT -n $ENVIRONMENT --timeout=5m
+
+      - name: Verify deployment
+        run: |
+          echo "Dev deployment completed successfully!"
+          kubectl get pods -n $ENVIRONMENT -l app=tfd-blog -o wide
+          kubectl get svc -n $ENVIRONMENT tfd-blog-service
+          kubectl get ingress -n $ENVIRONMENT tfd-blog-ingress
