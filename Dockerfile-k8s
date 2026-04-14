@@ -67,9 +67,11 @@ RUN apk add --no-cache --virtual .build-deps \
     giflib \
     libwebp
 
-# Install only production dependencies
+# Copy package files for reference
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=true && yarn cache clean
+
+# Copy node_modules from builder (includes all dependencies needed for SSR)
+COPY --from=builder /app/node_modules ./node_modules
 
 # Remove build dependencies to reduce image size
 RUN apk del .build-deps
