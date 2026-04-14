@@ -3,9 +3,7 @@
     <div class="px-4 py-6 mx-auto">
       <div class="max-w-6xl pt-24 mx-auto">
         <div class="mb-6 text-left md:text-center">
-          <h1
-            class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize"
-          >
+          <h1 class="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl capitalize">
             {{ $t("course") }}
           </h1>
         </div>
@@ -35,11 +33,8 @@
             <!--              </XyzTransitionGroup>-->
             <!--            </client-only>-->
             <div class="flex flex-wrap -m-4 justify-center">
-              <LazyCardsCourseCard
-                v-for="(course, index) in courses"
-                :key="index"
-                :course="course"
-              ></LazyCardsCourseCard>
+              <LazyCardsCourseCard v-for="(course, index) in courses" :key="index" :course="course">
+              </LazyCardsCourseCard>
             </div>
           </div>
         </div>
@@ -53,7 +48,7 @@
     </div>
   </section>
 </template>
-<script>
+<script setup>
 import { mapActions, mapMutations } from "vuex";
 // import CourseCard from "../../components/cards/course-card";
 import { createHelpers } from "vuex-map-fields";

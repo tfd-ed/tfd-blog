@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tfd-blog-service
+  namespace: dev
+  labels:
+    app: tfd-blog
+    environment: dev
+spec:
+  type: ClusterIP
+  selector:
+    app: tfd-blog
+    environment: dev
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP
+  sessionAffinity: None

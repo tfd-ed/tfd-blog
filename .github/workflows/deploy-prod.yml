@@ -1,0 +1,103 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted]
+
+    env:
+      IMAGE_LOCAL: localhost:5000/tfd-blog
+      IMAGE_REGISTRY: registry.homelab.local/tfd-blog
+      ENVIRONMENT: prod
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -f Dockerfile-k8s . \
+            --build-arg API_BASE_URL=https://api.tfdevs.com \
+            --build-arg APP_NAME="TFD Blog" \
+            -t $IMAGE_LOCAL:$ENVIRONMENT-${{ github.sha }} \
+            -t $IMAGE_LOCAL:$ENVIRONMENT-latest \
+            -t $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }} \
+            -t $IMAGE_REGISTRY:$ENVIRONMENT-latest
+
+      - name: Push to registry
+        run: |
+          docker push $IMAGE_LOCAL:$ENVIRONMENT-latest
+          docker push $IMAGE_LOCAL:$ENVIRONMENT-${{ github.sha }}
+
+          docker push $IMAGE_REGISTRY:$ENVIRONMENT-latest
+          docker push $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}
+
+      - name: Verify image
+        run: |
+          echo "Production images pushed successfully:"
+          echo "  - $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}"
+          echo "  - $IMAGE_REGISTRY:$ENVIRONMENT-latest"
+
+      - name: Verify image is pullable
+        run: |
+          docker pull $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}
+          echo "✓ Image pull successful"
+
+      - name: Deploy Reloader (if not exists)
+        run: |
+          if ! kubectl get namespace reloader &> /dev/null; then
+            echo "Deploying Reloader..."
+            kubectl apply -f k8s/reloader.yaml
+            echo "✓ Reloader deployed"
+          else
+            echo "✓ Reloader already exists"
+          fi
+
+      - name: Deploy to Production Kubernetes
+        run: |
+          kubectl apply -f k8s/namespaces.yaml
+          kubectl apply -f k8s/prod/service.yaml
+          kubectl apply -f k8s/prod/deployment.yaml
+          kubectl apply -f k8s/prod/ingress.yaml
+
+      - name: Update deployment image
+        run: |
+          kubectl set image deployment/tfd-blog-$ENVIRONMENT \
+            tfd-blog=$IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }} \
+            -n $ENVIRONMENT
+          echo "Updated $ENVIRONMENT deployment to: $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}"
+
+      - name: Wait for rollout
+        run: |
+          kubectl rollout status deployment/tfd-blog-$ENVIRONMENT -n $ENVIRONMENT --timeout=5m
+
+      - name: Verify deployment
+        run: |
+          echo "Production deployment completed successfully!"
+          kubectl get pods -n $ENVIRONMENT -l app=tfd-blog -o wide
+          kubectl get svc -n $ENVIRONMENT tfd-blog-service
+          kubectl get ingress -n $ENVIRONMENT tfd-blog-ingress
+
+      - name: Deployment summary
+        run: |
+          echo "========================================="
+          echo "Production Deployment Summary"
+          echo "========================================="
+          echo "Image: $IMAGE_REGISTRY:$ENVIRONMENT-${{ github.sha }}"
+          echo "Namespace: $ENVIRONMENT"
+          echo "Replicas: $(kubectl get deployment tfd-blog-$ENVIRONMENT -n $ENVIRONMENT -o jsonpath='{.status.replicas}')"
+          echo "========================================="
+          echo "========================================="
+          echo "🚀 Production Deployment Complete!"
+          echo "========================================="
+          echo "Image: $IMAGE_REGISTRY:prod-${{ github.sha }}"
+          echo "URL: https://tfdevs.com"
+          echo "Replicas: $(kubectl get deployment tfd-blog-prod -n prod -o jsonpath='{.status.readyReplicas}')/$(kubectl get deployment tfd-blog-prod -n prod -o jsonpath='{.spec.replicas}')"
+          echo "========================================="

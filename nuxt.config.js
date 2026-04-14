@@ -45,7 +45,10 @@ export default {
     { src: "~/plugins/vue2-filters.js", mode: "client" },
     { src: "~/plugins/pusher.js", mode: "client" },
   ],
-  serverMiddleware: [{ path: "/api", handler: "~/api/recaptcha.js" }],
+  serverMiddleware: [
+    { path: "/api", handler: "~/api/recaptcha.js" },
+    { path: "/api", handler: "~/api/health.js" },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
