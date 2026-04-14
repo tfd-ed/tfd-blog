@@ -1,0 +1,148 @@
+# Reloader - Auto-restart pods on ConfigMap/Secret changes
+# https://github.com/stakater/Reloader
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: reloader
+  labels:
+    name: reloader
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: reloader
+  namespace: reloader
+  labels:
+    app: reloader
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: reloader
+  labels:
+    app: reloader
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+      - configmaps
+    verbs:
+      - list
+      - get
+      - watch
+  - apiGroups:
+      - "apps"
+    resources:
+      - deployments
+      - daemonsets
+      - statefulsets
+    verbs:
+      - list
+      - get
+      - update
+      - patch
+  - apiGroups:
+      - "extensions"
+    resources:
+      - deployments
+      - daemonsets
+    verbs:
+      - list
+      - get
+      - update
+      - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: reloader
+  labels:
+    app: reloader
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: reloader
+subjects:
+  - kind: ServiceAccount
+    name: reloader
+    namespace: reloader
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reloader
+  namespace: reloader
+  labels:
+    app: reloader
+    version: v1.0.0
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: reloader
+  template:
+    metadata:
+      labels:
+        app: reloader
+    spec:
+      serviceAccountName: reloader
+      containers:
+        - name: reloader
+          image: stakater/reloader:v1.0.56
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 9090
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 65534
+      securityContext:
+        fsGroup: 65534
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reloader
+  namespace: reloader
+  labels:
+    app: reloader
+spec:
+  selector:
+    app: reloader
+  ports:
+    - name: http
+      port: 9090
+      targetPort: http
+      protocol: TCP
+  type: ClusterIP

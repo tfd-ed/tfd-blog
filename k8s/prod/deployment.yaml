@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tfd-blog-prod
+  namespace: prod
+  labels:
+    app: tfd-blog
+    environment: prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tfd-blog
+      environment: prod
+  template:
+    metadata:
+      labels:
+        app: tfd-blog
+        environment: prod
+      annotations:
+        # Auto-restart on config/secret changes
+        reloader.stakater.com/auto: "true"
+    spec:
+      containers:
+        - name: tfd-blog
+          image: registry.homelab.local/tfd-blog:prod-latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: HOST
+              value: "0.0.0.0"
+            - name: PORT
+              value: "3000"
+            - name: WEB_URL
+              value: "https://www.tfdevs.com"
+            - name: BASE_URL
+              value: "https://shop-api.tfdevs.com"
+            - name: SITE_TITLE
+              value: "TFD Blog"
+            - name: EMAIL
+              value: "info@tfdevs.com"
+            - name: REPO
+              value: "tfd-ed/tfd-blog"
+            - name: REPO_ID
+              value: "R_kgDOHCysnQ"
+            - name: REPO_CAT_ID
+              value: "DIC_kwDOHCysnc4COO75"
+            - name: INSTAGRAM_URL
+              value: "https://www.instagram.com/darachaukh"
+            - name: FACEBOOK_URL
+              value: "https://www.facebook.com/teachingfordevelopment"
+            - name: TELEGRAM_URL
+              value: "https://t.me/tfdTech"
+            - name: GITHUB_URL
+              value: "https://github.com/tfd-ed"
+            - name: YOUTUBE_URL
+              value: "https://www.youtube.com/c/TeachingForDevelopment"
+            - name: YOUTUBE_CHANNEL_ID
+              value: "UCJHZ__wUxS9lgTZHMxpMJcQ"
+            - name: GOOGLE_ANALYTICS_ID
+              value: ""
+            - name: FORMSPREE
+              value: ""
+            - name: GOOGLE_ADSENSE_TEST_MODE
+              value: "false"
+            - name: GOOGLE_CALLBACK_URL
+              value: "https://shop-api.tfdevs.com/v1/auth/google/callback"
+            - name: FACEBOOK_CALLBACK_URL
+              value: "https://shop-api.tfdevs.com/v1/auth/facebook/callback"
+            - name: GITHUB_CALLBACK_URL
+              value: "https://shop-api.tfdevs.com/v1/auth/github/callback"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /api/ready
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /api/ping
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 12
+      restartPolicy: Always
