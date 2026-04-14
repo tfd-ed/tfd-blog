@@ -79,6 +79,16 @@ COPY --from=builder /app/.nuxt ./.nuxt
 COPY --from=builder /app/static ./static
 COPY --from=builder /app/nuxt.config.js ./nuxt.config.js
 COPY --from=builder /app/content ./content
+COPY --from=builder /app/utils ./utils
+COPY --from=builder /app/api ./api
+COPY --from=builder /app/middleware ./middleware
+COPY --from=builder /app/plugins ./plugins
+COPY --from=builder /app/layouts ./layouts
+COPY --from=builder /app/pages ./pages
+COPY --from=builder /app/locales ./locales
+COPY --from=builder /app/store ./store
+COPY --from=builder /app/assets ./assets
+COPY --from=builder /app/components ./components
 
 # Create a non-root user
 RUN addgroup --system --gid 1001 nodejs && \
