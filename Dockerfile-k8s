@@ -4,6 +4,19 @@
 FROM node:16-alpine AS deps
 WORKDIR /app
 
+# Install build dependencies for native modules
+RUN apk add --no-cache \
+    autoconf \
+    automake \
+    libtool \
+    make \
+    g++ \
+    python3 \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    giflib-dev \
+    libwebp-dev
+
 # Copy package files
 COPY package.json yarn.lock ./
 
@@ -38,9 +51,26 @@ ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
+# Install build dependencies temporarily and runtime libraries permanently
+RUN apk add --no-cache --virtual .build-deps \
+    autoconf \
+    automake \
+    libtool \
+    make \
+    g++ \
+    python3 \
+    && apk add --no-cache \
+    libpng \
+    libjpeg-turbo \
+    giflib \
+    libwebp
+
 # Install only production dependencies
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --production=true && yarn cache clean
+
+# Remove build dependencies to reduce image size
+RUN apk del .build-deps
 
 # Copy built application from builder
 COPY --from=builder /app/.nuxt ./.nuxt
