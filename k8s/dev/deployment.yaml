@@ -7,7 +7,7 @@ metadata:
     app: tfd-blog
     environment: dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: tfd-blog
@@ -37,9 +37,9 @@ spec:
             - name: PORT
               value: "3000"
             - name: WEB_URL
-              value: "https://dev-shop.tfdevs.com"
+              value: "https://dev.tfdevs.com"
             - name: BASE_URL
-              value: "https://shop-api-dev.tfdevs.com"
+              value: "https://api-dev.tfdevs.com"
             - name: SITE_TITLE
               value: "TFD Blog (Dev)"
             - name: EMAIL
@@ -69,11 +69,11 @@ spec:
             - name: GOOGLE_ADSENSE_TEST_MODE
               value: "true"
             - name: GOOGLE_CALLBACK_URL
-              value: "https://shop-api-dev.tfdevs.com/v1/auth/google/callback"
+              value: "https://api-dev.tfdevs.com/v1/auth/google/callback"
             - name: FACEBOOK_CALLBACK_URL
-              value: "https://shop-api-dev.tfdevs.com/v1/auth/facebook/callback"
+              value: "https://api-dev.tfdevs.com/v1/auth/facebook/callback"
             - name: GITHUB_CALLBACK_URL
-              value: "https://shop-api-dev.tfdevs.com/v1/auth/github/callback"
+              value: "https://api-dev.tfdevs.com/v1/auth/github/callback"
           resources:
             requests:
               memory: "256Mi"

@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: dev-shop.tfdevs.com
+    - host: dev.tfdevs.com
       http:
         paths:
           - path: /

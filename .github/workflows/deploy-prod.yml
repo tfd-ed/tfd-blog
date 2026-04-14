@@ -24,7 +24,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -f Dockerfile-k8s . \
-            --build-arg API_BASE_URL=https://shop-api.tfdevs.com \
+            --build-arg API_BASE_URL=https://api.tfdevs.com \
             --build-arg APP_NAME="TFD Blog" \
             -t $IMAGE_LOCAL:$ENVIRONMENT-${{ github.sha }} \
             -t $IMAGE_LOCAL:$ENVIRONMENT-latest \
@@ -98,6 +98,6 @@ jobs:
           echo "🚀 Production Deployment Complete!"
           echo "========================================="
           echo "Image: $IMAGE_REGISTRY:prod-${{ github.sha }}"
-          echo "URL: https://shop.tfdevs.com"
-          echo "Replicas: $(kubectl get deployment phone-shop-frontend-prod -n prod -o jsonpath='{.status.readyReplicas}')/$(kubectl get deployment phone-shop-frontend-prod -n prod -o jsonpath='{.spec.replicas}')"
+          echo "URL: https://tfdevs.com"
+          echo "Replicas: $(kubectl get deployment tfd-blog-prod -n prod -o jsonpath='{.status.readyReplicas}')/$(kubectl get deployment tfd-blog-prod -n prod -o jsonpath='{.spec.replicas}')"
           echo "========================================="

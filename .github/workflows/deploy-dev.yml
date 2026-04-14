@@ -23,7 +23,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -f Dockerfile-k8s . \
-            --build-arg API_BASE_URL=https://shop-api-dev.tfdevs.com \
+            --build-arg API_BASE_URL=https://api-dev.tfdevs.com \
             --build-arg APP_NAME="TFD Blog (Dev)" \
             -t $IMAGE_LOCAL:$ENVIRONMENT-${{ github.sha }} \
             -t $IMAGE_LOCAL:$ENVIRONMENT-latest \
