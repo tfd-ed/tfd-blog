@@ -12,6 +12,7 @@ RUN apk add --no-cache \
     make \
     g++ \
     python3 \
+    nasm \
     libpng-dev \
     libjpeg-turbo-dev \
     giflib-dev \
@@ -59,6 +60,7 @@ RUN apk add --no-cache --virtual .build-deps \
     make \
     g++ \
     python3 \
+    nasm \
     && apk add --no-cache \
     libpng \
     libjpeg-turbo \
