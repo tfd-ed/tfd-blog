@@ -1,0 +1,91 @@
+name: Teardown K8s Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to teardown"
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - both
+      confirm:
+        description: 'Type "teardown" to confirm'
+        required: true
+        type: string
+
+jobs:
+  validate:
+    runs-on: [self-hosted]
+    steps:
+      - name: Validate confirmation
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" != "teardown" ]; then
+            echo "Confirmation failed. You must type 'teardown' to proceed."
+            exit 1
+          fi
+          echo "✓ Confirmation validated"
+
+  teardown-dev:
+    runs-on: [self-hosted]
+    needs: validate
+    if: ${{ github.event.inputs.environment == 'dev' || github.event.inputs.environment == 'both' }}
+    env:
+      ENVIRONMENT: dev
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Teardown Dev namespace resources
+        run: |
+          echo "Tearing down Dev environment..."
+          kubectl delete -f k8s/dev/ingress.yaml --ignore-not-found=true
+          kubectl delete -f k8s/dev/deployment.yaml --ignore-not-found=true
+          kubectl delete -f k8s/dev/service.yaml --ignore-not-found=true
+          echo "✓ Dev resources deleted"
+
+      - name: Delete Dev namespace
+        run: |
+          if kubectl get namespace $ENVIRONMENT &> /dev/null; then
+            kubectl delete namespace $ENVIRONMENT
+            echo "✓ Namespace '$ENVIRONMENT' deleted"
+          else
+            echo "Namespace '$ENVIRONMENT' does not exist, skipping"
+          fi
+
+      - name: Confirm teardown
+        run: |
+          echo "Dev environment teardown complete."
+
+  teardown-prod:
+    runs-on: [self-hosted]
+    needs: validate
+    if: ${{ github.event.inputs.environment == 'prod' || github.event.inputs.environment == 'both' }}
+    env:
+      ENVIRONMENT: prod
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Teardown Prod namespace resources
+        run: |
+          echo "Tearing down Prod environment..."
+          kubectl delete -f k8s/prod/ingress.yaml --ignore-not-found=true
+          kubectl delete -f k8s/prod/deployment.yaml --ignore-not-found=true
+          kubectl delete -f k8s/prod/service.yaml --ignore-not-found=true
+          echo "✓ Prod resources deleted"
+
+      - name: Delete Prod namespace
+        run: |
+          if kubectl get namespace $ENVIRONMENT &> /dev/null; then
+            kubectl delete namespace $ENVIRONMENT
+            echo "✓ Namespace '$ENVIRONMENT' deleted"
+          else
+            echo "Namespace '$ENVIRONMENT' does not exist, skipping"
+          fi
+
+      - name: Confirm teardown
+        run: |
+          echo "Prod environment teardown complete."
